@@ -6,7 +6,7 @@
 
     <div class="box-header">
 
-        <h3 class="box-title"><i class="fa fa-list" aria-hidden="true"></i> Liste des services </h3>
+        <h3 class="box-title"><i class="fa fa-list" aria-hidden="true"></i> Liste des services</h3>
             <span class="pull-right">
                 <a href="{{action('ServiceController@create')}}" class="btn btn-success" title="Ajouter un service"><i class="fa fa-plus-circle"></i> &nbsp; Ajouter un service</a>
             </span>
