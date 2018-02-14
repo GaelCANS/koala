@@ -14,17 +14,17 @@
 
 
 <!-- plugins:js -->
-<script src="{{ url('/node_modules/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ url('/node_modules/popper.js/dist/umd/popper.min.js') }}"></script>
-<script src="{{ url('/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<script src="{{ url('/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js') }}"></script>
+<script src="{{ url('/theme_modules/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ url('/theme_modules/popper.js/dist/umd/popper.min.js') }}"></script>
+<script src="{{ url('/theme_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ url('/theme_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js') }}"></script>
 <!-- endinject -->
 <!-- Plugin js for this page-->
-<script src="{{ url('/node_modules/jquery-bar-rating/dist/jquery.barrating.min.js') }}"></script>
-<script src="{{ url('/node_modules/chart.js/dist/Chart.min.js') }}"></script>
-<script src="{{ url('/node_modules/raphael/raphael.min.js') }}"></script>
-<script src="{{ url('/node_modules/morris.js/morris.min.js') }}"></script>
-<script src="{{ url('/node_modules/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+<script src="{{ url('/theme_modules/jquery-bar-rating/dist/jquery.barrating.min.js') }}"></script>
+<script src="{{ url('/theme_modules/chart.js/dist/Chart.min.js') }}"></script>
+<script src="{{ url('/theme_modules/raphael/raphael.min.js') }}"></script>
+<script src="{{ url('/theme_modules/morris.js/morris.min.js') }}"></script>
+<script src="{{ url('/theme_modules/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
 <!-- End plugin js for this page-->
 <!-- inject:js -->
 <script src="{{ url('/js/off-canvas.js') }}"></script>
