@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+// Service
+Route::resource(
+    'services',
+    'ServiceController' ,
+    [
+        'names' => [
+            'index' => 'liste-services'
+        ]
+    ]
+);

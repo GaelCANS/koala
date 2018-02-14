@@ -13,7 +13,7 @@
             <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <div class="content body">
-            @include('backoff.flash')
+            @include('flash.flash')
 
             @yield('content')
         </div>
@@ -21,6 +21,8 @@
 
 </div>
 <!-- ./wrapper -->
+
+@include('backoff.footer')
 
 @include('backoff.foot')
 
