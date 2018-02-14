@@ -27,3 +27,31 @@ Route::resource(
         ]
     ]
 );
+
+
+// Campaign
+Route::resource(
+    'campaigns',
+    'CampaignController' ,
+    [
+        'names' => [
+            'index' => 'liste-campaigns'
+        ]
+    ]
+);
+
+
+// CMM
+Route::get('/cmm', 'CmmController@index')->name('cmm-index');
+
+
+// Dashboard
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard-index');
+
+
+// Planning
+Route::get('/planning', 'PlanningController@index')->name('planning-index');
+
+
+// Statistic
+Route::get('/statistic', 'StatisticController@index')->name('statistic-index');

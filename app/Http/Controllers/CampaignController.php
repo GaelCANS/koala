@@ -15,7 +15,7 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        //
+        return view('campaigns.index');
     }
 
     /**
@@ -47,7 +47,7 @@ class CampaignController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('campaigns.show');
     }
 
     /**
