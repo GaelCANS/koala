@@ -14,15 +14,15 @@
     <link href="{{ asset('/css/backoff-app.css') }}?v={{ time() }}" rel="stylesheet">
 
     <!-- plugins:css -->
-    <link rel="stylesheet" href="node_modules/mdi/css/materialdesignicons.min.css" />
-    <link rel="stylesheet" href="node_modules/simple-line-icons/css/simple-line-icons.css" />
-    <link rel="stylesheet" href="node_modules/flag-icon-css/css/flag-icon.min.css" />
-    <link rel="stylesheet" href="node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
+    <link rel="stylesheet" href="{{ asset('/node_modules/mdi/css/materialdesignicons.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/node_modules/simple-line-icons/css/simple-line-icons.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/node_modules/flag-icon-css/css/flag-icon.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css') }}" />
     <!-- endinject -->
     <!-- plugin css for this page -->
-    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="node_modules/jquery-bar-rating/dist/themes/fontawesome-stars.css" />
-    <link rel="shortcut icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="{{ asset('/node_modules/font-awesome/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/node_modules/jquery-bar-rating/dist/themes/fontawesome-stars.css') }}" />
+    <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 </head>
