@@ -25,4 +25,5 @@
     <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+
 </head>

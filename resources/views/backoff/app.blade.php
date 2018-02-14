@@ -18,9 +18,9 @@
             @yield('content')
             </div>
         </div>
-        @include('backoff.footer')
-    </div>
 
+    </div>
+    @include('backoff.footer')
 </div>
 
 

@@ -14087,7 +14087,7 @@ input:focus {
     min-height: 100%;
     padding: 0;
     position: absolute;
-    width: 255px;
+    width: 225px;
     z-index: 11;
     transition: width 0.25s ease, background 0.25s ease;
     -webkit-transition: width 0.25s ease, background 0.25s ease;
@@ -14105,7 +14105,7 @@ input:focus {
     padding: 1rem 1.875rem;
     white-space: nowrap;
     height: 52px;
-    color: #8d9498; }
+    color: #404852; }
 .sidebar .nav .nav-item .nav-link i {
     color: #404852; }
 .sidebar .nav .nav-item .nav-link i.menu-icon {
@@ -14137,7 +14137,8 @@ input:focus {
 .sidebar .nav .nav-item .nav-link:hover {
     color: #80878c; }
 .sidebar .nav .nav-item.nav-profile {
-    background: transparent; }
+    background: transparent;
+    margin-top: 20px;}
 .sidebar .nav .nav-item.nav-profile .nav-link {
     font-family: "roboto-medium", sans-serif;
     display: block;
@@ -14347,7 +14348,7 @@ input:focus {
 /* Navbar */
 .navbar {
     font-family: "roboto-medium", sans-serif;
-    background: linear-gradient(88deg, #13b4ca, #18cabe);
+    background: linear-gradient(88deg, #00a5a7, #18cabe);
     transition: background 0.25s ease;
     -webkit-transition: background 0.25s ease;
     -moz-transition: background 0.25s ease;
@@ -14358,7 +14359,7 @@ input:focus {
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
     background: #ffffff;
-    width: 255px;
+    width: 225px;
     height: 58px; }
 .sidebar-dark .navbar .navbar-brand-wrapper {
     background: #3a3f51; }
@@ -14371,7 +14372,6 @@ input:focus {
 .navbar .navbar-brand-wrapper .navbar-brand:active, .navbar .navbar-brand-wrapper .navbar-brand:focus, .navbar .navbar-brand-wrapper .navbar-brand:hover {
     color: #1b2658; }
 .navbar .navbar-brand-wrapper .navbar-brand img {
-    width: calc(255px - 130px);
     max-width: 100%;
     height: 28px;
     margin: auto;
@@ -14379,9 +14379,8 @@ input:focus {
 .navbar .navbar-brand-wrapper .brand-logo-mini {
     display: none; }
 .navbar .navbar-brand-wrapper .brand-logo-mini img {
-    width: calc(70px - 50px);
     max-width: 100%;
-    height: 28px;
+    height: 18px;
     margin: auto; }
 .navbar .navbar-menu-wrapper {
     transition: width 0.25s ease;
@@ -14391,7 +14390,7 @@ input:focus {
     color: #ffffff;
     padding-left: 15px;
     padding-right: 15px;
-    width: calc(100% - 255px);
+    width: calc(100% - 225px);
     height: 58px; }
 @media (max-width: 991px) {
     .navbar .navbar-menu-wrapper {
@@ -14848,11 +14847,11 @@ html {
 
 .content-wrapper {
     background: #F6F8FA;
-    margin-left: 255px;
+    margin-left: 225px;
     min-height: 100vh;
     padding: 1.5rem 1.7rem;
     transition: width 0.25s ease, margin 0.25s ease;
-    width: calc(100% - 255px); }
+    width: calc(100% - 225px); }
 @media (max-width: 991px) {
     .content-wrapper {
         margin-left: 0;
@@ -14872,13 +14871,13 @@ pre {
 /* Footer */
 .footer {
     background: #F6F8FA;
-    margin-left: 255px;
+    margin-left: 225px;
     padding: 20px 1rem;
     transition: all 0.25s ease;
     -moz-transition: all 0.25s ease;
     -webkit-transition: all 0.25s ease;
     -ms-transition: all 0.25s ease;
-    width: calc(100% - 255px);
+    width: calc(100% - 225px);
     border-top: 1px solid #f3f3f3;
     font-size: calc(0.875rem - 0.05rem);
     font-family: "roboto-light", sans-serif; }
@@ -15207,7 +15206,7 @@ pre {
         margin: auto;
         width: 96%; }
     .boxed-layout.horizontal-menu.horizontal-menu-top .sidebar {
-        width: calc(96% - 255px); } }
+        width: calc(96% - 225px); } }
 
 .rtl {
     direction: rtl;
@@ -15215,7 +15214,7 @@ pre {
     /* style for off-canvas menu*/ }
 .rtl .content-wrapper {
     margin-left: 0;
-    margin-right: 255px; }
+    margin-right: 225px; }
 @media (max-width: 991px) {
     .rtl .content-wrapper {
         margin-right: 0; } }
@@ -15240,7 +15239,7 @@ pre {
     text-align: right; }
 .rtl .footer {
     margin-left: 0;
-    margin-right: 255px; }
+    margin-right: 225px; }
 @media (max-width: 991px) {
     .rtl .footer {
         margin-right: 0; } }

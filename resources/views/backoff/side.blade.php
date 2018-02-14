@@ -46,6 +46,12 @@
                         <span class="menu-title">Statistiques</span>
                     </a>
                 </li>
+                <li class="nav-item d-none d-lg-block">
+                    <a class="nav-link" data-toggle="collapse" href="#sidebar-layouts">
+                        <i class="icon-settings menu-icon"></i>
+                        <span class="menu-title">Paramètres</span>
+                    </a>
+                </li>
             </ul>
         </nav>
 
