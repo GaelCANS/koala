@@ -23,29 +23,23 @@
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                         <a class="dropdown-item preview-item">
                             <div class="preview-thumbnail">
-                                <div class="preview-icon bg-success">
-                                    <i class="icon-info mx-0"></i>
+                                <div class="preview-icon">
+                                    <i class="icon-settings mx-0"></i>
                                 </div>
                             </div>
                             <div class="preview-item-content">
-                                <h6 class="preview-subject font-weight-medium">Votre compte</h6>
-                                <p class="font-weight-light small-text">
-                                    Just now
-                                </p>
+                                <span class="preview-subject font-weight-medium">Votre compte</span>
                             </div>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item preview-item">
                             <div class="preview-thumbnail">
-                                <div class="preview-icon bg-warning">
-                                    <i class="icon-speech mx-0"></i>
+                                <div class="preview-icon">
+                                    <i class="icon-logout mx-0"></i>
                                 </div>
                             </div>
                             <div class="preview-item-content">
-                                <h6 class="preview-subject font-weight-medium">Se déconnecter</h6>
-                                <p class="font-weight-light small-text">
-                                    Private message
-                                </p>
+                                <span class="preview-subject font-weight-medium">Se déconnecter</span>
                             </div>
                         </a>
                     </div>
