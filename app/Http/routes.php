@@ -23,7 +23,7 @@ Route::resource(
     'ServiceController' ,
     [
         'names' => [
-            'index' => 'liste-services'
+            'index' => 'services-index'
         ]
     ]
 );
@@ -35,7 +35,7 @@ Route::resource(
     'CampaignController' ,
     [
         'names' => [
-            'index' => 'liste-campaigns'
+            'index' => 'campaigns-index'
         ]
     ]
 );
