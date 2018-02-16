@@ -14796,9 +14796,8 @@ address p {
     margin: 0.38rem 0 0.75rem 0; }
 
 .card-title {
-    color: #000000;
-    margin-bottom: 1.125rem;
-    text-transform: capitalize; }
+    color: #404851;
+    margin-bottom: 1.125rem;  }
 .rtl .card-title {
     text-align: right; }
 
@@ -16884,10 +16883,22 @@ pre {
 .tt-query,
 .tt-hint {
     border: 1px solid #f3f3f3;
-    font-family: "roboto-regular", sans-serif;
     font-size: 0.75rem;
     padding: 0.56rem 0.75rem;
     line-height: 14px; }
+
+.navbar-nav .form-control {
+    background :rgba(255, 255, 255, 0.1);
+    border: 1px solid transparent;
+    color:white;
+    width: 216px;
+}
+
+
+.navbar-nav input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
 .form-control.form-control-lg, .input-group-lg > .form-control, .input-group-lg > .asColorPicker-input, .dataTables_wrapper .input-group-lg > select, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-lg > input[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-lg > select, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-lg > input[type=number], .select2-container--default .input-group-lg > .select2-selection--single, .select2-container--default .select2-selection--single .input-group-lg > .select2-search__field, .input-group-lg > .typeahead, .input-group-lg >
 .tt-query, .input-group-lg >
