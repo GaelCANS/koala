@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ServiceRequest extends Request
+class CampaignRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,11 @@ class ServiceRequest extends Request
     public function rules()
     {
         return array(
-            "name"      => "required|string|min:2",
-            "disabled"  => "required|boolean"
+            "name"          => "required|string|min:2",
+            "description"   => "string",
+            "begin"         => "date_format:Y-m-d",
+            "end"           => "date_format:Y-m-d",
+            "cmm"           => "required|boolean"
         );
     }
 }
