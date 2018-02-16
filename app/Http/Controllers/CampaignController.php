@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Campaign;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\URL;
 
 class CampaignController extends Controller
 {
@@ -15,7 +17,8 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        return view('campaigns.index');
+        $campaigns = Campaign::where('delete','0')->orderBy('id' , 'DESC')->get();
+        return view('campaigns.index' , compact('campaigns'));
     }
 
     /**
@@ -25,7 +28,8 @@ class CampaignController extends Controller
      */
     public function create()
     {
-        //
+        $campaign = null;
+        return view('campaigns.show' , compact('campaign'));
     }
 
     /**
@@ -34,9 +38,10 @@ class CampaignController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\CampaignRequest $request)
     {
-        //
+        $campaign = Campaign::create($request->all());
+        return redirect(action('CampaignController@index'))->with('success' , "La campagne {$campaign->name} a bien été créée.");
     }
 
     /**
@@ -47,7 +52,8 @@ class CampaignController extends Controller
      */
     public function show($id)
     {
-        return view('campaigns.show');
+        $campaign = Campaign::findOrFail($id);
+        return view('campaigns.show' , compact('campaign'));
     }
 
     /**
@@ -68,9 +74,11 @@ class CampaignController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\CampaignRequest $request, $id)
     {
-        //
+        $campaign = Campaign::findOrFail($id);
+        $campaign->update( $request->all() );
+        return redirect()->back()->with('success' , "La campagne vient d'être mise à jour");
     }
 
     /**
@@ -81,6 +89,8 @@ class CampaignController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $campaign = Campaign::findOrFail($id);
+        $campaign->update( array('delete' => '1') );
+        return redirect(URL::previous())->with('success' , 'La campagne a bien été supprimée');
     }
 }
