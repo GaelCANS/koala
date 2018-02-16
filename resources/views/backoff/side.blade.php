@@ -16,38 +16,40 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">
+
+
+                <li class="nav-item @if( Route::currentRouteName() == 'dashboard-index' ) active @endif">
+                    <a class="nav-link" href="{{route('dashboard-index')}}">
                         <i class="icon-grid menu-icon"></i>
                         <span class="menu-title">Tableau de bord</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="pages/widgets.html">
+                <li class="nav-item @if( Route::currentRouteName() == 'campaigns-index' ) active @endif">
+                    <a class="nav-link" href="campaigns">
                         <i class="icon-flag menu-icon"></i>
                         <span class="menu-title">Campagnes</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#page-layouts">
+                <li class="nav-item @if( Route::currentRouteName() == 'cmm-index' ) active @endif">
+                    <a class="nav-link" href="{{route('cmm-index')}}">
                         <i class="icon-bubbles menu-icon"></i>
                         <span class="menu-title">CMM</span>
                     </a>
                 </li>
-                <li class="nav-item d-none d-lg-block">
-                    <a class="nav-link" data-toggle="collapse" href="#sidebar-layouts">
+                <li class="nav-item d-none d-lg-block nav-item @if( Route::currentRouteName() == 'planning-index' ) active @endif">
+                    <a class="nav-link" href="{{route('planning-index')}}">
                         <i class="icon-calendar menu-icon"></i>
                         <span class="menu-title">Planning</span>
                     </a>
                 </li>
-                <li class="nav-item d-none d-lg-block">
-                    <a class="nav-link" data-toggle="collapse" href="#sidebar-layouts">
+                <li class="nav-item d-none d-lg-block nav-item @if( Route::currentRouteName() == 'statistic-index' ) active @endif">
+                    <a class="nav-link" href="{{route('statistic-index')}}">
                         <i class="icon-chart menu-icon"></i>
                         <span class="menu-title">Statistiques</span>
                     </a>
                 </li>
-                <li class="nav-item d-none d-lg-block">
-                    <a class="nav-link" data-toggle="collapse" href="#sidebar-layouts">
+                <li class="nav-item d-none d-lg-block nav-item @if( Route::currentRouteName() == 'services-index' ) active @endif">
+                    <a class="nav-link" href="services">
                         <i class="icon-settings menu-icon"></i>
                         <span class="menu-title">Paramètres</span>
                     </a>
