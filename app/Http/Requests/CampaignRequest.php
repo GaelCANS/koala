@@ -28,7 +28,12 @@ class CampaignRequest extends Request
             "description"   => "string",
             "begin"         => "date_format:Y-m-d",
             "end"           => "date_format:Y-m-d",
-            "cmm"           => "required|boolean"
+            "cmm"           => "required|boolean",
+            "status"        => "required|boolean",
+            "user_id"       => "required|exists:users,id",
+            "cmm_comments"  => "string",
+            "results"       => "string",
+            "resource_link" => "string"
         );
     }
 }
