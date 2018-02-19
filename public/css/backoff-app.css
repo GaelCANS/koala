@@ -7481,9 +7481,8 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
-    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-
+    --font-family-sans-serif: "Montserrat", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
 @media print {
     *,
     *::before,
@@ -7548,7 +7547,7 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -8816,7 +8815,7 @@ select.tt-hint:focus::-ms-value {
 .col-form-label-sm {
     padding-top: calc(0.5rem + 1px);
     padding-bottom: calc(0.5rem + 1px);
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.5; }
 
 .col-form-legend {
@@ -8866,7 +8865,7 @@ select.tt-hint:focus::-ms-value {
 .input-group-sm > .input-group-btn > .swal2-styled, .wizard > .actions
 .input-group-sm > .input-group-btn > a {
     padding: 0.5rem 0.81rem;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.5;
     border-radius: 0.2rem; }
 
@@ -9589,7 +9588,7 @@ fieldset[disabled] a {
 
 .btn-sm, .btn-group-sm > .btn, .ajax-upload-dragdrop .btn-group-sm > .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .btn-group-sm > .swal2-styled, .wizard > .actions .btn-group-sm > a {
     padding: 0.5rem 0.81rem;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.5;
     border-radius: 0.1875rem; }
 
@@ -9721,7 +9720,7 @@ tbody.collapse.show {
     display: block;
     padding: 0.5rem 1.5rem;
     margin-bottom: 0;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: #12131a;
     white-space: nowrap; }
 
@@ -10070,7 +10069,7 @@ tbody.collapse.show {
 .input-group-sm > .input-group-btn > .input-group-addon.swal2-styled, .wizard > .actions
 .input-group-sm > .input-group-btn > a.input-group-addon, .form-control-sm.asColorPicker-trigger {
     padding: 0.5rem 0.81rem;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     border-radius: 0.2rem; }
 .input-group-addon.form-control-lg, .dataTables_wrapper .input-group-lg > select.asColorPicker-trigger, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-lg > input.asColorPicker-trigger[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-lg > select.asColorPicker-trigger, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-lg > input.asColorPicker-trigger[type=number], .select2-container--default .input-group-lg > .asColorPicker-trigger.select2-selection--single, .select2-container--default .select2-selection--single .input-group-lg > .asColorPicker-trigger.select2-search__field, .dataTables_wrapper .input-group-lg > select.input-group-addon, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-lg > input.input-group-addon[type=text],
@@ -10960,7 +10959,7 @@ tbody.collapse.show {
 .jsgrid .jsgrid-pager .jsgrid-pager-page a,
 .jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-sm a {
     padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.5; }
 
 .pagination-sm .page-item:first-child .page-link, .pagination-sm .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:first-child .page-link, .jsgrid .jsgrid-pager .pagination-sm .jsgrid-pager-nav-button:first-child .page-link, .pagination-sm
@@ -11064,6 +11063,28 @@ tbody.collapse.show {
     color: #fff;
     text-decoration: none;
     background-color: #252833; }
+
+
+.part {
+   background-color: #008687;
+}
+.pro {
+    background-color: #7124B6;
+}
+.agri {
+    background-color: #008704;
+}
+.soc {
+    background-color: #F5A623;
+}
+.bp {
+    background-color: #ac1a2f;
+}
+
+.inprogress {
+    font-weight:bold;
+}
+
 
 .jumbotron {
     padding: 2rem 1rem;
@@ -11531,7 +11552,7 @@ button.close {
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -11545,7 +11566,7 @@ button.close {
     word-spacing: normal;
     white-space: normal;
     line-break: auto;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     word-wrap: break-word;
     opacity: 0; }
 .tooltip.show {
@@ -11612,7 +11633,7 @@ button.close {
     z-index: 1060;
     display: block;
     max-width: 276px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -11626,7 +11647,7 @@ button.close {
     word-spacing: normal;
     white-space: normal;
     line-break: auto;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     word-wrap: break-word;
     background-color: #3a3f51;
     background-clip: padding-box;
@@ -14004,22 +14025,7 @@ input:focus {
     outline: none; }
 
 /* Fonts */
-@font-face {
-    font-family: 'roboto-light';
-    src: url("../fonts/Roboto/Roboto-Light.ttf") format("truetype"); }
-
-@font-face {
-    font-family: 'roboto-regular';
-    src: url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype"); }
-
-@font-face {
-    font-family: 'roboto-medium';
-    src: url("../fonts/Roboto/Roboto-Medium.ttf") format("truetype"); }
-
-@font-face {
-    font-family: 'roboto-bold';
-    src: url("../fonts/Roboto/Roboto-Bold.ttf") format("truetype"); }
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 .text-twitter {
     color: #1da1f2; }
 
@@ -14083,7 +14089,7 @@ input:focus {
 /* Sidebar */
 .sidebar {
     background: #ffffff;
-    font-family: "roboto-regular", sans-serif;
+    font-family: "Montserrat", sans-serif;
     min-height: 100%;
     padding: 0;
     position: absolute;
@@ -14129,7 +14135,7 @@ input:focus {
 .sidebar .nav .nav-item .nav-link .menu-title {
     color: inherit;
     display: inline-block;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1;
     vertical-align: middle; }
 .sidebar .nav .nav-item .nav-link .badge {
@@ -14140,7 +14146,7 @@ input:focus {
     background: transparent;
     margin-top: 20px;}
 .sidebar .nav .nav-item.nav-profile .nav-link {
-    font-family: "roboto-medium", sans-serif;
+    font-family: "Montserrat", sans-serif;
     display: block;
     height: auto;
     padding: 0rem 1.625rem 2.25rem 1.188rem; }
@@ -14175,7 +14181,7 @@ input:focus {
     margin-right: .75rem; }
 .sidebar .nav .nav-item.nav-profile .profile-name .name,
 .sidebar .nav .nav-item.nav-profile .profile-name .designation {
-    font-family: "roboto-regular", sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin-bottom: 0;
     line-height: 1.5; }
 .sidebar .nav .nav-item.nav-profile .profile-name .name {
@@ -14211,8 +14217,8 @@ input:focus {
 .sidebar .nav .nav-item.nav-progress .nav-progress-heading .nav-progress-sub-heading {
     color: #000;
     float: right;
-    font-size: 0.875rem;
-    font-family: "roboto-light", sans-serif; }
+    font-size: 0.75rem;
+    font-family: "Montserrat", sans-serif; }
 .sidebar .nav .nav-item.active > .nav-link {
     background: initial;
     color: #00a3a6;
@@ -14229,7 +14235,7 @@ input:focus {
 .sidebar .nav.sub-menu .nav-item .nav-link {
     color: #999999;
     padding: 0.75rem 1rem;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1;
     height: auto;
     position: relative; }
@@ -14348,7 +14354,7 @@ input:focus {
 
 /* Navbar */
 .navbar {
-    font-family: "roboto-medium", sans-serif;
+    font-family: "Montserrat", sans-serif;
     background: linear-gradient(88deg, #00a5a7, #18cabe);
     transition: background 0.25s ease;
     -webkit-transition: background 0.25s ease;
@@ -14403,7 +14409,7 @@ input:focus {
     .navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) {
         display: none; } }
 .navbar .navbar-menu-wrapper .navbar-text {
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 .navbar .navbar-menu-wrapper .navbar-nav {
     flex-direction: row;
     align-items: center; }
@@ -14667,7 +14673,7 @@ input:focus {
 /* Typography */
 body {
     font-size: 1rem;
-    font-family: "roboto-regular", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: initial; }
 
 h1,
@@ -14682,10 +14688,10 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: "roboto-bold", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 
 p {
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 
 h1,
 .h1 {
@@ -14802,31 +14808,31 @@ address p {
     text-align: right; }
 
 .card-subtitle {
-    font-family: "roboto-regular", sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin-top: 0.625rem;
     margin-bottom: 0.625rem; }
 
 .card-description {
     margin-bottom: .9375rem;
-    font-family: "roboto-regular", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 .rtl .card-description {
     text-align: right; }
 
 .font-weight-normal, .landing-page .feature-list .feature-list-row .feature-list-item h4 {
-    font-family: "roboto-regular", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: initial; }
 
 .font-weight-light, .landing-page .feature-list .feature-list-row .feature-list-item p {
-    font-family: "roboto-light", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 
 .font-weight-medium {
-    font-family: "roboto-medium", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 
 .bold-text {
-    font-family: "roboto-bold", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 
 .text-small {
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 
 .icon-lg {
     font-size: 2.5rem; }
@@ -14879,8 +14885,8 @@ pre {
     -ms-transition: all 0.25s ease;
     width: calc(100% - 225px);
     border-top: 1px solid #f3f3f3;
-    font-size: calc(0.875rem - 0.05rem);
-    font-family: "roboto-light", sans-serif; }
+    font-size: calc(0.75rem - 0.05rem);
+    font-family: "Montserrat", sans-serif; }
 .footer a {
     color: #00c292;
     font-size: inherit; }
@@ -15127,7 +15133,7 @@ pre {
         font-size: 0.9375rem;
         line-height: 1; }
     .horizontal-menu .sidebar .nav .nav-item .nav-link .menu-title {
-        font-size: 0.875rem;
+        font-size: 0.75rem;
         line-height: 1; }
     .horizontal-menu .sidebar .nav .nav-item.mega-menu {
         position: static; }
@@ -15462,7 +15468,7 @@ pre {
     align-items: center;
     margin-right: 15px;
     margin-top: 20px;
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 .donut-legend > span > span {
     display: block;
     width: 10px;
@@ -15740,18 +15746,19 @@ pre {
 /* Badges */
 .badge {
     border-radius: .25rem;
-    font-size: .75rem;
+    font-size: .65rem;
     font-weight: initial;
     line-height: 1;
     padding: .25rem 0.375rem;
-    font-family: "roboto-medium", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 .badge.badge-pill {
     border-radius: 10rem; }
 .badge.badge-fw {
     min-width: 70px; }
 
 .marches {
-    padding: 0.9375rem 0.3rem!important;
+    padding:0.9375rem 0.6rem 0.9375rem 0.3rem!important;
+    text-align:center;
 }
 
 .marches .badge {
@@ -15759,9 +15766,13 @@ pre {
     line-height: 1.5;
     border: 0px;
     padding: .35rem;
+    color: white;
 }
 
 /*Badge variations*/
+
+
+
 .badge-primary {
     border: 1px solid #01a3a6;
     color: #ffffff; }
@@ -15829,7 +15840,7 @@ pre {
 
 /* Bootstrap Alerts */
 .alert {
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 .alert i {
     font-size: 1.25rem;
     margin-right: 1.25rem;
@@ -15997,9 +16008,9 @@ pre {
 
 /* Buttons */
 .btn, .ajax-upload-dragdrop .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel, .wizard > .actions a {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1;
-    font-family: "roboto-regular", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 .btn i, .ajax-upload-dragdrop .ajax-file-upload i, .swal2-modal .swal2-buttonswrapper .swal2-styled i, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm i, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel i, .wizard > .actions a i {
     margin-right: .3125rem; }
 .btn .btn-label:before, .ajax-upload-dragdrop .ajax-file-upload .btn-label:before, .swal2-modal .swal2-buttonswrapper .swal2-styled .btn-label:before, .wizard > .actions a .btn-label:before {
@@ -16022,9 +16033,9 @@ pre {
     margin-right: 0;
     font-size: 1rem; }
 .btn.btn-sm, .btn-group-sm > .btn, .ajax-upload-dragdrop .btn-group-sm > .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .btn-group-sm > .swal2-styled, .wizard > .actions .btn-group-sm > a, .ajax-upload-dragdrop .btn-sm.ajax-file-upload, .swal2-modal .swal2-buttonswrapper .btn-sm.swal2-styled, .wizard > .actions a.btn-sm {
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 .btn.btn-lg, .btn-group-lg > .btn, .ajax-upload-dragdrop .btn-group-lg > .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .btn-group-lg > .swal2-styled, .wizard > .actions .btn-group-lg > a, .ajax-upload-dragdrop .btn-lg.ajax-file-upload, .swal2-modal .swal2-buttonswrapper .btn-lg.swal2-styled, .wizard > .actions a.btn-lg {
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 .btn.btn-xs, .ajax-upload-dragdrop .btn-xs.ajax-file-upload, .ajax-upload-dragdrop .editable-container.editable-inline .editableform .control-group .editable-buttons .ajax-file-upload.editable-submit, .editable-container.editable-inline .editableform .control-group .editable-buttons .ajax-upload-dragdrop .ajax-file-upload.editable-submit, .ajax-upload-dragdrop .editable-container.editable-inline .editableform .control-group .editable-buttons .ajax-file-upload.editable-cancel, .editable-container.editable-inline .editableform .control-group .editable-buttons .ajax-upload-dragdrop .ajax-file-upload.editable-cancel, .swal2-modal .swal2-buttonswrapper .btn-xs.swal2-styled, .swal2-modal .swal2-buttonswrapper .editable-container.editable-inline .editableform .control-group .editable-buttons .swal2-styled.editable-submit, .editable-container.editable-inline .editableform .control-group .editable-buttons .swal2-modal .swal2-buttonswrapper .swal2-styled.editable-submit, .swal2-modal .swal2-buttonswrapper .editable-container.editable-inline .editableform .control-group .editable-buttons .swal2-styled.editable-cancel, .editable-container.editable-inline .editableform .control-group .editable-buttons .swal2-modal .swal2-buttonswrapper .swal2-styled.editable-cancel, .editable-container.editable-inline .editableform .control-group .editable-buttons .btn.editable-submit, .editable-container.editable-inline .editableform .control-group .editable-buttons .wizard > .actions a.editable-submit, .wizard > .actions .editable-container.editable-inline .editableform .control-group .editable-buttons a.editable-submit, .editable-container.editable-inline .editableform .control-group .editable-buttons .btn.editable-cancel, .editable-container.editable-inline .editableform .control-group .editable-buttons .wizard > .actions a.editable-cancel, .wizard > .actions .editable-container.editable-inline .editableform .control-group .editable-buttons a.editable-cancel, .wizard > .actions a.btn-xs {
     padding: 0.5rem 0.75rem;
     font-size: 0.625rem; }
@@ -16373,12 +16384,12 @@ pre {
 .breadcrumb {
     border: 1px solid #f3f3f3; }
 .breadcrumb .breadcrumb-item {
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 .breadcrumb.breadcrumb-custom {
     padding: 0 0;
     border-color: #dbe3e6; }
 .breadcrumb.breadcrumb-custom .breadcrumb-item {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     background: #dbe3e6;
     padding: 0.56rem 10px;
     color: #000;
@@ -16710,7 +16721,7 @@ pre {
     right: 0; }
 
 .form-check label {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.5; }
 .form-check label input:checked + .input-helper:before {
     background-color: #ffffff; }
@@ -16877,7 +16888,7 @@ pre {
 
 /* Dropdowns */
 .dropdown-menu {
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 .dropdown-menu .dropdown-item:active {
     background: initial; }
 
@@ -17122,7 +17133,7 @@ select.tt-hint {
     padding: .4375rem .75rem; }
 
 .form-group label {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1;
     vertical-align: top; }
 
@@ -17173,8 +17184,8 @@ select.tt-hint {
     -webkit-align-items: center;
     align-items: center;
     padding: 15px 15px;
-    font-family: "roboto-regular", sans-serif;
-    font-size: 0.875rem; }
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.75rem; }
 .icons-list > div i {
     display: inline-block;
     font-size: 20px;
@@ -17187,7 +17198,7 @@ ul,
 ol,
 dl {
     padding-left: 1rem;
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 ul li,
 ol li,
 dl li {
@@ -17851,8 +17862,8 @@ dl li {
 /* Pagination */
 .pagination .page-item .page-link, .jsgrid .jsgrid-pager .page-item .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-page a {
     border-color: #f3f3f3;
-    color: #000000;
-    font-size: .875rem;
+    color: i;
+    font-size: .675rem;
     -webkit-transition-duration: 0.3s;
     -moz-transition-duration: 0.3s;
     -o-transition-duration: 0.3s;
@@ -17870,7 +17881,7 @@ dl li {
 .jsgrid .jsgrid-pager .jsgrid-pager-page a, .jsgrid .jsgrid-pager .page-item:focus .jsgrid-pager-page a, .jsgrid .jsgrid-pager .jsgrid-pager-page .page-item:focus a, .jsgrid .jsgrid-pager .jsgrid-pager-page:focus a, .pagination .page-item:active .page-link, .jsgrid .jsgrid-pager .page-item:active .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:active .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-page:active .page-link, .pagination .page-item:active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .page-item:active .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-item:active a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:active a, .pagination .page-item:active
 .jsgrid .jsgrid-pager .jsgrid-pager-page a, .jsgrid .jsgrid-pager .page-item:active .jsgrid-pager-page a, .jsgrid .jsgrid-pager .jsgrid-pager-page .page-item:active a, .jsgrid .jsgrid-pager .jsgrid-pager-page:active a {
     background: #01a3a6;
-    border-color: #01a3a6;
+    border-color: #f3f3f3;
     color: #ffffff; }
 
 .pagination.flat .page-item .page-link, .jsgrid .flat.jsgrid-pager .page-item .page-link, .pagination.flat .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination.flat .jsgrid-pager-nav-button .page-link, .jsgrid .flat.jsgrid-pager .jsgrid-pager-nav-button .page-link, .pagination.flat
@@ -18018,16 +18029,16 @@ dl li {
 .jsgrid .jsgrid-pager .pagination-info .active.jsgrid-pager-page .page-link, .pagination-info .page-item.active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-info .page-item.active a, .pagination-info .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .pagination-info .active.jsgrid-pager-nav-button a, .pagination-info .page-item.active
 .jsgrid .jsgrid-pager .jsgrid-pager-page a,
 .jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-info .page-item.active a, .pagination-info .jsgrid .jsgrid-pager .active.jsgrid-pager-page a, .jsgrid .jsgrid-pager .pagination-info .active.jsgrid-pager-page a {
-    background: #ab8ce4;
-    border-color: #ab8ce4; }
+    background: white;
+    border-color: #f3f3f3;
+    color: #55565b; }
 
 .pagination-info .page-item .page-link:hover, .pagination-info .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link:hover, .jsgrid .jsgrid-pager .pagination-info .jsgrid-pager-nav-button .page-link:hover, .pagination-info
 .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link:hover,
 .jsgrid .jsgrid-pager .pagination-info .jsgrid-pager-page .page-link:hover, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .pagination-info .page-item a:hover, .pagination-info .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a:hover, .jsgrid .jsgrid-pager .pagination-info .jsgrid-pager-nav-button a:hover,
 .jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-info .page-item a:hover, .pagination-info .jsgrid .jsgrid-pager .jsgrid-pager-page a:hover, .jsgrid .jsgrid-pager .pagination-info .jsgrid-pager-page a:hover {
-    background: #baa1e9;
-    border-color: #ab8ce4;
-    color: #ffffff; }
+    color: #55565b;
+  }
 
 .pagination-warning .page-item.active .page-link, .pagination-warning .jsgrid .jsgrid-pager .active.jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination-warning .active.jsgrid-pager-nav-button .page-link, .pagination-warning
 .jsgrid .jsgrid-pager .active.jsgrid-pager-page .page-link,
@@ -18409,8 +18420,8 @@ dl li {
 .pricing-table .pricing-card .pricing-card-body .plan-features li {
     text-align: left;
     padding: 4px 0px;
-    font-family: "roboto-regular", sans-serif;
-    font-size: 0.875rem; }
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.75rem; }
 
 /* Tables */
 .table, .jsgrid .jsgrid-table {
@@ -18418,15 +18429,16 @@ dl li {
 .table thead th, .jsgrid .jsgrid-table thead th {
     border-top: 0;
     border-bottom-width: 1px;
-    font-weight: bold;
+    font-weight: normal;
     color: #8d949b;
-    font-size: 12px;  }
+    font-size: 12px;
+    text-align: center;}
 .table thead th i, .jsgrid .jsgrid-table thead th i {
     margin-left: 0.325rem; }
 .table th, .jsgrid .jsgrid-table th,
 .table td, .jsgrid .jsgrid-table td {
     vertical-align: middle;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1; }
 .table th img, .jsgrid .jsgrid-table th img,
 .table td img, .jsgrid .jsgrid-table td img {
@@ -18445,10 +18457,10 @@ dl li {
 .nav {
     margin-bottom: 1rem; }
 .nav.nav-tabs .nav-item .nav-link, .nav.nav-pills .nav-item .nav-link {
-    font-family: "roboto-medium", sans-serif;
+    font-family: "Montserrat", sans-serif;
     line-height: 1;
     padding: 13px 28px;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: #000;
     display: -webkit-flex;
     display: flex;
@@ -18461,8 +18473,8 @@ dl li {
 
 .tab-content {
     padding: 37px 18px 29px 24px;
-    font-family: "roboto-regular", sans-serif;
-    font-size: 0.875rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.75rem;
     line-height: 1.71;
     border: 1px solid #f3f3f3;
     border-radius: 2px; }
@@ -18485,7 +18497,7 @@ dl li {
 
 .tab-content-solid {
     border: none;
-    padding-top: 0.875rem;
+    padding-top: 0.75rem;
     padding-left: 0;
     padding-right: 0; }
 
@@ -18642,8 +18654,8 @@ dl li {
     padding-bottom: 150px; }
 .settings-panel .settings-heading {
     padding: 16px 0 13px 35px;
-    font-size: 0.875rem;
-    font-family: "roboto-bold", sans-serif;
+    font-size: 0.75rem;
+    font-family: "Montserrat", sans-serif;
     line-height: 1;
     color: rgba(0, 0, 0, 0.9);
     opacity: 0.9;
@@ -18661,7 +18673,7 @@ dl li {
     display: flex;
     -webkit-align-items: center;
     align-items: center;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1;
     color: #595959;
     background: #ffffff;
@@ -18785,7 +18797,7 @@ dl li {
     right: unset;
     left: 10px; }
 .settings-panel .events p {
-    font-family: "roboto-regular", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 .rtl .settings-panel .events p {
     text-align: right; }
 .rtl .settings-panel {
@@ -19076,7 +19088,7 @@ dl li {
     min-width: 5.625rem;
     z-index: 1029; }
 .tooltip .tooltip-inner {
-    font-family: "roboto-regular", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 
 .tooltip-primary .tooltip-inner {
     background: #01a3a6;
@@ -19329,11 +19341,11 @@ dl li {
     background: rgba(240, 244, 249, 0.8); }
 .email-wrapper .mail-sidebar .menu-bar .menu-items li a {
     color: #303a40;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     text-decoration: none; }
 .email-wrapper .mail-sidebar .menu-bar .menu-items li a i {
     margin-right: 8px;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.5; }
 .email-wrapper .mail-sidebar .menu-bar .menu-items li.active {
     background: #e6e9ed;
@@ -19345,10 +19357,10 @@ dl li {
 .email-wrapper .mail-sidebar .menu-bar .online-status {
     margin-top: 1rem; }
 .email-wrapper .mail-sidebar .menu-bar .online-status .chat {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: #01a3a6;
     margin-bottom: 0;
-    font-family: "roboto-medium", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 .email-wrapper .mail-sidebar .menu-bar .online-status .status {
     height: 10px;
     width: 10px;
@@ -19395,12 +19407,12 @@ dl li {
     padding: 5px 10px 0 15px; }
 .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-name {
     margin: 0;
-    font-family: "roboto-regular", sans-serif;
-    font-size: 0.875rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.75rem;
     line-height: 1;
     color: #000000; }
 .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-designation {
-    font-size: calc(0.875rem - 0.1rem);
+    font-size: calc(0.75rem - 0.1rem);
     margin-bottom: 0; }
 
 .email-wrapper .sidebar.open {
@@ -19432,8 +19444,8 @@ dl li {
     padding-right: 0; }
 .email-wrapper .mail-list-container .mail-list .content .sender-name {
     margin-bottom: 0;
-    font-size: 0.875rem;
-    font-family: "roboto-regular", sans-serif;
+    font-size: 0.75rem;
+    font-family: "Montserrat", sans-serif;
     max-width: 95%; }
 .email-wrapper .mail-list-container .mail-list .content .message_text {
     margin: 0;
@@ -19467,13 +19479,13 @@ dl li {
     padding-bottom: 0; }
 .email-wrapper .message-body .sender-details .details .msg-subject {
     margin-bottom: 0;
-    font-family: "roboto-medium", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 .email-wrapper .message-body .sender-details .details .sender-email {
     margin-bottom: 20px;
-    font-family: "roboto-regular", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 .email-wrapper .message-body .sender-details .details .sender-email i {
     font-size: 1rem;
-    font-family: "roboto-bold", sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin: 0 1px 0 7px; }
 
 .email-wrapper .message-body .message-content {
@@ -19517,7 +19529,7 @@ dl li {
     height: 300px;
     width: 100%; }
 .ace_editor .ace_content {
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 
 /* Avgrund Popup */
 .avgrund-popin {
@@ -19531,8 +19543,8 @@ dl li {
     top: 50%;
     left: 50%;
     z-index: 1000;
-    font-size: 0.875rem;
-    font-family: "roboto-regular", sans-serif;
+    font-size: 0.75rem;
+    font-family: "Montserrat", sans-serif;
     font-weight: initial;
     line-height: 1.85;
     border-radius: 10px;
@@ -19542,8 +19554,8 @@ dl li {
     -o-transform: scale(0.8);
     transform: scale(0.8); }
 .avgrund-popin p {
-    font-size: 0.875rem;
-    font-family: "roboto-regular", sans-serif;
+    font-size: 0.75rem;
+    font-family: "Montserrat", sans-serif;
     font-weight: initial; }
 
 .avgrund-overlay {
@@ -19630,13 +19642,13 @@ body.avgrund-active {
 .tour-tour {
     padding: 0;
     border: 0;
-    font-family: "roboto-regular", sans-serif;
+    font-family: "Montserrat", sans-serif;
     background: #ffffff; }
 .tour-tour .popover-title {
     background: #01a3a6;
     color: #ffffff;
     font-size: .8125rem;
-    font-family: "roboto-medium", sans-serif;
+    font-family: "Montserrat", sans-serif;
     padding: .75rem; }
 .tour-tour.left .arrow:after {
     border-left-color: #ffffff; }
@@ -19672,7 +19684,7 @@ body.avgrund-active {
     width: 20px;
     margin-right: 1rem;
     display: inline-block;
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 
 .rtl .chartjs-legend ul {
     padding-right: 0; }
@@ -19792,7 +19804,7 @@ body.avgrund-active {
 
 /* CodeMirror */
 .CodeMirror {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     height: auto;
     text-align: left; }
 
@@ -19886,7 +19898,7 @@ body.avgrund-active {
 .context-menu-list .context-menu-item span {
     color: #000;
     font-size: .75rem;
-    font-family: "roboto-medium", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 .context-menu-list .context-menu-item.context-menu-hover {
     background: #000; }
 .context-menu-list .context-menu-item.context-menu-hover span {
@@ -19949,7 +19961,7 @@ body.avgrund-active {
 .dataTables_wrapper .dataTables_paginate {
     margin-top: 20px; }
 .dataTables_wrapper .dataTables_info {
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 
 /* Datepicker */
 .datepicker.datepicker-dropdown, .datepicker.datepicker-inline {
@@ -19984,7 +19996,7 @@ body.avgrund-active {
     text-align: right;
     background: #ffffff; }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.dow, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.dow {
-    font-family: "roboto-regular", sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: #434a54;
     font-size: .875rem;
     font-weight: initial; }
@@ -20226,7 +20238,7 @@ body.avgrund-active {
     text-transform: uppercase;
     padding: 0.4375rem 0 0.4375rem 0;
     border-color: #f3f3f3;
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 #calendar .fc-view-container .fc-view table tbody.fc-body tr td.fc-widget-content {
     border-color: #f3f3f3; }
 #calendar .fc-view-container .fc-view table tbody.fc-body tr td.fc-widget-content .fc-day-grid-container .fc-day-grid .fc-row {
@@ -20299,7 +20311,7 @@ body.avgrund-active {
 
 .jsgrid .jsgrid-table th {
     font-weight: initial;
-    font-family: "roboto-medium", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 
 .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number] {
     padding: .56rem 0; }
@@ -20419,11 +20431,11 @@ body.avgrund-active {
     background: #01a3a6;
     border-radius: 100%; }
 .noUi-target .noUi-base .noUi-origin .noUi-handle .noUi-tooltip {
-    font-family: "roboto-medium", sans-serif;
+    font-family: "Montserrat", sans-serif;
     border-radius: 4px;
     border: none;
     line-height: 1;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     padding: 13px 12px;
     bottom: 190%; }
 .noUi-target .noUi-pips .noUi-marker-horizontal, .noUi-target .noUi-pips .noUi-marker-vertical {
@@ -20437,7 +20449,7 @@ body.avgrund-active {
 .noUi-target .noUi-pips .noUi-value {
     color: #000;
     font-size: 0.94rem;
-    font-family: "roboto-medium", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 
 /* Slider Color variations */
 .slider-primary .noUi-base .noUi-connect {
@@ -20700,7 +20712,7 @@ body.avgrund-active {
 .br-theme-bars-1to10 .br-widget .br-current-rating,
 .br-theme-bars-horizontal .br-widget .br-current-rating {
     color: #12131a;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: initial; }
 
 .br-theme-bars-1to10 {
@@ -20781,7 +20793,7 @@ body.avgrund-active {
 .swal2-modal .swal2-title {
     font-size: 25px;
     line-height: 1;
-    font-family: "roboto-medium", sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: #12131a;
     font-weight: initial;
     margin-bottom: 0; }
@@ -20804,8 +20816,8 @@ body.avgrund-active {
     color: #ffffff;
     font-weight: initial; }
 .swal2-modal .swal2-content {
-    font-size: 0.875rem;
-    font-family: "roboto-medium", sans-serif;
+    font-size: 0.75rem;
+    font-family: "Montserrat", sans-serif;
     color: #12131a;
     font-weight: initial;
     margin-top: 11px; }
@@ -21097,7 +21109,7 @@ div.tagsinput span.tag a {
     position: absolute;
     left: -999em; }
 .wizard > .steps .number {
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 .wizard > .steps > ul > li {
     width: 25%;
     float: left;
@@ -21114,8 +21126,8 @@ div.tagsinput span.tag a {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    font-size: 0.875rem;
-    font-family: "roboto-medium", sans-serif; }
+    font-size: 0.75rem;
+    font-family: "Montserrat", sans-serif; }
 .wizard > .steps a:hover {
     display: block;
     width: auto;
@@ -21457,7 +21469,7 @@ div.tagsinput span.tag a {
     margin-bottom: 0;
     vertical-align: bottom;
     font-size: .8125rem;
-    font-family: "roboto-light", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 .auth form .form-group .form-control, .auth form .form-group .asColorPicker-input, .auth form .form-group .dataTables_wrapper select, .dataTables_wrapper .auth form .form-group select, .auth form .form-group .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], .jsgrid .jsgrid-table .jsgrid-filter-row .auth form .form-group input[type=text], .auth form .form-group
 .jsgrid .jsgrid-table .jsgrid-filter-row select,
 .jsgrid .jsgrid-table .jsgrid-filter-row .auth form .form-group select, .auth form .form-group .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .jsgrid .jsgrid-table .jsgrid-filter-row .auth form .form-group input[type=number], .auth form .form-group .select2-container--default .select2-selection--single, .select2-container--default .auth form .form-group .select2-selection--single, .auth form .form-group .select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-selection--single .auth form .form-group .select2-search__field, .auth form .form-group .typeahead, .auth form .form-group
@@ -21481,7 +21493,7 @@ div.tagsinput span.tag a {
     font-size: 1.25rem; }
 
 .auth form .auth-link {
-    font-size: 0.875rem; }
+    font-size: 0.75rem; }
 .auth form .auth-link:hover {
     color: initial; }
 
@@ -21520,7 +21532,7 @@ div.tagsinput span.tag a {
     padding-left: 1rem;
     padding-right: 1rem;
     font-size: .9375rem;
-    font-family: "roboto-medium", sans-serif;
+    font-family: "Montserrat", sans-serif;
     text-align: left; }
 @media (min-width: 992px) {
     .landing-page .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
@@ -21615,7 +21627,7 @@ div.tagsinput span.tag a {
     .landing-page .feature-list .feature-list-row .feature-list-item:last-child {
         border-right: 0; } }
 .landing-page .feature-list .feature-list-row .feature-list-item .feature-description {
-    font-family: "roboto-regular", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 
 .landing-page .footer {
     background: url("../images/samples/footer_bg.jpg");
@@ -21648,7 +21660,7 @@ div.tagsinput span.tag a {
     padding-top: 0;
     padding-bottom: 0;
     font-size: .9375rem;
-    font-family: "roboto-regular", sans-serif;
+    font-family: "Montserrat", sans-serif;
     line-height: 1; }
 .landing-page .footer .footer-top .nav .nav-item:last-child .nav-link {
     border-right: 0; }
@@ -21666,6 +21678,6 @@ div.tagsinput span.tag a {
     padding-bottom: .75rem; }
 .landing-page .footer .footer-bottom {
     color: #ffffff;
-    font-family: "roboto-medium", sans-serif; }
+    font-family: "Montserrat", sans-serif; }
 
 /*# sourceMappingURL=maps/style.css.map */
