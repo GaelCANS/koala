@@ -1,9 +1,9 @@
 <!-- Load JQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-<!-- Load Bootstrap
+<!-- Load Bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
--->
+
 <!-- Select 2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js" integrity="sha256-FcVIknBiVRk5KLQeIBb9VQdtFRMqwffXyZ+D8q0gQro=" crossorigin="anonymous"></script>
 
@@ -14,7 +14,7 @@
 
 
 <!-- plugins:js -->
-<script src="{{ url('/theme_modules/jquery/dist/jquery.min.js') }}"></script>
+<!--<script src="{{ url('/theme_modules/jquery/dist/jquery.min.js') }}"></script>-->
 <script src="{{ url('/theme_modules/popper.js/dist/umd/popper.min.js') }}"></script>
 <script src="{{ url('/theme_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ url('/theme_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js') }}"></script>

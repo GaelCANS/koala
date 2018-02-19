@@ -10,6 +10,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" />
+
     <!-- App -->
     <link href="{{ asset('/css/backoff-app.css') }}?v={{ time() }}" rel="stylesheet">
 
@@ -22,6 +24,8 @@
     <!-- plugin css for this page -->
     <link rel="stylesheet" href="{{ asset('/theme_modules/font-awesome/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('/theme_modules/jquery-bar-rating/dist/themes/fontawesome-stars.css') }}" />
+
+
     <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
