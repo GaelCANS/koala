@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Campaign;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
 class CampaignController extends Controller
@@ -29,7 +31,13 @@ class CampaignController extends Controller
     public function create()
     {
         $campaign = null;
-        return view('campaigns.show' , compact('campaign'));
+        $status     = Campaign::getStatus();
+        $users      =   User::select(DB::raw("CONCAT(firstname,' ',name) AS name"),'id')
+            ->where('delete' , '0')
+            ->orderBy('firstname' , 'ASC')
+            ->pluck('name' , 'id')
+            ->toArray();
+        return view('campaigns.show' , compact('campaign' , 'status' , 'users'));
     }
 
     /**
@@ -52,8 +60,14 @@ class CampaignController extends Controller
      */
     public function show($id)
     {
-        $campaign = Campaign::findOrFail($id);
-        return view('campaigns.show' , compact('campaign'));
+        $campaign   = Campaign::findOrFail($id);
+        $status     = Campaign::getStatus();
+        $users      =   User::select(DB::raw("CONCAT(firstname,' ',name) AS name"),'id')
+                        ->where('delete' , '0')
+                        ->orderBy('firstname' , 'ASC')
+                        ->pluck('name' , 'id')
+                        ->toArray();
+        return view('campaigns.show' , compact('campaign' , 'status' , 'users'));
     }
 
     /**

@@ -25,11 +25,11 @@ class Campaign extends Model
             '';
     }
 
-    /*public function getBeginAttribute($begin) {
-        return $begin != '0000-00-00' ? $begin : '';
-    }
 
-    public function getEndAttribute($end) {
-        return $end != '0000-00-00' ? $end : '';
-    }*/
+    /**
+     * CUSTOMS
+     */
+    public static function getStatus() {
+        return array('brouillon' , 'publiée');
+    }
 }

@@ -24,6 +24,12 @@
 
         <div class="col-md-12">
             <div class="form-group">
+                {!! Form::select('status',$status , null, ['class' => 'form-control select2']) !!}
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group">
                 <label for="name">Nom</label>
                 {!! Form::text( 'name' , null , array( 'class' => 'form-control' , 'placeholder' => "Saisissez le nom de la campagne" ) ) !!}
             </div>
@@ -38,15 +44,22 @@
 
         <div class="col-md-12">
             <div class="form-group">
+                <label for="name">Responsable de la campagne</label>
+                {!! Form::select('user_id',$users , null, ['class' => 'form-control select2']) !!}
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group">
                 <label for="name">Début</label>
-                {!! Form::text( 'begin' , null , array( 'class' => 'form-control date-not-null' ) ) !!}
+                {!! Form::text( 'begin' , null , array( 'class' => 'form-control date-not-null datepicker' ) ) !!}
             </div>
         </div>
 
         <div class="col-md-12">
             <div class="form-group">
                 <label for="name">Fin</label>
-                {!! Form::text( 'end' , null , array( 'class' => 'form-control date-not-null' ) ) !!}
+                {!! Form::text( 'end' , null , array( 'class' => 'form-control date-not-null datepicker' ) ) !!}
             </div>
         </div>
 
@@ -54,9 +67,30 @@
             <div class="form-group">
                 Validation CMM
                 <label for="cmm1">Oui</label>
-                {!! Form::radio( 'cmm' , 1 , false , array('id' => 'cmm1') ) !!}
+                {!! Form::radio( 'cmm' , 1 , false , array('id' => 'cmm1' ) ) !!}
                 <label for="cmm0">Non</label>
-                {!! Form::radio( 'cmm' , 0 , false , array('id' => 'cmm0') ) !!}
+                {!! Form::radio( 'cmm' , 0 , false , array('id' => 'cmm0' , ($campaign == null ? 'checked="checked"' : '') ) ) !!}
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="name">Commentaires</label>
+                {!! Form::textarea( 'cmm_comments' , null , array( 'class' => 'form-control' ) ) !!}
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="name">Résultats</label>
+                {!! Form::textarea( 'results' , null , array( 'class' => 'form-control' ) ) !!}
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="name">Ressources</label>
+                {!! Form::text( 'resource_link' , null , array( 'class' => 'form-control' , 'placeholder' => 'Chemin APUBLIC' ) ) !!}
             </div>
         </div>
 
@@ -71,6 +105,6 @@
     </div>
 
     {!! Form::close() !!}
-    
+
 
 @endsection
