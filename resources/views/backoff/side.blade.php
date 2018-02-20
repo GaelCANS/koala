@@ -25,7 +25,7 @@
                     </a>
                 </li>
                 <li class="nav-item @if( Route::currentRouteName() == 'campaigns-index' ) active @endif">
-                    <a class="nav-link" href="campaigns">
+                    <a class="nav-link" href="{{route('campaigns-index')}}">
                         <i class="icon-flag menu-icon"></i>
                         <span class="menu-title">Campagnes</span>
                     </a>
@@ -49,7 +49,7 @@
                     </a>
                 </li>
                 <li class="nav-item d-none d-lg-block nav-item @if( Route::currentRouteName() == 'services-index' ) active @endif">
-                    <a class="nav-link" href="services">
+                    <a class="nav-link" href="{{route('services-index')}}">
                         <i class="icon-settings menu-icon"></i>
                         <span class="menu-title">Paramètres</span>
                     </a>

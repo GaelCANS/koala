@@ -7726,7 +7726,8 @@ button,
 html [type="button"],
 [type="reset"],
 [type="submit"] {
-    -webkit-appearance: button; }
+    -webkit-appearance: button;
+    cursor: pointer;}
 
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
@@ -7800,10 +7801,10 @@ template {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem;
     font-family: inherit;
     font-weight: 500;
-    line-height: 1.2;
+    line-height: 1;
     color: inherit; }
 
 h1, .h1 {
@@ -7813,7 +7814,8 @@ h2, .h2 {
     font-size: 2rem; }
 
 h3, .h3 {
-    font-size: 1.75rem; }
+    font-size: 1.75rem;
+    font-weight:bold;}
 
 h4, .h4 {
     font-size: 1.5rem; }
@@ -8534,7 +8536,7 @@ pre code {
     background-color: transparent; }
 .table th, .jsgrid .jsgrid-table th,
 .table td, .jsgrid .jsgrid-table td {
-    padding: 0.9375rem;
+    padding: 0.8rem;
     vertical-align: top;
     border-top: 1px solid #f3f3f3; }
 .table thead th, .jsgrid .jsgrid-table thead th {
@@ -8562,7 +8564,8 @@ pre code {
     background-color: #F6F8FA; }
 
 .table-hover tbody tr:hover {
-    background-color: #F6F8FA; }
+    background-color: #F6F8FA;
+    cursor: pointer;}
 
 .table-primary,
 .table-primary > th,
@@ -14715,7 +14718,8 @@ h5,
 
 h6,
 .h6 {
-    font-size: .9375rem; }
+    font-size: .9375rem;
+    font-weight: bold;}
 
 p {
     font-size: .88rem; }
@@ -14804,6 +14808,10 @@ address p {
 .card-title {
     color: #404851;
     margin-bottom: 1.125rem;  }
+
+h6.card-title {
+    padding-top: 0.35rem;
+}
 .rtl .card-title {
     text-align: right; }
 
@@ -15763,9 +15771,9 @@ pre {
 
 .marches .badge {
     font-size: 0.50rem;
-    line-height: 1.5;
+    line-height: 1.25;
     border: 0px;
-    padding: .35rem;
+    padding: 0.30rem;
     color: white;
 }
 
@@ -17880,9 +17888,10 @@ dl li {
 .jsgrid .jsgrid-pager .jsgrid-pager-page a, .jsgrid .jsgrid-pager .page-item:hover .jsgrid-pager-page a, .jsgrid .jsgrid-pager .jsgrid-pager-page .page-item:hover a, .jsgrid .jsgrid-pager .jsgrid-pager-page:hover a, .pagination .page-item:focus .page-link, .jsgrid .jsgrid-pager .page-item:focus .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:focus .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-page:focus .page-link, .pagination .page-item:focus .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .page-item:focus .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-item:focus a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:focus a, .pagination .page-item:focus
 .jsgrid .jsgrid-pager .jsgrid-pager-page a, .jsgrid .jsgrid-pager .page-item:focus .jsgrid-pager-page a, .jsgrid .jsgrid-pager .jsgrid-pager-page .page-item:focus a, .jsgrid .jsgrid-pager .jsgrid-pager-page:focus a, .pagination .page-item:active .page-link, .jsgrid .jsgrid-pager .page-item:active .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:active .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-page:active .page-link, .pagination .page-item:active .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .page-item:active .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-item:active a, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button:active a, .pagination .page-item:active
 .jsgrid .jsgrid-pager .jsgrid-pager-page a, .jsgrid .jsgrid-pager .page-item:active .jsgrid-pager-page a, .jsgrid .jsgrid-pager .jsgrid-pager-page .page-item:active a, .jsgrid .jsgrid-pager .jsgrid-pager-page:active a {
-    background: #01a3a6;
+    background: #f3f3f3;
     border-color: #f3f3f3;
-    color: #ffffff; }
+    color: #ffffff;
+    cursor: pointer;}
 
 .pagination.flat .page-item .page-link, .jsgrid .flat.jsgrid-pager .page-item .page-link, .pagination.flat .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination.flat .jsgrid-pager-nav-button .page-link, .jsgrid .flat.jsgrid-pager .jsgrid-pager-nav-button .page-link, .pagination.flat
 .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link,
@@ -18432,14 +18441,16 @@ dl li {
     font-weight: normal;
     color: #8d949b;
     font-size: 12px;
-    text-align: center;}
+    text-align: center;
+    height: auto; }
 .table thead th i, .jsgrid .jsgrid-table thead th i {
     margin-left: 0.325rem; }
 .table th, .jsgrid .jsgrid-table th,
 .table td, .jsgrid .jsgrid-table td {
     vertical-align: middle;
     font-size: 0.75rem;
-    line-height: 1; }
+    line-height: 1;
+    height:55px;}
 .table th img, .jsgrid .jsgrid-table th img,
 .table td img, .jsgrid .jsgrid-table td img {
     width: 30px;

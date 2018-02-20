@@ -8,11 +8,11 @@
                     <div class="card-body pb-0">
                         <div class="d-flex table-responsive">
                             <h6 class="card-title">Campagnes en cours / à venir</h6>
-                            <div class=" ml-auto mr-2 border-0">
+                            <div class=" ml-auto mr-0 border-0">
                                 <nav>
                                     <ul class="pagination pagination-info mb-1">
-                                        <!--<li class="page-item"><a class="page-link"><i class="mdi mdi-chevron-left"></i></a></li>-->
-                                        <li class="page-item active"><a class="page-link">Février 2018</a></li>
+                                        <li class="page-item"><a class="page-link"><i class="mdi mdi-chevron-left"></i></a></li>
+                                        <li class="page-item active"><span class="page-link" style="cursor:initial;">Février 2018</span></li>
                                         <li class="page-item"><a class="page-link"><i class="mdi mdi-chevron-right"></i></a></li>
                                     </ul>
                                 </nav>
@@ -31,7 +31,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="inprogress">
+                                <tr class="inprogress" data-href='campaingns'>
                                     <td class="marches"><div class="badge part">PART</div></td>
                                     <td>Conquête parrainage</td>
                                     <td>03/01 au 15/02</td>
@@ -129,8 +129,9 @@
                     <div class="card-body">
                         <h6 class="card-title text-center">1<sup>er</sup> trimestre 2018</h6>
 
+
                         <div class="d-flex align-items-center justify-content-md-center">
-                            <i class="mdi mdi-email-open-outline icon-lg text-muted"></i>
+                            <i class="mdi mdi-email-open-outline icon-lg text-secondary"></i>
                             <div class="col-md-6 ml-2 mr-2 text-center">
                                 <h3 class="mb-0" style="line-height: 19px;">33%</h3>
                                 <small class="text-muted">ouvreurs</small>
@@ -139,7 +140,7 @@
 
                         </div>
                         <div class="d-flex align-items-center justify-content-md-center">
-                            <i class="mdi mdi-facebook icon-lg text-muted"></i>
+                            <i class="mdi mdi-facebook icon-lg text-secondary"></i>
                             <div class="col-md-6 ml-2 mr-2 text-center">
                                 <h3 class="mb-0" style="line-height: 19px;">18</h3>
                                 <small class="text-muted">likes</small>
@@ -147,7 +148,7 @@
                             <div class="badge badge-pill badge-outline-danger text-danger"><i class="mdi mdi-arrow-down"></i> 5%</div>
                         </div>
                         <div class="d-flex align-items-center justify-content-md-center">
-                            <i class="mdi mdi-image icon-lg text-muted"></i>
+                            <i class="mdi mdi-image icon-lg text-secondary"></i>
                             <div class="col-md-6 ml-2 mr-2 text-center">
                                 <h3 class="mb-0" style="line-height: 19px;">135</h3>
                                 <small class="text-muted">clics</small>
@@ -155,7 +156,7 @@
                             <div class="badge badge-pill badge-outline-success text-success"><i class="mdi mdi-arrow-up"></i> 7%</div>
                         </div>
                         <div class="d-flex align-items-center justify-content-md-center">
-                            <i class="mdi mdi-format-page-break icon-lg text-muted"></i>
+                            <i class="mdi mdi-format-page-break icon-lg text-secondary"></i>
                             <div class="col-md-6 ml-2 mr-2 text-center">
                                 <h3 class="mb-0" style="line-height: 19px;">1281</h3>
                                 <small class="text-muted">vues</small>
@@ -188,13 +189,48 @@
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body pb-0">
-                        <h6 class="card-title">Mes campagnes</h6>
+                        <div class="d-flex table-responsive">
+                            <h6 class="card-title">Mes campagnes</h6>
+                            <div class=" ml-auto mr-0 border-0">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-light text-muted"><small>Toutes mes campagnes</small></button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="wrapper py-2">
                                     <div class="d-flex">
-                                        <div class="wrapper ml-4">
-                                            liste
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <tbody>
+                                                <tr class="inprogress" data-href='campaingns'>
+                                                    <td>Conquête parrainage</td>
+                                                    <td>03/01 au 15/02</td>
+                                                    <td>Samantha R.</td>
+                                                </tr>
+                                                <tr class="inprogress" data-href='campaingns'>
+                                                    <td>Conquête parrainage</td>
+                                                    <td>03/01 au 15/02</td>
+                                                    <td>Samantha R.</td>
+                                                </tr>
+                                                <tr data-href='campaingns'>
+                                                    <td>Conquête parrainage</td>
+                                                    <td>03/01 au 15/02</td>
+                                                    <td>Samantha R.</td>
+                                                </tr>
+                                                <tr data-href='campaingns'>
+                                                    <td>Conquête parrainage</td>
+                                                    <td>03/01 au 15/02</td>
+                                                    <td>Samantha R.</td>
+                                                </tr>
+                                                <tr data-href='campaingns'>
+                                                    <td>Conquête parrainage</td>
+                                                    <td>03/01 au 15/02</td>
+                                                    <td>Samantha R.</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -206,13 +242,88 @@
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body pb-0">
-                        <h6 class="card-title">Derniers résultats</h6>
+                        <div class="d-flex table-responsive">
+                            <h6 class="card-title">Derniers résultats</h6>
+                            <div class=" ml-auto mr-0 border-0">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-light text-muted"><small>Tous les résultats</small></button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="wrapper py-2">
                                     <div class="d-flex">
-                                        <div class="wrapper ml-4">
-                                            liste
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <tbody>
+                                                <tr data-href='campaingns'>
+                                                    <td>Conquête parrainage</td>
+                                                    <td>03/01 au 15/02</td>
+                                                    <td>
+                                                        <div class="badge badge-outline-primary badge-pill">email</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <h4 class="mb-0">33%</h4>
+                                                            <small>ouvreurs</small>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr data-href='campaingns'>
+                                                    <td>EKO by CA</td>
+                                                    <td>03/01 au 15/02</td>
+                                                    <td>
+                                                        <div class="badge badge-outline-primary badge-pill">bannière</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <h4 class="mb-0">398</h4>
+                                                            <small>clics</small>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr data-href='campaingns'>
+                                                    <td>Assemblée générale</td>
+                                                    <td>03/02 au 20/03</td>
+                                                    <td>
+                                                        <div class="badge badge-outline-primary badge-pill">post fb</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <h4 class="mb-0">34</h4>
+                                                            <small>likes</small>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr data-href='campaingns'>
+                                                    <td>Bonus diversification épargne</td>
+                                                    <td>12/11 au 19/02</td>
+                                                    <td>
+                                                        <div class="badge badge-outline-primary badge-pill">page</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <h4 class="mb-0">1034</h4>
+                                                            <small>vues</small>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr data-href='campaingns'>
+                                                    <td>Conquête parrainage</td>
+                                                    <td>03/01 au 15/02</td>
+                                                    <td>
+                                                        <div class="badge badge-outline-primary badge-pill">email</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <h4 class="mb-0">33%</h4>
+                                                            <small>ouvreurs</small>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
