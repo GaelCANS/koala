@@ -50,7 +50,6 @@ class CampaignChannelIndicator extends Model
         if (count($indicators)>0) {
             foreach ($indicators as $id => $indicator) {
                 $campaignChannelIndicator = self::firstOrNew(array('uniqid' => $id));
-                //dd($indicator);
                 $campaignChannelIndicator->fill($indicator);
                 $campaignChannelIndicator->save();
             }

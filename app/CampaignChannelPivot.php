@@ -12,7 +12,7 @@ class CampaignChannelPivot extends Pivot
     protected $guarded = array('id');
 
     /**
-     * MUTATORS & ACCESSORS
+     * MUTATORS & ACCESSORS - see CampaignChannel for the set function
      */
     public function getBeginAttribute($date)
     {

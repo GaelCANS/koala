@@ -11,6 +11,9 @@ class Channel extends Model
 
     protected $guarded = array('id');
 
+
+
+
     /**
      * RELATIONSHIPS
      */

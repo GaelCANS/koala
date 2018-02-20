@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class CampaignChannel extends Model
@@ -14,6 +15,19 @@ class CampaignChannel extends Model
     protected $table = 'campaign_channel';
 
     protected $guarded = array('id');
+
+
+    /**
+     * MUTATORS & ACCESSORS - see CampaignChannelPivot for the get function
+     */
+    public function setBeginAttribute($date) {
+        $this->attributes['begin'] = Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d');
+    }
+
+    public function setEndAttribute($date) {
+        $this->attributes['end'] = !empty($date) ? Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d') : '';
+    }
+
 
 
     /**

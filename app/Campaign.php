@@ -40,6 +40,14 @@ class Campaign extends Model
             '';
     }
 
+    public function setBeginAttribute($date) {
+        $this->attributes['begin'] = Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d');
+    }
+
+    public function setEndAttribute($date) {
+        $this->attributes['end'] = Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d');
+    }
+
 
 
 
