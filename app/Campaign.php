@@ -22,9 +22,21 @@ class Campaign extends Model
             '';
     }
 
+    public function getBeginAttribute($date) {
+        return $date != '0000-00-00' ?
+            Carbon::createFromFormat('Y-m-d', $date)->format('d/m/y') :
+            '';
+    }
+
     public function getEndshortAttribute() {
         return $this->end != '0000-00-00' ?
             Carbon::createFromFormat('Y-m-d', $this->end)->format('d/m/y') :
+            '';
+    }
+
+    public function getEndAttribute($date) {
+        return $date != '0000-00-00' ?
+            Carbon::createFromFormat('Y-m-d', $date)->format('d/m/y') :
             '';
     }
 
@@ -45,7 +57,7 @@ class Campaign extends Model
 
     // many to many
     public function channels() {
-        return $this->belongsToMany('App\Channel')->withPivot('id' , 'comment' , 'begin' , 'end' );
+        return $this->belongsToMany('App\Channel')->withPivot('id' , 'comment' , 'begin' , 'end' , 'uniqid' );
     }
 
 

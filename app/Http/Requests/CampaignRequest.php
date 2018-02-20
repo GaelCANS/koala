@@ -23,11 +23,33 @@ class CampaignRequest extends Request
      */
     public function rules()
     {
+        // Campaign's rules
+        $rules = $this->campaignRules();
+
+        // Channel's rules
+        $channel = $this->channelRules();
+
+        // Indicator's rules
+        $indicator = $this->indicatorRules();
+
+        return array_merge(
+            $rules,
+            $channel,
+            $indicator
+        );
+    }
+
+    /**
+     * Return rules for campaign table
+     * @return array
+     */
+    private function campaignRules()
+    {
         return array(
             "name"          => "required|string|min:2",
             "description"   => "string",
-            "begin"         => "date_format:Y-m-d",
-            "end"           => "date_format:Y-m-d",
+            "begin"         => "date_format:d/m/y",
+            "end"           => "date_format:d/m/y",
             "cmm"           => "required|boolean",
             "status"        => "required|boolean",
             "user_id"       => "required|exists:users,id",
@@ -36,4 +58,44 @@ class CampaignRequest extends Request
             "resource_link" => "string"
         );
     }
+
+
+    /**
+     * Return rules for campaign_channel table
+     */
+    private function channelRules()
+    {
+        $rules = array();
+
+        if ($this->input('channel')!=null) {
+            foreach ($this->input('channel') as $item => $channel) {
+                $rules["channel.{$item}.channel_id"]    = array('required','exists:channels,id');
+                $rules["channel.{$item}.begin"]         = array('date_format:d/m/y');
+                $rules["channel.{$item}.end"]           = array('date_format:d/m/y');
+                $rules["channel.{$item}.comment"]       = array('string');
+            }
+        }
+
+        return $rules;
+    }
+
+
+    /**
+     * Return rules for campaign_channel_indicator table
+     */
+    private function indicatorRules()
+    {
+        $rules = array();
+
+        if ($this->input('indicator')!=null) {
+            foreach ($this->input('indicator') as $item => $indicator) {
+                $rules["indicator.{$item}.id"]       = array('string');
+                $rules["indicator.{$item}.goal"]     = array('numeric');
+                $rules["indicator.{$item}.result"]   = array('numeric');
+            }
+        }
+
+        return $rules;
+    }
+
 }

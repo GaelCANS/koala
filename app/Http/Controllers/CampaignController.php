@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Campaign;
+use App\CampaignChannel;
 use App\CampaignChannelIndicator;
+use App\CampaignChannelPivot;
 use App\Channel;
 use App\User;
 use Illuminate\Http\Request;
@@ -50,7 +52,18 @@ class CampaignController extends Controller
      */
     public function store(Requests\CampaignRequest $request)
     {
+        // Create of campaign
         $campaign = Campaign::create($request->all());
+        
+        // Sync campaign_channel (create, update, delete)
+        $channelDatas           = $request->only('channel');
+        $freshCampaignChannel   = CampaignChannel::saveCampaignChannel($channelDatas['channel']);
+        CampaignChannel::deleteCampaignChannel($freshCampaignChannel,$id);
+
+        // Sync campaign_channel_indicator (create, update, delete)
+        $indicatorDatas          = $request->only('indicator');
+        CampaignChannelIndicator::saveCampaignChannelIndicator($indicatorDatas['indicator']);
+
         return redirect(action('CampaignController@index'))->with('success' , "La campagne {$campaign->name} a bien été créée.");
     }
 
@@ -62,27 +75,19 @@ class CampaignController extends Controller
      */
     public function show($id)
     {
+
+        // Chargement de la campagne et des tables associées
         $campaign   = Campaign::findOrFail($id);
         $campaign->load('Channels');
         $campaign->Channels->load('Indicators');
 
-        $campaignChannelIndicator = null;
-        if (!empty($campaign->Channels)) {
-            foreach ($campaign->Channels as $channel) {
-                if (!empty($channel->Indicators)) {
-                    foreach ($channel->Indicators as $indicator) {
-                        $campaignChannelIndicator[$indicator->id] =   CampaignChannelIndicator::where('campaign_channel_id' , $channel->pivot->id)
-                                                                            ->where('indicator_id' , $indicator->id)
-                                                                            ->get();
-                    }
-                }
-            }
-        }
+        // Chargement manuel des objectifs et résultats des indicateurs de la campagne
+        $campaignChannelIndicator = CampaignChannelIndicator::loadCampaignChannelIndicator($campaign);
 
-
+        // Chargement des données annexes utiles
         $status     = Campaign::getStatus();
         $users      =   User::select(DB::raw("CONCAT(firstname,' ',name) AS name"),'id')
-                        ->where('delete' , '0')
+                        ->Notdeleted()
                         ->orderBy('firstname' , 'ASC')
                         ->pluck('name' , 'id')
                         ->toArray();
@@ -114,8 +119,19 @@ class CampaignController extends Controller
      */
     public function update(Requests\CampaignRequest $request, $id)
     {
+        // Update de la campagne
         $campaign = Campaign::findOrFail($id);
-        $campaign->update( $request->all() );
+        $campaign->update( $request->except('channel' , 'indicator') );
+
+        // Sync campaign_channel (create, update, delete)
+        $channelDatas           = $request->only('channel');
+        $freshCampaignChannel   = CampaignChannel::saveCampaignChannel($channelDatas['channel']);
+        CampaignChannel::deleteCampaignChannel($freshCampaignChannel,$id);
+
+        // Sync campaign_channel_indicator (create, update, delete)
+        $indicatorDatas          = $request->only('indicator');
+        CampaignChannelIndicator::saveCampaignChannelIndicator($indicatorDatas['indicator']);
+
         return redirect()->back()->with('success' , "La campagne vient d'être mise à jour");
     }
 
