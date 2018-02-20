@@ -2,11 +2,14 @@
 
 namespace App;
 
+use App\Library\Traits\Scopable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Campaign extends Model
 {
+    use Scopable;
+
     protected $guarded = array('id');
 
 
@@ -26,10 +29,32 @@ class Campaign extends Model
     }
 
 
+
+
     /**
      * CUSTOMS
      */
     public static function getStatus() {
         return array('brouillon' , 'publiée');
+    }
+
+
+    /**
+     * RELATIONSHIPS
+     */
+
+    // many to many
+    public function channels() {
+        return $this->belongsToMany('App\Channel')->withPivot('id' , 'comment' , 'begin' , 'end' );
+    }
+
+
+    /**
+     * OVERRIDE
+     */
+
+    // method override to instantiate custom pivot class
+    public function newPivot(Model $parent, array $attributes, $table, $exists) {
+        return new CampaignChannelPivot($parent, $attributes, $table, $exists);
     }
 }

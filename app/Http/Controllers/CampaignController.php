@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Campaign;
+use App\CampaignChannelIndicator;
+use App\Channel;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -33,7 +35,7 @@ class CampaignController extends Controller
         $campaign = null;
         $status     = Campaign::getStatus();
         $users      =   User::select(DB::raw("CONCAT(firstname,' ',name) AS name"),'id')
-            ->where('delete' , '0')
+            ->Notdeleted()
             ->orderBy('firstname' , 'ASC')
             ->pluck('name' , 'id')
             ->toArray();
@@ -61,13 +63,35 @@ class CampaignController extends Controller
     public function show($id)
     {
         $campaign   = Campaign::findOrFail($id);
+        $campaign->load('Channels');
+        $campaign->Channels->load('Indicators');
+
+        $campaignChannelIndicator = null;
+        if (!empty($campaign->Channels)) {
+            foreach ($campaign->Channels as $channel) {
+                if (!empty($channel->Indicators)) {
+                    foreach ($channel->Indicators as $indicator) {
+                        $campaignChannelIndicator[$indicator->id] =   CampaignChannelIndicator::where('campaign_channel_id' , $channel->pivot->id)
+                                                                            ->where('indicator_id' , $indicator->id)
+                                                                            ->get();
+                    }
+                }
+            }
+        }
+
+
         $status     = Campaign::getStatus();
         $users      =   User::select(DB::raw("CONCAT(firstname,' ',name) AS name"),'id')
                         ->where('delete' , '0')
                         ->orderBy('firstname' , 'ASC')
                         ->pluck('name' , 'id')
                         ->toArray();
-        return view('campaigns.show' , compact('campaign' , 'status' , 'users'));
+        $channels   =   Channel::Notdeleted()
+                        ->orderBy('name' , 'ASC')
+                        ->pluck('name' , 'id')
+                        ->toArray();
+
+        return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator'));
     }
 
     /**

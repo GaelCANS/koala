@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Library\Traits\Scopable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    use Scopable;
+
     /**
      * The attributes that are mass assignable.
      *
