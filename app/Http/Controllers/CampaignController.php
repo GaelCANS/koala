@@ -75,17 +75,19 @@ class CampaignController extends Controller
      */
     public function show($id)
     {
-
         // Chargement de la campagne et des tables associées
         $campaign   = Campaign::findOrFail($id);
-        $campaign->load('Channels');
+        dump($campaign);
+        $campaign->with('channels')->->get();
+        
+        dump($campaign->Channels);
         $campaign->Channels->load('Indicators');
 
         // Chargement manuel des objectifs et résultats des indicateurs de la campagne
         $campaignChannelIndicator = CampaignChannelIndicator::loadCampaignChannelIndicator($campaign);
 
         // Chargement des données annexes utiles
-        $status     = Campaign::getStatus();
+        $status     =   Campaign::getStatus();
         $users      =   User::select(DB::raw("CONCAT(firstname,' ',name) AS name"),'id')
                         ->Notdeleted()
                         ->orderBy('firstname' , 'ASC')
@@ -147,4 +149,7 @@ class CampaignController extends Controller
         $campaign->update( array('delete' => '1') );
         return redirect(URL::previous())->with('success' , 'La campagne a bien été supprimée');
     }
+
+
+
 }

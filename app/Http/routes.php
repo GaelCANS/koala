@@ -40,6 +40,10 @@ Route::resource(
     ]
 );
 
+// CampaignChannel
+Route::post('campaign-channel/{id}/unlink-channel/{uniqid}', ['uses' => 'CampaignchannelController@destroy', 'as' => 'unlink-channel']);
+Route::post('campaign-channel/{id}/duplicate-channel/{uniqid}', ['uses' => 'CampaignchannelController@duplicate', 'as' => 'duplicate-channel']);
+
 
 // CMM
 Route::get('/cmm', 'CmmController@index')->name('cmm-index');

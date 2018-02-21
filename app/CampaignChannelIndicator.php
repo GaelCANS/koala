@@ -29,7 +29,7 @@ class CampaignChannelIndicator extends Model
             foreach ($campaign->Channels as $channel) {
                 if (!empty($channel->Indicators)) {
                     foreach ($channel->Indicators as $indicator) {
-                        $campaignChannelIndicator[$indicator->id] =   CampaignChannelIndicator::where('campaign_channel_id' , $channel->pivot->id)
+                        $campaignChannelIndicator[$channel->pivot->uniqid][$indicator->id] =   CampaignChannelIndicator::where('campaign_channel_id' , $channel->pivot->id)
                             ->where('indicator_id' , $indicator->id)
                             ->get();
                     }

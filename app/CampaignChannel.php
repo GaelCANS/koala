@@ -31,6 +31,21 @@ class CampaignChannel extends Model
 
 
     /**
+     * RELATIONSHIPS
+     */
+
+    // one to many
+    public function campaignChannelIndicators() {
+        return $this->hasMany('App\CampaignChannelIndicator');
+    }
+
+
+
+    /**
+     * CUSTOMS
+     */
+
+    /**
      * Update or create CampaignChannel
      * @param $channelDatas
      * @return array
@@ -67,6 +82,20 @@ class CampaignChannel extends Model
                 }
             }
         }
+    }
+
+
+    /**
+     * When a campaign_channel is delete, campaign_channel_indicators are automatically deleted
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($campaignChannel)
+        {
+            $campaignChannel->Campaignchannelindicators()->delete();;
+        });
     }
 
 }
