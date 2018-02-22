@@ -1,7 +1,7 @@
 <tr id="channel-{{$channel->pivot->uniqid}}">
     <td>
         <div class="form-group">
-            {!! Form::select('channel['.$channel->pivot->uniqid.'][channel_id]',$channels , $channel->id, ['class' => 'form-control select2']) !!}
+            {!! Form::select('channel['.$channel->pivot->uniqid.'][channel_id]',$channels , $channel->id, ['class' => 'form-control select2 select2-ajax']) !!}
         </div>
     </td>
     <td>
@@ -36,7 +36,7 @@
         @endif
     </td>
     <td>
-        <a href="javascript:;" class="btn btn-success ajax-duplicate-campaignchannel" title="Dupliquer ce canal" data-msg="Voulez-vous vraiment supprimer ce canal ?" data-link="{{route('duplicate-channel' , array('id' => $campaign->id , 'uniqid' => $channel->pivot->uniqid))}}" data-param="{{$channel->pivot->uniqid}}">
+        <a href="javascript:;" class="btn btn-success ajax-duplicate-campaignchannel" title="Dupliquer ce canal" data-msg="Voulez-vous vraiment dupliquer ce canal ?" data-link="{{route('duplicate-channel' , array('id' => $campaign->id , 'uniqid' => $channel->pivot->uniqid))}}" data-param="{{$channel->pivot->uniqid}}">
             <i class="fa fa-copy"></i>
         </a>
         <a href="javascript:;" class="btn btn-danger ajax-del" title="Supprimer ce canal" data-msg="Voulez-vous vraiment supprimer ce canal ?" data-link="{{route('unlink-channel' , array('id' => $campaign->id , 'uniqid' => $channel->pivot->uniqid))}}">

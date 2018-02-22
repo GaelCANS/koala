@@ -94,6 +94,8 @@ class CampaignController extends Controller
                         ->orderBy('name' , 'ASC')
                         ->pluck('name' , 'id')
                         ->toArray();
+        $channels[0]=   'sélectionnez';
+        ksort($channels);
 
         return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator'));
     }

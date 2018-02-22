@@ -16,6 +16,17 @@ class CampaignChannelIndicator extends Model
     protected $guarded = array('id');
 
 
+
+    /**
+     * RELATIONSHIPS
+     */
+
+    // 1 to 1
+    public function indicator() {
+        return $this->belongsTo('App\Indicator');
+    }
+
+
     /**
      * Return goals and objectifs indicators for a campaign
      * @param $campaign : Campaign collection

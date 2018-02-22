@@ -68,6 +68,11 @@ class Campaign extends Model
         return $this->belongsToMany('App\Channel')->withPivot('id' , 'comment' , 'begin' , 'end' , 'uniqid' );
     }
 
+    // many to many
+    public function campaignChannels() {
+        return $this->hasMany('App\CampaignChannels');
+    }
+
 
     /**
      * OVERRIDE

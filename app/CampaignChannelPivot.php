@@ -11,6 +11,7 @@ class CampaignChannelPivot extends Pivot
 
     protected $guarded = array('id');
 
+
     /**
      * MUTATORS & ACCESSORS - see CampaignChannel for the set function
      */
@@ -27,5 +28,7 @@ class CampaignChannelPivot extends Pivot
             Carbon::createFromFormat('Y-m-d', $date)->format('d/m/y') :
             '';
     }
+
+    
 
 }
