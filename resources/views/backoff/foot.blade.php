@@ -25,6 +25,7 @@
 <script src="{{ url('/theme_modules/raphael/raphael.min.js') }}"></script>
 <script src="{{ url('/theme_modules/morris.js/morris.min.js') }}"></script>
 <script src="{{ url('/theme_modules/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+
 <!-- End plugin js for this page-->
 <!-- inject:js -->
 <script src="{{ url('/js/off-canvas.js') }}"></script>
@@ -35,4 +36,9 @@
 <!-- endinject -->
 <!-- Custom js for this page-->
 <script src="{{ url('/js/dashboard.js') }}"></script>
+<!-- Custom js for this page-->
+<!-- End custom js for this page-->
+
+<!-- Custom js for this page-->
+
 <!-- End custom js for this page-->

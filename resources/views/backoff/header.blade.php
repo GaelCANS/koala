@@ -10,7 +10,7 @@
             </button>
             <ul class="navbar-nav">
                 <li class="nav-item d-none d-lg-flex">
-                    <a class="nav-link  nav-btn"  href="#" >
+                    <a class="nav-link  nav-btn"  href="{{action('CampaignController@create')}}" title="Ajouter une campagne" >
                         <span class="btn">+ Campagne</span>
                     </a>
                 </li>
