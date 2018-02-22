@@ -29,6 +29,18 @@ Route::resource(
 );
 
 
+// Market
+Route::resource(
+    'markets',
+    'MarketController' ,
+    [
+        'names' => [
+            'index' => 'markets-index'
+        ]
+    ]
+);
+
+
 // Campaign
 Route::resource(
     'campaigns',
