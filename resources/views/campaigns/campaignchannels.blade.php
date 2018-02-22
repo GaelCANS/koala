@@ -7,17 +7,17 @@
     <td>
         <div class="form-group">
             <label for="name">Du</label>
-            {!! Form::text( 'channel['.$channel->pivot->uniqid.'][begin]' , $channel->pivot->begin , array( 'class' => 'form-control date-not-null datepicker' ) ) !!}
+            {!! Form::text( 'channel['.$channel->pivot->uniqid.'][begin]' , $channel->pivot->begin , array( 'class' => 'form-control date-not-null datepicker duplicatable' , 'data-name' => 'begin' ) ) !!}
         </div>
         <div class="form-group">
             <label for="name">au</label>
-            {!! Form::text( 'channel['.$channel->pivot->uniqid.'][end]' , $channel->pivot->end , array( 'class' => 'form-control date-not-null datepicker' ) ) !!}
+            {!! Form::text( 'channel['.$channel->pivot->uniqid.'][end]' , $channel->pivot->end , array( 'class' => 'form-control date-not-null datepicker duplicatable' , 'data-name' => 'end' ) ) !!}
         </div>
     </td>
     <td>
         <div class="form-group">
             <label for="name">Objectif(s) de la campagne</label>
-            {!! Form::textarea( 'channel['.$channel->pivot->uniqid.'][comment]' , $channel->pivot->comment , array( 'class' => 'form-control' ) ) !!}
+            {!! Form::textarea( 'channel['.$channel->pivot->uniqid.'][comment]' , $channel->pivot->comment , array( 'class' => 'form-control duplicatable' , 'data-name' => 'comment' ) ) !!}
         </div>
     </td>
     <td>

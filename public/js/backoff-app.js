@@ -82,12 +82,23 @@ $(document).ready(function(){
             if (data.duplicated == '1') {
                 $('#channel-'+data.parent).after(data.html);
                 $('select.select2').select2();
+                $('.to-focus').last().focus();
+
+                if ($('#channel-'+data.parent+'.from-ajax').length > 0) {
+                    var comment = $('#channel-'+data.parent+' [data-name="comment"]').val();
+                    console.log(comment);
+                    $('#channel-'+data.newItem+' [data-name="comment"]').val(comment);
+                }
+
+                // TODO - reprendre duplication des indicateurs dans le cas d'une duplication d'un élément (qui vient d'être ajouté ou dupliqué)
 
             }
         });
 
     });
 
+
+    
 
     $('#add-channel').on('select2:select' , '.select2' , function(e){
         var data = e.params.data;

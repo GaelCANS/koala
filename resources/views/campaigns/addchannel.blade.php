@@ -2,7 +2,7 @@
 <tr>
     <td>
         <div class="form-group">
-            {!! Form::select('channel['.$channel->pivot->uniqid.'][channel_id]',$channels , null, ['class' => 'form-control select2']) !!}
+            {!! Form::select('add-new-channel',$channels , null, ['class' => 'form-control select2']) !!}
         </div>
     </td>
     <td>

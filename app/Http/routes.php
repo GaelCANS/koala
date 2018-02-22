@@ -51,6 +51,7 @@ Route::resource(
         ]
     ]
 );
+Route::get('/new-campaign', 'CampaignController@newcampaign')->name('new-campaign');
 
 // CampaignChannel
 Route::post('campaign-channel/{id}/unlink-channel/{uniqid}', ['uses' => 'CampaignchannelController@destroy', 'as' => 'unlink-channel']);

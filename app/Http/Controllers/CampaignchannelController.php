@@ -50,12 +50,15 @@ class CampaignchannelController extends Controller
             ->pluck('name' , 'id')
             ->toArray();
 
-        $html = view('campaignchannels.channels' , compact('campaign' , 'channel' , 'channels' ))->render();
+        $type = 'from-ajax';
+
+        $html = view('campaignchannels.channels' , compact('campaign' , 'channel' , 'channels' , 'type' ))->render();
 
         return response()->json(
             array(
                 'added'     => 1,
-                'html'      => $html
+                'html'      => $html,
+                'new'       => $channel->uniqid
             )
         );
 
@@ -112,13 +115,16 @@ class CampaignchannelController extends Controller
             ->pluck('name' , 'id')
             ->toArray();
 
-        $html = view('campaignchannels.channels' , compact('campaign' , 'channel' , 'channels' ))->render();
+        $type = 'from-ajax';
+
+        $html = view('campaignchannels.channels' , compact('campaign' , 'channel' , 'channels' , 'type' ))->render();
 
         return response()->json(
             array(
                 'duplicated'=> 1,
                 'html'      => $html,
-                'parent'    => $channelUniqid
+                'parent'    => $channelUniqid,
+                'newItem'   => $channel->uniqid
             )
         );
 

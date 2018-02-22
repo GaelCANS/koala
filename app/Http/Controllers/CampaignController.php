@@ -34,7 +34,7 @@ class CampaignController extends Controller
      */
     public function create()
     {
-        $campaign = null;
+        $campaign   = null;
         $status     = Campaign::getStatus();
         $users      =   User::select(DB::raw("CONCAT(firstname,' ',name) AS name"),'id')
             ->Notdeleted()
@@ -122,7 +122,7 @@ class CampaignController extends Controller
     {
         // Update de la campagne
         $campaign = Campaign::findOrFail($id);
-        $campaign->update( $request->except('channel' , 'indicator') );
+        $campaign->update( $request->except('channel' , 'indicator' , 'add-new-channel') );
 
         // Sync campaign_channel (create, update, delete)
         $channelDatas           = $request->only('channel');
@@ -147,6 +147,18 @@ class CampaignController extends Controller
         $campaign = Campaign::findOrFail($id);
         $campaign->update( array('delete' => '1') );
         return redirect(URL::previous())->with('success' , 'La campagne a bien été supprimée');
+    }
+
+
+    /**
+     * Add new campaign - to fix maybe later ?
+     *
+     * @return mixed
+     */
+    public function newcampaign()
+    {
+        $campaign = Campaign::create();
+        return redirect(action('CampaignController@show' , $campaign));
     }
 
 
