@@ -9941,9 +9941,9 @@ tbody.collapse.show {
 
 .input-group, .asColorPicker-wrap {
     position: relative;
-    display: flex;
+    display: inline-flex;
     align-items: stretch;
-    width: 100%; }
+     }
 .input-group .form-control, .asColorPicker-wrap .form-control, .input-group .asColorPicker-input, .asColorPicker-wrap .asColorPicker-input, .input-group .dataTables_wrapper select, .dataTables_wrapper .input-group select, .asColorPicker-wrap .dataTables_wrapper select, .dataTables_wrapper .asColorPicker-wrap select, .input-group .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], .jsgrid .jsgrid-table .jsgrid-filter-row .input-group input[type=text], .asColorPicker-wrap .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], .jsgrid .jsgrid-table .jsgrid-filter-row .asColorPicker-wrap input[type=text], .input-group
 .jsgrid .jsgrid-table .jsgrid-filter-row select,
 .jsgrid .jsgrid-table .jsgrid-filter-row .input-group select, .asColorPicker-wrap
@@ -14720,8 +14720,12 @@ h5,
 
 h6,
 .h6 {
-    font-size: .9375rem;
-    font-weight: bold;}
+    font-size: .75rem;
+    font-weight: bold;
+    color:#404851;
+    padding-left: 0.25rem;
+    margin-bottom: 10px;
+    }
 
 p {
     font-size: .88rem; }
@@ -16103,7 +16107,8 @@ pre {
 
 .btn-group {
     border: 1px solid #f3f3f3;
-    border-radius: 0.1875rem; }
+    border-radius: 0.1875rem;
+    background: #ffffff;}
 .btn-group .btn, .btn-group .ajax-upload-dragdrop .ajax-file-upload, .ajax-upload-dragdrop .btn-group .ajax-file-upload, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled, .btn-group .wizard > .actions a, .wizard > .actions .btn-group a {
     border-top: none;
     border-bottom: none;
@@ -20749,17 +20754,39 @@ body.avgrund-active {
     line-height: 2.5; }
 
 /* Select2 */
+
+.select2-selection--multiple {
+    background:transparent;
+}
+
+.select2-container .select2-search--inline {
+    color: #ffffff;
+    border: 0;
+    border-radius: 3px;
+    padding: 6px;
+    font-size: .625rem;
+    font-family: inherit;
+    line-height: 1;
+    background: white;
+    margin-top:0px;
+}
+
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background: #01a3a6; }
 
 .select2-container--default .select2-selection--single,
 .select2-container--default .select2-dropdown,
 .select2-container--default .select2-selection--multiple {
-    border-color: #f3f3f3; }
+    border:none;
+    background: transparent;
+}
 .select2-container--default .select2-selection--single .select2-search__field,
 .select2-container--default .select2-dropdown .select2-search__field,
 .select2-container--default .select2-selection--multiple .select2-search__field {
-    border-color: #f3f3f3; }
+    border: none;
+    width:53px!important;
+    margin-top:0px;
+}
 
 .select2-container--default .select2-selection--single {
     height: auto; }
@@ -20770,7 +20797,8 @@ body.avgrund-active {
     font-size: .8125rem; }
 
 .select2-container--default.select2-container--focus .select2-selection--multiple {
-    border-color: #f3f3f3; }
+    border:none;
+background: transparent;}
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
     color: #ffffff;
@@ -20779,19 +20807,13 @@ body.avgrund-active {
     padding: 6px;
     font-size: .625rem;
     font-family: inherit;
-    line-height: 1; }
+    line-height: 1;
+    margin-top:0px;}
 .select2-container--default .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
     color: #ffffff; }
-.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+1) {
+.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(n+1) {
     background: #01a3a6; }
-.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+2) {
-    background: #00c292; }
-.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+3) {
-    background: #ab8ce4; }
-.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+4) {
-    background: #fb9678; }
-.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+5) {
-    background: #ffb463; }
+
 
 /* Summernote Editor */
 .note-editor.note-frame {
@@ -20875,7 +20897,7 @@ body.avgrund-active {
 
 /* Tags */
 div.tagsinput {
-    padding: 15px 15px 10px;
+    padding: 10px 0px 10px;
     border-color: #f3f3f3; }
 div.tagsinput span.tag {
     background: #01a3a6;

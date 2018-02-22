@@ -26,6 +26,7 @@
     <!-- plugin css for this page -->
     <link rel="stylesheet" href="{{ asset('/theme_modules/font-awesome/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('/theme_modules/jquery-bar-rating/dist/themes/fontawesome-stars.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/theme_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}?v={{ time() }}"" />
 
 
     <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" />
