@@ -77,10 +77,7 @@ class CampaignController extends Controller
     {
         // Chargement de la campagne et des tables associées
         $campaign   = Campaign::findOrFail($id);
-        dump($campaign);
-        $campaign->with('channels')->->get();
-        
-        dump($campaign->Channels);
+        $campaign->load('Channels');
         $campaign->Channels->load('Indicators');
 
         // Chargement manuel des objectifs et résultats des indicateurs de la campagne

@@ -19,9 +19,9 @@
                 {{$campaign->name}}
             </span>
             <span class="periode">
-                {{$campaign->beginshort}}
-                <span @if($campaign->beginshort == '' || $campaign->endshort == '') style="display: none;" @endif>au</span>
-                {{$campaign->endshort}}
+                {{$campaign->begin}}
+                <span @if($campaign->begin == '' || $campaign->end == '') style="display: none;" @endif>au</span>
+                {{$campaign->end}}
             </span>
             <span class="actions">
                 <a href="{{action('CampaignController@show' , $campaign)}}" class="btn btn-success" title="Modifier cette campagne">
