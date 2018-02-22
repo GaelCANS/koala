@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Market;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -15,7 +16,9 @@ class MarketController extends Controller
      */
     public function index()
     {
-        return view('markets.index');
+        $markets = Market::notdeleted()->orderBy('name')->get();
+        //dd($markets);
+        return view('markets.index' , compact('markets') );
     }
 
     /**

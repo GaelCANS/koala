@@ -1,4 +1,4 @@
-<table>
+<table id="channels-table" class="ajax-action">
     <thead>
     <tr>
         <th>
@@ -31,23 +31,6 @@
 
     @endif
 
-    <tfoot>
-    <tr>
-        <td>
+    @include('campaigns.addchannel')
 
-        </td>
-        <td>
-
-        </td>
-        <td>
-
-        </td>
-        <td>
-
-        </td>
-        <td>
-
-        </td>
-    </tr>
-    </tfoot>
 </table>

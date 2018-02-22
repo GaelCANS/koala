@@ -29,6 +29,18 @@ Route::resource(
 );
 
 
+// Market
+Route::resource(
+    'markets',
+    'MarketController' ,
+    [
+        'names' => [
+            'index' => 'markets-index'
+        ]
+    ]
+);
+
+
 // Campaign
 Route::resource(
     'campaigns',
@@ -39,10 +51,12 @@ Route::resource(
         ]
     ]
 );
+Route::get('/new-campaign', 'CampaignController@newcampaign')->name('new-campaign');
 
 // CampaignChannel
 Route::post('campaign-channel/{id}/unlink-channel/{uniqid}', ['uses' => 'CampaignchannelController@destroy', 'as' => 'unlink-channel']);
 Route::post('campaign-channel/{id}/duplicate-channel/{uniqid}', ['uses' => 'CampaignchannelController@duplicate', 'as' => 'duplicate-channel']);
+Route::post('campaign-channel/{id}/add-channel/{selected}', ['uses' => 'CampaignchannelController@add', 'as' => 'add-channel']);
 
 
 // CMM

@@ -84,6 +84,8 @@ class CampaignChannel extends Model
         }
     }
 
+    
+
 
     /**
      * When a campaign_channel is delete, campaign_channel_indicators are automatically deleted

@@ -6,12 +6,12 @@
     </li>
     <li class="list-inline-item">
         <div class="form-group">
-            {!! Form::number( 'indicator['.$cci->uniqid.'][goal]' , $cci->goal , array( 'class' => 'form-control' ) ) !!}
+            {!! Form::number( 'indicator['.$cci->uniqid.'][goal]' , $cci->goal , array( 'class' => 'form-control duplicatable' , 'data-name' => 'goal' ) ) !!}
         </div>
     </li>
     <li class="list-inline-item">
         <div class="form-group">
-            {!! Form::number( 'indicator['.$cci->uniqid.'][result]' , $cci->result , array( 'class' => 'form-control' ) ) !!}
+            {!! Form::number( 'indicator['.$cci->uniqid.'][result]' , $cci->result , array( 'class' => 'form-control duplicatable' , 'data-name' => 'result' ) ) !!}
         </div>
     </li>
 </ul>

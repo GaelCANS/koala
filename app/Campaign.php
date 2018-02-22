@@ -41,11 +41,11 @@ class Campaign extends Model
     }
 
     public function setBeginAttribute($date) {
-        $this->attributes['begin'] = Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d');
+        $this->attributes['begin'] = !empty($date) ? Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d') : '';
     }
 
     public function setEndAttribute($date) {
-        $this->attributes['end'] = Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d');
+        $this->attributes['end'] = !empty($date) ? Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d') : '';
     }
 
 
@@ -66,6 +66,11 @@ class Campaign extends Model
     // many to many
     public function channels() {
         return $this->belongsToMany('App\Channel')->withPivot('id' , 'comment' , 'begin' , 'end' , 'uniqid' );
+    }
+
+    // many to many
+    public function campaignChannels() {
+        return $this->hasMany('App\CampaignChannels');
     }
 
 
