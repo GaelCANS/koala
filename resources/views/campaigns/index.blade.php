@@ -2,7 +2,7 @@
 
 @section('content')
     <h5 class="page-title d-inline-block mr-2">Campagnes</h5>
-    <button type="button" class="btn btn-secondary btn-xs mb-1" data-href="{{action('CampaignController@create')}}" title="Ajouter une campagne">+ Ajouter</button>
+    <button type="button" class="btn btn-secondary btn-xs mb-1" data-href="{{ route('new-campaign') }}" title="Ajouter une campagne">+ Ajouter</button>
 
     <div class="row">
         <div class="col-10 grid-margin">
