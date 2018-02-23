@@ -26,4 +26,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
+
+
+    /**
+     * MUTATORS & ACCESSORS
+     */
+    public function getFirstnameInitialAttribute() {
+        return $this->firstname." ".substr($this->name, 0, 1).".";
+    }
+
 }

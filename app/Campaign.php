@@ -17,8 +17,9 @@ class Campaign extends Model
      * MUTATORS & ACCESSORS
      */
     public function getBeginshortAttribute() {
+        if (empty($this->begin)) return '';
         return $this->begin != '0000-00-00' ?
-            Carbon::createFromFormat('Y-m-d', $this->begin)->format('d/m/y') :
+            Carbon::createFromFormat('d/m/y', $this->begin)->format('m/y') :
             '';
     }
 
@@ -29,8 +30,9 @@ class Campaign extends Model
     }
 
     public function getEndshortAttribute() {
+        if (empty($this->end)) return '';
         return $this->end != '0000-00-00' ?
-            Carbon::createFromFormat('Y-m-d', $this->end)->format('d/m/y') :
+            Carbon::createFromFormat('d/m/y', $this->end)->format('m/y') :
             '';
     }
 
@@ -38,6 +40,32 @@ class Campaign extends Model
         return $date != '0000-00-00' ?
             Carbon::createFromFormat('Y-m-d', $date)->format('d/m/y') :
             '';
+    }
+
+    public function getPeriodAttribute()
+    {
+        $begin  = $this->begin != '' ? Carbon::createFromFormat('d/m/y', $this->begin)->format('m/y') : '';
+        $end    = $this->end != '' ? Carbon::createFromFormat('d/m/y', $this->end)->format('m/y') : '';
+
+        if ($begin != '' && $end != '')
+            return $begin.' au '.$end;
+        elseif ($begin != '' )
+            return Carbon::createFromFormat('m/y', $begin)->format('F Y');
+        elseif ($end != '' )
+            return Carbon::createFromFormat('m/y', $end)->format('F Y');
+        else
+            return '';
+    }
+
+    public function getCountChannelAttribute()
+    {
+        return count($this->Channels);
+    }
+
+    public function getInProgressAttribute()
+    {
+        if ($this->begin == '') return true;
+        return Carbon::createFromFormat('d/m/y', $this->begin)->isPast();
     }
 
     public function setBeginAttribute($date) {
@@ -89,13 +117,20 @@ class Campaign extends Model
      */
 
     // many to many
-    public function channels() {
+    public function channels()
+    {
         return $this->belongsToMany('App\Channel')->withPivot('id' , 'comment' , 'begin' , 'end' , 'uniqid' );
     }
 
     // many to many
-    public function campaignChannels() {
+    public function campaignChannels()
+    {
         return $this->hasMany('App\CampaignChannels');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 
 
@@ -105,6 +140,22 @@ class Campaign extends Model
     public function scopeSavedOnly($query)
     {
         return $query->where('saved','1');
+    }
+
+    public function scopeBetweenDate($query , $date)
+    {
+        return $query->where(
+                    function ($q) use ($date) {
+                        $q  ->where('begin', '>=' , $date->format('Y-m-d'))
+                            ->orWhere('begin', '0000-00-00');
+                    }
+                )
+                ->where(
+                    function ($q) use ($date) {
+                        $q  ->where('end', '<=' , $date->format('Y-m-d'))
+                            ->orWhere('end', '0000-00-00');
+                    }
+                );
     }
 
 

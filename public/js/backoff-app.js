@@ -19,6 +19,14 @@ $(document).ready(function(){
 
 
     /**
+     * Initialsation data-href
+     */
+    $('.ajax-action').on('click', '[data-href]' , function () {
+        window.location.href = $(this).data('href');
+    });
+
+
+    /**
      * Gestion des ajax-del
      *
      * Si l'attribut data-msg est renseigné, on affiche un message de confirmation avant traitement
@@ -138,6 +146,28 @@ $(document).ready(function(){
         }
 
         $(this).val(0).trigger('change.select2');
+    });
+
+
+    
+    $('#block-campaigns').on('click' , '.btn-period-campaign' , function(e){
+        var link = $(this).data('link');
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            method: "GET",
+            url: link,
+            data: {}
+        })
+        .done(function( data ) {
+
+            $('#block-campaigns').html(data.html);
+        });
     });
 
 

@@ -66,6 +66,7 @@ Route::get('/cmm', 'CmmController@index')->name('cmm-index');
 
 // Dashboard
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard-index');
+Route::get('/dashboard-reload-campaigns/{period}', 'DashboardController@reloadCampaigns')->name('dashboard-reload-campaigns');
 
 
 // Planning
