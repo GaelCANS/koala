@@ -75,6 +75,15 @@ class Campaign extends Model
 
 
     /**
+     * SCOPES
+     */
+    public function scopeSavedOnly($query)
+    {
+        return $query->where('saved','1');
+    }
+
+
+    /**
      * OVERRIDE
      */
 

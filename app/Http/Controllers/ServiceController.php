@@ -18,7 +18,7 @@ class ServiceController extends Controller
     public function index()
     {
 
-        $services = Service::where('delete' , '0')->orderBy('name')->get();
+        $services = Service::Notdeleted()->orderBy('name')->get();
         return view('services.index' , compact('services'));
     }
 

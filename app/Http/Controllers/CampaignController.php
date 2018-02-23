@@ -23,7 +23,7 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        $campaigns = Campaign::where('delete','0')->orderBy('id' , 'DESC')->get();
+        $campaigns = Campaign::notdeleted()->savedOnly()->orderBy('id' , 'DESC')->get();
         return view('campaigns.index' , compact('campaigns'));
     }
 

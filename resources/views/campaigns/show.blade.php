@@ -32,6 +32,7 @@
             <div class="form-group">
                 <label for="name">Nom</label>
                 {!! Form::text( 'name' , null , array( 'class' => 'form-control' , 'placeholder' => "Saisissez le nom de la campagne" ) ) !!}
+                {!! Form::hidden( 'saved' , 1  ) !!}
             </div>
         </div>
 

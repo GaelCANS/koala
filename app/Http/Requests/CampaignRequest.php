@@ -47,6 +47,7 @@ class CampaignRequest extends Request
     {
         return array(
             "name"          => "required|string|min:2",
+            "saved"         => "required|in:1",
             "description"   => "string",
             "begin"         => "date_format:d/m/y",
             "end"           => "date_format:d/m/y",
