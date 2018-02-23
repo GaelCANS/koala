@@ -20300,7 +20300,8 @@ body.avgrund-active {
 .icheck-flat,
 .icheck-square,
 .icheck-line {
-    margin-bottom: .5rem; }
+    margin-bottom: .25rem;
+    display: inline-block;}
 .icheck label,
 .icheck-flat label,
 .icheck-square label,

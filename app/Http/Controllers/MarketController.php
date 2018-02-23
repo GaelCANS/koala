@@ -6,6 +6,7 @@ use App\Market;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\URL;
 
 class MarketController extends Controller
 {
@@ -17,7 +18,6 @@ class MarketController extends Controller
     public function index()
     {
         $markets = Market::notdeleted()->orderBy('name')->get();
-        //dd($markets);
         return view('markets.index' , compact('markets') );
     }
 
@@ -28,7 +28,8 @@ class MarketController extends Controller
      */
     public function create()
     {
-        //
+        $market = null;
+        return view('markets.show' , compact('market'));
     }
 
     /**
@@ -39,7 +40,8 @@ class MarketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $market = Market::create( $request->only('name' , 'abbreviation', 'class_css') );
+        return redirect(action('MarketController@index'))->with('success' , "Le marché {$market->name} a bien été crée.");
     }
 
     /**
@@ -50,7 +52,8 @@ class MarketController extends Controller
      */
     public function show($id)
     {
-        //
+       $market = Market::findOrFail($id);
+       return view('markets.show', compact('market'));
     }
 
     /**
@@ -73,7 +76,10 @@ class MarketController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $market = Market::findOrFail($id);
+        $market->update( $request->all() );
+        return redirect()->back()->with('success' , "Le marché vient d'être mis à jour");
+
     }
 
     /**
@@ -84,6 +90,9 @@ class MarketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $market = Market::findOrFail($id);
+        $market->update( array('delete' => '1') );
+        //redirect()->back()->with('success' , "Le marché vient d'être mis à jour");
+        return redirect(URL::previous())->with('success' , 'Le marché a bien été supprimé');
     }
 }

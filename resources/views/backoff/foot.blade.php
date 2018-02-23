@@ -26,6 +26,8 @@
 <script src="{{ url('/theme_modules/morris.js/morris.min.js') }}"></script>
 <script src="{{ url('/theme_modules/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
 <script src="{{ url('/theme_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ url('/theme_modules/icheck/icheck.min.js') }}"></script>
+
 <!-- End plugin js for this page-->
 <!-- inject:js -->
 <script src="{{ url('/js/off-canvas.js') }}"></script>
@@ -36,6 +38,9 @@
 <!-- endinject -->
 <!-- Custom js for this page-->
 <script src="{{ url('/js/dashboard.js') }}"></script>
+<script src="{{ url('/js/iCheck.js') }}?v={{ time() }}"></script>
+
+
 <!-- Custom js for this page-->
 <!-- End custom js for this page-->
 <script>
@@ -47,6 +52,15 @@
     $(".js-example-placeholder-multiple").on('select2:select' , function () {
         $(".select2-search__field").attr('placeholder' , "+ Ajouter");
     });
+
+    $(".js-example-placeholder-multiple").select2({
+        placeholder: "+ Ajouter"
+    });
+
+</script>
+
+<script>
+
 </script>
 <!-- Custom js for this page-->
 

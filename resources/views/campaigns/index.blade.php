@@ -16,6 +16,7 @@
                                 <span class="fa fa-calendar"></span>
                             </div>
                         </div>
+                        <span class="text-muted mr-1 ml-1">au</span>
                         <div class="input-group date datepicker">
                             <input type="text" class="form-control" placeholder="Date de fin" />
                             <div class="input-group-addon">
@@ -23,13 +24,44 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <h6>Marchés</h6>
-                        .
+                        <div id="part" class="icheck-line">
+                            <input tabindex="1" type="checkbox" id="line-checkbox-1"  checked="" />
+                            <label for="line-checkbox-1">PART</label>
+                        </div>
+                        <div id="pro" class="icheck-line">
+                            <input tabindex="2" type="checkbox" id="line-checkbox-2" checked=""  />
+                            <label for="line-checkbox-2">PRO</label>
+                        </div>
+                        <div id="agri" class="icheck-line">
+                            <input tabindex="3" type="checkbox" id="line-checkbox-3" checked="" />
+                            <label for="line-checkbox-3">AGRI</label>
+                        </div>
+                        <div id="bp" class="icheck-line">
+                            <input tabindex="4" type="checkbox" id="line-checkbox-4" checked=""  />
+                            <label for="line-checkbox-4">BP</label>
+                        </div>
+                        <div id="soc" class="icheck-line">
+                            <input tabindex="5" type="checkbox" id="line-checkbox-5" checked="" />
+                            <label for="line-checkbox-5">SOC</label>
+                        </div>
+
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <h6>Résultats</h6>
-                        .
+                        <div id="results" class="icheck-line success">
+                            <input tabindex="1" type="checkbox" id="line-results-checkbox-1"  checked="" />
+                            <label for="line-results-checkbox-1">AJOUTÉS</label>
+                        </div>
+                        <div id="results" class="icheck-line warning">
+                            <input tabindex="2" type="checkbox" id="line-results-checkbox-2" checked=""  />
+                            <label for="line-results-checkbox-2">PARTIELS</label>
+                        </div>
+                        <div id="results" class="icheck-line danger">
+                            <input tabindex="3" type="checkbox" id="line-results-checkbox-3" checked="" />
+                            <label for="line-results-checkbox-3">AUCUNS</label>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -70,9 +102,8 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-border-color"></i></button>
-                            <button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-content-copy"></i></button>
-                            <button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-delete"></i></button>
+                            <button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-export"></i></button>
+                            <button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-printer"></i></button>
                         </div>
                     </div>
                 </div>
