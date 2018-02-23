@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class CampaignChannelIndicator extends Model
@@ -65,6 +66,31 @@ class CampaignChannelIndicator extends Model
                 $campaignChannelIndicator->save();
             }
         }
+    }
+
+
+    /**
+     * Duplicate Campaign - duplicate campaignChannelIndicator for the new campaign
+     *
+     * @param $campaignChannel_id
+     * @param $newCampaignChannel_id
+     */
+    public static function duplicateCampaign($campaignChannel_id, $newCampaignChannel_id)
+    {
+        // Load current CampaignChannel
+        $campaignChannel = CampaignChannel::findOrFail($campaignChannel_id);
+        $campaignChannel->load('CampaignChannelIndicators');
+
+        if ($campaignChannel->CampaignChannelIndicators) {
+            foreach ($campaignChannel->CampaignChannelIndicators as $indicator) {
+                $newIndicator = $indicator->replicate();
+                $newIndicator->campaign_channel_id = $newCampaignChannel_id;
+                $newIndicator->created_at = Carbon::now();
+                $newIndicator->uniqid = uniqid();
+                $newIndicator->save();
+            }
+        }
+
     }
 
 

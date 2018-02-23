@@ -60,6 +60,31 @@ class Campaign extends Model
 
 
     /**
+     * Duplicate campaign and campaignChannel and campaignChannelIndicator
+     *
+     * @param $id
+     * @return mixed
+     */
+    public static function duplicateCampaign($id)
+    {
+        // Load current campaign and relations
+        $campaign       = self::findOrFail($id);
+        $campaign->load('Channels');
+
+        // Duplicate campaign
+        $newCampaign    = $campaign->replicate();
+        $newCampaign->created_at = Carbon::now();
+        $newCampaign->name = "[Copie] ".$campaign->name;
+        $newCampaign->save();
+
+        // Duplicate campaign_channels if exists
+        CampaignChannel::duplicateCampaign($campaign,$newCampaign);
+
+        return $campaign;
+    }
+
+
+    /**
      * RELATIONSHIPS
      */
 

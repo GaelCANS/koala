@@ -67,6 +67,37 @@ class CampaignChannel extends Model
 
 
     /**
+     * Duplicate campaign - duplicate campaignChannel for the new campaign
+     *
+     * @param $campaign
+     * @param $newCampaign
+     */
+    public static function duplicateCampaign($campaign, $newCampaign)
+    {
+        // Duplicate campaignChannel if exist
+        if ($campaign->Channels) {
+            foreach ($campaign->Channels as $channel) {
+                if ($channel->pivot) {
+                    $newCampaignChannel = self::create(
+                        array(
+                            'campaign_id'   => $newCampaign->id,
+                            'channel_id'    => $channel->pivot->channel_id,
+                            'comment'       => $channel->pivot->comment,
+                            'begin'         => $channel->pivot->begin,
+                            'end'           => $channel->pivot->end,
+                            'uniqid'        => uniqid()
+                        )
+                    );
+
+                    // Duplicate CampaignChannelIndicator if exist
+                    CampaignChannelIndicator::duplicateCampaign($channel->pivot->id , $newCampaignChannel->id);
+                }
+            }
+        }
+    }
+
+
+    /**
      * Delete the campaign channel deleted by user
      * @param $fresh
      * @param $id

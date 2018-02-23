@@ -162,5 +162,17 @@ class CampaignController extends Controller
     }
 
 
+    /**
+     * Duplicate campaign
+     *
+     * @return mixed
+     */
+    public function duplicatecampaign($id)
+    {
+        $campaign = Campaign::duplicateCampaign($id);
+        return redirect(action('CampaignController@show' , $campaign))->with('success' , 'Votre campagne a bien été dupliquée');
+    }
+
+
 
 }
