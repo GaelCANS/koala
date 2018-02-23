@@ -85,9 +85,20 @@ $(document).ready(function(){
                 $('.to-focus').last().focus();
 
                 if ($('#channel-'+data.parent+'.from-ajax').length > 0) {
+
+                    // Duplication du commentaire
                     var comment = $('#channel-'+data.parent+' [data-name="comment"]').val();
-                    console.log(comment);
                     $('#channel-'+data.newItem+' [data-name="comment"]').val(comment);
+
+                    // Duplication des valeurs d'indicateurs
+                    $('#channel-'+data.parent+' .duplicatable-indicator').each(function(){
+
+                        var indicatorValue  = $(this).val();
+                        var indicatorName   = $(this).data('name');
+                        var indicatorId     = $(this).data('indicator');
+                        $('#channel-'+data.newItem+' [data-name="'+indicatorName+'"][data-indicator="'+indicatorId+'"]').val(indicatorValue);
+
+                    });
                 }
 
                 // TODO - reprendre duplication des indicateurs dans le cas d'une duplication d'un élément (qui vient d'être ajouté ou dupliqué)
