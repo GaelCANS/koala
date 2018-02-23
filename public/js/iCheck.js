@@ -25,10 +25,11 @@
       label.remove();
       self.iCheck({
           checkboxClass: 'icheckbox_line-blue',
-          radioClass: 'iradio_line',
-          insert: '<div class="icheck_line-icon"></div>' + label_text
+          insert: label_text
       });
     }
+
+     
     $('.icheck-polaris input').iCheck({
         checkboxClass: 'icheckbox_polaris',
         radioClass: 'iradio_polaris',
