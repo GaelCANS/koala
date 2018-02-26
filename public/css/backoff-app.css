@@ -7691,7 +7691,14 @@ caption {
     caption-side: bottom; }
 
 th {
-    text-align: inherit; }
+    text-align: inherit;
+    border-top: 0;
+    border-bottom-width: 1px;
+    font-weight: normal;
+    color: #8d949b;
+    font-size: 12px;
+    text-align: center;
+    height: auto;}
 
 label {
     display: inline-block;
@@ -8967,6 +8974,26 @@ select.tt-hint:not([size]):not([multiple]),
     color: #fff;
     background-color: rgba(40, 167, 69, 0.8);
     border-radius: .2rem; }
+
+
+.label-indicator {
+    margin-bottom: 0px;
+    width: 90px;
+    text-align: left;
+}
+
+.indicator input {
+    width: 70px;
+    text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
 
 .was-validated .form-control:valid, .was-validated .asColorPicker-input:valid, .was-validated .dataTables_wrapper select:valid, .dataTables_wrapper .was-validated select:valid, .was-validated .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text]:valid, .jsgrid .jsgrid-table .jsgrid-filter-row .was-validated input[type=text]:valid, .was-validated
 .jsgrid .jsgrid-table .jsgrid-filter-row select:valid,
@@ -20067,6 +20094,14 @@ body.avgrund-active {
     font-size: 0.75rem; }
 
 /* Datepicker */
+#channels-table input.datepicker  {
+    cursor:pointer;
+    width: 90px;
+    margin-left: 5px;
+}
+
+
+
 .datepicker.datepicker-dropdown, .datepicker.datepicker-inline {
     padding: 0 25px;
     width: 30%;
@@ -20829,43 +20864,40 @@ body.avgrund-active {
 .br-theme-bars-pill .br-widget a {
     line-height: 2.5; }
 
+
 /* Select2 */
-
-.select2-selection--multiple {
-    background:transparent;
-}
-
-.select2-container .select2-search--inline {
-    color: #ffffff;
-    border: 0;
-    border-radius: 3px;
-    padding: 6px;
-    font-size: .625rem;
-    font-family: inherit;
-    line-height: 1;
-    background: white;
-    margin-top:0px;
-}
-
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background: #01a3a6; }
+    background: #03a9f3; }
 
 .select2-container--default .select2-selection--single,
 .select2-container--default .select2-dropdown,
 .select2-container--default .select2-selection--multiple {
-    border:none;
-    background: transparent;
-}
+    border-color: #f3f3f3; }
 .select2-container--default .select2-selection--single .select2-search__field,
 .select2-container--default .select2-dropdown .select2-search__field,
 .select2-container--default .select2-selection--multiple .select2-search__field {
-    border: none;
-    width:53px!important;
-    margin-top:0px;
-}
+    border-color: #f3f3f3; }
 
 .select2-container--default .select2-selection--single {
     height: auto; }
+
+#channels-table .select2-container--default .select2-selection--single {
+    border: 1px solid #4d4444;
+    font-size: .70rem;
+    font-weight: initial;
+    line-height: 1;
+    padding: .25rem 0.375rem;
+    border-radius: 10rem;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    margin-top: -4px;
+    margin-left:-6px;
+}
+
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     line-height: 14px; }
 
@@ -20873,8 +20905,7 @@ body.avgrund-active {
     font-size: .8125rem; }
 
 .select2-container--default.select2-container--focus .select2-selection--multiple {
-    border:none;
-background: transparent;}
+    border-color: #f3f3f3; }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
     color: #ffffff;
@@ -20883,12 +20914,20 @@ background: transparent;}
     padding: 6px;
     font-size: .625rem;
     font-family: inherit;
-    line-height: 1;
-    margin-top:0px;}
+    line-height: 1; }
 .select2-container--default .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
     color: #ffffff; }
-.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(n+1) {
-    background: #01a3a6; }
+.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+1) {
+    background: #03a9f3; }
+.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+2) {
+    background: #00c292; }
+.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+3) {
+    background: #ab8ce4; }
+.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+4) {
+    background: #fb9678; }
+.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+5) {
+    background: #ffb463; }
+
 
 
 /* Summernote Editor */

@@ -6,7 +6,6 @@
 
 <!-- Select 2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js" integrity="sha256-FcVIknBiVRk5KLQeIBb9VQdtFRMqwffXyZ+D8q0gQro=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 <!-- Chargement des JS -->
 <script src="{{ url('/js/backoff-app.js?v='.time() ) }}"></script>
@@ -49,21 +48,35 @@
 </script>
 
 <script>
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
 
     $(".js-example-placeholder-multiple").on('select2:select' , function () {
         $(".select2-search__field").attr('placeholder' , "+ Ajouter");
     });
 
-    $('.js-example-basic-single').select2({
-        placeholder: 'Select an option'
-    });
-
-    $(".js-example-basic-multiple-limit").select2({
-        maximumSelectionLength: 2
+    $(".js-example-placeholder-multiple").select2({
+        placeholder: "+ Ajouter"
     });
 
 
+    $(".js-example-placeholder-single").select2({
+        placeholder: "+ Ajouter",
+        allowClear: true
+    });
 
+    /*
+    $(".canaux").select2({
+        width: 'auto' // need to override the changed default
+    });
+
+    */
 </script>
 
 <script>

@@ -132,3 +132,5 @@ class CampaignChannel extends Model
     }
 
 }
+
+

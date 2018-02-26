@@ -69,56 +69,19 @@
                         </div>
                         <div class="col-4">
                             <h6>Responsable de la campagne</h6>
-                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-basic-single js-states select2']) !!}
+                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-placeholder-single js-states form-control']) !!}
                         </div>
                         <div class="col-4">
                             <h6>Contributeurs</h6>
-                            {!! Form::select('services',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control select2', 'multiple' => 'multiple' ]) !!}
-
-                            <select class="js-example-placeholder-multiple js-states form-control" name="states[]" multiple="multiple" >
-                                <!--<option selected value="tous">Tous</option>
-                                <option value="email">email</option>
-                                <option value="bannière">bannière</option>
-                                <option value="dab">dab</option>-->
-                            </select>
+                            {!! Form::select('services',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control', 'multiple' => 'multiple' ]) !!}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
-                    <div class="card-body pb-0">
+                    <div class="card-body">
                         @include('campaigns.channels')
-
-                        <!--<div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th>Canaux</th>
-                                    <th>Périodes</th>
-                                    <th>Commentaires</th>
-                                    <th>Indicateurs / Objectif / Résultats </th>
-                                    <th>Actions</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr class="inprogress" data-href='campaingns'>
-                                    <td><div class="badge badge-outline-primary badge-pill">email</div></td>
-                                    <td>03/01 au 15/02</td>
-                                    <td>.</td>
-                                    <td>
-                                        .
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-content-copy"></i></button>
-                                            <button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-delete"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>-->
                     </div>
                 </div>
             </div>
