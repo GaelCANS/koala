@@ -11955,7 +11955,7 @@ a.bg-danger:focus, .settings-panel .color-tiles a.tiles.danger:focus, a.bg-dange
     background-color: #fa6f46 !important; }
 
 .bg-light {
-    background-color: #ffffff !important; }
+    background-color: #f6f8fa !important; }
 
 a.bg-light:focus, a.bg-light:hover {
     background-color: #e6e6e6 !important; }
@@ -15503,6 +15503,81 @@ pre {
 
 /*-------------------------------------------------------------------*/
 /* === Components === */
+
+
+.switch {
+    position: relative;
+    width: 110px;
+    height: 30px;
+    text-align: center;
+    background: #01a3a6;
+    transition: all 0.2s ease;
+    border-radius: 0.1875rem;
+    font-size:12px;
+    margin-top:-9px;
+}
+.switch span {
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    top: 50%;
+    left: 50%;
+    margin: -2px 0px 0px -8px;
+    background: #fff;
+    display: block;
+    transform: rotate(-45deg);
+    transition: all 0.2s ease;
+}
+.switch span:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 4px;
+    height: 12px;
+    margin-top: -8px;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+input[type=radio] {
+    display: none;
+}
+.switch label {
+    cursor: pointer;
+    color: rgba(0,0,0,0.2);
+    width: 45px;
+    line-height: 30px;
+    transition: all 0.2s ease;
+}
+label[for=cmm1] {
+    position: absolute;
+    left: 0px;
+    height: 20px;
+}
+label[for=cmm0] {
+    position: absolute;
+    right: 0px;
+}
+#cmm0:checked ~ .switch {
+    background: #dadada;
+}
+#cmm0:checked ~ .switch span {
+    background: #fff;
+    margin-left: -8px;
+}
+#cmm0:checked ~ .switch span:after {
+    background: #fff;
+    height: 20px;
+    margin-top: -8px;
+    margin-left: 8px;
+}
+#cmm1:checked ~ .switch label[for=cmm1] {
+    color: #fff;
+}
+#cmm0:checked ~ .switch label[for=cmm0] {
+    color: #fff;
+}
+
+
 /* Accordions */
 .accordion .card {
     margin-bottom: 10px;

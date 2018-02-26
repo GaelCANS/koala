@@ -6,6 +6,7 @@
 
 <!-- Select 2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js" integrity="sha256-FcVIknBiVRk5KLQeIBb9VQdtFRMqwffXyZ+D8q0gQro=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 <!-- Chargement des JS -->
 <script src="{{ url('/js/backoff-app.js?v='.time() ) }}"></script>
@@ -53,8 +54,12 @@
         $(".select2-search__field").attr('placeholder' , "+ Ajouter");
     });
 
-    $(".js-example-placeholder-multiple").select2({
-        placeholder: "+ Ajouter"
+    $('.js-example-basic-single').select2({
+        placeholder: 'Select an option'
+    });
+
+    $(".js-example-basic-multiple-limit").select2({
+        maximumSelectionLength: 2
     });
 
 

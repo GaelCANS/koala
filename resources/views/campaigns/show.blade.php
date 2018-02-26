@@ -3,7 +3,6 @@
 @section('content')
     <h5 class="page-title d-inline-block mr-2">
         @if( $campaign == null ) Création @else Édition @endif d'une fiche campagne @if( $campaign != null )
-            <small class="text-capitalize">{{$campaign->name}}</small>
         @endif
     </h5>
     <div class="d-inline-block">
@@ -66,19 +65,21 @@
                     <div class="row">
                         <div class="col-4">
                             <h6>Objectif(s) de la campagne</h6>
-                            {!! Form::text( 'description' , null , array( 'class' => 'form-control' ) ) !!}
+                            {!! Form::textarea( 'description' , null , array( 'class' => 'form-control' , 'rows' => '2', 'cols' => '10') ) !!}
                         </div>
                         <div class="col-4">
                             <h6>Responsable de la campagne</h6>
-                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-placeholder-single js-states form-control']) !!}
+                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-basic-single js-states select2']) !!}
                         </div>
                         <div class="col-4">
                             <h6>Contributeurs</h6>
+                            {!! Form::select('services',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control select2', 'multiple' => 'multiple' ]) !!}
+
                             <select class="js-example-placeholder-multiple js-states form-control" name="states[]" multiple="multiple" >
-                                <option selected value="tous">Tous</option>
+                                <!--<option selected value="tous">Tous</option>
                                 <option value="email">email</option>
                                 <option value="bannière">bannière</option>
-                                <option value="dab">dab</option>
+                                <option value="dab">dab</option>-->
                             </select>
                         </div>
                     </div>
@@ -130,36 +131,42 @@
 
         <div class="col-md-3 grid-margin">
             <div class="card  grid-margin">
-                <div class="card-body pt-3 pb-0  text-center">
-                    <div class="text-center ">
-                        <h6 class="mt-1">CMM</h6>
-                    </div>
+                <div class="card-body pt-3 pb-3 pl-3 pr-3 text-center">
+                        <h6 class="mt-1 text-center mb-4">CMM</h6>
                     <div class="row">
                         <div class="col-12">
-                            <div class="wrapper py-2 ">
-                                <div class="">
-                                    <label for="cmm1">Oui</label>
-                                    {!! Form::radio( 'cmm' , 1 , false , array('id' => 'cmm1' ) ) !!}
-                                    <label for="cmm0">Non</label>
-                                    {!! Form::radio( 'cmm' , 0 , false , array('id' => 'cmm0' , ($campaign == null ? 'checked="checked"' : '') ) ) !!}
-                                    <div class="card-subtitle">Commentaires</div>
-                                    {!! Form::text( 'cmm_comments' , null , array( 'class' => 'form-control bg-dark' ) ) !!}
+                            <div class="wrapper d-md-flex mb-3">
+                                <h6 class="text-muted">Validé en CMM</h6>
+                                <div class="wrapper ml-md-3">
+                                    <div class="toggle-radio">
+                                        {!! Form::radio( 'cmm' , 1 , false , array('id' => 'cmm1' ) ) !!}
+                                        {!! Form::radio( 'cmm' , 0 , false , array('id' => 'cmm0' , ($campaign == null ? 'checked="checked"' : '') ) ) !!}
+                                        <div class="switch">
+                                            <label for="cmm1">Oui</label>
+                                            <label for="cmm0">Non</label>
+                                            <span></span>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
+                                <h6 class="text-muted text-left">Commentaires</h6>
+                                {!! Form::textarea( 'cmm_comments' , null , array( 'class' => 'form-control bg-light', 'rows' => '5', 'cols' => '10') ) !!}
+
+
+
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card grid-margin">
-                <div class="card-body pt-3 pb-0  text-center">
-                    <div class="text-center ">
-                        <h6 class="mt-1">Résultats</h6>
-                    </div>
+                <div class="card-body pt-3 pb-3 pl-3 pr-3">
+                        <h6 class="mt-1 text-center">Résultats</h6>
                     <div class="row">
                         <div class="col-12">
-                            <div class="wrapper py-2">
+                            <div class="wrapper">
                                 <div class="d-flex">
-                                    {!! Form::text( 'results' , null , array( 'class' => 'form-control bg-dark' ) ) !!}
+                                    {!! Form::textarea( 'results' , null , array( 'class' => 'form-control bg-light' , 'rows' => '5', 'cols' => '10') ) !!}
                                 </div>
                             </div>
                         </div>
@@ -167,15 +174,15 @@
                 </div>
             </div>
             <div class="card grid-margin">
-                <div class="card-body pt-3 pb-0  text-center">
+                <div class="card-body pt-3 pb-3 pl-3 pr-3">
                     <div class="text-center ">
                         <h6 class="mt-1">Ressources</h6>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <div class="wrapper py-2">
+                            <div class="wrapper">
                                 <div class="d-flex">
-                                    {!! Form::text( 'resource_link' , null , array( 'class' => 'form-control bg-dark' , 'placeholder' => 'Chemin APUBLIC' ) ) !!}
+                                    {!! Form::text( 'resource_link' , null , array( 'class' => 'form-control bg-light' , 'placeholder' => 'Chemin APUBLIC' ) ) !!}
                                 </div>
                             </div>
                         </div>
