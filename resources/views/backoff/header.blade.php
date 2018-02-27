@@ -25,9 +25,9 @@
                 </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item btn-group ml-auto mr-2 border-0 bg-transparent">
+                <!--<li class="nav-item btn-group ml-auto mr-2 border-0 bg-transparent">
                     <input type="text" class="form-control " placeholder="Rechercher" />
-                </li>
+                </li>-->
                 <li class="nav-item dropdown">
                     <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                         <i class="icon-arrow-down mx-0"></i>
