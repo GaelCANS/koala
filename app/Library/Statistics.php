@@ -52,24 +52,6 @@ class Statistics
         return $this->doCalcul($date);
     }
 
-    private function doCalculOld($date)
-    {
-        $begin = $this->firstDay($date);
-        $end = $this->lastDay($date);
-
-        $average     = DB::table('campaigns')
-                     ->join('campaign_channel' , 'campaigns.id' , '=' , 'campaign_channel.campaign_id')
-                     ->where('campaigns.delete' , '0')
-                     ->where('campaigns.saved' , '1')
-                     ->where('campaigns.end' , '<=' , Carbon::now()->format('Y-m-d'))
-                     ->whereBetween('campaigns.end' , array($begin , $end) )
-                     ->join('campaign_channel_indicator' , 'campaign_channel.id' , '=' , 'campaign_channel_indicator.campaign_channel_id')
-                     ->where('campaign_channel_indicator.indicator_id', $this->indicator->id)
-                     ->where('campaign_channel_indicator.result' , '>' , 0)
-                     ->avg('campaign_channel_indicator.result');
-
-        return round($average);
-    }
 
     private function doCalcul($date)
     {
