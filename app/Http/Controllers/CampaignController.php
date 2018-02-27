@@ -122,7 +122,7 @@ class CampaignController extends Controller
     {
         // Update de la campagne
         $campaign = Campaign::findOrFail($id);
-        $campaign->update( $request->except('channel' , 'indicator' , 'add-new-channel') );
+        $campaign->update( $request->except('channel' , 'indicator' , 'add-new-channel' , 'states') );
 
         // Sync campaign_channel (create, update, delete)
         $channelDatas           = $request->only('channel');

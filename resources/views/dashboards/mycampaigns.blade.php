@@ -14,33 +14,29 @@
                     <div class="wrapper py-2">
                         <div class="d-flex">
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table class="table table-hover ajax-action">
                                     <tbody>
-                                    <tr class="inprogress" data-href='campaingns'>
-                                        <td class="text-left">Conquête parrainage</td>
-                                        <td>03/01 au 15/02</td>
-                                        <td>Samantha R.</td>
-                                    </tr>
-                                    <tr class="inprogress" data-href='campaingns'>
-                                        <td class="text-left">Conquête parrainage</td>
-                                        <td>03/01 au 15/02</td>
-                                        <td>Samantha R.</td>
-                                    </tr>
-                                    <tr data-href='campaingns'>
-                                        <td class="text-left">Conquête parrainage</td>
-                                        <td>03/01 au 15/02</td>
-                                        <td>Samantha R.</td>
-                                    </tr>
-                                    <tr data-href='campaingns'>
-                                        <td class="text-left">Conquête parrainage</td>
-                                        <td>03/01 au 15/02</td>
-                                        <td>Samantha R.</td>
-                                    </tr>
-                                    <tr data-href='campaingns'>
-                                        <td class="text-left">Conquête parrainage</td>
-                                        <td>03/01 au 15/02</td>
-                                        <td>Samantha R.</td>
-                                    </tr>
+                                    @forelse($mycampaigns as $mycampaign)
+                                        <tr class="@if($mycampaign->inProgress)inprogress @endif" data-href='{{action('CampaignController@show' , $mycampaign)}}'>
+                                            <td class="text-left">
+                                                {{ $mycampaign->name }}
+                                            </td>
+                                            <td title="{{ $mycampaign->begin }} - {{ $mycampaign->end }}">
+                                                {{ $mycampaign->period }}
+                                            </td>
+                                            <td>
+                                                @if($mycampaign->User)
+                                                    {{ $mycampaign->User->firstnameInitial }}
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="3">
+                                                Aucune campagne
+                                            </td>
+                                        </tr>
+                                    @endforelse
                                     </tbody>
                                 </table>
                             </div>

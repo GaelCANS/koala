@@ -27,6 +27,11 @@ class CampaignChannelIndicator extends Model
         return $this->belongsTo('App\Indicator');
     }
 
+    // 1 to 1
+    public function campaignChannel() {
+        return $this->belongsTo('App\campaignChannel');
+    }
+
 
     /**
      * Return goals and objectifs indicators for a campaign

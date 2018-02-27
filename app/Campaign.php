@@ -59,7 +59,14 @@ class Campaign extends Model
 
     public function getCountChannelAttribute()
     {
-        return count($this->Channels);
+        $channels = CampaignChannel::where('campaign_id' , $this->id)->groupBy('channel_id')->get();
+        return count($channels);
+    }
+
+    public function getChannelsDistinctAttribute()
+    {
+        $channels = CampaignChannel::where('campaign_id' , $this->id)->groupBy('channel_id')->get();
+        return $channels;
     }
 
     public function getInProgressAttribute()
@@ -146,13 +153,14 @@ class Campaign extends Model
     {
         return $query->where(
                     function ($q) use ($date) {
-                        $q  ->where('begin', '>=' , $date->format('Y-m-d'))
+
+                        $q  ->where('begin', '<=' , $date->startOfMonth()->format('Y-m-d'))
                             ->orWhere('begin', '0000-00-00');
                     }
                 )
                 ->where(
                     function ($q) use ($date) {
-                        $q  ->where('end', '<=' , $date->format('Y-m-d'))
+                        $q  ->where('end', '>=' , $date->endOfMonth()->format('Y-m-d'))
                             ->orWhere('end', '0000-00-00');
                     }
                 );

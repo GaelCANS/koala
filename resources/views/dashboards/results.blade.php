@@ -14,73 +14,35 @@
                     <div class="wrapper py-2">
                         <div class="d-flex">
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table class="table table-hover ajax-action">
                                     <tbody>
-                                    <tr data-href='campaingns'>
-                                        <td class="text-left">Conquête parrainage</td>
-                                        <td>03/01 au 15/02</td>
-                                        <td>
-                                            <div class="badge badge-outline-primary badge-pill">email</div>
-                                        </td>
-                                        <td>
-                                            <div class="text-center">
-                                                <h4 class="mb-0">33%</h4>
-                                                <small>ouvreurs</small>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-href='campaingns'>
-                                        <td class="text-left">EKO by CA</td>
-                                        <td>03/01 au 15/02</td>
-                                        <td>
-                                            <div class="badge badge-outline-primary badge-pill">bannière</div>
-                                        </td>
-                                        <td>
-                                            <div class="text-center">
-                                                <h4 class="mb-0">398</h4>
-                                                <small>clics</small>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-href='campaingns'>
-                                        <td class="text-left">Assemblée générale</td>
-                                        <td>03/02 au 20/03</td>
-                                        <td>
-                                            <div class="badge badge-outline-primary badge-pill">post fb</div>
-                                        </td>
-                                        <td>
-                                            <div class="text-center">
-                                                <h4 class="mb-0">34</h4>
-                                                <small>likes</small>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-href='campaingns'>
-                                        <td class="text-left">Bonus diversification épargne</td>
-                                        <td>12/11 au 19/02</td>
-                                        <td>
-                                            <div class="badge badge-outline-primary badge-pill">page</div>
-                                        </td>
-                                        <td>
-                                            <div class="text-center">
-                                                <h4 class="mb-0">1034</h4>
-                                                <small>vues</small>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-href='campaingns'>
-                                        <td class="text-left">Conquête parrainage</td>
-                                        <td>03/01 au 15/02</td>
-                                        <td>
-                                            <div class="badge badge-outline-primary badge-pill">email</div>
-                                        </td>
-                                        <td>
-                                            <div class="text-center">
-                                                <h4 class="mb-0">33%</h4>
-                                                <small>ouvreurs</small>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @forelse($indicators as $indicator)
+                                        <tr data-href='{{action('CampaignController@show' , $indicator->campaignChannel->campaign)}}'>
+                                            <td class="text-left">
+                                                {{ $indicator->campaignChannel->campaign->name }}
+                                            </td>
+                                            <td title="{{ $indicator->begin }} - {{ $indicator->end }}">
+                                                {{ $indicator->period }}
+                                            </td>
+                                            <td>
+                                                <div class="badge badge-outline-primary badge-pill">
+                                                    {{ $indicator->Indicator->Channel->name }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="text-center">
+                                                    <h4 class="mb-0">
+                                                        {{ $indicator->result }}
+                                                    </h4>
+                                                    <small>{{ $indicator->indicator->name }}</small>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="4">Aucun résultat</td>
+                                        </tr>
+                                    @endforelse
                                     </tbody>
                                 </table>
                             </div>

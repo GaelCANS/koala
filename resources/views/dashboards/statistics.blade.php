@@ -1,42 +1,52 @@
 <div class="col-md-6 col-lg-3 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h6 class="card-title text-center">1<sup>er</sup> trimestre 2018</h6>
+            <h6 class="card-title text-center">{{$quarter}}<sup>@if($quarter == 1) er @else ème @endif</sup> trimestre {{ date('Y') }}</h6>
 
+            @include(
+                'dashboards.block-stat' ,
+                array(
+                    'icon'      => 'mdi-email-open-outline' ,
+                    'value'     => $statistics[0]['today'] ,
+                    'title'     => $statistics[0]['before'] ,
+                    'text'      => $statistics[0]['name'],
+                    'percent'   => $statistics[0]['percent']
+                )
+            )
 
-            <div class="d-flex align-items-center justify-content-md-center">
-                <i class="mdi mdi-email-open-outline icon-lg text-secondary"></i>
-                <div class="col-md-6 ml-2 mr-2 text-center">
-                    <h3 class="mb-0" style="line-height: 19px;">33%</h3>
-                    <small class="text-muted">ouvreurs</small>
-                </div>
-                <div class="badge badge-pill badge-outline-success text-success"><i class="mdi mdi-arrow-up"></i> 2%</div>
+            @include(
+                'dashboards.block-stat' ,
+                array(
+                    'icon'      => 'mdi-facebook' ,
+                    'value'     => $statistics[1]['today'] ,
+                    'title'     => $statistics[1]['before'] ,
+                    'text'      => $statistics[1]['name'],
+                    'percent'   => $statistics[1]['percent']
+                )
+            )
 
-            </div>
-            <div class="d-flex align-items-center justify-content-md-center">
-                <i class="mdi mdi-facebook icon-lg text-secondary"></i>
-                <div class="col-md-6 ml-2 mr-2 text-center">
-                    <h3 class="mb-0" style="line-height: 19px;">18</h3>
-                    <small class="text-muted">likes</small>
-                </div>
-                <div class="badge badge-pill badge-outline-danger text-danger"><i class="mdi mdi-arrow-down"></i> 5%</div>
-            </div>
-            <div class="d-flex align-items-center justify-content-md-center">
-                <i class="mdi mdi-image icon-lg text-secondary"></i>
-                <div class="col-md-6 ml-2 mr-2 text-center">
-                    <h3 class="mb-0" style="line-height: 19px;">135</h3>
-                    <small class="text-muted">clics</small>
-                </div>
-                <div class="badge badge-pill badge-outline-success text-success"><i class="mdi mdi-arrow-up"></i> 7%</div>
-            </div>
-            <div class="d-flex align-items-center justify-content-md-center">
-                <i class="mdi mdi-format-page-break icon-lg text-secondary"></i>
-                <div class="col-md-6 ml-2 mr-2 text-center">
-                    <h3 class="mb-0" style="line-height: 19px;">1281</h3>
-                    <small class="text-muted">vues</small>
-                </div>
-                <div class="badge badge-pill badge-outline-success text-success"><i class="mdi mdi-arrow-up"></i> 4%</div>
-            </div>
+            @include(
+                'dashboards.block-stat' ,
+                array(
+                    'icon'      => 'mdi-image' ,
+                    'value'     => $statistics[2]['today'] ,
+                    'title'     => $statistics[2]['before'] ,
+                    'text'      => $statistics[2]['name'],
+                    'percent'   => $statistics[2]['percent']
+                )
+            )
+
+            @include(
+                'dashboards.block-stat' ,
+                array(
+                    'icon'      => 'mdi-format-page-break' ,
+                    'value'     => $statistics[3]['today'] ,
+                    'title'     => $statistics[3]['before'] ,
+                    'text'      => $statistics[3]['name'],
+                    'percent'   => $statistics[3]['percent']
+                )
+            )
+
             <hr>
             <h6 class="card-title text-center">L'emailing du mois <i class="mdi mdi-heart icon-sm" style="color:hotpink";></i></h6>
             <div class="d-flex align-items-center justify-content-md-center">

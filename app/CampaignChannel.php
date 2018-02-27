@@ -39,6 +39,16 @@ class CampaignChannel extends Model
         return $this->hasMany('App\CampaignChannelIndicator');
     }
 
+    // 1 to 1
+    public function campaign() {
+        return $this->belongsTo('App\Campaign');
+    }
+
+    // 1 to 1
+    public function channel() {
+        return $this->belongsTo('App\Channel');
+    }
+
 
 
     /**

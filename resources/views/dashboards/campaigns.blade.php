@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body pb-0">
             <div class="d-flex table-responsive">
-                <h6 class="card-title">Campagnes en cours / à venir {{ time() }}</h6>
+                <h6 class="card-title">Campagnes en cours / à venir</h6>
                 <div class=" ml-auto mr-0 border-0">
                     <nav>
                         <ul class="pagination pagination-info mb-1">
@@ -30,13 +30,13 @@
                     <tr class="@if($campaign->inProgress)inprogress @endif" data-href='{{action('CampaignController@show' , $campaign)}}'>
                         <td class="marches"><div class="badge part">@TODO</div></td>
                         <td class="text-left">{{ $campaign->name }}</td>
-                        <td>
+                        <td title="{{ $campaign->begin }} - {{ $campaign->end }}">
                             {{ $campaign->period }}
                         </td>
                         <td>
                             @if($campaign->countChannel<=5)
-                                @forelse($campaign->Channels as $channel)
-                                    <div class="badge badge-outline-primary badge-pill">{{ $channel->name }}</div>
+                                @forelse($campaign->channelsDistinct as $channel)
+                                    <div class="badge badge-outline-primary badge-pill">{{ $channel->Channel->name }}</div>
                                     @empty
                                 @endforelse
                                 @else
@@ -51,9 +51,10 @@
                     </tr>
                     @empty
                         <tr>
-                            <td colspan="4">Aucune campagne en cours/à venir pour la période</td>
+                            <td colspan="4">Aucune campagne en cours / à venir pour la période</td>
                         </tr>
                     @endforelse
+                    <!--
                     <tr class="inprogress">
                         <td class="marches">
                             <div class="badge part">PART</div>
@@ -128,6 +129,7 @@
                         </td>
                         <td>Julie L.</td>
                     </tr>
+                    -->
 
 
                     </tbody>

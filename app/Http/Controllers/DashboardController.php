@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Campaign;
+use App\CampaignChannelIndicator;
+use App\Indicator;
+use App\Library;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -17,25 +21,47 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
         // Campagnes en cours/ à venir
         $date = Carbon::now();
+        $campaigns = Campaign::notdeleted()
+                     ->savedOnly()
+                     ->betweenDate(Carbon::now())
+                     ->orderBy('begin' , 'ASC')
+                     ->get();
+
         $periods = (object) array(
             'text' => $date->format('F Y'),
             'date' => $date->format('m-Y'),
             'next' => route('dashboard-reload-campaigns' , array('period' => $date->addMonth()->format('m-Y'))),
             'prev' => route('dashboard-reload-campaigns' , array('period' => $date->subMonth(2)->format('m-Y'))),
         );
-        $campaigns = Campaign::notdeleted()
-                     ->savedOnly()
-                     ->betweenDate($date)
-                     ->orderBy('begin' , 'ASC')
-                     ->get();
         $campaigns->load('Channels');
         $campaigns->load('User');
 
 
-        return view('dashboards.index' , compact('periods' , 'campaigns'));
+        // My campaigns
+        $mycampaigns =  Campaign::savedOnly()
+                        ->where('user_id' , 3)
+                        ->orderBy('begin' , 'DESC')
+                        ->take(5)
+                        ->get();
+        $mycampaigns->load('User');
+
+
+        // Last indicators
+        $indicators =   CampaignChannelIndicator::where('result' , '>', 0)
+                        ->orderBy('updated_at' , 'DESC')
+                        ->take(5)
+                        ->get();
+        $indicators->load('Indicator');
+        $indicators->load('campaignChannel');
+
+
+        // Best indicators
+        $statistics = Indicator::bestIndicators();
+        $quarter    = ceil(date("m", time())/3);
+
+        return view('dashboards.index' , compact('periods' , 'campaigns' , 'mycampaigns' , 'indicators' , 'statistics' , 'quarter'));
     }
 
     public function reloadCampaigns($period)
@@ -43,6 +69,7 @@ class DashboardController extends Controller
         // REPRENDRE ICI - charger le dashboard en ajax avec la bonne période
         // Campagnes en cours/ à venir
         $date = Carbon::createFromFormat('m-Y', $period);
+
         $periods = (object) array(
             'text' => $date->format('F Y'),
             'date' => $date->format('m-Y'),
@@ -51,7 +78,7 @@ class DashboardController extends Controller
         );
         $campaigns = Campaign::notdeleted()
             ->savedOnly()
-            ->betweenDate($date)
+            ->betweenDate(Carbon::createFromFormat('m-Y', $period))
             ->orderBy('begin' , 'ASC')
             ->get();
         $campaigns->load('Channels');
