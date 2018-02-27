@@ -28,7 +28,7 @@
                     <div class="row mb-3">
                         <div class="col-4">
                             <h6>Nom</h6>
-                            {!! Form::text( 'name' , null , array( 'class' => 'form-control' , 'placeholder' => "Saisissez le nom de la campagne" ) ) !!}
+                            {!! Form::text( 'name' , null , array( 'class' => 'form-control font-weight-bold' , 'placeholder' => "Saisissez le nom de la campagne" ) ) !!}
                             {!! Form::hidden( 'saved' , 1  ) !!}
                         </div>
                         <div class="col-4">
@@ -56,10 +56,26 @@
                         </div>
                         <div class="col-4">
                             <h6>Période de la campagne</h6>
-                            {!! Form::text( 'begin' , null , array( 'class' => 'form-control date-not-null datepicker' ) ) !!}
-                            {!! Form::text( 'end' , null , array( 'class' => 'form-control date-not-null datepicker' ) ) !!}
+                            <div class="col-12 d-inline-flex text-center pl-0">
+                                <div class="form-control col-5 font-weight-bold">02/03/2018</div>
+                                <span class="text-muted mr-1 ml-1 col-2">au</span>
+                                <div class="form-control col-5 font-weight-bold">18/04/2018</div>
+                            </div>
+
+                            {!! Form::hidden( 'begin' , null , array( 'class' => 'form-control date-not-null datepicker' ) ) !!}
+                            {!! Form::hidden( 'end' , null , array( 'class' => 'form-control date-not-null datepicker' ) ) !!}
 
 
+
+
+                            <!--<div class="input-group">
+                                <input type="text" class="form-control" placeholder="Date de début" />
+
+                            </div>
+                            <span class="text-muted mr-1 ml-1">au</span>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Date de fin" />
+                            </div>-->
                         </div>
                     </div>
                     <div class="row">

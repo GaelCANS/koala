@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <div class="table-responsive">
+            <div class="table-responsive" style="height:410px;">
                 <table class="table table-hover ajax-action">
                     <thead>
                     <tr>
@@ -54,84 +54,6 @@
                             <td colspan="4">Aucune campagne en cours / à venir pour la période</td>
                         </tr>
                     @endforelse
-                    <!--
-                    <tr class="inprogress">
-                        <td class="marches">
-                            <div class="badge part">PART</div>
-                            <div class="badge pro">PRO</div>
-                            <div class="badge agri">AGRI</div>
-                        </td>
-                        <td class="text-left">EKO by CA</td>
-                        <td>03/01 au 15/02</td>
-                        <td>
-                            <div class="badge badge-outline-primary badge-pill">email</div>
-                            <div class="badge badge-outline-primary badge-pill">bannière</div>
-                            <div class="badge badge-outline-primary badge-pill">post fb</div>
-                        </td>
-                        <td>Mickaël B.</td>
-                    </tr>
-                    <tr class="inprogress">
-                        <td class="marches"><div class="badge part">PART</div></td>
-                        <td class="text-left">Assemblée Générales</td>
-                        <td>03/01 au 15/02</td>
-                        <td>
-                            <div class="badge badge-outline-primary badge-pill">email</div>
-                            <div class="badge badge-outline-primary badge-pill">bannière</div>
-                            <div class="badge badge-outline-primary badge-pill">post fb</div>
-                            <div class="badge badge-outline-primary badge-pill">dab</div>
-                        </td>
-                        <td>Bénédicte R.</td>
-                    </tr>
-                    <tr>
-                        <td class="marches"><div class="badge soc">SOC</div></td>
-                        <td class="text-left">Bonus diversification épargne</td>
-                        <td>03/01 au 15/02</td>
-                        <td>
-                            <div class="badge badge-outline-primary badge-pill">email</div>
-                            <div class="badge badge-outline-primary badge-pill">affichage</div>
-                        </td>
-                        <td>Maud G.</td>
-                    </tr>
-                    <tr>
-                        <td class="marches"><div class="badge part">PART</div></td>
-                        <td class="text-left">e-Immo</td>
-                        <td>03/01 au 15/02</td>
-                        <td>
-                            <div class="badge badge-outline-primary badge-pill">+5 canaux</div>
-                        </td>
-                        <td>Siham B.</td>
-                    </tr>
-                    <tr>
-                        <td class="marches">
-                            <div class="badge part">PART</div>
-                            <div class="badge bp">BP</div>
-                        </td>
-                        <td class="text-left">Jobdating Wizbii</td>
-                        <td>03/01 au 15/02</td>
-                        <td>
-                            <div class="badge badge-outline-primary badge-pill">email</div>
-                            <div class="badge badge-outline-primary badge-pill">bannière</div>
-                            <div class="badge badge-outline-primary badge-pill">post fb</div>
-                        </td>
-                        <td>Julie L.</td>
-                    </tr>
-                    <tr>
-                        <td class="marches">
-                            <div class="badge part">PART</div>
-                            <div class="badge bp">BP</div>
-                        </td>
-                        <td class="text-left">Jobdating Wizbii</td>
-                        <td>03/01 au 15/02</td>
-                        <td>
-                            <div class="badge badge-outline-primary badge-pill">email</div>
-                            <div class="badge badge-outline-primary badge-pill">bannière</div>
-                            <div class="badge badge-outline-primary badge-pill">post fb</div>
-                        </td>
-                        <td>Julie L.</td>
-                    </tr>
-                    -->
-
-
                     </tbody>
                 </table>
             </div>
