@@ -8746,6 +8746,13 @@ pre code {
 .table-responsive.table-bordered {
     border: 0; }
 
+
+
+
+
+
+
+
 .form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
 .tt-query,
@@ -11030,7 +11037,8 @@ tbody.collapse.show {
 .badge-pill {
     padding-right: 0.6em;
     padding-left: 0.6em;
-    border-radius: 10rem; }
+    border-radius: 10rem;
+    text-transform: lowercase;}
 
 .badge-primary {
     color: #fff;
@@ -18009,7 +18017,14 @@ dl li {
     background: #f3f3f3;
     border-color: #f3f3f3;
     color: #ffffff;
-    cursor: pointer;}
+    cursor: pointer;
+}
+
+.pagination .page-item.active .page-link {
+    text-align:center;
+    width:130px;
+}
+
 
 .pagination.flat .page-item .page-link, .jsgrid .flat.jsgrid-pager .page-item .page-link, .pagination.flat .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .pagination.flat .jsgrid-pager-nav-button .page-link, .jsgrid .flat.jsgrid-pager .jsgrid-pager-nav-button .page-link, .pagination.flat
 .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link,

@@ -14,8 +14,8 @@
                 </div>
             </div>
 
-            <div class="table-responsive" style="height:410px;">
-                <table class="table table-hover ajax-action">
+            <div  class="table-responsive">
+                <table class="table table-hover ajax-action dashboard">
                     <thead>
                     <tr>
                         <th>Marchés</th>
