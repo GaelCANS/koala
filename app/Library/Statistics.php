@@ -119,9 +119,10 @@ class Statistics
         if ($best != null && $best->result > 0) {
             $campaign = Campaign::findOrFail($best->campaign_id);
             return (object) array(
-                'value' => $best->result,
-                'name'  => $campaign->name,
-                'date'  => \Carbon\Carbon::createFromFormat('Y-m-d', $best->begin)->format('d/m/Y')
+                'value'     => $best->result,
+                'name'      => $campaign->name,
+                'date'      => \Carbon\Carbon::createFromFormat('Y-m-d', $best->begin)->format('d/m/Y'),
+                'campaign'  => $campaign
             );
         }
         return false;

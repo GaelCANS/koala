@@ -54,7 +54,7 @@
                 <div class="text-center">
                     <h3 class="mb-0" style="color:hotpink;line-height: 18px;">{{$best_email->value}}%</h3>
                     <small class="mt-0 text-muted">ouvreurs</small>
-                    <p class="mt-2 mb-0"><b>{{$best_email->name}}</b><br>
+                    <p class="mt-2 mb-0"><a href="{{action('CampaignController@show' , $best_email->campaign)}}"> <b>{{$best_email->name}}</b></a><br>
                         <small class="text-muted">envoyé le {{$best_email->date}}</small></p>
                 </div>
             </div>
