@@ -22,7 +22,14 @@ $(document).ready(function(){
      * Initialsation data-href
      */
     $('.ajax-action').on('click', '[data-href]' , function () {
-        window.location.href = $(this).data('href');
+        var msg = $(this).data('msg');
+        if (msg != '') {
+            if (confirm(msg))
+                window.location.href = $(this).data('href');
+        }
+        else {
+            window.location.href = $(this).data('href');
+        }
     });
 
 
