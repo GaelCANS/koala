@@ -60,8 +60,9 @@ class DashboardController extends Controller
         // Best indicators
         $statistics = Indicator::bestIndicators();
         $quarter    = ceil(date("m", time())/3);
+        $best_email = Library\Statistics::bestEmail();
 
-        return view('dashboards.index' , compact('periods' , 'campaigns' , 'mycampaigns' , 'indicators' , 'statistics' , 'quarter'));
+        return view('dashboards.index' , compact('periods' , 'campaigns' , 'mycampaigns' , 'indicators' , 'statistics' , 'quarter' , 'best_email'));
     }
 
     public function reloadCampaigns($period)

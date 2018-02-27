@@ -154,14 +154,12 @@ class Campaign extends Model
         return $query->where(
                     function ($q) use ($date) {
 
-                        $q  ->where('begin', '<=' , $date->startOfMonth()->format('Y-m-d'))
-                            ->orWhere('begin', '0000-00-00');
+                        $q  ->where('begin', '<=' , $date->endOfMonth()->format('Y-m-d'));
                     }
                 )
                 ->where(
                     function ($q) use ($date) {
-                        $q  ->where('end', '>=' , $date->endOfMonth()->format('Y-m-d'))
-                            ->orWhere('end', '0000-00-00');
+                        $q  ->where('end', '>=' , $date->startOfMonth()->format('Y-m-d'));
                     }
                 );
     }

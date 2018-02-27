@@ -48,20 +48,17 @@
             )
 
             <hr>
+            @if($best_email !== false)
             <h6 class="card-title text-center">L'emailing du mois <i class="mdi mdi-heart icon-sm" style="color:hotpink";></i></h6>
             <div class="d-flex align-items-center justify-content-md-center">
                 <div class="text-center">
-                    <h3 class="mb-0" style="color:hotpink;line-height: 18px;">39%</h3>
+                    <h3 class="mb-0" style="color:hotpink;line-height: 18px;">{{$best_email->value}}%</h3>
                     <small class="mt-0 text-muted">ouvreurs</small>
-                    <p class="mt-2 mb-0"><b>Assemblée générale</b><br>
-                        <small class="text-muted">envoyé le 07/01/2018</small></p>
-
+                    <p class="mt-2 mb-0"><b>{{$best_email->name}}</b><br>
+                        <small class="text-muted">envoyé le {{$best_email->date}}</small></p>
                 </div>
-
-
-
-
             </div>
+            @endif
 
         </div>
     </div>

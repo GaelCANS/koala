@@ -37,7 +37,7 @@ class Indicator extends Model
                 'name'      => $tmp_indicator->name,
                 'today'     => $today_quarter,
                 'before'    => $before_quarter,
-                'percent'   => $before_quarter > 0 ? round($today_quarter*100/$before_quarter) : ''
+                'percent'   => $before_quarter > 0 ? round($today_quarter*100/$before_quarter-100) : ''
             );
         }
 

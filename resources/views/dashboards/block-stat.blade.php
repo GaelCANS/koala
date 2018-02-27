@@ -8,7 +8,7 @@
         'dashboards.badge-percent' ,
         array(
             'badge'     => $percent > 0 ? 'success' : ($percent < 0 ? 'danger' : 'info') ,
-            'arrow'     => $percent > 0 ? 'up' : ($percent < 0 ? 'don' : 'right') ,
+            'arrow'     => $percent > 0 ? 'up' : ($percent < 0 ? 'down' : 'right') ,
             'percent'   => $percent,
             'title'     => $title,
             'text'      => $text
