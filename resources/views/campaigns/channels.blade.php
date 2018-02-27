@@ -1,36 +1,38 @@
-<table id="channels-table" class="ajax-action">
-    <thead>
-    <tr>
-        <th>
-            Canaux
-        </th>
-        <th>
-            Périodes
-        </th>
-        <th>
-            Commentaires
-        </th>
-        <th>
-            Indicateurs
-        </th>
-        <th>
-            Actions
-        </th>
-    </tr>
-    </thead>
-    @if (!empty($campaign->Channels))
+<div class="table-responsive">
+    <table id="channels-table" class="ajax-action table">
+        <thead>
+        <tr>
+            <th>
+                Canaux
+            </th>
+            <th>
+                Périodes
+            </th>
+            <th>
+                Commentaires
+            </th>
+            <th>
+                Indicateurs / Objectif / Résultats
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+        </thead>
+        @if (!empty($campaign->Channels))
 
-    <tbody>
-        @foreach($campaign->Channels as $channel)
+        <tbody>
+            @foreach($campaign->Channels as $channel)
 
-            @include('campaigns.campaignchannels')
+                @include('campaigns.campaignchannels')
 
-        @endforeach
+            @endforeach
 
-    </tbody>
+        </tbody>
 
-    @endif
+        @endif
 
-    @include('campaigns.addchannel')
+        @include('campaigns.addchannel')
 
-</table>
+    </table>
+</div>

@@ -7,6 +7,7 @@ use App\CampaignChannel;
 use App\CampaignChannelIndicator;
 use App\CampaignChannelPivot;
 use App\Channel;
+use App\Service;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -96,8 +97,12 @@ class CampaignController extends Controller
                         ->toArray();
         $channels[0]=   'sélectionnez';
         ksort($channels);
+        $services= Service::Notdeleted()
+            ->orderBy('name' , 'ASC')
+            ->pluck('name' , 'id')
+            ->toArray();
 
-        return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator'));
+        return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator' , 'services'));
     }
 
     /**

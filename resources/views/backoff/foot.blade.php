@@ -48,6 +48,14 @@
 </script>
 
 <script>
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
 
     $(".js-example-placeholder-multiple").on('select2:select' , function () {
         $(".select2-search__field").attr('placeholder' , "+ Ajouter");
@@ -58,7 +66,17 @@
     });
 
 
+    $(".js-example-placeholder-single").select2({
+        placeholder: "+ Ajouter",
+        allowClear: true
+    });
 
+    /*
+    $(".canaux").select2({
+        width: 'auto' // need to override the changed default
+    });
+
+    */
 </script>
 
 <script>
