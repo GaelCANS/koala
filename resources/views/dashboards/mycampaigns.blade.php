@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body pb-0">
             <div class="d-flex table-responsive">
-                <h6 class="card-title">Mes campagnes</h6>
+                <h5 class="card-title">Mes campagnes</h5>
                 <div class=" ml-auto mr-0 border-0">
                     <div class="btn-group">
                         <button type="button" class="btn btn-light text-muted"><small>Toutes mes campagnes</small></button>

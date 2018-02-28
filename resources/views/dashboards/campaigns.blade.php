@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body pb-0">
             <div class="d-flex table-responsive">
-                <h6 class="card-title">Campagnes en cours / à venir</h6>
+                <h5 class="card-title">Campagnes en cours / à venir</h5>
                 <div class=" ml-auto mr-0 border-0">
                     <nav>
                         <ul class="pagination pagination-info mb-1">

@@ -1,7 +1,7 @@
 @extends('backoff.app')
 
 @section('content')
-    <h5 class="page-title d-inline-block mr-2">Campagnes</h5>
+    <h4 class="page-title d-inline-block mr-2">Campagnes</h4>
     <button type="button" class="btn btn-secondary btn-xs mb-1" data-href="{{ route('new-campaign') }}" title="Ajouter une campagne">+ Ajouter</button>
 
     @include('campaigns.search')

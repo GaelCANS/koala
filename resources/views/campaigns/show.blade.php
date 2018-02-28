@@ -1,10 +1,10 @@
 @extends('backoff.app')
 
 @section('content')
-    <h5 class="page-title d-inline-block mr-2">
+    <h4 class="page-title d-inline-block mr-2">
         @if( $campaign == null ) Création @else Édition @endif d'une fiche campagne @if( $campaign != null )
         @endif
-    </h5>
+    </h4>
     <div class="d-inline-block">
         {!! Form::select('status',$status , null, ['class' => 'btn btn-primary btn-xs mb-1']) !!}
     </div>
