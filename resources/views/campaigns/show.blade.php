@@ -17,11 +17,12 @@
         array(
             'class'     => 'form-horizontal',
             'url'       => action('CampaignController@'.($campaign == null ? 'store' : 'update') , $campaign),
-            'method'    => $campaign == null ? 'Post' : 'Put'
+            'method'    => $campaign == null ? 'Post' : 'Put',
+            'id'        => 'form-campaign'
         )
     ) !!}
 
-    <div class="row">
+    <div class="row" id="show-campaign">
         <div class="col-md-9 p-0">
             <div class="col-md-12 grid-margin">
                 <div class="card bg-transparent">
@@ -57,13 +58,13 @@
                         <div class="col-4">
                             <h6>Période de la campagne</h6>
                             <div class="col-12 d-inline-flex text-center pl-0">
-                                <div class="form-control col-5 font-weight-bold">02/03/2018</div>
+                                <div class="form-control col-5 font-weight-bold" id="text-campaign-begin">@if($campaign != null) {{ $campaign->beginLong }} @endif</div>
                                 <span class="text-muted mr-1 ml-1 col-2">au</span>
-                                <div class="form-control col-5 font-weight-bold">18/04/2018</div>
+                                <div class="form-control col-5 font-weight-bold" id="text-campaign-end">@if($campaign != null) {{ $campaign->endLong }} @endif</div>
                             </div>
 
-                            {!! Form::hidden( 'begin' , null , array( 'class' => 'form-control date-not-null datepicker' ) ) !!}
-                            {!! Form::hidden( 'end' , null , array( 'class' => 'form-control date-not-null datepicker' ) ) !!}
+                            {!! Form::hidden( 'begin' , null , array( 'id' => 'campaign-begin' ) ) !!}
+                            {!! Form::hidden( 'end' , null , array( 'id' => 'campaign-end' ) ) !!}
 
 
 

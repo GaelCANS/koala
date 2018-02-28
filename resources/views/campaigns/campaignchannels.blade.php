@@ -1,4 +1,4 @@
-<tr id="channel-{{$channel->pivot->uniqid}}">
+<tr id="channel-{{$channel->pivot->uniqid}}" class="allready-here">
     <td>
         <div class="canaux form-group mb-0">
             <!--{!! Form::select('channel['.$channel->pivot->uniqid.'][channel_id]',$channels , $channel->id, ['class' => 'form-control select2 select2-ajax']) !!}-->

@@ -18,14 +18,14 @@ class CampaignChannelPivot extends Pivot
     public function getBeginAttribute($date)
     {
         return $date != '0000-00-00' ?
-            Carbon::createFromFormat('Y-m-d', $date)->format('d/m/y') :
+            Carbon::createFromFormat('Y-m-d', $date)->format('d/m/Y') :
             '';
     }
 
     public function getEndAttribute($date)
     {
         return $date != '0000-00-00' ?
-            Carbon::createFromFormat('Y-m-d', $date)->format('d/m/y') :
+            Carbon::createFromFormat('Y-m-d', $date)->format('d/m/Y') :
             '';
     }
 

@@ -29,10 +29,24 @@ class Campaign extends Model
             '';
     }
 
+    public function getBeginLongAttribute() {
+        if (empty($this->begin)) return '';
+        return $this->begin != '0000-00-00' ?
+            Carbon::createFromFormat('d/m/y', $this->begin)->format('d/m/Y') :
+            '';
+    }
+
     public function getEndshortAttribute() {
         if (empty($this->end)) return '';
         return $this->end != '0000-00-00' ?
-            Carbon::createFromFormat('d/m/y', $this->end)->format('m/y') :
+            Carbon::createFromFormat('d/m/y', $this->end)->format('d/m/y') :
+            '';
+    }
+
+    public function getEndLongAttribute() {
+        if (empty($this->end)) return '';
+        return $this->end != '0000-00-00' ?
+            Carbon::createFromFormat('d/m/y', $this->end)->format('d/m/Y') :
             '';
     }
 
