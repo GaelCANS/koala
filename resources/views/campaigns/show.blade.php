@@ -1,15 +1,6 @@
 @extends('backoff.app')
 
 @section('content')
-    <h4 class="page-title d-inline-block mr-2">
-        @if( $campaign == null ) Création @else Édition @endif d'une fiche campagne @if( $campaign != null )
-        @endif
-    </h4>
-    <div class="d-inline-block">
-        {!! Form::select('status',$status , null, ['class' => 'btn btn-primary btn-xs mb-1']) !!}
-    </div>
-
-    <a href="{{action('CampaignController@index')}}" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i> Retour</a>
 
 
     {!! Form::model(
@@ -21,6 +12,17 @@
             'id'        => 'form-campaign'
         )
     ) !!}
+
+    <h4 class="page-title d-inline-block mr-2">
+        @if( $campaign == null ) Création @else Édition @endif d'une fiche campagne @if( $campaign != null )
+        @endif
+    </h4>
+
+    <div class="d-inline-block">
+        {!! Form::select('status',$status , null, ['class' => 'btn btn-primary btn-xs mb-1']) !!}
+    </div>
+
+    <a href="{{action('CampaignController@index')}}" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i> Retour</a>
 
     <div class="row" id="show-campaign">
         <div class="col-md-9 p-0">
@@ -66,17 +68,6 @@
                             {!! Form::hidden( 'begin' , null , array( 'id' => 'campaign-begin' ) ) !!}
                             {!! Form::hidden( 'end' , null , array( 'id' => 'campaign-end' ) ) !!}
 
-
-
-
-                            <!--<div class="input-group">
-                                <input type="text" class="form-control" placeholder="Date de début" />
-
-                            </div>
-                            <span class="text-muted mr-1 ml-1">au</span>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Date de fin" />
-                            </div>-->
                         </div>
                     </div>
                     <div class="row">
