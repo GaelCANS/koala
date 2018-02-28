@@ -9,7 +9,7 @@
                 <span class="icon-menu"></span>
             </button>
             <ul class="navbar-nav">
-                <li class="nav-item d-none d-lg-flex">
+                <li class="nav-item  d-lg-flex">
                     <a class="nav-link  nav-btn"  href="{{ route('new-campaign') }}" title="Ajouter une campagne" >
                         <span class="btn">+ Campagne</span>
                     </a>

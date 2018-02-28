@@ -1,6 +1,7 @@
 <div class="col-md-6 col-lg-3 grid-margin stretch-card">
     <div class="card">
-        <div class="card-body">
+        <div class="card-body pl-3 pr-3 pb-2 text-center">
+            <i class="icon-chart menu-icon"></i>
             <h5 class="card-title text-center">{{$quarter}}<sup>@if($quarter == 1) er @else ème @endif</sup> trimestre {{ date('Y') }}</h5>
 
             @include(
@@ -49,16 +50,48 @@
 
             <hr>
             @if($best_email !== false)
-            <h5 class="card-title text-center">L'emailing du mois <i class="mdi mdi-heart icon-sm" style="color:hotpink";></i></h5>
-            <div class="d-flex align-items-center justify-content-md-center">
-                <div class="text-center">
-                    <h3 class="mb-0" style="color:hotpink;line-height: 18px;">{{$best_email->value}}%</h3>
-                    <small class="mt-0 text-muted">ouvreurs</small>
-                    <p class="mt-2 mb-0"><a href="{{action('CampaignController@show' , $best_email->campaign)}}"> <b>{{$best_email->name}}</b></a><br>
-                        <small class="text-muted">envoyé le {{$best_email->date}}</small></p>
+                <div class="col-lg-12 mt-0 p-0">
+                    <div class="owl-carousel owl-theme full-width">
+                        <div class="item">
+                            <div class="card">
+                                <div class="d-flex">
+                                    <div class="mt-0 text-center w-100">
+                                        <h5 class="card-title text-center">L'emailing du mois <i class="mdi mdi-heart icon-sm" style="color:hotpink";></i></h5>
+                                        <div class="d-flex align-items-center justify-content-md-center">
+                                            <div class="col-md-12 text-center">
+                                                <h3 class="mb-0" style="color:hotpink;line-height: 18px;">{{$best_email->value}}%</h3>
+                                                <small class="mt-0 text-muted">ouvreurs</small>
+                                                <p class="mt-2 mb-0"><a href="{{action('CampaignController@show' , $best_email->campaign)}}"> <b>{{$best_email->name}}</b></a><br>
+                                                    <small class="text-muted">envoyé le {{$best_email->date}}</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card">
+                                <div class="d-flex">
+                                    <div class="mt-0 text-center w-100">
+                                        <h5 class="card-title text-center">Le post du mois <i class="mdi mdi-facebook-box icon-sm text-facebook" ></i></h5>
+                                        <div class="d-flex align-items-center justify-content-md-center">
+                                            <div class="col-md-12 text-center">
+                                                <h3 class="mb-0 text-facebook" style="line-height: 18px;">{{$best_email->value}}</h3>
+                                                <small class="mt-0 text-muted ">likes</small>
+                                                <p class="mt-2 mb-0"><a href="{{action('CampaignController@show' , $best_email->campaign)}}"> <b>{{$best_email->name}}</b></a><br>
+                                                    <small class="text-muted">posté le {{$best_email->date}}</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
             @endif
+
+
 
         </div>
     </div>

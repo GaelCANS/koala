@@ -27,6 +27,7 @@
 <script src="{{ url('/theme_modules/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
 <script src="{{ url('/theme_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ url('/theme_modules/icheck/icheck.min.js') }}"></script>
+<script src="{{ url('/theme_modules/owl-carousel-2/owl.carousel.min.js') }}"></script>
 
 <!-- End plugin js for this page-->
 <!-- inject:js -->
@@ -39,6 +40,8 @@
 <!-- Custom js for this page-->
 <script src="{{ url('/js/dashboard.js') }}"></script>
 <script src="{{ url('/js/iCheck.js') }}?v={{ time() }}"></script>
+<script src="{{ url('/js/tooltips.js') }}"></script>
+<script src="{{ url('js/owl-carousel.js') }}"></script>
 
 
 <!-- Custom js for this page-->
@@ -77,6 +80,11 @@
     });
 
     */
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel();
+    });
+
+
 </script>
 
 <script>
