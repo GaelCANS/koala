@@ -83,41 +83,6 @@ class Campaign extends Model
         $this->attributes['end'] = !empty($date) ? Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d') : '';
     }
 
-    /*public function getResultsAttribute()
-    {
-        if (!isset($this->Channels)) return 'ajouté';
-        $added = array();
-        $empty = array();
-        foreach ($this->Channels as $campaign_channel) {
-            $indicators = CampaignChannelIndicator::where('campaign_channel_id' , $campaign_channel->pivot->id)->get();
-            if (count($indicators) > 0){
-                foreach ($indicators as $indicator) {
-                    if ($indicator->result > 0) {
-                        $added[] = $indicator->result;
-                    }
-                    else {
-                        $empty[] = $indicator->result;
-                    }
-                }
-            }
-        }
-
-        if (count($added) == 0 && count($empty) == 0 ) {
-            return 'ajoutés';
-        }
-        elseif (count($added) > 0 && count($empty) > 0 ) {
-            return 'partiels';
-        }
-        elseif (count($added) > 0 && count($empty) == 0 ) {
-            return 'ajoutés';
-        }
-        else {
-            return 'aucuns';
-        }
-    }*/
-
-
-
     /**
      * CUSTOMS
      */
@@ -199,11 +164,18 @@ class Campaign extends Model
     }
 
     // many to many
+    public function services()
+    {
+        return $this->belongsToMany('App\Service')->withTimestamps();
+    }
+
+    // 1 to many
     public function campaignChannels()
     {
         return $this->hasMany('App\CampaignChannels');
     }
 
+    // many to 1
     public function user()
     {
         return $this->belongsTo('App\User');

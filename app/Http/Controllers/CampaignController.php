@@ -80,6 +80,7 @@ class CampaignController extends Controller
         // Chargement de la campagne et des tables associées
         $campaign   = Campaign::findOrFail($id);
         $campaign->load('Channels');
+        $campaign->load('Services');
         $campaign->Channels->load('Indicators');
 
         // Chargement manuel des objectifs et résultats des indicateurs de la campagne
@@ -128,7 +129,10 @@ class CampaignController extends Controller
     {
         // Update de la campagne
         $campaign = Campaign::findOrFail($id);
-        $campaign->update( $request->except('channel' , 'indicator' , 'add-new-channel' , 'states') );
+        $campaign->update( $request->except('channel' , 'indicator' , 'add-new-channel' , 'states' , 'services') );
+
+        // Sync campaign_service
+        $campaign->services()->sync( (array)$request->services );
 
         // Sync campaign_channel (create, update, delete)
         $channelDatas           = $request->only('channel');

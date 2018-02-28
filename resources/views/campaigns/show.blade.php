@@ -89,7 +89,7 @@
                         </div>
                         <div class="col-4">
                             <h6>Contributeurs</h6>
-                            {!! Form::select('services',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control', 'multiple' => 'multiple' ]) !!}
+                            {!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple js-states form-control', 'multiple' => 'multiple' ]) !!}
                         </div>
                     </div>
                 </div>
