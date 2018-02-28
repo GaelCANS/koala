@@ -10,6 +10,7 @@
                     'icon'      => 'mdi-email-open-outline' ,
                     'value'     => $statistics[0]['today'] ,
                     'title'     => $statistics[0]['before'] ,
+                    'channel'   => $statistics[0]['channel'] ,
                     'text'      => $statistics[0]['name'],
                     'percent'   => $statistics[0]['percent']
                 )
@@ -21,6 +22,7 @@
                     'icon'      => 'mdi-facebook' ,
                     'value'     => $statistics[1]['today'] ,
                     'title'     => $statistics[1]['before'] ,
+                    'channel'   => $statistics[1]['channel'] ,
                     'text'      => $statistics[1]['name'],
                     'percent'   => $statistics[1]['percent']
                 )
@@ -32,6 +34,7 @@
                     'icon'      => 'mdi-image' ,
                     'value'     => $statistics[2]['today'] ,
                     'title'     => $statistics[2]['before'] ,
+                    'channel'   => $statistics[2]['channel'] ,
                     'text'      => $statistics[2]['name'],
                     'percent'   => $statistics[2]['percent']
                 )
@@ -43,6 +46,7 @@
                     'icon'      => 'mdi-format-page-break' ,
                     'value'     => $statistics[3]['today'] ,
                     'title'     => $statistics[3]['before'] ,
+                    'channel'   => $statistics[3]['channel'] ,
                     'text'      => $statistics[3]['name'],
                     'percent'   => $statistics[3]['percent']
                 )

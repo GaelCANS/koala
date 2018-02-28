@@ -33,9 +33,11 @@ class Indicator extends Model
             $today_quarter = $stats->getStatisticsNow();
             $before_quarter = $stats->getStatisticsBefore();
             $tmp_indicator = Indicator::findOrFail($incators_stat);
+            $tmp_indicator->load('Channel');
             $statistics[] = array(
                 'name'      => $tmp_indicator->name,
                 'today'     => $today_quarter,
+                'channel'   => $tmp_indicator->Channel->name,
                 'before'    => $before_quarter,
                 'percent'   => $before_quarter > 0 ? round($today_quarter*100/$before_quarter-100) : ''
             );
