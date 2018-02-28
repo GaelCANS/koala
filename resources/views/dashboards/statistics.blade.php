@@ -1,7 +1,7 @@
 <div class="col-md-6 col-lg-3 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h6 class="card-title text-center">{{$quarter}}<sup>@if($quarter == 1) er @else ème @endif</sup> trimestre {{ date('Y') }}</h6>
+            <h5 class="card-title text-center">{{$quarter}}<sup>@if($quarter == 1) er @else ème @endif</sup> trimestre {{ date('Y') }}</h5>
 
             @include(
                 'dashboards.block-stat' ,
@@ -49,7 +49,7 @@
 
             <hr>
             @if($best_email !== false)
-            <h6 class="card-title text-center">L'emailing du mois <i class="mdi mdi-heart icon-sm" style="color:hotpink";></i></h6>
+            <h5 class="card-title text-center">L'emailing du mois <i class="mdi mdi-heart icon-sm" style="color:hotpink";></i></h5>
             <div class="d-flex align-items-center justify-content-md-center">
                 <div class="text-center">
                     <h3 class="mb-0" style="color:hotpink;line-height: 18px;">{{$best_email->value}}%</h3>

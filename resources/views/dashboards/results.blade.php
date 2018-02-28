@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body pb-0">
             <div class="d-flex table-responsive">
-                <h6 class="card-title">Derniers résultats</h6>
+                <h5 class="card-title">Derniers résultats</h5>
                 <div class=" ml-auto mr-0 border-0">
                     <div class="btn-group">
                         <button type="button" class="btn btn-light text-muted"><small>Tous les résultats</small></button>
