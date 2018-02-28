@@ -18611,6 +18611,31 @@ dl li {
 .table.table-borderless tr, .jsgrid .table-borderless.jsgrid-table tr, .table.table-borderless td, .jsgrid .table-borderless.jsgrid-table td, .table.table-borderless th, .jsgrid .table-borderless.jsgrid-table th {
     border: none; }
 
+td.channel, th.channel {
+    min-width: 130px;
+}
+
+#channels-table.table-responsive {
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    border-radius: 2px;
+}
+
+#channels-table thead {
+    background: #01a3a6;
+    -webkit-border-radius:2px 2px 0px;
+    -moz-border-radius:2px 2px 0px;
+    border-radius: 2px 2px 0px;
+}
+
+#channels-table thead th {
+    color: white;
+}
+
+td.period, th.period {
+    width:90px;
+}
+
 /* Tabs */
 .nav {
     margin-bottom: 1rem; }
@@ -20131,7 +20156,9 @@ body.avgrund-active {
     margin-left: 5px;
 }
 
-
+#add-channel {
+    opacity: .35;
+}
 
 .datepicker.datepicker-dropdown, .datepicker.datepicker-inline {
     padding: 0 25px;

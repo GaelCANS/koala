@@ -1,11 +1,11 @@
-<div class="table-responsive">
-    <table id="channels-table" class="ajax-action table">
+<div id="channels-table" class="table-responsive">
+    <table class="ajax-action table">
         <thead>
         <tr>
-            <th>
+            <th class="channel">
                 Canaux
             </th>
-            <th>
+            <th class="period">
                 Périodes
             </th>
             <th>

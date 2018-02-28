@@ -6,7 +6,7 @@
         </div>
     <li class="list-inline-item">
         <div class="form-group mb-0">
-            {!! Form::number( 'indicator['.$cci->uniqid.'][goal]' , $cci->goal , array( 'class' => 'form-control duplicatable bg-light  text-muted mb-0 p-1' , 'data-name' => 'goal' ) ) !!}
+            {!! Form::number( 'indicator['.$cci->uniqid.'][goal]' , $cci->goal , array( 'class' => 'form-control duplicatable bg-light text-muted mb-0 p-1' , 'data-name' => 'goal' ) ) !!}
         </div>
     </li>
     <li class="list-inline-item ">

@@ -21,9 +21,12 @@
     <div class="d-inline-block">
         {!! Form::select('status',$status , null, ['class' => 'btn btn-primary btn-xs mb-1']) !!}
     </div>
-
-    <a href="{{action('CampaignController@index')}}" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i> Retour</a>
-
+    <div class="float-right">
+        <button type="submit" class="btn btn-primary">
+            <i class="fa fa-fw fa-save"></i>Enregister
+        </button>
+        <a href="{{action('CampaignController@index')}}" class="btn btn-info"><i class="fa fa-angle-left"></i> Retour</a>
+    </div>
     <div class="row" id="show-campaign">
         <div class="col-md-9 p-0">
             <div class="col-md-12 grid-margin">
@@ -88,9 +91,7 @@
             </div>
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
-                    <div class="card-body">
-                        @include('campaigns.channels')
-                    </div>
+                    @include('campaigns.channels')
                 </div>
             </div>
             <div class="col-md-12 grid-margin text-right">
