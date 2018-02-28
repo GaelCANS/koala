@@ -1,15 +1,6 @@
 @extends('backoff.app')
 
 @section('content')
-    <h4 class="page-title d-inline-block mr-2">
-        @if( $campaign == null ) Création @else Édition @endif d'une fiche campagne @if( $campaign != null )
-        @endif
-    </h4>
-    <div class="d-inline-block">
-        {!! Form::select('status',$status , null, ['class' => 'btn btn-primary btn-xs mb-1']) !!}
-    </div>
-
-    <a href="{{action('CampaignController@index')}}" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i> Retour</a>
 
 
     {!! Form::model(
@@ -17,11 +8,23 @@
         array(
             'class'     => 'form-horizontal',
             'url'       => action('CampaignController@'.($campaign == null ? 'store' : 'update') , $campaign),
-            'method'    => $campaign == null ? 'Post' : 'Put'
+            'method'    => $campaign == null ? 'Post' : 'Put',
+            'id'        => 'form-campaign'
         )
     ) !!}
 
-    <div class="row">
+    <h4 class="page-title d-inline-block mr-2">
+        @if( $campaign == null ) Création @else Édition @endif d'une fiche campagne @if( $campaign != null )
+        @endif
+    </h4>
+
+    <div class="d-inline-block">
+        {!! Form::select('status',$status , null, ['class' => 'btn btn-primary btn-xs mb-1']) !!}
+    </div>
+
+    <a href="{{action('CampaignController@index')}}" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i> Retour</a>
+
+    <div class="row" id="show-campaign">
         <div class="col-md-9 p-0">
             <div class="col-md-12 grid-margin">
                 <div class="card bg-transparent">
@@ -57,25 +60,14 @@
                         <div class="col-4">
                             <h6>Période de la campagne</h6>
                             <div class="col-12 d-inline-flex text-center pl-0">
-                                <div class="form-control col-5 font-weight-bold">02/03/2018</div>
+                                <div class="form-control col-5 font-weight-bold" id="text-campaign-begin">@if($campaign != null) {{ $campaign->beginLong }} @endif</div>
                                 <span class="text-muted mr-1 ml-1 col-2">au</span>
-                                <div class="form-control col-5 font-weight-bold">18/04/2018</div>
+                                <div class="form-control col-5 font-weight-bold" id="text-campaign-end">@if($campaign != null) {{ $campaign->endLong }} @endif</div>
                             </div>
 
-                            {!! Form::hidden( 'begin' , null , array( 'class' => 'form-control date-not-null datepicker' ) ) !!}
-                            {!! Form::hidden( 'end' , null , array( 'class' => 'form-control date-not-null datepicker' ) ) !!}
+                            {!! Form::hidden( 'begin' , null , array( 'id' => 'campaign-begin' ) ) !!}
+                            {!! Form::hidden( 'end' , null , array( 'id' => 'campaign-end' ) ) !!}
 
-
-
-
-                            <!--<div class="input-group">
-                                <input type="text" class="form-control" placeholder="Date de début" />
-
-                            </div>
-                            <span class="text-muted mr-1 ml-1">au</span>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Date de fin" />
-                            </div>-->
                         </div>
                     </div>
                     <div class="row">

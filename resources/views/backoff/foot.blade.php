@@ -7,6 +7,9 @@
 <!-- Select 2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js" integrity="sha256-FcVIknBiVRk5KLQeIBb9VQdtFRMqwffXyZ+D8q0gQro=" crossorigin="anonymous"></script>
 
+<!-- Lodash -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.core.min.js" integrity="sha256-/WikzFcmjMZS+es0fni22evPN2lgZh8Dk2XXI/ZFtxM=" crossorigin="anonymous"></script>
+
 <!-- Chargement des JS -->
 <script src="{{ url('/js/backoff-app.js?v='.time() ) }}"></script>
 <script src="{{ url('/js/laravel.js?v=1' ) }}"></script>
@@ -47,7 +50,7 @@
 <!-- Custom js for this page-->
 <!-- End custom js for this page-->
 <script>
-    $('.datepicker').datepicker();
+
 </script>
 
 <script>

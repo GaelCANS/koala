@@ -21,11 +21,11 @@ class CampaignChannel extends Model
      * MUTATORS & ACCESSORS - see CampaignChannelPivot for the get function
      */
     public function setBeginAttribute($date) {
-        $this->attributes['begin'] = !empty($date) ? Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d') : '';
+        $this->attributes['begin'] = !empty($date) ? Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d') : '';
     }
 
     public function setEndAttribute($date) {
-        $this->attributes['end'] = !empty($date) ? Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d') : '';
+        $this->attributes['end'] = !empty($date) ? Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d') : '';
     }
 
 

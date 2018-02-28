@@ -74,8 +74,8 @@ class CampaignRequest extends Request
         if ($this->input('channel')!=null) {
             foreach ($this->input('channel') as $item => $channel) {
                 $rules["channel.{$item}.channel_id"]    = array('required','exists:channels,id');
-                $rules["channel.{$item}.begin"]         = array('date_format:d/m/y');
-                $rules["channel.{$item}.end"]           = array('date_format:d/m/y');
+                $rules["channel.{$item}.begin"]         = array('date_format:d/m/Y');
+                $rules["channel.{$item}.end"]           = array('date_format:d/m/Y');
                 $rules["channel.{$item}.comment"]       = array('string');
             }
         }
