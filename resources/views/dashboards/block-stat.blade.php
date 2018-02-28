@@ -4,7 +4,7 @@
     </div>
     <div class="col-md-6 text-center mr-0 ml-0">
         <h3 class="mb-0" style="line-height: 19px;">{{$value}}</h3>
-        <small class="text-muted">{{$text}}</small>
+        <small class="text-muted text-lowercase">{{$text}}</small>
     </div>
     <div class="col-md-3 text-center percent ml-0 pl-0">
         @include(
