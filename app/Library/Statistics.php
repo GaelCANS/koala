@@ -104,17 +104,34 @@ class Statistics
 
     public static function bestEmail()
     {
+        return self::bestRequest(3);
+    }
+
+
+    public static function bestFacebook()
+    {
+        return self::bestRequest(7);
+    }
+
+
+    public static function bestBanniere()
+    {
+        return self::bestRequest(2);
+    }
+
+    private static function bestRequest($indicator)
+    {
         $last_month = new Carbon('last month');
         $first_day  = $last_month->startOfMonth()->format('Y-m-d');
         $last_day   = $last_month->endOfMonth()->format('Y-m-d');
         $indicator  = 3;
         $best       =   DB::table('campaign_channel_indicator')
-                        ->select('campaign_channel.campaign_id' , 'campaign_channel_indicator.result' , 'campaign_channel.begin')
-                        ->join('campaign_channel' , 'campaign_channel.id' , '=' , 'campaign_channel_indicator.campaign_channel_id')
-                        ->whereBetween('campaign_channel.begin' , array($first_day , $last_day))
-                        ->where('campaign_channel_indicator.indicator_id' , $indicator)
-                        ->where('campaign_channel_indicator.result' , '>' , 0)
-                        ->Orderby('campaign_channel_indicator.result' , 'DESC')->first();
+            ->select('campaign_channel.campaign_id' , 'campaign_channel_indicator.result' , 'campaign_channel.begin')
+            ->join('campaign_channel' , 'campaign_channel.id' , '=' , 'campaign_channel_indicator.campaign_channel_id')
+            ->whereBetween('campaign_channel.begin' , array($first_day , $last_day))
+            ->where('campaign_channel_indicator.indicator_id' , $indicator)
+            ->where('campaign_channel_indicator.result' , '>' , 0)
+            ->Orderby('campaign_channel_indicator.result' , 'DESC')->first();
 
         if ($best != null && $best->result > 0) {
             $campaign = Campaign::findOrFail($best->campaign_id);
@@ -126,8 +143,8 @@ class Statistics
             );
         }
         return false;
-
     }
+
 
 
 
