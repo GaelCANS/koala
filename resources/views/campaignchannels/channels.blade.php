@@ -1,7 +1,9 @@
 <tr id="channel-{{$channel->uniqid}}" class="{{$type}}">
     <td>
         <div class="form-group">
-            {!! Form::select('channel['.$channel->uniqid.'][channel_id]',$channels , $channel->channel_id, ['class' => 'form-control select2']) !!}
+            <!--{!! Form::select('channel['.$channel->uniqid.'][channel_id]',$channels , $channel->channel_id, ['class' => 'form-control select2']) !!}-->
+            {{ $channel->Channel->name }}
+            {!! Form::hidden('channel['.$channel->uniqid.'][channel_id]',$channel->channel_id) !!}
         </div>
     </td>
     <td>

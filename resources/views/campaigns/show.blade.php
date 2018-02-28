@@ -168,6 +168,45 @@
                     </div>
                 </div>
             </div>
+            <div class="card grid-margin">
+                <div class="card-body pt-3 pb-3 pl-3 pr-3">
+                    <div class="text-center ">
+                        <h6 class="mt-1">Liaison Unica</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="wrapper">
+                                <div class="d-flex">
+                                    {!! Form::text( 'unica' , null , array( 'class' => 'form-control bg-light' , 'placeholder' => 'ID de liaison avec Unica' ) ) !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card grid-margin">
+                <div class="card-body pt-3 pb-3 pl-3 pr-3">
+                    <div class="text-center ">
+                        <h6 class="mt-1">Validation juridique</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="wrapper">
+                                <div class="d-flex">
+                                    <div class="form-group">
+                                        <label for="legal_validation-oui">Oui</label>
+                                        {!! Form::radio( 'legal_validation' , 'oui' , false , array('id' => 'legal_validation-oui') ) !!}
+                                        <label for="legal_validation-non">Non</label>
+                                        {!! Form::radio( 'legal_validation' , 'non' , false , array('id' => 'legal_validation-non') ) !!}
+                                        <label for="legal_validation-nc">Non concerné</label>
+                                        {!! Form::radio( 'legal_validation' , 'non concerné' , false , array('id' => 'legal_validation-nc') ) !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>

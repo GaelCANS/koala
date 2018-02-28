@@ -94,6 +94,7 @@ class CampaignchannelController extends Controller
                 'uniqid'        => uniqid()
             )
         );
+        $channel->load('Channel');
 
         // If exist create new campaignChannelIndicators
         if ($campaignChannel->campaignChannelIndicators) {
