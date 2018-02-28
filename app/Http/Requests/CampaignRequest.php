@@ -46,18 +46,20 @@ class CampaignRequest extends Request
     private function campaignRules()
     {
         return array(
-            "name"          => "required|string|min:2",
-            "saved"         => "required|in:1",
-            "description"   => "string",
-            "begin"         => "date_format:d/m/y",
-            "end"           => "date_format:d/m/y",
-            "cmm"           => "required|boolean",
+            "name"              => "required|string|min:2",
+            "saved"             => "required|in:1",
+            "description"       => "string",
+            "begin"             => "date_format:d/m/y",
+            "end"               => "date_format:d/m/y",
+            "cmm"               => "required|boolean",
+            "unica"             => "string",
+            "legal_validation"  => "in:oui,non,non concerné",
             //"status"        => "required|boolean",
-            "status"        => "boolean",
-            "user_id"       => "required|exists:users,id",
-            "cmm_comments"  => "string",
-            "results"       => "string",
-            "resource_link" => "string"
+            "status"            => "boolean",
+            "user_id"           => "required|exists:users,id",
+            "cmm_comments"      => "string",
+            "results"           => "string",
+            "resource_link"     => "string"
         );
     }
 

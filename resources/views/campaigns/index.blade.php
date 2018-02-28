@@ -63,8 +63,7 @@
                                             @endif
                                         </td>
                                         <td class="results">
-                                            <?php $resultat = $campaign->results ?>
-                                            <label class="badge @if($resultat == 'ajoutés')badge-success @elseif($resultat == 'partiels')badge-warning @else badge-danger @endif">{{$resultat}}</label>
+                                            <label class="badge @if($campaign->results_state == 'ajoutés')badge-success @elseif($campaign->results_state == 'partiels')badge-warning @else badge-danger @endif">{{$campaign->results_state}}</label>
                                         </td>
                                         <td>
                                             <div class="btn-group ajax-action" role="group" aria-label="Basic example">

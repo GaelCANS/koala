@@ -83,7 +83,7 @@ class Campaign extends Model
         $this->attributes['end'] = !empty($date) ? Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d') : '';
     }
 
-    public function getResultsAttribute()
+    /*public function getResultsAttribute()
     {
         if (!isset($this->Channels)) return 'ajouté';
         $added = array();
@@ -114,7 +114,7 @@ class Campaign extends Model
         else {
             return 'aucuns';
         }
-    }
+    }*/
 
 
 
@@ -148,6 +148,43 @@ class Campaign extends Model
         CampaignChannel::duplicateCampaign($campaign,$newCampaign);
 
         return $newCampaign;
+    }
+
+    /**
+     * @param $campaign
+     * @return string
+     */
+    public static function consilidationResults($campaign)
+    {
+        if (!isset($campaign->Channels)) return 'ajouté';
+        $added = array();
+        $empty = array();
+        foreach ($campaign->Channels as $campaign_channel) {
+            $indicators = CampaignChannelIndicator::where('campaign_channel_id' , $campaign_channel->pivot->id)->get();
+            if (count($indicators) > 0){
+                foreach ($indicators as $indicator) {
+                    if ($indicator->result > 0) {
+                        $added[] = $indicator->result;
+                    }
+                    else {
+                        $empty[] = $indicator->result;
+                    }
+                }
+            }
+        }
+
+        if (count($added) == 0 && count($empty) == 0 ) {
+            return 'ajoutés';
+        }
+        elseif (count($added) > 0 && count($empty) > 0 ) {
+            return 'partiels';
+        }
+        elseif (count($added) > 0 && count($empty) == 0 ) {
+            return 'ajoutés';
+        }
+        else {
+            return 'aucuns';
+        }
     }
 
 

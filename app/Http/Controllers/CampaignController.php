@@ -138,6 +138,10 @@ class CampaignController extends Controller
         // Sync campaign_channel_indicator (create, update, delete)
         $indicatorDatas          = $request->only('indicator');
         CampaignChannelIndicator::saveCampaignChannelIndicator($indicatorDatas['indicator']);
+        
+        // Consolidation results_state
+        $results_state = Campaign::consilidationResults($campaign);
+        $campaign->update( array('results_state' => $results_state) );
 
         return redirect()->back()->with('success' , "La campagne vient d'être mise à jour");
     }

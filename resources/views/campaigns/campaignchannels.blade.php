@@ -36,7 +36,7 @@
     </td>
     <td>
         <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="javascript:;" class="btn btn-outline-secondary icon-btn ajax-duplicate-campaignchannel" title="Dupliquer ce canal" data-msg="Voulez-vous vraiment dupliquer ce canal ?" data-href="{{route('duplicate-channel' , array('id' => $campaign->id , 'uniqid' => $channel->pivot->uniqid))}}" data-param="{{$channel->pivot->uniqid}}">
+            <a href="javascript:;" class="btn btn-outline-secondary icon-btn ajax-duplicate-campaignchannel" title="Dupliquer ce canal" data-msg="Voulez-vous vraiment dupliquer ce canal ?" data-link="{{route('duplicate-channel' , array('id' => $campaign->id , 'uniqid' => $channel->pivot->uniqid))}}" data-param="{{$channel->pivot->uniqid}}">
                 <i class="mdi mdi-content-copy"></i>
             </a>
             <a href="javascript:;" class="btn btn-outline-secondary icon-btn ajax-del" title="Supprimer ce canal" data-msg="Voulez-vous vraiment supprimer ce canal ?" data-link="{{route('unlink-channel' , array('id' => $campaign->id , 'uniqid' => $channel->pivot->uniqid))}}">

@@ -50,6 +50,10 @@ class CampaignchannelController extends Controller
             ->pluck('name' , 'id')
             ->toArray();
 
+        // Consolidation results_state
+        $results_state = Campaign::consilidationResults($campaign);
+        $campaign->update( array('results_state' => $results_state) );
+
         $type = 'from-ajax';
 
         $html = view('campaignchannels.channels' , compact('campaign' , 'channel' , 'channels' , 'type' ))->render();
@@ -115,6 +119,10 @@ class CampaignchannelController extends Controller
             ->pluck('name' , 'id')
             ->toArray();
 
+        // Consolidation results_state
+        $results_state = Campaign::consilidationResults($campaign);
+        $campaign->update( array('results_state' => $results_state) );
+
         $type = 'from-ajax';
 
         $html = view('campaignchannels.channels' , compact('campaign' , 'channel' , 'channels' , 'type' ))->render();
@@ -141,10 +149,18 @@ class CampaignchannelController extends Controller
     public function destroy($id, $channelUniqid)
     {
         $campaign = Campaign::findOrFail($id);
+
+        // Delete  campaign_channel and campaign_channel_indicator associate
         $campaignChannel = CampaignChannel::where('uniqid' , $channelUniqid)->where('campaign_id' , $campaign->id)->first();
+        $isDeleted = $campaignChannel->delete();
+
+        // Consolidation results_state
+        $results_state = Campaign::consilidationResults($campaign);
+        $campaign->update( array('results_state' => $results_state) );
+
         return json_encode(
             array(
-                'deleted'   =>  $campaignChannel->delete(),
+                'deleted'   =>  $isDeleted,
                 'id'        => 'channel-'.$channelUniqid,
                 'error_msg' => 'Une erreur est survenue lors de la suppression de ce canal.'
             )
