@@ -21,11 +21,11 @@ Route::get('/', function () {
 Route::resource(
     'services',
     'ServiceController' ,
-    [
-        'names' => [
+    array(
+        'names' => array(
             'index' => 'services-index'
-        ]
-    ]
+        )
+    )
 );
 
 
@@ -33,11 +33,11 @@ Route::resource(
 Route::resource(
     'markets',
     'MarketController' ,
-    [
-        'names' => [
+    array(
+        'names' => array(
             'index' => 'markets-index'
-        ]
-    ]
+        )
+    )
 );
 
 
@@ -45,19 +45,19 @@ Route::resource(
 Route::resource(
     'campaigns',
     'CampaignController' ,
-    [
-        'names' => [
+    array(
+        'names' => array(
             'index' => 'campaigns-index'
-        ]
-    ]
+        )
+    )
 );
 Route::get('/new-campaign', 'CampaignController@newcampaign')->name('new-campaign');
 Route::get("/duplicate-campaign/{id}", 'CampaignController@duplicatecampaign')->name('duplicate-campaign')->where(array('id' => '[0-9]+'));
 
 // CampaignChannel
-Route::post('campaign-channel/{id}/unlink-channel/{uniqid}', ['uses' => 'CampaignchannelController@destroy', 'as' => 'unlink-channel']);
-Route::post('campaign-channel/{id}/duplicate-channel/{uniqid}', ['uses' => 'CampaignchannelController@duplicate', 'as' => 'duplicate-channel']);
-Route::post('campaign-channel/{id}/add-channel/{selected}', ['uses' => 'CampaignchannelController@add', 'as' => 'add-channel']);
+Route::post('campaign-channel/{id}/unlink-channel/{uniqid}', array('uses' => 'CampaignchannelController@destroy', 'as' => 'unlink-channel'));
+Route::post('campaign-channel/{id}/duplicate-channel/{uniqid}', array('uses' => 'CampaignchannelController@duplicate', 'as' => 'duplicate-channel'));
+Route::post('campaign-channel/{id}/add-channel/{selected}', array('uses' => 'CampaignchannelController@add', 'as' => 'add-channel'));
 
 
 // CMM
