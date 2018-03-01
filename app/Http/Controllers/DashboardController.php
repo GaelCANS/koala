@@ -83,6 +83,8 @@ class DashboardController extends Controller
         );
         $campaigns = Campaign::notdeleted()
             ->savedOnly()
+            ->published()
+            ->cmmValidation()
             ->betweenDate(Carbon::createFromFormat('m-Y', $period))
             ->orderBy('begin' , 'ASC')
             ->get();

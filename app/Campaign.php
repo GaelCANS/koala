@@ -199,6 +199,7 @@ class Campaign extends Model
     /**
      * SCOPES
      */
+    /** /!\ Same requests on Library Statistics **/
     public function scopeSavedOnly($query)
     {
         return $query->where('saved','1');
@@ -206,13 +207,14 @@ class Campaign extends Model
 
     public function scopePublished($query)
     {
-        return $query->where('status','0');
+        return $query->where('status','1');
     }
 
     public function scopeCmmValidation($query)
     {
         return $query->where('cmm','1');
     }
+    /** /!\ End Same requests on Library Statistics **/
 
     public function scopeBetweenDate($query , $date)
     {
