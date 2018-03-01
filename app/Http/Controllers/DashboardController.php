@@ -25,6 +25,8 @@ class DashboardController extends Controller
         $date = Carbon::now();
         $campaigns = Campaign::notdeleted()
                      ->savedOnly()
+                     ->published()
+                     ->cmmValidation()
                      ->betweenDate(Carbon::now())
                      ->orderBy('begin' , 'ASC')
                      ->get();

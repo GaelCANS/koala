@@ -204,6 +204,16 @@ class Campaign extends Model
         return $query->where('saved','1');
     }
 
+    public function scopePublished($query)
+    {
+        return $query->where('status','0');
+    }
+
+    public function scopeCmmValidation($query)
+    {
+        return $query->where('cmm','1');
+    }
+
     public function scopeBetweenDate($query , $date)
     {
         return $query->where(
