@@ -33,7 +33,7 @@ $(document).ready(function(){
      */
     $('.ajax-action').on('click', '[data-href]' , function () {
         var msg = $(this).data('msg');
-        if (msg != '') {
+        if (msg != '' && msg != undefined) {
             if (confirm(msg))
                 window.location.href = $(this).data('href');
         }
