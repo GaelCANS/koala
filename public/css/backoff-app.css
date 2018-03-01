@@ -9001,9 +9001,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-.select2-container, .select2-search__field {
-    width: auto!important;
-}
+
 
 .was-validated .form-control:valid, .was-validated .asColorPicker-input:valid, .was-validated .dataTables_wrapper select:valid, .dataTables_wrapper .was-validated select:valid, .was-validated .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text]:valid, .jsgrid .jsgrid-table .jsgrid-filter-row .was-validated input[type=text]:valid, .was-validated
 .jsgrid .jsgrid-table .jsgrid-filter-row select:valid,
