@@ -22,7 +22,7 @@
                                                 {{ $indicator->campaignChannel->campaign->name }}
                                             </td>
                                             <td title="{{ $indicator->begin }} - {{ $indicator->end }}">
-                                                {{ $indicator->period }}période indicateur
+                                                {{ $indicator->campaignChannel->period }}
                                             </td>
                                             <td>
                                                 <div class="badge badge-outline-primary badge-pill">

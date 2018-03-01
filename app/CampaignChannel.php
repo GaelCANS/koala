@@ -28,6 +28,18 @@ class CampaignChannel extends Model
         $this->attributes['end'] = !empty($date) ? Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d') : '';
     }
 
+    public function getPeriodAttribute()
+    {
+        if ($this->begin != '' && $this->end != '')
+            return Carbon::createFromFormat('Y-m-d', $this->begin)->format('d/m/y').' - '.Carbon::createFromFormat('Y-m-d', $this->end)->format('d/m/y');
+        elseif ($this->begin != '' && $this->end == '')
+            return Carbon::createFromFormat('Y-m-d', $this->begin)->format('d/m/y').' - ';
+        elseif ($this->begin == '' && $this->end != '')
+            return ' - '.Carbon::createFromFormat('Y-m-d', $this->end)->format('d/m/y');
+        else
+            return ' - ';
+    }
+
 
 
     /**
