@@ -2,7 +2,7 @@
     <td class="channel">
         <div class="canaux form-group mb-0">
             <!--{!! Form::select('channel['.$channel->uniqid.'][channel_id]',$channels , $channel->channel_id, ['class' => 'form-control select2']) !!}-->
-            {{ $channel->Channel->name }}
+            <div class="badge badge-outline-dark badge-pill">{{ $channel->Channel->name }}</div>
             {!! Form::hidden('channel['.$channel->uniqid.'][channel_id]',$channel->channel_id) !!}
         </div>
     </td>

@@ -6,7 +6,6 @@
 
 <!-- Select 2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js" integrity="sha256-FcVIknBiVRk5KLQeIBb9VQdtFRMqwffXyZ+D8q0gQro=" crossorigin="anonymous"></script>
-
 <!-- Lodash -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.core.min.js" integrity="sha256-/WikzFcmjMZS+es0fni22evPN2lgZh8Dk2XXI/ZFtxM=" crossorigin="anonymous"></script>
 
@@ -47,35 +46,21 @@
 <script src="{{ url('js/owl-carousel.js') }}"></script>
 
 
-<!-- Custom js for this page-->
-<!-- End custom js for this page-->
-<script>
-
-</script>
 
 <script>
+
     $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
+        $('.js-example-placeholder-single').select2();
+        placeholder: 'Select an option'
+
     });
 
-    // In your Javascript (external .js resource or <script> tag)
-    $(document).ready(function() {
-        $('.js-example-basic-single').select2();
-    });
-
-    $(".js-example-placeholder-multiple").on('select2:select' , function () {
-        $(".select2-search__field").attr('placeholder' , "+ Ajouter");
-    });
 
     $(".js-example-placeholder-multiple").select2({
         placeholder: "+ Ajouter"
     });
 
 
-    $(".js-example-placeholder-single").select2({
-        placeholder: "+ Ajouter",
-        allowClear: true
-    });
 
     /*
     $(".canaux").select2({

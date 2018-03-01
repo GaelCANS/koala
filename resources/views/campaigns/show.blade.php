@@ -84,7 +84,7 @@
                         </div>
                         <div class="col-4">
                             <h6>Contributeurs</h6>
-                            {!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple js-states form-control', 'multiple' => 'multiple' ]) !!}
+                            {!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple js-states form-control', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
                         </div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="wrapper d-md-flex mb-3">
-                                <h6 class="text-muted">Validé en CMM</h6>
+                                <h6 class="font-weight-normal">Validé en CMM</h6>
                                 <div class="wrapper ml-md-3">
                                     <div class="toggle-radio">
                                         {!! Form::radio( 'cmm' , 1 , false , array('id' => 'cmm1' ) ) !!}
@@ -122,7 +122,7 @@
 
                                 </div>
                             </div>
-                                <h6 class="text-muted text-left">Commentaires</h6>
+                                <h6 class="font-weight-normal text-left">Commentaires</h6>
                                 {!! Form::textarea( 'cmm_comments' , null , array( 'class' => 'form-control bg-light', 'rows' => '5', 'cols' => '10') ) !!}
 
 

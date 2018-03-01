@@ -2,7 +2,7 @@
     <table class="ajax-action table">
         <thead>
         <tr>
-            <th class="channel">
+            <th class="canaux">
                 Canaux
             </th>
             <th class="period">

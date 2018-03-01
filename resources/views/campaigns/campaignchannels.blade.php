@@ -2,7 +2,7 @@
     <td class="channel">
         <div class="canaux form-group mb-0">
             <!--{!! Form::select('channel['.$channel->pivot->uniqid.'][channel_id]',$channels , $channel->id, ['class' => 'form-control select2 select2-ajax']) !!}-->
-            {{ $channel->name }}
+            <div class="badge badge-outline-dark badge-pill">{{ $channel->name }}</div>
             {!! Form::hidden('channel['.$channel->pivot->uniqid.'][channel_id]',$channel->id) !!}
         </div>
     </td>
