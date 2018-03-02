@@ -14,7 +14,7 @@
     ) !!}
 
     <h4 class="page-title d-inline-block mr-2">
-        @if( $campaign == null ) Création @else Édition @endif d'une fiche campagne @if( $campaign != null )
+        @if( $campaign == null ) Création @else Édition @endif fiche campagne @if( $campaign != null )
         @endif
     </h4>
 
