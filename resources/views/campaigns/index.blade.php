@@ -44,7 +44,13 @@
                                     <tbody>
                                     @forelse($campaigns as $campaign)
                                     <tr>
-                                        <td class="marches"><div class="badge part">@TODO</div></td>
+                                        <td class="marches">
+                                            @forelse($campaign->Markets as $market)
+                                                <div class="badge {{ $market->class_css }}">{{ $market->abbreviation }}</div>
+                                            @empty
+                                            @endforelse
+
+                                        </td>
                                         <td class="text-left">{{ $campaign->name }}</td>
                                         <td>{{ $campaign->period }}</td>
                                         <td>

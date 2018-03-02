@@ -27,7 +27,12 @@ class CampaignController extends Controller
     {
         $campaigns = Campaign::notdeleted()->savedOnly()->orderBy('id' , 'DESC')->paginate(10);
         $campaigns->load('Channels');
-        return view('campaigns.index' , compact('campaigns'));
+        $campaigns->load('Markets');
+
+        $markets = Market::notdeleted()->orderBy('id', 'ASC')->get();
+
+
+        return view('campaigns.index' , compact('campaigns', 'markets'));
     }
 
     /**
