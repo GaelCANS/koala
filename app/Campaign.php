@@ -183,6 +183,12 @@ class Campaign extends Model
         return $this->belongsToMany('App\Service')->withTimestamps();
     }
 
+    // many to many
+    public function markets()
+    {
+        return $this->belongsToMany('App\Market')->withTimestamps();
+    }
+
     // 1 to many
     public function campaignChannels()
     {

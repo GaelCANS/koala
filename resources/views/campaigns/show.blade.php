@@ -39,26 +39,12 @@
                         </div>
                         <div class="col-4">
                             <h6>Marchés</h6>
-                            <div id="part" class="icheck-line">
-                                <input tabindex="1" type="checkbox" id="line-checkbox-1"  />
-                                <label for="line-checkbox-1">PART</label>
-                            </div>
-                            <div id="pro" class="icheck-line">
-                                <input tabindex="2" type="checkbox" id="line-checkbox-2"   />
-                                <label for="line-checkbox-2">PRO</label>
-                            </div>
-                            <div id="agri" class="icheck-line">
-                                <input tabindex="3" type="checkbox" id="line-checkbox-3"  />
-                                <label for="line-checkbox-3">AGRI</label>
-                            </div>
-                            <div id="bp" class="icheck-line">
-                                <input tabindex="4" type="checkbox" id="line-checkbox-4" />
-                                <label for="line-checkbox-4">BP</label>
-                            </div>
-                            <div id="soc" class="icheck-line">
-                                <input tabindex="5" type="checkbox" id="line-checkbox-5" />
-                                <label for="line-checkbox-5">SOC</label>
-                            </div>
+                            @foreach($markets as $market)
+                                <div id="{{$market->class_css}}" class="icheck-line">
+                                    {!! Form::checkbox('markets[]',$market->id, null, array('id' => 'line-checkbox-'.$market->id )) !!}
+                                    <label for="line-checkbox{{$market->id}}">{{$market->abbreviation}}</label>
+                                </div>
+                            @endforeach
                         </div>
                         <div class="col-4">
                             <h6>Période de la campagne</h6>

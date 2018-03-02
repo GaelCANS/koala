@@ -7,6 +7,7 @@ use App\CampaignChannel;
 use App\CampaignChannelIndicator;
 use App\CampaignChannelPivot;
 use App\Channel;
+use App\Market;
 use App\Service;
 use App\User;
 use Illuminate\Http\Request;
@@ -103,8 +104,12 @@ class CampaignController extends Controller
             ->orderBy('name' , 'ASC')
             ->pluck('name' , 'id')
             ->toArray();
+        $markets = Market::Notdeleted()
+            ->orderBy('id' , 'ASC')
+            ->get();
 
-        return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator' , 'services'));
+
+        return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator' , 'services', 'markets'));
     }
 
     /**
@@ -129,10 +134,13 @@ class CampaignController extends Controller
     {
         // Update de la campagne
         $campaign = Campaign::findOrFail($id);
-        $campaign->update( $request->except('channel' , 'indicator' , 'add-new-channel' , 'states' , 'services') );
+        $campaign->update( $request->except('channel' , 'indicator' , 'add-new-channel' , 'states' , 'services', 'markets') );
 
         // Sync campaign_service
         $campaign->services()->sync( (array)$request->services );
+
+        // Sync campaign_market
+        $campaign->markets()->sync( (array)$request->markets );
 
         // Sync campaign_channel (create, update, delete)
         $channelDatas           = $request->only('channel');
