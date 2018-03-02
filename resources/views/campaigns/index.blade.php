@@ -2,7 +2,7 @@
 
 @section('content')
     <h4 class="page-title d-inline-block mr-2">Campagnes</h4>
-    <button type="button" class="btn btn-secondary btn-xs mb-1" data-href="{{ route('new-campaign') }}" title="Ajouter une campagne">+ Ajouter</button>
+    <a href="{{ route('new-campaign') }}"><button type="button" class="btn btn-secondary btn-xs mb-1" title="Ajouter une campagne">+ Ajouter</button></a>
 
     @include('campaigns.search')
 
@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table class="table table-hover ajax-action">
                                     <thead>
                                     <tr>
                                         <th>Marchés</th>
@@ -43,7 +43,7 @@
                                     </thead>
                                     <tbody>
                                     @forelse($campaigns as $campaign)
-                                    <tr>
+                                    <tr data-href="{{action('CampaignController@show' , $campaign)}}">
                                         <td class="marches">
                                             @forelse($campaign->Markets as $market)
                                                 <div class="badge {{ $market->class_css }}">{{ $market->abbreviation }}</div>

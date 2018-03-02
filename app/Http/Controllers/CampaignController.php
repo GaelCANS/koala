@@ -13,6 +13,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
@@ -25,14 +26,43 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        $campaigns = Campaign::notdeleted()->savedOnly()->orderBy('id' , 'DESC')->paginate(10);
+        $request = (object)Cookie::get('filter');
+        $campaigns = Campaign::notdeleted()->savedOnly()->filter($request)->orderBy('campaigns.id' , 'DESC')->paginate(10);
         $campaigns->load('Channels');
         $campaigns->load('Markets');
 
         $markets = Market::notdeleted()->orderBy('id', 'ASC')->get();
+        $services= Service::Notdeleted()
+            ->orderBy('name' , 'ASC')
+            ->pluck('name' , 'id')
+            ->toArray();
+        $services[0]= 'Tous';
+        ksort($services);
+        $channels= Channel::Notdeleted()
+            ->orderBy('name' , 'ASC')
+            ->pluck('name' , 'id')
+            ->toArray();
+        $channels[0]=   'Tous';
+        ksort($channels);
+        $results = array('success' => 'ajoutés' , 'warning' => 'partiels' , 'danger' => 'aucuns');
+        if(!empty($request->results)) {
+            $reload_results = array();
+            foreach ($request->results as $result) {
+                $key = array_search($result , $results);
+                $reload_results[$key] = $result;
+            }
+        }
+        $data = array(
+            'services' => !empty($request->services) ? array_map('intval' , $request->services ) : array(0),
+            'channels' => !empty($request->channels) ? array_map('intval' , $request->channels ) : array(0),
+            'markets'  => !empty($request->markets) ? array_map('intval' , $request->channels ) : Market::notdeleted()->pluck('id')->toArray(),
+            'results'  => !empty($request->results) ? $reload_results : $results,
+            'begin'    => !empty($request->begin) ? $request->begin : '',
+            'end'      => !empty($request->end) ? $request->end : '',
+            'keywords' => !empty($request->keywords) ? $request->keywords : '',
+        );
 
-
-        return view('campaigns.index' , compact('campaigns', 'markets'));
+        return view('campaigns.index' , compact('campaigns', 'markets' , 'services' , 'channels' , 'data' , 'results'));
     }
 
     /**
@@ -198,6 +228,30 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::duplicateCampaign($id);
         return redirect(action('CampaignController@show' , $campaign))->with('success' , 'Votre campagne a bien été dupliquée');
+    }
+
+
+    /**
+     * Save filter
+     *
+     * @param Request $request
+     */
+    public function filter(Request $request)
+    {
+        Cookie::queue('filter' , $request->all());
+        return redirect(action('CampaignController@index'));
+    }
+
+
+    /**
+     * Clear filter
+     *
+     * @param Request $request
+     */
+    public function clearfilter(Request $request)
+    {
+        \Cookie::queue(\Cookie::forget('filter'));
+        return redirect(action('CampaignController@index'));
     }
 
 

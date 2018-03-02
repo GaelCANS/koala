@@ -52,6 +52,8 @@ Route::resource(
     )
 );
 Route::get('/new-campaign', 'CampaignController@newcampaign')->name('new-campaign');
+Route::post('/filter-campaign' , 'CampaignController@filter')->name('filter-campaign');
+Route::get('/clear-filter-campaign' , 'CampaignController@clearfilter')->name('clear-filter-campaign');
 Route::get("/duplicate-campaign/{id}", 'CampaignController@duplicatecampaign')->name('duplicate-campaign')->where(array('id' => '[0-9]+'));
 
 // CampaignChannel

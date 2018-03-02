@@ -5,6 +5,7 @@ namespace App;
 use App\Library\Traits\Scopable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Campaign extends Model
 {
@@ -235,6 +236,73 @@ class Campaign extends Model
                         $q  ->where('end', '>=' , $date->startOfMonth()->format('Y-m-d'));
                     }
                 );
+    }
+
+    public function scopeFilter($query , $datas)
+    {
+        // Results_state IN (ajoutés, partiels, aucuns)
+        if (isset($datas->results) && count($datas->results)<3) {
+            $query->whereIn('results_state' , $datas->results);
+        }
+
+        // Period Begin
+        if (!empty($datas->begin)) {
+            $query->where('begin' , '>=' , Carbon::createFromFormat('d/m/Y', $datas->begin)->format('Y-m-d'));
+        }
+
+        // Period End
+        if (!empty($datas->end)) {
+            $query->where('end' , '<=' , Carbon::createFromFormat('d/m/Y', $datas->end)->format('Y-m-d'));
+        }
+
+        // Markets
+        if (isset($datas->markets) && count($datas->markets) < Market::notdeleted()->count()) {
+            $campaigns_id = DB::table('campaign_market')->whereIn('market_id' , $datas->markets)->pluck('campaign_id');
+            $query->whereIn('id' , $campaigns_id );
+        }
+
+        // Services
+        if (isset($datas->services)) {
+            $tous_value = array_search('0' , $datas->services);
+            $services = $datas->services;
+            if ($tous_value !== false) {
+                unset($services[$tous_value]);
+            }
+            if (count($services) > 0) {
+                $campaigns_id = DB::table('campaign_service')->whereIn('service_id' , $services)->pluck('campaign_id');
+                $query->whereIn('id' , $campaigns_id );
+            }
+        }
+
+        // Channels
+        if (isset($datas->channels)) {
+            $tous_value = array_search('0' , $datas->channels);
+            $channels = $datas->channels;
+            if ($tous_value !== false) {
+                unset($channels[$tous_value]);
+            }
+            if (count($channels) > 0) {
+                $campaigns_id = DB::table('campaign_channel')->whereIn('channel_id' , $channels)->pluck('campaign_id');
+                $query->whereIn('id' , $campaigns_id );
+            }
+        }
+
+        // Keywords
+        if (!empty($datas->keywords)) {
+
+            $keywords = trim($datas->keywords);
+            $query->where( function ($q) use ($keywords) {
+
+                  $q->where('name', 'LIKE', '%'.$keywords.'%')
+                    ->orWhere('description', 'LIKE', '%'.$keywords.'%')
+                    ->orWhere('cmm_comments', 'LIKE', '%'.$keywords.'%')
+                    ->orWhere('results', 'LIKE', '%'.$keywords.'%')
+                    ->orWhere('unica', 'LIKE', '%'.$keywords.'%');
+                }
+            );
+        }
+
+        return $query;
     }
 
 
