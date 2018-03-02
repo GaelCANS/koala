@@ -31,6 +31,7 @@
 <script src="{{ url('/theme_modules/icheck/icheck.min.js') }}"></script>
 <script src="{{ url('/theme_modules/owl-carousel-2/owl.carousel.min.js') }}"></script>
 
+
 <!-- End plugin js for this page-->
 <!-- inject:js -->
 <script src="{{ url('/js/off-canvas.js') }}"></script>
@@ -49,25 +50,21 @@
 
 <script>
 
-    $(document).ready(function() {
-        $('.js-example-placeholder-single').select2();
-        placeholder: 'Select an option'
 
-    });
 
 
     $(".js-example-placeholder-multiple").select2({
         placeholder: "+ Ajouter"
+
     });
 
 
 
-    /*
-    $(".canaux").select2({
-        width: 'auto' // need to override the changed default
+
+    $(".js-example-placeholder-multiple").on('select2:select' , function () {
+        $(".select2-search__field").attr('placeholder' , "+ Ajouter");
     });
 
-    */
     $(document).ready(function(){
         $(".owl-carousel").owlCarousel();
     });

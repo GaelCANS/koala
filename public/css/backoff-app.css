@@ -16530,6 +16530,9 @@ label[for=cmm0] {
     background-color: #3a3f51;
     border-color: #3a3f51; }
 
+
+
+
 /* Breadcrumbs */
 .breadcrumb {
     border: 1px solid #f3f3f3; }
@@ -20181,7 +20184,7 @@ body.avgrund-active {
 
 .datepicker.datepicker-dropdown, .datepicker.datepicker-inline {
     padding: 0 25px;
-    width: 30%;
+    width: auto;
     max-width: 500px;
     min-width: 250px; }
 .datepicker.datepicker-dropdown .datepicker-days, .datepicker.datepicker-inline .datepicker-days {
@@ -20189,8 +20192,7 @@ body.avgrund-active {
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed, .datepicker.datepicker-inline .datepicker-days table.table-condensed {
     width: 100%; }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th {
-    text-align: center;
-    padding: .5rem 0; }
+    text-align: center;  }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.prev, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.prev {
     color: #434a54;
     padding-bottom: 1rem;
@@ -20200,8 +20202,6 @@ body.avgrund-active {
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.datepicker-switch, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.datepicker-switch {
     color: #434a54;
     background: #ffffff;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
     font-size: 1rem;
     font-weight: 600; }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.next, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.next {
@@ -20215,10 +20215,19 @@ body.avgrund-active {
     color: #434a54;
     font-size: .875rem;
     font-weight: initial; }
+
+
+.datepicker.datepicker-dropdown .datepicker-days table.table-condensed tbody td.disabled.day,
+.datepicker.datepicker-dropdown .datepicker-days table.table-condensed tbody td.disabled.day:hover{
+    background: #f4f4f4;
+    border-radius: 0px;
+    cursor: not-allowed;
+    color:#434a54
+}
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.dow:first-child, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.dow:first-child {
-    text-align: left; }
+    text-align: center; }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.dow:last-child, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.dow:last-child {
-    text-align: right; }
+    text-align: center; }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed tbody, .datepicker.datepicker-inline .datepicker-days table.table-condensed tbody {
     position: relative;
     top: 13px; }
@@ -20226,33 +20235,25 @@ body.avgrund-active {
     text-align: center; }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed tbody td.day, .datepicker.datepicker-inline .datepicker-days table.table-condensed tbody td.day {
     font-size: .9375rem;
-    padding: .5rem 0;
-    color: #434a54; }
+    padding:6px 8px;
+    text-align: center;
+    color: #434a54;
+    border: 1px solid #ececec;  }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed tbody td.day:hover, .datepicker.datepicker-inline .datepicker-days table.table-condensed tbody td.day:hover {
-    background: #ffffff; }
+    background: #01a3a6;
+    color:white;
+    border-radius:0;}
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed tbody td.day:first-child, .datepicker.datepicker-inline .datepicker-days table.table-condensed tbody td.day:first-child {
-    text-align: left; }
+    text-align: center; }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed tbody td.day:last-child, .datepicker.datepicker-inline .datepicker-days table.table-condensed tbody td.day:last-child {
-    text-align: right; }
+    text-align: center; }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed tbody td.day.active, .datepicker.datepicker-inline .datepicker-days table.table-condensed tbody td.day.active {
     color: #fff;
-    background: transparent;
+    background: #01a3a6;
     position: relative;
-    z-index: 1; }
-.datepicker.datepicker-dropdown .datepicker-days table.table-condensed tbody td.day.active:before, .datepicker.datepicker-inline .datepicker-days table.table-condensed tbody td.day.active:before {
-    content: "";
-    width: 38px;
-    height: 38px;
-    background: #00c292;
-    border-radius: 100%;
-    display: block;
-    margin: auto;
-    vertical-align: middle;
-    position: absolute;
-    top: 1px;
-    z-index: -1;
-    left: 0;
-    right: 0; }
+    z-index: 1;
+    border-radius:0;}
+
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed tbody td.day.today, .datepicker.datepicker-inline .datepicker-days table.table-condensed tbody td.day.today {
     color: #fff;
     background: transparent;
@@ -20944,20 +20945,76 @@ body.avgrund-active {
 
 
 /* select2 */
+
+.select2-results {
+    background:#ffffff;
+}
+
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background: #03a9f3; }
 
 .select2-container--default .select2-selection--single,
 .select2-container--default .select2-dropdown,
 .select2-container--default .select2-selection--multiple {
-    border-color: #f3f3f3; }
+    border: none;
+    background:transparent;
+    cursor:pointer  ;}
 .select2-container--default .select2-selection--single .select2-search__field,
 .select2-container--default .select2-dropdown .select2-search__field,
 .select2-container--default .select2-selection--multiple .select2-search__field {
-    border-color: #f3f3f3; }
+    color: #ffffff;
+    border: 0;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: .625rem;
+    font-family: inherit;
+    line-height: 1;
+    background: #dadada;
+    cursor:pointer;
+    width: 60px!important;}
+.select2-container--default .select2-selection--multiple .select2-search__field::-webkit-input-placeholder{
+    color: #ffffff;
+}
 
-.select2-container--default .select2-selection--single {
-    height: auto; }
+.select2-container--default .select2-selection--multiple .select2-search__field::-moz-placeholder{
+    color: #ffffff;
+}
+
+.select2-container--default .select2-selection--multiple .select2-search__field:-ms-input-placeholder{
+    color: #ffffff;
+}
+
+.select2-container--default .select2-selection--multiple .select2-search__field:-moz-placeholder{
+    color: #ffffff;
+}
+
+.select2-container .select2-search--inline .select2-search__field, .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    margin-top:0px;
+}
+
+
+.status .select2-container--default .select2-selection--single {
+    background: white;
+}
+
+.status .select2-container--default .select2-selection--single {
+}
+
+.status .select2 {
+    width:95px!important;
+}
+
+.status .select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    text-transform: uppercase;
+    font-size: 9px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    margin-right: 5px;
+}
 
 #channels-table .select2-container--default .select2-selection--single {
     border: 1px solid #4d4444;
@@ -20969,6 +21026,7 @@ body.avgrund-active {
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
+    height: auto;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow b {
@@ -20987,28 +21045,25 @@ body.avgrund-active {
     font-size: .8125rem; }
 
 .select2-container--default.select2-container--focus .select2-selection--multiple {
-    border-color: #f3f3f3; }
+    border:none;}
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-    color: #ffffff;
+    color: #404850;
     border: 0;
     border-radius: 3px;
     padding: 6px;
     font-size: .625rem;
     font-family: inherit;
-    line-height: 1; }
+    line-height: 1;
+    background:#ffffff;
+
+}
 .select2-container--default .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
-    color: #ffffff; }
-.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+1) {
-    background: #03a9f3; }
-.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+2) {
-    background: #00c292; }
-.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+3) {
-    background: #8d949b; }
-.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+4) {
-    background: #ff6363; }
-.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5n+5) {
-    background: #ffb463; }
+    color: #404850; }
+
+.select2-selection__clear {
+    display:none;
+}
 
 
 

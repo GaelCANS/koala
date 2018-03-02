@@ -18,8 +18,8 @@
         @endif
     </h4>
 
-    <div class="d-inline-block">
-        {!! Form::select('status',$status , null, ['class' => 'btn btn-primary btn-xs mb-1']) !!}
+    <div class="d-inline-block status">
+        {!! Form::select('status',$status , null, ['class' => ' mb-1 select2']) !!}
     </div>
     <div class="float-right">
         <button type="submit" class="btn btn-primary">
@@ -66,11 +66,13 @@
                         </div>
                         <div class="col-4">
                             <h6>Responsable de la campagne</h6>
-                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-placeholder-single js-states form-control']) !!}
+                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-placeholder-multiple js-states form-control', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'false', 'data-maximumSelectionLength' => '1']) !!}
                         </div>
                         <div class="col-4">
                             <h6>Contributeurs</h6>
                             {!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple js-states form-control', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
+
+
                         </div>
                     </div>
                 </div>

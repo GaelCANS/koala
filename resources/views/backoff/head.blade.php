@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{ asset('/theme_modules/owl-carousel-2/assets/owl.carousel.min.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('/theme_modules/owl-carousel-2/assets/owl.theme.default.min.css') }}" />
 
+
     <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
