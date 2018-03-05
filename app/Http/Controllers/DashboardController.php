@@ -37,9 +37,10 @@ class DashboardController extends Controller
             'next' => route('dashboard-reload-campaigns' , array('period' => $date->addMonth()->format('m-Y'))),
             'prev' => route('dashboard-reload-campaigns' , array('period' => $date->subMonth(2)->format('m-Y'))),
         );
+        // on récupère les ralations markets, users, channel liés à la campagne
         $campaigns->load('Channels');
         $campaigns->load('User');
-
+        $campaigns->load('Markets');
 
         // My campaigns
         $mycampaigns =  Campaign::savedOnly()
@@ -90,6 +91,7 @@ class DashboardController extends Controller
             ->get();
         $campaigns->load('Channels');
         $campaigns->load('User');
+        $campaigns->load('Markets');
 
 
         $html = view('dashboards.campaigns' , compact('periods' , 'campaigns'))->render();
