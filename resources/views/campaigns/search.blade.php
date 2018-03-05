@@ -46,12 +46,12 @@
             <div class="row">
                 <div class="col-5">
                     <h6>Responsables / Contributeurs</h6>
-                    {!! Form::select('services[]',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
+                    {!! Form::select('services[]',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
 
                 </div>
                 <div class="col-7">
                     <h6>Canaux</h6>
-                    {!! Form::select('channels[]',$channels , null, ['class' => 'js-example-placeholder-multiple js-states form-control', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
+                    {!! Form::select('channels[]',$channels , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
                     <button type="submit" class="btn btn-outline-secondary icon-btn">Filtrer</button>
                     <a href="{{route('clear-filter-campaign')}}"><button type="button" class="btn btn-outline-secondary icon-btn">Effacer</button></a>
                 </div>
