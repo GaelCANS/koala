@@ -38,7 +38,7 @@ class MarketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\MarketRequest $request)
     {
         $market = Market::create( $request->only('name' , 'abbreviation', 'class_css') );
         return redirect(action('MarketController@index'))->with('success' , "Le marché {$market->name} a bien été crée.");
@@ -74,7 +74,7 @@ class MarketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\MarketRequest $request, $id)
     {
         $market = Market::findOrFail($id);
         $market->update( $request->all() );
