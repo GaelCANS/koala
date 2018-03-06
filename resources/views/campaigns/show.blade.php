@@ -147,24 +147,22 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="card grid-margin">
-                <div class="card-body pt-3 pb-3 pl-3 pr-3">
-                    <div class="text-center ">
-                        <h6 class="mt-1">Liaison Unica</h6>
-                    </div>
-                    <div class="row">
+                    <div class="row mt-3">
                         <div class="col-12">
                             <div class="wrapper">
                                 <div class="d-flex">
-                                    {!! Form::text( 'unica' , null , array( 'class' => 'form-control bg-light' , 'placeholder' => 'ID de liaison avec Unica' ) ) !!}
+                                    <div class="file-upload-wrapper">
+                                        <div id="fileuploader"></div>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="card grid-margin">
                 <div class="card-body pt-3 pb-3 pl-3 pr-3">
                     <div class="text-center ">
@@ -174,14 +172,43 @@
                         <div class="col-12">
                             <div class="wrapper">
                                 <div class="d-flex">
-                                    <div class="form-group">
-                                        <label for="legal_validation-oui">Oui</label>
-                                        {!! Form::radio( 'legal_validation' , 'oui' , false , array('id' => 'legal_validation-oui') ) !!}
-                                        <label for="legal_validation-non">Non</label>
-                                        {!! Form::radio( 'legal_validation' , 'non' , false , array('id' => 'legal_validation-non') ) !!}
-                                        <label for="legal_validation-nc">Non concerné</label>
-                                        {!! Form::radio( 'legal_validation' , 'non concerné' , false , array('id' => 'legal_validation-nc') ) !!}
+                                    <div class="form-group m-auto text-center">
+                                        <div class="form-radio">
+                                            <label for="legal_validation-oui">
+                                                {!! Form::radio( 'legal_validation' , 'oui' , false , array('id' => 'legal_validation-oui', 'class' => 'form-check-input') ) !!}
+                                                Oui
+                                            </label>
+                                        </div>
+                                        <div class="form-radio">
+                                            <label for="legal_validation-non">
+                                                {!! Form::radio( 'legal_validation' , 'non' , false , array('id' => 'legal_validation-non', 'class' => 'form-check-input') ) !!}
+                                                Non
+                                            </label>
+                                        </div>
+                                        <div class="form-radio">
+                                            <label for="legal_validation-nc">
+                                                {!! Form::radio( 'legal_validation' , 'non concerné' , false , array('id' => 'legal_validation-nc', 'class' => 'form-check-input') ) !!}
+                                                Non concerné
+                                            </label>
+                                        </div>
                                     </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card grid-margin">
+                <div class="card-body pt-3 pb-3 pl-3 pr-3">
+                    <div class="text-center ">
+                        <h6 class="mt-1">Référence UNICA</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="wrapper">
+                                <div class="d-flex">
+                                    {!! Form::text( 'unica' , null , array( 'class' => 'form-control bg-light' , 'placeholder' => 'ID Campagne Unica' ) ) !!}
                                 </div>
                             </div>
                         </div>

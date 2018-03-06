@@ -9277,8 +9277,8 @@ fieldset[disabled] a {
     border-color: #01a3a6; }
 .btn-primary:hover, .wizard > .actions a:hover {
     color: #fff;
-    background-color: #038fcd;
-    border-color: #0286c1; }
+    background-color: #089595;
+    border-color: #089595; }
 .btn-primary:focus, .wizard > .actions a:focus, .btn-primary.focus, .wizard > .actions a.focus {
     box-shadow: 0 0 0 0.2rem rgba(3, 169, 243, 0.5); }
 .btn-primary.disabled, .wizard > .actions a.disabled, .btn-primary:disabled, .wizard > .actions a:disabled {
@@ -9288,8 +9288,8 @@ fieldset[disabled] a {
 .show > .btn-primary.dropdown-toggle, .wizard > .actions
 .show > a.dropdown-toggle {
     color: #fff;
-    background-color: #0286c1;
-    border-color: #027db4;
+    background-color: #089595;
+    border-color: #089595;
     box-shadow: 0 0 0 0.2rem rgba(3, 169, 243, 0.5); }
 
 .btn-secondary, .editable-container.editable-inline .editableform .control-group .editable-buttons .editable-cancel {
@@ -9335,12 +9335,12 @@ fieldset[disabled] a {
 
 .btn-info, .editable-container.editable-inline .editableform .control-group .editable-buttons .editable-submit {
     color: #111;
-    background-color: #8d949b;
-    border-color: #8d949b; }
+    background-color: #dadada;
+    border-color: #dadada; }
 .btn-info:hover, .editable-container.editable-inline .editableform .control-group .editable-buttons .editable-submit:hover {
     color: #fff;
-    background-color: #946ddd;
-    border-color: #8d63da; }
+    background-color: #bababa;
+    border-color: #bababa; }
 .btn-info:focus, .editable-container.editable-inline .editableform .control-group .editable-buttons .editable-submit:focus, .btn-info.focus, .editable-container.editable-inline .editableform .control-group .editable-buttons .focus.editable-submit {
     box-shadow: 0 0 0 0.2rem rgba(171, 140, 228, 0.5); }
 .btn-info.disabled, .editable-container.editable-inline .editableform .control-group .editable-buttons .disabled.editable-submit, .btn-info:disabled, .editable-container.editable-inline .editableform .control-group .editable-buttons .editable-submit:disabled {
@@ -9350,8 +9350,8 @@ fieldset[disabled] a {
 .show > .btn-info.dropdown-toggle, .editable-container.editable-inline .editableform .control-group .editable-buttons
 .show > .dropdown-toggle.editable-submit {
     color: #fff;
-    background-color: #8d63da;
-    border-color: #8558d8;
+    background-color: #bababa;
+    border-color: #bababa;
     box-shadow: 0 0 0 0.2rem rgba(171, 140, 228, 0.5); }
 
 .btn-warning {
@@ -16844,9 +16844,18 @@ label[for=cmm0] {
 .form-check,
 .form-radio {
     position: relative;
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 10px; }
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    }
+
+.form-radio label {
+    padding-left: 25px;
+    padding-top: 5px;
+    margin-right:5px;
+    cursor: pointer;
+}
+
 .form-check .form-check-label,
 .form-radio .form-check-label {
     display: block;
@@ -16976,7 +16985,7 @@ label[for=cmm0] {
     content: "";
     width: 8px;
     height: 8px;
-    background: #ff6363;
+    background: #01a3a6;
     border-radius: 50%;
     top: 8px;
     left: 6px;
@@ -20176,6 +20185,7 @@ body.avgrund-active {
     cursor:pointer;
     width: 90px;
     margin-left: 5px;
+    border-radius: 2px;
 }
 #add-channel div {
     opacity: .35;
@@ -20222,7 +20232,7 @@ body.avgrund-active {
     background: #f4f4f4;
     border-radius: 0px;
     cursor: not-allowed;
-    color:#434a54
+    color:#434a54;
 }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.dow:first-child, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.dow:first-child {
     text-align: center; }
@@ -20509,14 +20519,19 @@ body.avgrund-active {
     color: #12131a;
     font-weight: initial; }
 .ajax-upload-dragdrop .ajax-file-upload {
-    background: #8d949b;
+    background: #01a3a6;
     box-shadow: none;
-    height: auto; }
+    height: auto;
+    cursor: pointer!important;}
 
+.ajax-upload-dragdrop .ajax-file-upload:hover {
+    background: #089595;
+}
 .ajax-file-upload-container {
-    min-height: 100px; }
+    min-height: 0px; }
 .ajax-file-upload-container .ajax-file-upload-statusbar {
-    max-width: 100%; }
+    max-width: 100%;
+    font-size: 12px;}
 
 /* Js-grid */
 .jsgrid .jsgrid-button {
@@ -20962,30 +20977,30 @@ body.avgrund-active {
 .select2-container--default .select2-selection--single .select2-search__field,
 .select2-container--default .select2-dropdown .select2-search__field,
 .select2-container--default .select2-selection--multiple .select2-search__field {
-    color: #ffffff;
+    color: #dadada;
     border: 0;
     border-radius: 3px;
     padding: 5px;
     font-size: .625rem;
     font-family: inherit;
     line-height: 1;
-    background: #dadada;
+    background: #ffffff;
     cursor:pointer;
     width: 60px!important;}
 .select2-container--default .select2-selection--multiple .select2-search__field::-webkit-input-placeholder{
-    color: #ffffff;
+    color:#8d949b;
 }
 
 .select2-container--default .select2-selection--multiple .select2-search__field::-moz-placeholder{
-    color: #ffffff;
+    color: #8d949b;
 }
 
 .select2-container--default .select2-selection--multiple .select2-search__field:-ms-input-placeholder{
-    color: #ffffff;
+    color:#8d949b;
 }
 
 .select2-container--default .select2-selection--multiple .select2-search__field:-moz-placeholder{
-    color: #ffffff;
+    color: #8d949b;
 }
 
 .select2-container .select2-search--inline .select2-search__field, .select2-container--default .select2-selection--multiple .select2-selection__choice {
@@ -21048,18 +21063,18 @@ body.avgrund-active {
     border:none;}
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-    color: #404850;
+    color: #ffffff;
     border: 0;
     border-radius: 3px;
     padding: 6px;
     font-size: .625rem;
     font-family: inherit;
     line-height: 1;
-    background:#ffffff;
+    background:#01a3a6;
 
 }
 .select2-container--default .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
-    color: #404850; }
+    color: #ffffff; }
 
 .select2-selection__clear {
     display:none;
