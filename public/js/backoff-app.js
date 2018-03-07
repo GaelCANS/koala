@@ -52,6 +52,14 @@ $(document).ready(function(){
 
 
     /**
+     * Planning
+     */
+    $('.display-event').on('change' , function () {
+        $('#calendar').fullCalendar( 'refetchEvents' );
+    });
+
+
+    /**
      * Campaign
      */
     if ($('#show-campaign').length > 0) {
@@ -88,7 +96,6 @@ $(document).ready(function(){
             $(this).select2('val' , "0");
         }
     });
-
 
     /**
      * Campaign
@@ -395,4 +402,22 @@ function checkDate()
             $(this).val(valueEnd);
         }
     });
+}
+
+/**
+ * Planning
+ * @returns {number[]}
+ */
+function getChannels()
+{
+    var channels = [];
+    $('.display-event').each(function(){
+        var className = $(this).data('class');
+        var id = $(this).data('id');
+        var state = $(this).prop('checked');
+        if (state) {
+            channels.push(id);
+        }
+    });
+    return channels;
 }

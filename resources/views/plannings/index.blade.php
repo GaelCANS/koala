@@ -6,7 +6,19 @@
         <div class="col-lg-12">
             <div class="card px-3">
                 <div class="card-body">
-                    <h4 class="card-title">Fullcalendar</h4>
+
+                    <ul class="list-inline">
+                        @foreach($channels as $channel)
+                            <li>
+                                {!! Form::checkbox('channels', $channel->name, true, array( 'class' => 'display-event' , 'id' => 'channel-'.$channel->id , 'data-class' => $channel->class_name , 'data-id' => $channel->id ) ) !!}
+                                <label for="channel-{{$channel->id}}">
+                                    {{ $channel->name }}
+                                </label>
+                            </li>
+                        @endforeach
+                    </ul>
+
+                    <h4 class="card-title">Planning des communications</h4>
                     <div id="calendar"></div>
                 </div>
             </div>
