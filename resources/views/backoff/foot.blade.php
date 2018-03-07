@@ -21,6 +21,13 @@
 <script src="{{ url('/theme_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ url('/theme_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js') }}"></script>
 <!-- endinject -->
+
+<!-- Calendar -->
+<script src="{{ url('/theme_modules/moment/moment.js') }}"></script>
+<script src="{{ url('/theme_modules/fullcalendar/dist/fullcalendar.min.js') }}"></script>
+<script src="{{ url('/js/planning-calendar.js?v=1') }}"></script>
+<!-- End Calendar -->
+
 <!-- Plugin js for this page-->
 <script src="{{ url('/theme_modules/jquery-bar-rating/dist/jquery.barrating.min.js') }}"></script>
 <script src="{{ url('/theme_modules/chart.js/dist/Chart.min.js') }}"></script>

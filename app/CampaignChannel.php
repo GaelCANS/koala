@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class CampaignChannel extends Model
 {
@@ -66,6 +67,27 @@ class CampaignChannel extends Model
     /**
      * CUSTOMS
      */
+
+    /**
+     * @param $begin
+     * @param $end
+     * @return mixed
+     */
+    public static function CampaignChannelBetween($begin, $end)
+    {
+        return DB::table('campaign_channel')
+            ->select('campaign_channel.begin AS start' , 'campaign_channel.end AS end' ,'campaign_channel.id AS id' , DB::raw('"rediddead" AS className') , DB::raw('CONCAT("[",channels.name,"]"," ",campaigns.name) AS title'))
+            ->join('campaigns' , 'campaign_channel.campaign_id' , '=' , 'campaigns.id')
+            ->join('channels' , 'channels.id' , '=' , 'campaign_channel.channel_id')
+            /** /!\ Uses in scope on the Campaign Model **/
+            ->where('campaigns.saved','1')
+            ->where('campaigns.cmm','1')
+            ->where('campaigns.status','1')
+            /** /!\ End Uses in scope on the Campaign Model **/
+            ->where('campaign_channel.begin' , '>=' , $begin)
+            ->where('campaign_channel.end' , '<=' , $end)
+            ->get();
+    }
 
     /**
      * Update or create CampaignChannel

@@ -73,6 +73,7 @@ Route::get('/dashboard-reload-campaigns/{period}', 'DashboardController@reloadCa
 
 // Planning
 Route::get('/planning', 'PlanningController@index')->name('planning-index');
+Route::get('/planning/events', 'PlanningController@events')->name('planning-events');
 
 
 // Statistic
