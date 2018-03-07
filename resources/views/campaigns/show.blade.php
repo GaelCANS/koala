@@ -19,7 +19,7 @@
     </h4>
 
     <div class="d-inline-block status">
-        {!! Form::select('status',$status , null, ['class' => ' mb-1 select2']) !!}
+        {!! Form::select('status',$status , null, ['class' => ' mb-1 select2' , 'id' => 'status-select']) !!}
     </div>
     <div class="float-right">
         <button type="submit" class="btn btn-primary">
