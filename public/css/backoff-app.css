@@ -21080,11 +21080,21 @@ body.avgrund-active {
     display:none;
 }
 
+.published .select2-selection__rendered {
+    color:white!important;
+}
+
+.published .select2-selection__arrow b {
+    border-color: #fff transparent transparent transparent!important;
+
+}
+
 
 .published {
-    background:#01a3a6;
-    color: white;
+    background:#01a3a6!important;
+    color: white!important;
 }
+
 
 
 /* Summernote Editor */
