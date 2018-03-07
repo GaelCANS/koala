@@ -75,7 +75,8 @@
 
 
     $(".js-example-placeholder-multiple").on('select2:select' , function () {
-        $(".select2-search__field").attr('placeholder' , "+ Ajouter");
+            $(".select2-search__field").attr('placeholder' , "+ Ajouter");
+            $(".select2-search__field").data('placeholder' , "+ Ajouter");
     });
 
     $(document).ready(function(){

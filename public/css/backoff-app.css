@@ -21081,6 +21081,11 @@ body.avgrund-active {
 }
 
 
+.published {
+    background:#01a3a6;
+    color: white;
+}
+
 
 /* Summernote Editor */
 .note-editor.note-frame {
