@@ -70,6 +70,15 @@ $(document).ready(function(){
     /**
      * Campaign
      */
+    $('select[name="status"]').on('change' , function () {
+        addClassOnPublished();
+    });
+    addClassOnPublished();
+
+
+    /**
+     * Campaign
+     */
     $('#form-campaign').on('submit',function(){
         checkDate();
     });
@@ -420,4 +429,18 @@ function getChannels()
         }
     });
     return channels;
+}
+
+/**
+ * Campaign
+ */
+function addClassOnPublished()
+{
+    var valueSelected = $('select[name="status"]').val();
+    if (valueSelected == 1) {
+        $('#status-select').parent().find('span[role="combobox"]').addClass('published');
+    }
+    else {
+        $('#status-select').parent().find('span[role="combobox"]').removeClass('published');
+    }
 }
