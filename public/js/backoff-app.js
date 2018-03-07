@@ -79,6 +79,14 @@ $(document).ready(function(){
     /**
      * Campaign
      */
+    $('.force-placeholder').each(function () {
+        $(this).parent().find('.select2-search__field[tabindex="0"]').attr('placeholder' , '+ Ajouter');
+    });
+
+
+    /**
+     * Campaign
+     */
     $('#form-campaign').on('submit',function(){
         checkDate();
     });
@@ -94,6 +102,7 @@ $(document).ready(function(){
             $(this).parent().find('.select2-selection__choice[title="Tous"]').find('.select2-selection__choice__remove').trigger('click');
             $(this).select2('close');
         }
+        $(this).parent().find('[tabindex="0"]').attr('placeholder','+ Ajouter');
     });
 
     /**
