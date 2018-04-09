@@ -53,10 +53,8 @@
                                 <span class="text-muted mr-1 ml-1 col-2">au</span>
                                 <div class="form-control col-5 font-weight-bold" id="text-campaign-end">@if($campaign != null) {{ $campaign->endLong }} @endif</div>
                             </div>
-
                             {!! Form::hidden( 'begin' , null , array( 'id' => 'campaign-begin' ) ) !!}
                             {!! Form::hidden( 'end' , null , array( 'id' => 'campaign-end' ) ) !!}
-
                         </div>
                     </div>
                     <div class="row">
@@ -71,8 +69,6 @@
                         <div class="col-4">
                             <h6>Contributeurs</h6>
                             {!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple js-states form-control', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
-
-
                         </div>
                     </div>
                 </div>
@@ -112,9 +108,6 @@
                             </div>
                                 <h6 class="font-weight-normal text-left">Commentaires</h6>
                                 {!! Form::textarea( 'cmm_comments' , null , array( 'class' => 'form-control bg-light', 'rows' => '5', 'cols' => '10') ) !!}
-
-
-
                         </div>
                     </div>
                 </div>

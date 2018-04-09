@@ -13773,7 +13773,7 @@ a.text-secondary:focus, a.text-secondary:hover {
     color: #dbdbdb !important; }
 
 .text-success {
-    color: #00c292 !important; }
+    color: #00a3a6 !important; }
 
 a.text-success:focus, a.text-success:hover {
     color: #008f6c !important; }
@@ -15558,6 +15558,11 @@ pre {
     font-size:12px;
     margin-top:-9px;
 }
+
+#cmm .switch {
+    margin-top:0px;
+}
+
 .switch span {
     position: absolute;
     width: 20px;
@@ -15599,12 +15604,18 @@ label[for=cmm0] {
     position: absolute;
     right: 0px;
 }
+
+
 #cmm0:checked ~ .switch {
     background: #ff6363;
 }
 #cmm0:checked ~ .switch span {
     background: #fff;
     margin-left: -8px;
+}
+
+#cmm #cmm0:checked ~ .switch {
+    background: #DDD;
 }
 #cmm0:checked ~ .switch span:after {
     background: #fff;
@@ -20189,6 +20200,10 @@ body.avgrund-active {
 }
 #add-channel div {
     opacity: .35;
+}
+
+#cmm input.datepicker {
+    width:120px;
 }
 
 
