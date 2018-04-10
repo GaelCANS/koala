@@ -18033,6 +18033,30 @@ dl li {
     padding: 15px 31px; }
 
 /* Pagination */
+#tab .pagination li  {
+    padding: 0.4rem 0.6rem;
+    margin-left: -1px;
+    line-height: 1;
+    color: #dadada;
+    background-color: #fff;
+    border: 1px solid #f2f2f2;
+    display: block;
+}
+
+#tab .pagination li.active {
+    background-color:#00a3a6;
+    color:white;
+}
+
+#tab .pagination li a:hover {
+     color:#7f7f7f;
+    text-decoration: none;
+
+ }
+
+
+
+
 .pagination .page-item .page-link, .jsgrid .jsgrid-pager .page-item .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-page a {
     border-color: #f3f3f3;
     color: i;
