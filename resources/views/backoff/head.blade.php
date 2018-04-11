@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{ asset('/theme_modules/font-awesome/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('/theme_modules/jquery-bar-rating/dist/themes/fontawesome-stars.css') }}" />
     <link rel="stylesheet" href="{{ asset('/theme_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}?v={{ time() }}" />
+    <link rel="stylesheet" href="{{ asset('/theme_modules/clockpicker/dist/jquery-clockpicker.min.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('/theme_modules/icheck/skins/line/_all.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('/theme_modules/owl-carousel-2/assets/owl.carousel.min.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('/theme_modules/owl-carousel-2/assets/owl.theme.default.min.css') }}" />

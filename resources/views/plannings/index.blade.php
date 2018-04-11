@@ -1,6 +1,8 @@
 @extends('backoff.app')
 
 @section('content')
+    <h4 class="page-title d-inline-block mr-2">Planning des campagnes</h4>
+
 
     <div class="row" id="container-calendar" data-day="{{ $day }}" data-link="{{ route('planning-events') }}">
         <div class="col-lg-12">
@@ -9,16 +11,15 @@
 
                     <ul class="list-inline">
                         @foreach($channels as $channel)
-                            <li>
+                            <div >
                                 {!! Form::checkbox('channels', $channel->name, true, array( 'class' => 'display-event' , 'id' => 'channel-'.$channel->id , 'data-class' => $channel->class_name , 'data-id' => $channel->id ) ) !!}
                                 <label for="channel-{{$channel->id}}">
                                     {{ $channel->name }}
                                 </label>
-                            </li>
+                            </div>
                         @endforeach
                     </ul>
 
-                    <h4 class="card-title">Planning des communications</h4>
                     <div id="calendar"></div>
                 </div>
             </div>
