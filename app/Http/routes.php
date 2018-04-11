@@ -40,6 +40,17 @@ Route::resource(
     )
 );
 
+// Channel
+Route::resource(
+    'channels',
+    'ChannelController' ,
+    array(
+        'names' => array(
+            'index' => 'channels-index'
+        )
+    )
+);
+
 
 // Campaign
 Route::resource(
