@@ -97,7 +97,7 @@ $(document).ready(function(){
      */
     $('.toggle-tous').on('select2:select' , function(e){
         // Si "tous" est sélectionné et qu'un autre item est sélectionné, on retire tous
-        var tousIndex = _.indexOf($(this).val(), "0");
+            var tousIndex = _.indexOf($(this).val(), "0");
         if (tousIndex == "0" && $(this).val().length > 1) {
             $(this).parent().find('.select2-selection__choice[title="Tous"]').find('.select2-selection__choice__remove').trigger('click');
             $(this).select2('close');

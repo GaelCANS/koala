@@ -45,7 +45,7 @@
                             </div>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item" href="#">
+                        <a class="dropdown-item preview-item" href="{{URL::to('/')}}/logout">
                             <div class="preview-thumbnail">
                                 <div class="preview-icon">
                                     <i class="icon-logout mx-0"></i>
