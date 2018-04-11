@@ -55,7 +55,7 @@
                     </tr>
                     @empty
                         <tr>
-                            <td colspan="4">Aucune campagne en cours / à venir pour la période</td>
+                            <td colspan="5">Aucune campagne en cours / à venir pour la période</td>
                         </tr>
                     @endforelse
                     </tbody>

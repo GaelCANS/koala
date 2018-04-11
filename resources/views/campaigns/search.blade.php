@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <h6>Marchés</h6>
                     @foreach($markets as $market)
                         <div id="{{$market->class_css}}" class="icheck-line">
@@ -31,7 +31,7 @@
 
 
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <h6>Résultats</h6>
                     @forelse($results as $class => $result)
                         <div id="results" class="icheck-line {{$class}}">
@@ -43,12 +43,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-5">
-                    <h6>Responsables / Contributeurs</h6>
+                <div class="col-4">
+                    <h6>Responsables</h6>
                     {!! Form::select('services[]',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous force-placeholder', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
-
                 </div>
-                <div class="col-7">
+                <div class="col-4">
+                    <h6>Contributeurs</h6>
+                    {!! Form::select('services[]',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous force-placeholder tag-input', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
+                </div>
+                <div class="col-4">
                     <h6>Canaux</h6>
                     {!! Form::select('channels[]',$channels , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous force-placeholder', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
                 </div>

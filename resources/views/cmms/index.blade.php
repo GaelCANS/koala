@@ -17,14 +17,22 @@
                                     <div class="col-4">
                                         <h6>Date</h6>
                                         <div class="col-6 d-inline-flex text-center pl-0">
-                                            <input class="form-control font-weight-bold bg-light datepicker text-center" placeholder="--/--/--"/>
+                                            <input class="form-control font-weight-bold bg-light datepicker text-center" placeholder="JJ/MM/AAAA"/>
                                         </div>
                                     </div>
                                     <div class="col-3">
                                         <h6>Heure</h6>
-                                        <div class="col-10 d-inline-flex text-center pl-0">
+                                        <!--<div class="col-10 d-inline-flex text-center pl-0">
                                             <input class="form-control font-weight-bold bg-light text-center" placeholder="--h--"/>
+                                        </div>-->
+                                        <div class="col-10 d-inline-flex text-center pl-0 input-group clockpicker">
+                                            <input id="input-clock" type="text" class="form-control font-weight-bold bg-light text-center" data-default="10:30" placeholder="10:30" />
+
                                         </div>
+
+
+
+
                                     </div>
                                     <div class="col-5">
                                         <h6>Lieu (salle)</h6>
