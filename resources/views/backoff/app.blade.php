@@ -3,7 +3,7 @@
 
 @include('backoff.head')
 
-<body class="sidebar-fixed">
+<body class="">
 <div class="container-scroller">
 
     @include('backoff.header')

@@ -42,6 +42,7 @@
 <script src="{{ url('/theme_modules/jquery-file-upload/js/jquery.uploadfile.min.js?v='.time() ) }}"></script>
 
 
+
 <!-- End plugin js for this page-->
 <!-- inject:js -->
 <script src="{{ url('/js/off-canvas.js') }}"></script>
@@ -56,6 +57,8 @@
 <script src="{{ url('/js/tooltips.js') }}"></script>
 <script src="{{ url('js/owl-carousel.js') }}"></script>
 
+
+
 <script>
     $("#fileuploader").uploadFile({
         url: "{{ url('/images/preview-campaign/') }}",
@@ -66,6 +69,9 @@
 
 
     $(".js-example-placeholder-multiple").select2({
+        placeholder: "+ Ajouter"
+    });
+    $(".js-example-placeholder-single").select2({
         placeholder: "+ Ajouter"
     });
 

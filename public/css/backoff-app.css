@@ -8569,10 +8569,10 @@ pre code {
     border-bottom-width: 2px; }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #F6F8FA; }
+    background-color: #eff1f2; }
 
 .table-hover tbody tr:hover {
-    background-color: #F6F8FA;
+    background-color: #eff1f2;
     cursor: pointer;}
 
 .table-primary,
@@ -10091,8 +10091,7 @@ tbody.collapse.show {
     color: #495057;
     text-align: center;
     background-color: #e9ecef;
-    border: 1px solid #ced4da;
-    border-radius: 2px; }
+   border-radius: 2px; }
 .input-group-addon.form-control-sm, .dataTables_wrapper .input-group-sm > select.asColorPicker-trigger, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > input.asColorPicker-trigger[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > select.asColorPicker-trigger, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > input.asColorPicker-trigger[type=number], .select2-container--default .input-group-sm > .asColorPicker-trigger.select2-selection--single, .select2-container--default .select2-selection--single .input-group-sm > .asColorPicker-trigger.select2-search__field, .dataTables_wrapper .input-group-sm > select.input-group-addon, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > input.input-group-addon[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > select.input-group-addon, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > input.input-group-addon[type=number], .select2-container--default .input-group-sm > .input-group-addon.select2-selection--single, .select2-container--default .select2-selection--single .input-group-sm > .input-group-addon.select2-search__field,
@@ -11519,7 +11518,7 @@ button.close {
     display: flex;
     flex-direction: column;
     pointer-events: auto;
-    background-color: #F6F8FA;
+    background-color: #eff1f2;
     background-clip: padding-box;
     border: 1px solid #f3f3f3;
     border-radius: 0.3rem;
@@ -11991,7 +11990,7 @@ a.bg-danger:focus, .settings-panel .color-tiles a.tiles.danger:focus, a.bg-dange
     background-color: #fa6f46 !important; }
 
 .bg-light {
-    background-color: #f6f8fa !important; }
+    background-color: #eff1f2 !important; }
 
 a.bg-light:focus, a.bg-light:hover {
     background-color: #e6e6e6 !important; }
@@ -14916,7 +14915,7 @@ html {
     overflow-x: hidden; }
 
 .content-wrapper {
-    background: #F6F8FA;
+    background: #eff1f2;
     margin-left: 225px;
     min-height: 100vh;
     padding: 1.5rem 1.7rem;
@@ -14940,7 +14939,7 @@ pre {
 
 /* Footer */
 .footer {
-    background: #F6F8FA;
+    background: #eff1f2;
     margin-left: 225px;
     padding: 20px 1rem;
     transition: all 0.25s ease;
@@ -15067,19 +15066,19 @@ pre {
         display: flex;
         -webkit-align-items: center;
         align-items: center;
-        background: linear-gradient(88deg, #13b4ca, #18cabe);
+        background: #00a3a6;
         color: #ffffff;
         padding: 0.5rem 1.25rem;
         left: 70px;
         position: absolute;
         text-align: left;
         top: 0;
-        width: 200px;
+        width:auto;
         z-index: 1;
         height: 52px;
         line-height: 1.8;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px; }
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px; }
     .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
         background: #39363f; }
     .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
@@ -17324,6 +17323,33 @@ select.tt-hint {
 .form-group .file-upload-info {
     background: transparent; }
 
+#text-campaign-begin, #text-campaign-end {
+    cursor:not-allowed;
+}
+
+#resp .select2  {
+    width:auto!important;
+}
+
+
+.status .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    margin-top: -0.15rem;
+    margin-left: -9px;
+}
+
+.canaux .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    margin-top: -0.3rem;
+    margin-left: -9px;
+}
+
+#resp .select2-container--default .select2-selection--single .select2-selection__rendered {
+    margin-right:10px;
+}
+
+#resp .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    margin-top: -0.15rem;
+    margin-left: -9px;
+}
 .map-container {
     position: relative;
     min-width: 100%;
@@ -20230,6 +20256,10 @@ body.avgrund-active {
     width:120px;
 }
 
+.datepicker, .datepicker input {
+    cursor:pointer;
+}
+
 
 .datepicker.datepicker-dropdown, .datepicker.datepicker-inline {
     padding: 0 25px;
@@ -20415,9 +20445,21 @@ body.avgrund-active {
     bottom: 0; }
 
 /* Full Calendar */
+
+
+.fc-day-grid-event {
+    margin: 1px 0px 0!important;
+}
+
+.fc-state-disabled {
+    opacity: 1!important;
+    background-color: #dadada!important;;
+    color:white!important;;
+}
+
 #calendar .fc-header-toolbar {
     background: #ffffff;
-    padding: 28px 0px 28px 0px;
+    padding: 0px 0px 28px 0px;
     margin-bottom: 0; }
 #calendar .fc-header-toolbar .fc-button-group .fc-button {
     box-shadow: none;
@@ -20428,7 +20470,7 @@ body.avgrund-active {
     font-weight: 400;
     line-height: 1.33;
     border: none;
-    background: #01a3a6;
+    background: #dadada;
     color: #ffffff;
     text-shadow: none;
     -webkit-transition-duration: 0.3s;
@@ -20438,8 +20480,8 @@ body.avgrund-active {
 #calendar .fc-header-toolbar .fc-button-group .fc-button:first-letter {
     text-transform: uppercase; }
 #calendar .fc-header-toolbar .fc-button-group .fc-button.fc-state-active {
-    background: #ffffff;
-    color: #01a3a6; }
+    background: #01a3a6;
+    color: #ffffff; }
 #calendar .fc-header-toolbar .fc-button-group .fc-button.fc-prev-button, #calendar .fc-header-toolbar .fc-button-group .fc-button.fc-next-button {
     background: #ffffff;
     color: #01a3a6;
@@ -21005,7 +21047,7 @@ body.avgrund-active {
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background: #03a9f3; }
+    background: #01a3a6; }
 
 .select2-container--default .select2-selection--single,
 .select2-container--default .select2-dropdown,
@@ -21074,6 +21116,10 @@ body.avgrund-active {
 }
 
 
+.select2-search--dropdown {
+    display:none!important;
+}
+
 #channels-table .select2-container--default .select2-selection--single {
     border: 1px solid #4d4444;
     font-size: .70rem;
@@ -21114,6 +21160,7 @@ body.avgrund-active {
     font-family: inherit;
     line-height: 1;
     background:#01a3a6;
+    cursor:pointer;
 
 }
 .select2-container--default .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
@@ -21583,7 +21630,7 @@ div.tagsinput span.tag a {
     background: #ff6363;
     color: #fff; }
 .wizard > .content {
-    background: #F6F8FA;
+    background: #eff1f2;
     display: block;
     margin: 0.5em;
     min-height: 24em;

@@ -17,11 +17,9 @@
         @if( $campaign == null ) Création @else Édition @endif fiche campagne @if( $campaign != null )
         @endif
     </h4>
-
     <div class="d-inline-block status">
         {!! Form::select('status',$status , null, ['class' => 'mb-1 select2' , 'id' => 'status-select', 'data-select2-id' => 'status-select']) !!}
     </div>
-
     <div class="float-right">
         <button type="submit" class="btn btn-primary">
             <i class="fa fa-fw fa-save"></i>Enregister
@@ -63,9 +61,9 @@
                             <h6>Objectif(s) de la campagne</h6>
                             {!! Form::textarea( 'description' , null , array( 'class' => 'form-control' , 'rows' => '2', 'cols' => '10') ) !!}
                         </div>
-                        <div class="col-4">
+                        <div id="resp" class="col-4">
                             <h6>Responsable de la campagne</h6>
-                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-placeholder-multiple js-states form-control searchbox', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'false', 'data-maximumSelectionLength' => '1']) !!}
+                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-placeholder-single js-states form-control', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'false', 'data-maximumSelectionLength' => '1']) !!}
                         </div>
                         <div class="col-4">
                             <h6>Contributeurs</h6>
@@ -115,7 +113,7 @@
             </div>
             <div class="card grid-margin">
                 <div class="card-body pt-3 pb-3 pl-3 pr-3">
-                        <h6 class="mt-1 text-center">Résultats</h6>
+                    <h6 class="mt-1 text-center">Résultats</h6>
                     <div class="row">
                         <div class="col-12">
                             <div class="wrapper">
@@ -148,8 +146,6 @@
                                     <div class="file-upload-wrapper">
                                         <div id="fileuploader"></div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -210,27 +206,6 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     {!! Form::close() !!}
-
-
 @endsection
