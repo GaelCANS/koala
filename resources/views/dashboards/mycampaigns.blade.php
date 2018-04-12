@@ -1,4 +1,4 @@
-<div class="col-md-6 grid-margin stretch-card">
+<div class="col-md-6  grid-margin stretch-card">
     <div class="card">
         <div class="card-body pb-0">
             <div class="d-flex table-responsive">

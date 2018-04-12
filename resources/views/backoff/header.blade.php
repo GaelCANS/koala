@@ -14,7 +14,7 @@
                         <span class="btn">+ Campagne</span>
                     </a>
                 </li>
-                <li class=" nav-item  d-flex align-items-center justify-content-md-center">
+                <li class="d-none d-sm-flex nav-item  align-items-center justify-content-md-center ">
                     <i class="icon-bubbles icon-sm"></i>
                     <div class="ml-3 text-center" style="line-height: 13px;">
                         <small class="mb-0">
