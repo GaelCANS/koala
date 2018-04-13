@@ -1,4 +1,3 @@
-
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
             <a class="navbar-brand brand-logo" href="{{route('dashboard-index')}}"><img src="{{ asset('/images/logo.jpg') }}" alt="logo" /></a>
@@ -32,8 +31,9 @@
                     <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                         <i class="icon-arrow-down mx-0"></i>
                     </a>
+
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                        <a class="dropdown-item preview-item" href="#">
+                        <a class="dropdown-item preview-item" href="{{route('mon-compte' , array(auth()->user()))}}">
 
                             <div class="preview-thumbnail">
                                 <div class="preview-icon">
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="preview-item-content">
-                                <span class="preview-subject font-weight-medium">Votre compte</span>
+                                <span class="preview-subject font-weight-medium">Mon compte</span>
                             </div>
                         </a>
                         <div class="dropdown-divider"></div>
