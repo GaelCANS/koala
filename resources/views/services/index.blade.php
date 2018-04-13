@@ -27,9 +27,8 @@
                                             <th>@TODO</th>
                                             <th>{{ $service->disabled ? 'oui' : 'non' }}</th>
                                             <th>
-
-                                                <a href="{{action('ServiceController@show' , $service)}}" title="Modifier ce service"><button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-border-color"></i></button></a>
-                                                    <a href="{{action('ServiceController@destroy' , $service)}}"  title="Supprimer le service" data-confirm="Voulez-vous vraiment supprimer ce service ?" data-method="delete"><button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-delete"></i></button></a>
+                                                <a href="{{action('ServiceController@show' , $service)}}" title="Modifier"><button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-border-color"></i></button></a>
+                                                <a href="{{action('ServiceController@destroy' , $service)}}"  title="Supprimer" data-confirm="Voulez-vous vraiment supprimer" data-method="delete"><button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-delete"></i></button></a>
                                             </th>
                                         </tr>
                                         @empty

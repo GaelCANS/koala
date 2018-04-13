@@ -3,23 +3,23 @@
     <div class="col-10 grid-margin">
         <div class="card bg-transparent">
             <div class="row mb-3">
-                <div class="col-5">
+                <div class="col-4">
                     <h6>Périodes</h6>
                     <div class="input-group date datepicker">
-                        {!! Form::text('begin' , null , array("class"=>"form-control", "placeholder"=>"Date de début")) !!}
+                        {!! Form::text('begin' , null , array("class"=>"form-control", "placeholder"=>"Début")) !!}
                         <div class="input-group-addon">
                             <span class="fa fa-calendar"></span>
                         </div>
                     </div>
                     <span class="text-muted mr-1 ml-1">au</span>
                     <div class="input-group date datepicker">
-                        {!! Form::text('end' , null , array("class"=>"form-control", "placeholder"=>"Date de fin")) !!}
+                        {!! Form::text('end' , null , array("class"=>"form-control", "placeholder"=>"Fin")) !!}
                         <div class="input-group-addon">
                             <span class="fa fa-calendar"></span>
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <h6>Marchés</h6>
                     @foreach($markets as $market)
                         <div id="{{$market->class_css}}" class="icheck-line">

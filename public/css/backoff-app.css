@@ -15914,6 +15914,7 @@ label[for=cmm0] {
     padding: 0.30rem;
     color: white;
     text-transform: uppercase;
+    margin-bottom:3px!important;
 }
 
 /*Badge variations*/
@@ -17057,7 +17058,7 @@ label[for=cmm0] {
     background: #ffffff;
     color: #c9c8c8;
     width: auto;
-    padding: 0.56rem 0.75rem;
+    padding: 0.56rem 0.5rem;
     border-color: #f3f3f3; }
 
 .form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
@@ -18649,9 +18650,10 @@ dl li {
     border-top: 0;
     border-bottom-width: 1px;
     font-weight: normal;
-    color: #8d949b;
-    font-size: 12px;
+    color: #404850;
+    font-size: 10.5px;
     text-align: center;
+    text-transform:uppercase;
     height: auto; }
 .table thead th i, .jsgrid .jsgrid-table thead th i {
     margin-left: 0.325rem; }
@@ -21785,6 +21787,22 @@ div.tagsinput span.tag a {
 /*-------------------------------------------------------------------*/
 /* === Landing screens === */
 /* Auth */
+
+
+#gif-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #000;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
 .auth.login-full-bg {
     background: url("../images/auth/login_1.jpg");
     background-size: cover; }
@@ -21846,8 +21864,9 @@ div.tagsinput span.tag a {
     color: #ffffff; }
 
 .auth .auth-form-light {
-    background: #ffffff;
-    color: #000; }
+    background: rgba(255,255,255,0.4);
+    border-radius:3px;
+    color: #0D0A0A; }
 .auth .auth-form-light .form-control, .auth .auth-form-light .asColorPicker-input, .auth .auth-form-light .dataTables_wrapper select, .dataTables_wrapper .auth .auth-form-light select, .auth .auth-form-light .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], .jsgrid .jsgrid-table .jsgrid-filter-row .auth .auth-form-light input[type=text], .auth .auth-form-light
 .jsgrid .jsgrid-table .jsgrid-filter-row select,
 .jsgrid .jsgrid-table .jsgrid-filter-row .auth .auth-form-light select, .auth .auth-form-light .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .jsgrid .jsgrid-table .jsgrid-filter-row .auth .auth-form-light input[type=number], .auth .auth-form-light .select2-container--default .select2-selection--single, .select2-container--default .auth .auth-form-light .select2-selection--single, .auth .auth-form-light .select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-selection--single .auth .auth-form-light .select2-search__field, .auth .auth-form-light .typeahead, .auth .auth-form-light
@@ -21892,7 +21911,7 @@ div.tagsinput span.tag a {
     padding-right: 1rem;
     border-color: rgba(255, 255, 255, 0.2); }
 
-.auth form .form-group {
+/*.auth form .form-group {
     position: relative; }
 .auth form .form-group label {
     margin-bottom: 0;
@@ -21925,7 +21944,7 @@ div.tagsinput span.tag a {
     font-size: 0.75rem; }
 .auth form .auth-link:hover {
     color: initial; }
-
+*/
 /* Error */
 .error-page h1 {
     font-size: 9.375rem;

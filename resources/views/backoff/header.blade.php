@@ -24,14 +24,11 @@
                 </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
-                <!--<li class="nav-item btn-group ml-auto mr-2 border-0 bg-transparent">
-                    <input type="text" class="form-control " placeholder="Rechercher" />
-                </li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                    <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown" >
+
                         <i class="icon-arrow-down mx-0"></i>
                     </a>
-
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                         <a class="dropdown-item preview-item" href="{{route('mon-compte' , array(auth()->user()))}}">
 
@@ -58,7 +55,7 @@
                     </div>
                 </li>
             </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas" >
                 <span class="icon-menu"></span>
             </button>
         </div>

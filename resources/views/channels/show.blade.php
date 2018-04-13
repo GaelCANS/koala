@@ -2,15 +2,13 @@
 
 @section('content')
 
-    <div class="box box-primary">
+    <h4 class="page-title d-inline-block mr-2">
+        @if( $channel == null ) Création @else Édition @endif d'un canal @if( $channel != null ) @endif
+    </h4>
 
-        <div class="box-header with-border">
-            <h3 class="pull-left">
-                @if( $channel == null ) Création @else Edition @endif d'un canal @if( $channel != null )<small class="text-capitalize">{{$channel->name}} </small> @endif
-            </h3>
-
-            <a href="{{action('ChannelController@index')}}" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i> Retour</a>
-        </div>
+    <div class="float-right">
+        <a href="{{action('ChannelController@index')}}" class="btn btn-info"><i class="fa fa-angle-left"></i> Retour</a>
+    </div>
 
         {!! Form::model(
             $channel,
@@ -21,33 +19,34 @@
             )
         ) !!}
 
-        <div class="box-body with-border">
-
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="name">Nom du canal</label>
-                    {!! Form::text( 'name' , null , array( 'class' => 'form-control' , 'placeholder' => "Saisissez le nom du canal" ) ) !!}
-                </div>
-            </div>
-
-
-
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="class_css">Class Name</label>
-                    {!! Form::text( 'class_name' , null , array( 'class' => 'form-control' , 'placeholder' => "Saisissez la classe du canal" ) ) !!}
-                </div>
-            </div>
-
-
-
+    <div class="row">
+        <div class="col-md-4">
             <div class="form-group">
-                <div class="col-md-12">
-                    <button type="submit" class="btn btn-success">
-                        <i class="fa fa-fw fa-plus"></i>Enregister
-                    </button>
-                </div>
+                <h6>Nom du canal</h6>
+                {!! Form::text( 'name' , null , array( 'class' => 'form-control' , 'placeholder' => "Saisissez le nom du canal" ) ) !!}
             </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <h6>Class Name</h6>
+            {!! Form::text( 'class_name' , null , array( 'class' => 'form-control' , 'placeholder' => "Saisissez la classe du canal" ) ) !!}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-fw fa-save"></i>Enregister
+                </button>
+            </div>
+        </div>
+    </div>
 
         </div>
 
