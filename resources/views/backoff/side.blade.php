@@ -4,14 +4,18 @@
                 <li class="nav-item nav-profile">
                     <div class="nav-link">
                         <div class="profile-image">
-                            <img src="{{ asset('/images/faces/face10.jpg') }}" alt="image" />
+                            <img src="@if (auth()->user()->avatar){{ asset( URL::to('/').'/storage/'.auth()->user()->avatar ) }} @else {{ asset('/images/avatar-cans.png') }} @endif" alt="image" />
                         </div>
                         <div class="profile-name">
                             <p class="name">
-                                Vincent Timetre
+                                @if (auth()->user())
+                                    {{ auth()->user()->fullname }}
+                                @endif
                             </p>
                             <p class="designation">
-                                Canaux Digitaux
+                                @if (auth()->user())
+                                    {{ auth()->user()->load('Services')->Services->name }}
+                                @endif
                             </p>
                         </div>
                     </div>
