@@ -1,6 +1,5 @@
 {!! Form::model( $data , [ 'class' => 'form-horizontal' , 'url' => route("filter-campaign" ) , 'method' => "post" ] ) !!}
 <div class="row">
-
     <div class="col-10 grid-margin">
         <div class="card bg-transparent">
             <div class="row mb-3">
@@ -20,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <h6>Marchés</h6>
                     @foreach($markets as $market)
                         <div id="{{$market->class_css}}" class="icheck-line">
@@ -32,7 +31,7 @@
 
 
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <h6>Résultats</h6>
                     @forelse($results as $class => $result)
                         <div id="results" class="icheck-line {{$class}}">
@@ -44,17 +43,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-5">
-                    <h6>Responsables / Contributeurs</h6>
+                <div class="col-4">
+                    <h6>Responsables</h6>
                     {!! Form::select('services[]',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous force-placeholder', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
-
                 </div>
-                <div class="col-7">
+                <div class="col-4">
+                    <h6>Contributeurs</h6>
+                    {!! Form::select('services[]',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous force-placeholder tag-input', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
+                </div>
+                <div class="col-4">
                     <h6>Canaux</h6>
                     {!! Form::select('channels[]',$channels , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous force-placeholder', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
-                    <button type="submit" class="btn btn-outline-secondary icon-btn">Filtrer</button>
-                    <a href="{{route('clear-filter-campaign')}}"><button type="button" class="btn btn-outline-secondary icon-btn">Effacer</button></a>
                 </div>
+
             </div>
         </div>
     </div>
@@ -77,7 +78,11 @@
             </div>
         </div>
     </div>
+    <div class="col-3">
+        <a href="{{route('clear-filter-campaign')}}"><button type="button" class="btn btn-info icon-btn">Effacer</button></a>
+        <button type="submit" class="btn btn-primary icon-btn">Filtrer</button>
 
-
+    </div>
 </div>
+
 {!! Form::close() !!}

@@ -17,9 +17,8 @@
         @if( $campaign == null ) Création @else Édition @endif fiche campagne @if( $campaign != null )
         @endif
     </h4>
-
     <div class="d-inline-block status">
-        {!! Form::select('status',$status , null, ['class' => ' mb-1 select2' , 'id' => 'status-select']) !!}
+        {!! Form::select('status',$status , null, ['class' => 'mb-1 select2' , 'id' => 'status-select', 'data-select2-id' => 'status-select']) !!}
     </div>
     <div class="float-right">
         <button type="submit" class="btn btn-primary">
@@ -50,7 +49,7 @@
                             <h6>Période de la campagne</h6>
                             <div class="col-12 d-inline-flex text-center pl-0">
                                 <div class="form-control col-5 font-weight-bold" id="text-campaign-begin">@if($campaign != null) {{ $campaign->beginLong }} @endif</div>
-                                <span class="text-muted mr-1 ml-1 col-2">au</span>
+                                <span class="text-muted pt-1 mr-1 ml-1 col-2">au</span>
                                 <div class="form-control col-5 font-weight-bold" id="text-campaign-end">@if($campaign != null) {{ $campaign->endLong }} @endif</div>
                             </div>
                             {!! Form::hidden( 'begin' , null , array( 'id' => 'campaign-begin' ) ) !!}
@@ -62,13 +61,13 @@
                             <h6>Objectif(s) de la campagne</h6>
                             {!! Form::textarea( 'description' , null , array( 'class' => 'form-control' , 'rows' => '2', 'cols' => '10') ) !!}
                         </div>
-                        <div class="col-4">
+                        <div id="resp" class="col-4">
                             <h6>Responsable de la campagne</h6>
-                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-placeholder-multiple js-states form-control', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'false', 'data-maximumSelectionLength' => '1']) !!}
+                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-placeholder-single js-states form-control', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'false', 'data-maximumSelectionLength' => '1']) !!}
                         </div>
                         <div class="col-4">
                             <h6>Contributeurs</h6>
-                            {!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple js-states form-control', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
+                            {!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple js-states form-control tag-input', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
                         </div>
                     </div>
                 </div>
@@ -114,7 +113,7 @@
             </div>
             <div class="card grid-margin">
                 <div class="card-body pt-3 pb-3 pl-3 pr-3">
-                        <h6 class="mt-1 text-center">Résultats</h6>
+                    <h6 class="mt-1 text-center">Résultats</h6>
                     <div class="row">
                         <div class="col-12">
                             <div class="wrapper">
@@ -147,8 +146,6 @@
                                     <div class="file-upload-wrapper">
                                         <div id="fileuploader"></div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -209,27 +206,6 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     {!! Form::close() !!}
-
-
 @endsection

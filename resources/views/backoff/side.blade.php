@@ -52,11 +52,19 @@
                         <span class="menu-title">Statistiques</span>
                     </a>
                 </li>
-                <li class="nav-item d-none d-lg-block nav-item @if( Route::currentRouteName() == 'services-index' ) active @endif">
-                    <a class="nav-link" href="{{route('services-index')}}">
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
                         <i class="icon-settings menu-icon"></i>
                         <span class="menu-title">Paramètres</span>
                     </a>
+                    <div class="collapse" id="ui-advanced" style="">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item "> <a class="nav-link" href="../../pages/ui-features/dragula.html"><i class="icon-people mr-2"></i>Utilisateurs</a></li>
+                            <li class="nav-item @if( Route::currentRouteName() == 'services-index' ) active @endif"><a class="nav-link" href="{{route('services-index')}}"><i class="icon-organization mr-2"></i>Services</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/context-menu.html"><i class="icon-energy mr-2"></i>Canaux</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/slider.html"><i class="icon-bag mr-2"></i>Marchés</a></li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </nav>

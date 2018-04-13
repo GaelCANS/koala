@@ -10,13 +10,7 @@
     <div class="row">
         <div class="col-md-12">
             <nav class="float-right">
-                <ul class="pagination">
-                    <!--<li class="page-item"><a class="page-link" href="#"><i class="mdi mdi-chevron-left"></i></a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#"><i class="mdi mdi-chevron-right"></i></a></li>-->
+                <ul id="tab" class="pagination">
                     {!! str_replace( '/?' , '?' , $campaigns->appends(\Illuminate\Support\Facades\Input::except('page'))->render() ) !!}
                 </ul>
             </nav>
@@ -97,7 +91,7 @@
     <div class="row">
         <div class="col-md-12">
             <nav class="float-right">
-                <ul class="pagination">
+                <ul id="tab" class="pagination">
                     {!! str_replace( '/?' , '?' , $campaigns->appends(\Illuminate\Support\Facades\Input::except('page'))->render() ) !!}
                 </ul>
             </nav>

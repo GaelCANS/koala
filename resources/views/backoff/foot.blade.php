@@ -36,9 +36,11 @@
 <script src="{{ url('/theme_modules/morris.js/morris.min.js') }}"></script>
 <script src="{{ url('/theme_modules/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
 <script src="{{ url('/theme_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ url('/theme_modules/clockpicker/dist/jquery-clockpicker.min.js') }}"></script>
 <script src="{{ url('/theme_modules/icheck/icheck.min.js') }}"></script>
 <script src="{{ url('/theme_modules/owl-carousel-2/owl.carousel.min.js') }}"></script>
 <script src="{{ url('/theme_modules/jquery-file-upload/js/jquery.uploadfile.min.js?v='.time() ) }}"></script>
+
 
 
 <!-- End plugin js for this page-->
@@ -55,22 +57,25 @@
 <script src="{{ url('/js/tooltips.js') }}"></script>
 <script src="{{ url('js/owl-carousel.js') }}"></script>
 
+
+
 <script>
     $("#fileuploader").uploadFile({
         url: "{{ url('/images/preview-campaign/') }}",
         fileName: "myfile"
     });
-</script>
-
-<script>
 
 
 
 
     $(".js-example-placeholder-multiple").select2({
         placeholder: "+ Ajouter"
-
     });
+    $(".js-example-placeholder-single").select2({
+        placeholder: "+ Ajouter"
+    });
+
+
 
 
 
@@ -85,7 +90,16 @@
     });
 
 
+    $('.clockpicker').clockpicker();
+
+    var input = $('#input-clock');
+    input.clockpicker({
+        autoclose: true
+    });
+
 </script>
+
+
 
 
 <!-- Custom js for this page-->

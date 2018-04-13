@@ -221,7 +221,7 @@
     margin: 0;
     padding: 9px;
     font-size: 9px;
-    line-height: 17px;
+    line-height: 16px;
     color: #fff;
     background: #dadada;
     border: none;
@@ -259,7 +259,7 @@
 #part .icheckbox_line-blue.checked, #part .icheckbox_line-blue.hover,
 #part .icheckbox_line-blue.checked.hover
     {
-    background: #008687!important;
+    background: #99CC0D!important;
     }
 #pro .icheckbox_line-blue.checked, #pro .icheckbox_line-blue.hover,
 #pro .icheckbox_line-blue.checked.hover
@@ -286,7 +286,7 @@
 .success .icheckbox_line-blue.checked, .success .icheckbox_line-blue.hover,
 .success  .icheckbox_line-blue.checked.hover
 {
-    background: #00c292!important;
+    background: #1CCBC1!important;
 }
 
 .warning .icheckbox_line-blue.checked, .warning .icheckbox_line-blue.hover,
@@ -298,20 +298,56 @@
 .danger .icheckbox_line-blue.checked, .danger .icheckbox_line-blue.hover,
 .danger  .icheckbox_line-blue.checked.hover
 {
-    background: #fb9677!important;
+    background: #ff6363!important;
 }
 
 
 #results .icheckbox_line-blue {
-    font-size: 0.50rem;
-    line-height: 1.25;
-    border: 0px;
-    padding: 0.30rem;
-    color: white;
-    text-transform: uppercase;
+     position: relative;
+     display: block;
+     margin: 0;
+     padding: 9px;
+     font-size: 9px;
+     line-height: 16px;
+     color: #fff;
+     background: #dadada;
+     border: none;
+     -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+     border-radius: 3px;
+     cursor: pointer;
+     width: auto;
+     min-width: 42px;
+     text-align: center;
+     text-transform: uppercase;
+
+ }
+
+#channels .icheckbox_line-blue {
+    position: relative;
+    display: block;
+    background: white;
+    cursor: pointer;
+    width: auto;
+    text-align: center;
+    text-transform: lowercase;
+    border-radius: 10rem;
+    color: #dadada;
+    border: 1px solid #ffffff;
+    font-size: .70rem;
+    font-weight: initial;
+    line-height: 1;
+    padding: .25rem 0.375rem;
+    font-family: "Montserrat", sans-serif;
+
 }
 
 
+#channels .icheckbox_line-blue.checked, .iradio_line-blue.checked {
+    background: #01a3a6;
+    color:white;
+    border: 1px solid #01a3a6;
+}
 
         .icheckbox_line-blue.checked .icheck_line-icon,
         .iradio_line-blue.checked .icheck_line-icon {
@@ -381,7 +417,7 @@
 #part .icheckbox_line-blue.checked, #part .icheckbox_line-blue.hover,
 #part .icheckbox_line-blue.checked.hover
 {
-    background: #008687!important;
+    background: #99cc03!important;
 }
 #pro .icheckbox_line-blue.checked, #pro .icheckbox_line-blue.hover,
 #pro .icheckbox_line-blue.checked.hover
