@@ -36,7 +36,6 @@
     <link rel="stylesheet" href="{{ asset('/theme_modules/owl-carousel-2/assets/owl.carousel.min.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('/theme_modules/owl-carousel-2/assets/owl.theme.default.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('/theme_modules/jquery-file-upload/css/uploadfile.css') }}?v={{ time() }}" />
-    <link rel="stylesheet" href="{{ asset('/theme_modules/sweetalert2/dist/sweetalert2.min.css') }}?v={{ time() }}" />
 
 
     <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" />

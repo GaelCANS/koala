@@ -197,11 +197,11 @@
                                             <tr class="">
                                                 <td class="text-left">
                                                     <div class="toggle-radio">
-                                                        <input id="cmm1" name="cmm" type="radio" value="1">
-                                                        <input id="cmm0" checked="checked" name="cmm" type="radio" value="0">
+                                                        <input id="cmm2" name="cmm" type="radio" value="1">
+                                                        <input id="cmm3" checked="checked" name="cmm" type="radio" value="0">
                                                         <div class="switch">
-                                                            <label for="cmm1">Oui</label>
-                                                            <label for="cmm0">Non</label>
+                                                            <label for="cmm2">Oui</label>
+                                                            <label for="cmm3">Non</label>
                                                             <span></span>
                                                         </div>
                                                     </div>

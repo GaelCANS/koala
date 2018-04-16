@@ -15440,7 +15440,7 @@ pre {
     color: #8c8c8c; }
 
 .text-black {
-    color: #000; }
+    color: #404850; }
 
 .flex-grow {
     flex-grow: 1; }
@@ -21804,7 +21804,7 @@ div.tagsinput span.tag a {
 
 
 .auth.login-full-bg {
-    background: url("../images/auth/login_1.jpg");
+    background: url("../images/auth/login.jpg");
     background-size: cover; }
 
 .auth .login-half-bg {

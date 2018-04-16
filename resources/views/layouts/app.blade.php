@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>CMM</title>
@@ -10,19 +9,23 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{!!  csrf_token()  !!}" />
     <meta name="url-app" content="{!! $app->make('url')->to('/') !!}" />
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-
     <!-- App -->
     <link href="{{ asset('/css/backoff-app.css') }}?v={{ time() }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/theme_modules/simple-line-icons/css/simple-line-icons.css') }}" />
-
-
     <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- plugins:css -->
 
+    <!-- endinject -->
+
+
+
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('/theme_modules/font-awesome/css/font-awesome.min.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('/theme_modules/icheck/skins/line/_all.css') }}?v={{ time() }}" />
 
 </head>
 <body id="app-layout">
@@ -87,5 +90,31 @@
             newGif();
         });
     </script>
+
+
+
+    <!-- plugins:js -->
+
+    <script src="{{ url('/theme_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js') }}"></script>
+    <!-- endinject -->
+
+
+
+    <!-- Plugin js for this page-->
+
+    <script src="{{ url('/theme_modules/icheck/icheck.min.js') }}"></script>
+
+
+
+
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+
+    <script src="{{ url('/js/misc.js') }}"></script>
+
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="{{ url('/js/iCheck.js') }}?v={{ time() }}"></script>
+
 </body>
 </html>
