@@ -160,7 +160,7 @@ class CmmController extends Controller
         $content = str_replace(
             array('%%--campaigns--%%' , '%--users--%' , '%--salle--%' , '%--date--%' , '%--time--%'),
             array($html_campaigns , User::UsersCmm() , $cmm_params->where , $cmm_params->date, $cmm_params->time ),
-            $request->content
+            $request->contents
         );
 
         Mail::send('emails.cmm-odj', array('content' => $content), function ($m) use ($request, $emails , $emails_cc) {

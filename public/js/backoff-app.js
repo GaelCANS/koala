@@ -615,7 +615,7 @@ function sendMail()
             recipients: $('#recipients').val(),
             guests: $('#guests').val(),
             subject: $('#subject').val(),
-            content: $('#content').summernote('code')
+            contents: $('#content').summernote('code')
         },
         type: 'POST',
         datatype: 'JSON',
