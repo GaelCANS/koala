@@ -200,6 +200,7 @@
                         <div style="max-width: 600px; margin: 0 auto;">
 
                             <div style="background: white;text-align: center; border-radius: 0.5rem; margin-bottom: 1rem;">
+                                <br>
                                 <h2 style="color: #01a3a6; line-height: 30px; margin-bottom: 12px; margin: 0 0 12px;">Vous avez oublié votre mot de passe !</h2>
 
 
