@@ -60,6 +60,10 @@ class CmmController extends Controller
     }
 
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function params(Request $request)
     {
         // Mise à jour DATE
@@ -89,9 +93,13 @@ class CmmController extends Controller
     }
 
 
+    /**
+     * @return mixed
+     */
     public function close()
     {
 
+        // Set the new next date for cmm
         $next_cmm = Carbon::parse('next monday')->format('d/m/Y');
         $cmm_date  = Parameter::where('category' , 'cmm')->where('name' , 'date')->first();
         $cmm_date->value = $next_cmm;
@@ -104,11 +112,18 @@ class CmmController extends Controller
     }
 
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function addCampaign(Request $request)
     {
+        // Get date of CMM and set campaign with
         $cmm_display = $request->state == '0' ? '0000-00-00' : Parameter::getDateCmm();
         $campaign = Campaign::findOrFail($request->id);
         $campaign->update( array('cmm_display' => $cmm_display) );
+
+        // Get HTML of campaign
         $html = $request->state == '0' ? '' : view('cmms.next-row' , compact('campaign'))->render() ;
 
         return response()->json([
@@ -121,10 +136,16 @@ class CmmController extends Controller
 
     }
 
-
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function previous(Request $request)
     {
+        // Change format of cmm date
         $date_format = Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d');
+
+        // Search campaigns with this date
         $endeds = Campaign::Notdeleted()
             ->savedOnly()
             ->published()
@@ -142,13 +163,22 @@ class CmmController extends Controller
     }
 
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function send(Request $request)
     {
+        // Construction d'un tableau avec les emails des destinataires principaux
         $emails = explode(';' , $request->recipients);
+        // Construction d'un tableau avec les emails des destinataires occasionnels
         $emails_cc = trim($request->guests) != "" ? explode(';' , $request->guests) : array();
 
+        // Récupération des paramètres CMM
         $cmm_params = Parameter::objectCmm();
         $cmm_date = Parameter::getDateCmm();
+
+        // Récupération des campagnes du prochain CMM et construction du HTML
         $campaigns  = Campaign::Notdeleted()
             ->savedOnly()
             ->published()
@@ -157,12 +187,14 @@ class CmmController extends Controller
             ->get();
         $html_campaigns = view('emails.list-campaigns' , compact('campaigns'))->render() ;
 
+        // On met à jour le message du mail avec les données dynamiques
         $content = str_replace(
             array('%%--campaigns--%%' , '%--users--%' , '%--salle--%' , '%--date--%' , '%--time--%'),
             array($html_campaigns , User::UsersCmm() , $cmm_params->where , $cmm_params->date, $cmm_params->time ),
             $request->contents
         );
 
+        // Envoi de l'email
         Mail::send('emails.cmm-odj', array('content' => $content), function ($m) use ($request, $emails , $emails_cc) {
             $m->from('information@koala.com', 'Koala');
             $m->to($emails)->subject( $request->subject );
