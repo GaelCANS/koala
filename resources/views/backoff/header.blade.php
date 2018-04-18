@@ -18,8 +18,9 @@
                     <div class="ml-3 text-center" style="line-height: 13px;">
                         <small class="mb-0">
                             <u>PROCHAIN CMM</u><br>
-                            12/02 à 10H30 (Maurice Leblanc)<br>
-                            Animé par le Nicolas & Philippine</small>
+                            {{ \App\Parameter::CmmDateShort() }} à {{ \App\Parameter::CmmTime() }} ({{ \App\Parameter::CmmWhere() }})<br>
+                            Animé par {{ \App\User::UsersCmm() }}
+                        </small>
                     </div>
                 </li>
             </ul>

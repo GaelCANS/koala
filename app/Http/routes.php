@@ -58,6 +58,12 @@ Route::post('campaign-channel/{id}/add-channel/{selected}', array('uses' => 'Cam
 
 // CMM
 Route::get('/cmm', 'CmmController@index')->name('cmm-index');
+Route::post('/cmm/params', 'CmmController@params');
+Route::get('/cmm/close', 'CmmController@close');
+Route::post('/cmm/previous', 'CmmController@previous');
+Route::post('/cmm/addCampaign', 'CmmController@addCampaign');
+Route::post('/cmm/send', 'CmmController@send');
+
 
 
 // Dashboard
@@ -77,7 +83,6 @@ Route::auth();
 
 
 // User
-
 Route::resource(
     'user',
     'UserController'

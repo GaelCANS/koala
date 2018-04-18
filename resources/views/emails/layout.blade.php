@@ -1,0 +1,5 @@
+Coucou
+
+@yield('content')
+
+Coucou

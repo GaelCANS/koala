@@ -93,6 +93,65 @@ $(document).ready(function(){
 
 
     /**
+     * CMM
+     */
+    $('.auto-save').on('change', function () {
+        autoSave();
+    });
+
+
+    /**
+     * CMM
+     */
+    $('#cloture-cmm').on('click', function () {
+        closeCmm();
+    });
+
+
+    /**
+     * CMM
+     */
+    $('.btn-chck').on('change' , function(){
+        addCampaignCmm( $(this).attr('camp') , $(this).val() );
+    });
+
+
+    /**
+     * CMM
+     */
+    $('.previous-cmm').on('change' , function () {
+        loadPreviousCampaignCmm($(this).val());
+    });
+
+    /**
+     * CMM
+     */
+    if($(".summernote").length) {
+
+        $('.summernote').summernote({
+            height: 200,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+            focus: true,                 // set focus to editable area after initializing summernote
+            toolbar: [
+                ['font', ['bold', 'italic', 'underline']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol' , 'paragraph']],
+            ]
+        });
+    }
+
+    /**
+     * CMM
+     */
+    $('#send-mail').on('click' , function () {
+        $('#loading-mail').show();
+        $('#send-mail').hide();
+        sendMail();
+    });
+
+
+    /**
      * Campaign index
      */
     $('.toggle-tous').on('select2:select' , function(e){
@@ -452,4 +511,123 @@ function addClassOnPublished()
     else {
         $('#status-select').parent().find('span[role="combobox"]').removeClass('published');
     }
+}
+
+
+/**
+ * CMM
+ */
+function autoSave()
+{
+    $.ajax({
+        url: $('#next-cmm').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            test: 'test',
+            date: $('#input-date').val(),
+            time  : $('#input-clock').val(),
+            where : $('#input-where').val()
+        },
+        type: 'POST',
+        datatype: 'JSON',
+        success: function (resp) {
+            
+        }
+    });
+
+}
+
+
+/**
+ * CMM
+ **/
+function closeCmm() 
+{
+    $.ajax({
+        url: $('#cloture-cmm').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {},
+        type: 'GET',
+        datatype: 'JSON',
+        success: function (resp) {
+            document.location.reload(true);
+        }
+    });
+}
+
+/**
+ * CMM
+ **/
+function addCampaignCmm(campaign , value)
+{
+    $.ajax({
+        url: $('#list-campaigns-waiting').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            id: campaign,
+            state: value
+        },
+        type: 'POST',
+        datatype: 'JSON',
+        success: function (resp) {
+            if (resp.state == 'remove') {
+                // remove line
+                $('#camp-'+resp.id).remove();
+            }
+            else {
+                // add line
+                $('#list-campaigns-cmm tbody').append(resp.html);
+            }
+        }
+    });
+}
+
+/**
+ * CMM
+ **/
+function loadPreviousCampaignCmm(date)
+{
+    $.ajax({
+        url: $('#list-validate-campaigns').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            date: date
+        },
+        type: 'POST',
+        datatype: 'JSON',
+        success: function (resp) {
+            $('#list-validate-campaigns').html(resp.html);
+            $('#last-cmm').text(resp.date);
+        }
+    });
+}
+
+
+/**
+ * CMM
+ **/
+function sendMail() 
+{
+    $.ajax({
+        url: $('#send-mail').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            recipients: $('#recipients').val(),
+            guests: $('#guests').val(),
+            subject: $('#subject').val(),
+            content: $('#content').summernote('code')
+        },
+        type: 'POST',
+        datatype: 'JSON',
+        success: function (resp) {
+            $('#loading-mail').hide();
+            $('#send-mail').show();
+            $('#day-order').modal('toggle');
+        },
+        error: function () {
+            $('#loading-mail').hide();
+            $('#send-mail').show();
+            alert("Une erreur est survenue, votre mail n'a pas pu être envoyé. Vérifiez le format des adresses emails de vos destinataires.");
+        }
+    });
 }

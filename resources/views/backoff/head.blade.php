@@ -37,6 +37,8 @@
     <link rel="stylesheet" href="{{ asset('/theme_modules/owl-carousel-2/assets/owl.theme.default.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('/theme_modules/jquery-file-upload/css/uploadfile.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="{{ asset('/theme_modules/sweetalert2/dist/sweetalert2.min.css') }}?v={{ time() }}" />
+    <link rel="stylesheet" href="{{ asset('/theme_modules/summernote/dist/summernote-bs4.css') }}?v={{ time() }}" />
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.10/summernote.css" />-->
 
 
     <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" />

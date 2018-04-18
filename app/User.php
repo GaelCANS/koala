@@ -48,6 +48,17 @@ class User extends Authenticatable
     }
 
 
+    public static function UsersCmm()
+    {
+        $users = User::where('cmm' , '1')->Notdeleted()->get();
+        $animates = array();
+        foreach ($users as $user) {
+            $animates[] = $user->firstname;
+        }
+        return implode(' et ' , $animates);
+    }
+
+
 
 
     /**
