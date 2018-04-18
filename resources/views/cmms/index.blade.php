@@ -14,9 +14,7 @@
         </div>
 
         <div class="col-md-7 grid-margin ">
-
             @include('cmms.waiting')
-
         </div>
 
 

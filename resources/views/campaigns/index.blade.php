@@ -30,7 +30,7 @@
                                         <th>Noms</th>
                                         <th>Périodes</th>
                                         <th>Canaux</th>
-                                        <th>Resp. campagne</th>
+                                        <th>Resp.</th>
                                         <th>Résultats</th>
                                         <th>Actions</th>
                                     </tr>
