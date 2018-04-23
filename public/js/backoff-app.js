@@ -54,10 +54,9 @@ $(document).ready(function(){
     /**
      * Planning
      */
-    $('.display-event').on('change' , function () {
+    $('.icheck-line input').on('ifToggled', function(event){
         $('#calendar').fullCalendar( 'refetchEvents' );
     });
-
 
     /**
      * Campaign
