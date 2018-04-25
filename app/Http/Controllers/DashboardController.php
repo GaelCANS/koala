@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -50,7 +51,7 @@ class DashboardController extends Controller
 
         // My campaigns
         $mycampaigns =  Campaign::savedOnly()
-                        ->where('user_id' , 3)
+                        ->where('user_id' , Auth::user()->id )
                         ->orderBy('begin' , 'DESC')
                         ->take(5)
                         ->get();
