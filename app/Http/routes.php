@@ -47,6 +47,8 @@ Route::resource(
 );
 Route::get('/new-campaign', 'CampaignController@newcampaign')->name('new-campaign');
 Route::post('/filter-campaign' , 'CampaignController@filter')->name('filter-campaign');
+Route::post('/campaign-upload' , 'CampaignController@upload')->name('upload-campaign');
+Route::post('/campaign-delete-image' , 'CampaignController@deleteImage')->name('delete-image-campaign');
 Route::get('/clear-filter-campaign' , 'CampaignController@clearfilter')->name('clear-filter-campaign');
 Route::get("/duplicate-campaign/{id}", 'CampaignController@duplicatecampaign')->name('duplicate-campaign')->where(array('id' => '[0-9]+'));
 
@@ -91,10 +93,15 @@ Route::get('/moncompte/{id}' , 'UserController@show')->name('mon-compte');
 
 
 // Storage image
-Route::get('storage/{filename}', function ($filename)
+Route::get('storage/{filename}/{id?}', function ($filename, $id=null)
 {
 
-    $path = storage_path('app/public/' . $filename);
+    if (is_null($id)) {
+        $path = storage_path('app/public/'.$filename);
+    }
+    else {
+        $path = storage_path('app/public/camp-'.$id.'/'. $filename);
+    }
 
     if (!File::exists($path)) {
         abort(404);

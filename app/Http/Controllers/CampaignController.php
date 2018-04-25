@@ -19,6 +19,12 @@ use Illuminate\Support\Facades\URL;
 
 class CampaignController extends Controller
 {
+
+    public function __construct( ){
+
+        $this -> middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -125,6 +131,9 @@ class CampaignController extends Controller
         $campaign->load('Services');
         $campaign->Channels->load('Indicators');
 
+        // Chargement des images associées
+        $files = $campaign->images();
+
         // Chargement manuel des objectifs et résultats des indicateurs de la campagne
         $campaignChannelIndicator = CampaignChannelIndicator::loadCampaignChannelIndicator($campaign);
 
@@ -150,7 +159,7 @@ class CampaignController extends Controller
             ->get();
 
 
-        return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator' , 'services', 'markets'));
+        return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator' , 'services', 'markets' , 'files'));
     }
 
     /**
@@ -234,6 +243,30 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::duplicateCampaign($id);
         return redirect(action('CampaignController@show' , $campaign))->with('success' , 'Votre campagne a bien été dupliquée');
+    }
+
+
+    /**
+     * Upload campaign
+     *
+     * @return mixed
+     */
+    public function upload(Requests\ImageRequest     $request)
+    {
+        $campaign = Campaign::findOrFail($request->input('campaign'));
+        $campaign->upload($request->myfile);
+        return redirect(action('CampaignController@show' , $campaign))->with('success' , 'Votre campagne a bien été dupliquée');
+    }
+
+
+    /**
+     * Delete image
+     *
+     * @param Request $request
+     */
+    public function deleteImage(Request $request)
+    {
+        Campaign::deleteImage($request->img, $request->id);
     }
 
 

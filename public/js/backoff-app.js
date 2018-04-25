@@ -92,6 +92,53 @@ $(document).ready(function(){
 
 
     /**
+     * Campaign
+     */
+    $('.open-modal').on('click',function(){
+        var src = $(this).attr('src');
+        $('#del-image').data('src' , urlImage(src));
+        $('#show-img .modal-body').html("<img src='"+src+"' class='img-fluid' />");
+        $('#show-img').modal();
+    });
+
+
+    /**
+     * Campaign
+     */
+    $('.del-image').on('click',function(){
+        if (confirm("Voulez-vous supprimer ce visuel ?")) {
+            var src = $('#del-image').data('src');
+            var id = $('#del-image').data('id');
+            var indexToRemove = $('#carousel-image .owl-item:not(.cloned) .item[data-item="'+src+'"]').data('count');
+            delImage(src, id);
+            $('#carousel-image').trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
+            countItemOwl();
+            $('#show-img').modal('toggle');
+        }
+    });
+
+
+    /**
+     * Campaign
+     */
+    if ($('#carousel-image').length > 0) {
+        countItemOwl();
+    }
+
+    /**
+     * Campaign
+     */
+
+    $("#campaign-upload").uploadFile({
+        url: "./../campaign-upload",
+        fileName: "myfile",
+        multiple:true,
+        dragDrop:true,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        formData: {campaign:$('#campaign-upload').data('id')}
+    });
+
+    /**
      * CMM
      */
     $('.auto-save').on('change', function () {
@@ -627,6 +674,51 @@ function sendMail()
             $('#loading-mail').hide();
             $('#send-mail').show();
             alert("Une erreur est survenue, votre mail n'a pas pu être envoyé. Vérifiez le format des adresses emails de vos destinataires.");
+        }
+    });
+}
+
+/**
+ * Campaign
+ * @param path
+ * @returns {T}
+ */
+function urlImage(str)
+{
+    var pieces = _.split(str , '/');
+    var maxIndex = _.lastIndexOf(pieces);
+    return pieces[maxIndex-2];
+}
+
+
+/**
+ * Campaign
+ */
+function countItemOwl()
+{
+    var i = 0;
+    $('#carousel-image .owl-item:not(.cloned) .item').each(function(){
+        //console.log($(this).data('item') , i);
+        $(this).data('count',i);
+        i++;
+    });
+}
+
+/**
+ * Campaign
+ */
+function delImage(img , id)
+{
+    $.ajax({
+        url: $('#carousel-image').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            img: img,
+            id: id
+        },
+        type: 'POST',
+        datatype: 'JSON',
+        success: function (resp) {
         }
     });
 }

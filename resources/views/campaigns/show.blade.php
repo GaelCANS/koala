@@ -9,7 +9,8 @@
             'class'     => 'form-horizontal',
             'url'       => action('CampaignController@'.($campaign == null ? 'store' : 'update') , $campaign),
             'method'    => $campaign == null ? 'Post' : 'Put',
-            'id'        => 'form-campaign'
+            'id'        => 'form-campaign',
+            'files'    => true
         )
     ) !!}
 
@@ -144,9 +145,25 @@
                             <div class="wrapper">
                                 <div class="d-flex">
                                     <div class="file-upload-wrapper">
-                                        <div id="fileuploader"></div>
+                                        <div id="campaign-upload" data-id="{{ $campaign->id }}"></div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-0 p-0">
+                            <div class="owl-carousel owl-theme full-width" id="carousel-image" data-link="{{route('delete-image-campaign')}}">
+                                @forelse($files as $file)
+                                    <div class="item" data-item="{{basename($file)}}" data-count="">
+                                        <div class="card">
+                                            <div class="d-flex">
+                                                <div class="mt-0 text-center w-100">
+                                                    <img src="{{ asset( URL::to('/').'/storage/'.basename($file).'/'.$campaign->id ) }}" class="open-modal" style="cursor: pointer; " />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @empty
+                                @endforelse
                             </div>
                         </div>
                     </div>
@@ -207,4 +224,7 @@
         </div>
     </div>
     {!! Form::close() !!}
+
+    @include('campaigns.modal')
+
 @endsection

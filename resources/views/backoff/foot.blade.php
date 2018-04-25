@@ -1,13 +1,15 @@
 <!-- Load JQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+
 <!-- Load Bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <!-- Select 2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js" integrity="sha256-FcVIknBiVRk5KLQeIBb9VQdtFRMqwffXyZ+D8q0gQro=" crossorigin="anonymous"></script>
 <!-- Lodash -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.core.min.js" integrity="sha256-/WikzFcmjMZS+es0fni22evPN2lgZh8Dk2XXI/ZFtxM=" crossorigin="anonymous"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.core.min.js" integrity="sha256-/WikzFcmjMZS+es0fni22evPN2lgZh8Dk2XXI/ZFtxM=" crossorigin="anonymous"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js" ></script>
+
 
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.10/summernote.min.js"></script>-->
 
@@ -44,7 +46,8 @@
 <script src="{{ url('/theme_modules/clockpicker/dist/jquery-clockpicker.min.js') }}"></script>
 <script src="{{ url('/theme_modules/icheck/icheck.min.js') }}"></script>
 <script src="{{ url('/theme_modules/owl-carousel-2/owl.carousel.min.js') }}"></script>
-<script src="{{ url('/theme_modules/jquery-file-upload/js/jquery.uploadfile.min.js?v='.time() ) }}"></script>
+<!--<script src="{{ url('/theme_modules/jquery-file-upload/js/jquery.uploadfile.min.js?v='.time() ) }}"></script>-->
+<script src="{{ url('/theme_modules/jquery-file-upload/js/file-upload.js?v='.time() ) }}"></script>
 
 
 
@@ -66,10 +69,6 @@
 
 
 <script>
-    $("#fileuploader").uploadFile({
-        url: "{{ url('/images/preview-campaign/') }}",
-        fileName: "myfile"
-    });
 
 
 
