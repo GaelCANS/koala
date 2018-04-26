@@ -6,6 +6,7 @@ use App\Campaign;
 use App\CampaignChannelIndicator;
 use App\Indicator;
 use App\Library;
+use App\Parameter;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

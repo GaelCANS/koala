@@ -53,6 +53,13 @@ class Parameter extends Model
     }
 
 
+    public static function getParameter($name , $category)
+    {
+        $param = self::where('name' , $name)->where('category' , $category)->first();
+        return !empty($param->value) ? $param->value : false;
+    }
+
+
     public static function lastDateCmm()
     {
         return Campaign::select('cmm_display')
