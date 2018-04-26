@@ -84,6 +84,10 @@ Route::get('/statistic', 'StatisticController@index')->name('statistic-index');
 Route::auth();
 
 
+// Export
+Route::get('/export/excel/list-campaigns', 'ExportController@excelListeCampaigns')->name('excel-list-campaigns');
+
+
 // User
 Route::resource(
     'user',
