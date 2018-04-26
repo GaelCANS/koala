@@ -54,6 +54,12 @@ class CampaignController extends Controller
             ->toArray();
         $channels[0]=   'Tous';
         ksort($channels);
+        $users = User::Notdeleted()
+            ->orderBy('name' , 'ASC')
+            ->pluck('name' , 'id')
+            ->toArray();
+        $users[0]=   'Tous';
+        ksort($users);
 
         // Gestion des données de filtre stockées ou par défaut
         $results = array('success' => 'ajoutés' , 'warning' => 'partiels' , 'danger' => 'aucuns');
@@ -66,6 +72,7 @@ class CampaignController extends Controller
         }
         $data = array(
             'services' => !empty($request->services) ? array_map('intval' , $request->services ) : array(0),
+            'users'    => !empty($request->users) ? array_map('intval' , $request->users ) : array(0),
             'channels' => !empty($request->channels) ? array_map('intval' , $request->channels ) : array(0),
             'markets'  => !empty($request->markets) ? array_map('intval' , $request->markets ) : Market::notdeleted()->pluck('id')->toArray(),
             'results'  => !empty($request->results) ? $reload_results : $results,
@@ -74,7 +81,7 @@ class CampaignController extends Controller
             'keywords' => !empty($request->keywords) ? $request->keywords : '',
         );
 
-        return view('campaigns.index' , compact('campaigns', 'markets' , 'services' , 'channels' , 'data' , 'results'));
+        return view('campaigns.index' , compact('campaigns', 'markets' , 'services' , 'channels' , 'data' , 'results' , 'users'));
     }
 
     /**

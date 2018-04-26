@@ -42,7 +42,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <h6>Responsables</h6>
-                    {!! Form::select('services[]',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous force-placeholder', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
+                    {!! Form::select('users[]',$users , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous force-placeholder', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
                 </div>
                 <div class="col-md-4">
                     <h6>Contributeurs</h6>
