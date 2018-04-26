@@ -300,6 +300,11 @@ class Campaign extends Model
             $query->whereIn('id' , $campaigns_id );
         }
 
+        // Users
+        if (isset($datas->users) && count($datas->users) < User::notdeleted()->count()) {
+            $query->whereIn('user_id' , $datas->users );
+        }
+
         // Services
         if (isset($datas->services)) {
             $tous_value = array_search('0' , $datas->services);
