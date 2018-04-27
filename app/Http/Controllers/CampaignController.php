@@ -72,6 +72,7 @@ class CampaignController extends Controller
         }
         $data = array(
             'services' => !empty($request->services) ? array_map('intval' , $request->services ) : array(0),
+            'users'    => !empty($request->users) ? array_map('intval' , $request->users ) : array(0),
             'channels' => !empty($request->channels) ? array_map('intval' , $request->channels ) : array(0),
             'markets'  => !empty($request->markets) ? array_map('intval' , $request->markets ) : Market::notdeleted()->pluck('id')->toArray(),
             'results'  => !empty($request->results) ? $reload_results : $results,
