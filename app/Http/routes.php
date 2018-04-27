@@ -84,6 +84,7 @@ Route::post('/cmm/send', 'CmmController@send');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard-index');
 Route::get('/', 'DashboardController@index');
 Route::get('/dashboard-reload-campaigns/{period}', 'DashboardController@reloadCampaigns')->name('dashboard-reload-campaigns');
+Route::get('/dashboard/my_campaigns','DashboardController@myCampaigns')->name('dashboard-my-campaigns');
 
 
 // Planning

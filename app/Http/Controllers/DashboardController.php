@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class DashboardController extends Controller
 {
@@ -109,5 +110,13 @@ class DashboardController extends Controller
                 'html'      => $html
             )
         );
+    }
+
+
+    public function myCampaigns()
+    {
+        \Cookie::queue(\Cookie::forget('filter'));
+        Cookie::queue('filter' , array('users' => array(auth()->user()->id) ) );
+        return redirect(action('CampaignController@index'));
     }
 }

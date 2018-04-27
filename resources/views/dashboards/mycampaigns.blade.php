@@ -5,7 +5,7 @@
                 <h5 class="card-title">Mes campagnes</h5>
                 <div class=" ml-auto mr-0 border-0">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-light text-muted"><small>Toutes mes campagnes</small></button>
+                        <a href="{{ route('dashboard-my-campaigns') }}"> <button type="button" class="btn btn-light text-muted"><small>Toutes mes campagnes</small></button></a>
                     </div>
                 </div>
             </div>
