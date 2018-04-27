@@ -5,7 +5,7 @@
                 <h5 class="card-title">Derniers résultats</h5>
                 <div class=" ml-auto mr-0 border-0">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-light text-muted"><small>Tous les résultats</small></button>
+                        <a href="{{ route('statistic-index') }}"><button type="button" class="btn btn-light text-muted"><small>Tous les résultats</small></button></a>
                     </div>
                 </div>
             </div>
