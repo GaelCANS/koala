@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Parameter extends Model
 {
 
+    protected $guarded = array('id');
+    
+    /**
+     * CUSTOMS
+     */
     public static function objectCmm($lib = '')
     {
         if ($lib == '')

@@ -63,6 +63,7 @@
                             <li class="nav-item @if( Route::currentRouteName() == 'services-index' ) active @endif"><a class="nav-link" href="{{route('services-index')}}"><i class="icon-organization mr-2"></i>Services</a></li>
                             <li class="nav-item @if( Route::currentRouteName() == 'channels-index' ) active @endif"><a class="nav-link" href="{{route('channels-index')}}"><i class="icon-energy mr-2"></i>Canaux</a></li>
                             <li class="nav-item @if( Route::currentRouteName() == 'markets-index' ) active @endif"><a class="nav-link" href="{{route('markets-index')}}"><i class="icon-bag mr-2"></i>Marchés</a></li>
+                            <li class="nav-item @if( Route::currentRouteName() == 'parameters-index' ) active @endif"><a class="nav-link" href="{{route('parameters-index')}}"><i class="icon-equalizer mr-2"></i>Paramètres</a></li>
                         </ul>
                     </div>
                 </li>

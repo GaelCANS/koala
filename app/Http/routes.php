@@ -23,6 +23,18 @@ Route::resource(
     )
 );
 
+
+// Parameter
+Route::resource(
+    'parameters',
+    'ParameterController' ,
+    array(
+        'names' => array(
+            'index' => 'parameters-index'
+        )
+    )
+);
+
 // Channel
 Route::resource(
     'channels',
