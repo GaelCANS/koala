@@ -40,6 +40,12 @@ Route::resource(
     )
 );
 
+// Indicator
+Route::resource(
+    'indicators',
+    'IndicatorController'
+);
+
 // Channel
 Route::resource(
     'channels',

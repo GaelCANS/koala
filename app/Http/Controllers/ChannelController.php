@@ -54,7 +54,12 @@ class ChannelController extends Controller
      */
     public function show($id)
     {
-      $channel = Channel::findOrfail($id);
+      $channel = Channel::with( array('indicators'=> function($query){
+          $query->where('indicators.delete','0');
+      }))->where('channels.id',$id)->first();
+
+
+
       return view( 'channels.show', compact('channel'));
     }
 
