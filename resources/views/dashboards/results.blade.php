@@ -1,11 +1,11 @@
-<div class="col-md-6 grid-margin stretch-card">
+<div class="col-lg-6 col-xs-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body pb-0">
             <div class="d-flex table-responsive">
                 <h5 class="card-title">Derniers résultats</h5>
                 <div class=" ml-auto mr-0 border-0">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-light text-muted"><small>Tous les résultats</small></button>
+                        <a href="{{ route('statistic-index') }}"><button type="button" class="btn btn-light text-muted"><small>Tous les résultats</small></button></a>
                     </div>
                 </div>
             </div>

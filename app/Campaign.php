@@ -6,6 +6,7 @@ use App\Library\Traits\Scopable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class Campaign extends Model
 {
@@ -103,6 +104,44 @@ class Campaign extends Model
      */
     public static function getStatus() {
         return array('brouillon' , 'publiée');
+    }
+
+
+    /**
+     * @param $file
+     */
+    public function upload($img)
+    {
+        if (is_object($img) && $img->isValid()) {
+            $dir = storage_path().'/app/public/camp-'.$this->id;
+            if(!is_dir($dir)) {
+                mkdir($dir);
+            }
+            $name = uniqid().'_'.$this->id.'.'.$img->getClientOriginalExtension();
+            $img->move($dir , $name);
+        }
+    }
+
+    /**
+     * Return an array of all images associates to a campaign
+     *
+     * @return array
+     */
+    public function images()
+    {
+        return Storage::files('public/camp-'.$this->id);
+    }
+
+    /**
+     * Delete an image to a campaign
+     *
+     * @param $img
+     * @param $id
+     */
+    public static function deleteImage($img , $id)
+    {
+        $dir = 'public/camp-'.$id.'/'.$img;
+        Storage::delete($dir);
     }
 
 
@@ -259,6 +298,11 @@ class Campaign extends Model
         if (isset($datas->markets) && count($datas->markets) < Market::notdeleted()->count()) {
             $campaigns_id = DB::table('campaign_market')->whereIn('market_id' , $datas->markets)->pluck('campaign_id');
             $query->whereIn('id' , $campaigns_id );
+        }
+
+        // Users
+        if (isset($datas->users) && count($datas->users) < User::notdeleted()->count()) {
+            $query->whereIn('user_id' , $datas->users );
         }
 
         // Services

@@ -9,7 +9,8 @@
             'class'     => 'form-horizontal',
             'url'       => action('CampaignController@'.($campaign == null ? 'store' : 'update') , $campaign),
             'method'    => $campaign == null ? 'Post' : 'Put',
-            'id'        => 'form-campaign'
+            'id'        => 'form-campaign',
+            'files'    => true
         )
     ) !!}
 
@@ -17,11 +18,9 @@
         @if( $campaign == null ) Création @else Édition @endif fiche campagne @if( $campaign != null )
         @endif
     </h4>
-
     <div class="d-inline-block status">
         {!! Form::select('status',$status , null, ['class' => 'mb-1 select2' , 'id' => 'status-select', 'data-select2-id' => 'status-select']) !!}
     </div>
-
     <div class="float-right">
         <button type="submit" class="btn btn-primary">
             <i class="fa fa-fw fa-save"></i>Enregister
@@ -63,9 +62,9 @@
                             <h6>Objectif(s) de la campagne</h6>
                             {!! Form::textarea( 'description' , null , array( 'class' => 'form-control' , 'rows' => '2', 'cols' => '10') ) !!}
                         </div>
-                        <div class="col-4">
+                        <div id="resp" class="col-4">
                             <h6>Responsable de la campagne</h6>
-                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-placeholder-multiple js-states form-control searchbox', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'false', 'data-maximumSelectionLength' => '1']) !!}
+                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-placeholder-single js-states form-control', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'false', 'data-maximumSelectionLength' => '1']) !!}
                         </div>
                         <div class="col-4">
                             <h6>Contributeurs</h6>
@@ -115,7 +114,7 @@
             </div>
             <div class="card grid-margin">
                 <div class="card-body pt-3 pb-3 pl-3 pr-3">
-                        <h6 class="mt-1 text-center">Résultats</h6>
+                    <h6 class="mt-1 text-center">Résultats</h6>
                     <div class="row">
                         <div class="col-12">
                             <div class="wrapper">
@@ -146,11 +145,25 @@
                             <div class="wrapper">
                                 <div class="d-flex">
                                     <div class="file-upload-wrapper">
-                                        <div id="fileuploader"></div>
+                                        <div id="campaign-upload" data-id="{{ $campaign->id }}"></div>
                                     </div>
-
-
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-0 p-0">
+                            <div class="owl-carousel owl-theme full-width" id="carousel-image" data-link="{{route('delete-image-campaign')}}">
+                                @forelse($files as $file)
+                                    <div class="item" data-item="{{basename($file)}}" data-count="">
+                                        <div class="card">
+                                            <div class="d-flex">
+                                                <div class="mt-0 text-center w-100">
+                                                    <img src="{{ asset( URL::to('/').'/storage/'.basename($file).'/'.$campaign->id ) }}" class="open-modal" style="cursor: pointer; " />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @empty
+                                @endforelse
                             </div>
                         </div>
                     </div>
@@ -187,7 +200,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -210,27 +222,9 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     {!! Form::close() !!}
 
+    @include('campaigns.modal')
 
 @endsection

@@ -4,14 +4,18 @@
                 <li class="nav-item nav-profile">
                     <div class="nav-link">
                         <div class="profile-image">
-                            <img src="{{ asset('/images/faces/face10.jpg') }}" alt="image" />
+                            <img src="@if (auth()->user()->avatar){{ asset( URL::to('/').'/storage/'.auth()->user()->avatar ) }} @else {{ asset('/images/avatar-cans.png') }} @endif" alt="image" />
                         </div>
                         <div class="profile-name">
                             <p class="name">
-                                Vincent Timetre
+                                @if (auth()->user())
+                                    {{ auth()->user()->fullname }}
+                                @endif
                             </p>
                             <p class="designation">
-                                Canaux Digitaux
+                                @if (auth()->user())
+                                    {{ auth()->user()->load('Services')->Services->name }}
+                                @endif
                             </p>
                         </div>
                     </div>
@@ -48,11 +52,20 @@
                         <span class="menu-title">Statistiques</span>
                     </a>
                 </li>
-                <li class="nav-item d-none d-lg-block nav-item @if( Route::currentRouteName() == 'services-index' ) active @endif">
-                    <a class="nav-link" href="{{route('services-index')}}">
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
                         <i class="icon-settings menu-icon"></i>
                         <span class="menu-title">Paramètres</span>
                     </a>
+                    <div class="collapse" id="ui-advanced" style="">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item @if( Route::currentRouteName() == 'services-index' ) active @endif"><a class="nav-link" href="{{route('services-index')}}"><i class="icon-people mr-2"></i>Utilisateurs</a></li>
+                            <li class="nav-item @if( Route::currentRouteName() == 'services-index' ) active @endif"><a class="nav-link" href="{{route('services-index')}}"><i class="icon-organization mr-2"></i>Services</a></li>
+                            <li class="nav-item @if( Route::currentRouteName() == 'channels-index' ) active @endif"><a class="nav-link" href="{{route('channels-index')}}"><i class="icon-energy mr-2"></i>Canaux</a></li>
+                            <li class="nav-item @if( Route::currentRouteName() == 'markets-index' ) active @endif"><a class="nav-link" href="{{route('markets-index')}}"><i class="icon-bag mr-2"></i>Marchés</a></li>
+                            <li class="nav-item @if( Route::currentRouteName() == 'parameters-index' ) active @endif"><a class="nav-link" href="{{route('parameters-index')}}"><i class="icon-equalizer mr-2"></i>Paramètres</a></li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </nav>

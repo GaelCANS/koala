@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Service;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+
+    public function __construct( ){
+
+        $this -> middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +57,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $services= Service::Notdeleted()
+            ->orderBy('name' , 'ASC')
+            ->pluck('name' , 'id')
+            ->toArray();
+        return view('users.show' , compact('user' , 'services'));
     }
 
     /**
@@ -68,9 +83,26 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\UserRequest $request, $id)
     {
-        //
+        // Update user standard fiels
+        $user = User::findOrFail($id);
+        $user->update($request->except('email' , 'password'));
+
+        // Update user's password
+        if (trim($request->password) != '') {
+            $user->password = Hash::make($request->password);
+            $user->save();
+        }
+
+        // Upload avatar
+        if (!empty($request->avatar)) {
+            $file_name = User::uploadAvatar($request->avatar , $id);
+            $user->avatar = $file_name ? $file_name : '';
+            $user->save();
+        }
+
+        return redirect()->back()->with('success' , "Le profil vient d'être mis à jour");
     }
 
     /**

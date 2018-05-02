@@ -1,22 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
 // Service
 Route::resource(
     'services',
@@ -40,10 +23,22 @@ Route::resource(
     )
 );
 
+
 // Indicator
 Route::resource(
     'indicators',
     'IndicatorController'
+);
+
+// Parameter
+Route::resource(
+    'parameters',
+    'ParameterController' ,
+    array(
+        'names' => array(
+            'index' => 'parameters-index'
+        )
+    )
 );
 
 // Channel
@@ -70,6 +65,8 @@ Route::resource(
 );
 Route::get('/new-campaign', 'CampaignController@newcampaign')->name('new-campaign');
 Route::post('/filter-campaign' , 'CampaignController@filter')->name('filter-campaign');
+Route::post('/campaign-upload' , 'CampaignController@upload')->name('upload-campaign');
+Route::post('/campaign-delete-image' , 'CampaignController@deleteImage')->name('delete-image-campaign');
 Route::get('/clear-filter-campaign' , 'CampaignController@clearfilter')->name('clear-filter-campaign');
 Route::get("/duplicate-campaign/{id}", 'CampaignController@duplicatecampaign')->name('duplicate-campaign')->where(array('id' => '[0-9]+'));
 
@@ -81,11 +78,19 @@ Route::post('campaign-channel/{id}/add-channel/{selected}', array('uses' => 'Cam
 
 // CMM
 Route::get('/cmm', 'CmmController@index')->name('cmm-index');
+Route::post('/cmm/params', 'CmmController@params');
+Route::get('/cmm/close', 'CmmController@close');
+Route::post('/cmm/previous', 'CmmController@previous');
+Route::post('/cmm/addCampaign', 'CmmController@addCampaign');
+Route::post('/cmm/send', 'CmmController@send');
+
 
 
 // Dashboard
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard-index');
+Route::get('/', 'DashboardController@index');
 Route::get('/dashboard-reload-campaigns/{period}', 'DashboardController@reloadCampaigns')->name('dashboard-reload-campaigns');
+Route::get('/dashboard/my_campaigns','DashboardController@myCampaigns')->name('dashboard-my-campaigns');
 
 
 // Planning
@@ -95,3 +100,43 @@ Route::get('/planning/events', 'PlanningController@events')->name('planning-even
 
 // Statistic
 Route::get('/statistic', 'StatisticController@index')->name('statistic-index');
+Route::auth();
+
+
+// Export
+Route::get('/export/excel/list-campaigns', 'ExportController@excelListeCampaigns')->name('excel-list-campaigns');
+
+
+// User
+Route::resource(
+    'user',
+    'UserController'
+);
+Route::get('/moncompte/{id}' , 'UserController@show')->name('mon-compte');
+
+
+// Storage image
+Route::get('storage/{filename}/{id?}', function ($filename, $id=null)
+{
+
+    if (is_null($id)) {
+        $path = storage_path('app/public/'.$filename);
+    }
+    else {
+        $path = storage_path('app/public/camp-'.$id.'/'. $filename);
+    }
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});
+
+

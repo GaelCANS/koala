@@ -2,6 +2,7 @@
 
 namespace App\Library;
 use App\Campaign;
+use App\Parameter;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -104,19 +105,28 @@ class Statistics
 
     public static function bestEmail()
     {
-        return self::bestRequest(3);
+        $id = Parameter::getParameter('best_email' , 'dashboard');
+        if ($id > 0)
+            return self::bestRequest($id);
+        return false;
     }
 
 
     public static function bestFacebook()
     {
-        return self::bestRequest(7);
+        $id = Parameter::getParameter('best_facebook' , 'dashboard');
+        if ($id > 0)
+            return self::bestRequest($id);
+        return false;
     }
 
 
     public static function bestBanniere()
     {
-        return self::bestRequest(2);
+        $id = Parameter::getParameter('best_banniere' , 'dashboard');
+        if ($id > 0)
+            return self::bestRequest($id);
+        return false;
     }
 
     private static function bestRequest($indicator)
@@ -139,7 +149,7 @@ class Statistics
             ->where('campaign_channel_indicator.indicator_id' , $indicator)
             ->where('campaign_channel_indicator.result' , '>' , 0)
             ->Orderby('campaign_channel_indicator.result' , 'DESC')->first();
-
+        
         if ($best != null && $best->result > 0) {
             $campaign = Campaign::findOrFail($best->campaign_id);
             return (object) array(

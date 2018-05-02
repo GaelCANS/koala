@@ -54,10 +54,9 @@ $(document).ready(function(){
     /**
      * Planning
      */
-    $('.display-event').on('change' , function () {
+    $('.icheck-line input').on('ifToggled', function(event){
         $('#calendar').fullCalendar( 'refetchEvents' );
     });
-
 
     /**
      * Campaign
@@ -93,11 +92,117 @@ $(document).ready(function(){
 
 
     /**
+     * Campaign
+     */
+    $('.open-modal').on('click',function(){
+        var src = $(this).attr('src');
+        $('#del-image').data('src' , urlImage(src));
+        $('#show-img .modal-body').html("<img src='"+src+"' class='img-fluid' />");
+        $('#show-img').modal();
+    });
+
+
+    /**
+     * Campaign
+     */
+    $('.del-image').on('click',function(){
+        if (confirm("Voulez-vous supprimer ce visuel ?")) {
+            var src = $('#del-image').data('src');
+            var id = $('#del-image').data('id');
+            var indexToRemove = $('#carousel-image .owl-item:not(.cloned) .item[data-item="'+src+'"]').data('count');
+            delImage(src, id);
+            $('#carousel-image').trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
+            countItemOwl();
+            $('#show-img').modal('toggle');
+        }
+    });
+
+
+    /**
+     * Campaign
+     */
+    if ($('#carousel-image').length > 0) {
+        countItemOwl();
+    }
+
+    /**
+     * Campaign
+     */
+
+    $("#campaign-upload").uploadFile({
+        url: "./../campaign-upload",
+        fileName: "myfile",
+        multiple:true,
+        dragDrop:true,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        formData: {campaign:$('#campaign-upload').data('id')}
+    });
+
+    /**
+     * CMM
+     */
+    $('.auto-save').on('change', function () {
+        autoSave();
+    });
+
+
+    /**
+     * CMM
+     */
+    $('#cloture-cmm').on('click', function () {
+        closeCmm();
+    });
+
+
+    /**
+     * CMM
+     */
+    $('.btn-chck').on('change' , function(){
+        addCampaignCmm( $(this).attr('camp') , $(this).val() );
+    });
+
+
+    /**
+     * CMM
+     */
+    $('.previous-cmm').on('change' , function () {
+        loadPreviousCampaignCmm($(this).val());
+    });
+
+    /**
+     * CMM
+     */
+    if($(".summernote").length) {
+
+        $('.summernote').summernote({
+            height: 200,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+            focus: true,                 // set focus to editable area after initializing summernote
+            toolbar: [
+                ['font', ['bold', 'italic', 'underline']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol' , 'paragraph']],
+            ]
+        });
+    }
+
+    /**
+     * CMM
+     */
+    $('#send-mail').on('click' , function () {
+        $('#loading-mail').show();
+        $('#send-mail').hide();
+        sendMail();
+    });
+
+
+    /**
      * Campaign index
      */
     $('.toggle-tous').on('select2:select' , function(e){
         // Si "tous" est sélectionné et qu'un autre item est sélectionné, on retire tous
-        var tousIndex = _.indexOf($(this).val(), "0");
+            var tousIndex = _.indexOf($(this).val(), "0");
         if (tousIndex == "0" && $(this).val().length > 1) {
             $(this).parent().find('.select2-selection__choice[title="Tous"]').find('.select2-selection__choice__remove').trigger('click');
             $(this).select2('close');
@@ -452,4 +557,168 @@ function addClassOnPublished()
     else {
         $('#status-select').parent().find('span[role="combobox"]').removeClass('published');
     }
+}
+
+
+/**
+ * CMM
+ */
+function autoSave()
+{
+    $.ajax({
+        url: $('#next-cmm').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            test: 'test',
+            date: $('#input-date').val(),
+            time  : $('#input-clock').val(),
+            where : $('#input-where').val()
+        },
+        type: 'POST',
+        datatype: 'JSON',
+        success: function (resp) {
+            
+        }
+    });
+
+}
+
+
+/**
+ * CMM
+ **/
+function closeCmm() 
+{
+    $.ajax({
+        url: $('#cloture-cmm').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {},
+        type: 'GET',
+        datatype: 'JSON',
+        success: function (resp) {
+            document.location.reload(true);
+        }
+    });
+}
+
+/**
+ * CMM
+ **/
+function addCampaignCmm(campaign , value)
+{
+    $.ajax({
+        url: $('#list-campaigns-waiting').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            id: campaign,
+            state: value
+        },
+        type: 'POST',
+        datatype: 'JSON',
+        success: function (resp) {
+            if (resp.state == 'remove') {
+                // remove line
+                $('#camp-'+resp.id).remove();
+            }
+            else {
+                // add line
+                $('#list-campaigns-cmm tbody').append(resp.html);
+            }
+        }
+    });
+}
+
+/**
+ * CMM
+ **/
+function loadPreviousCampaignCmm(date)
+{
+    $.ajax({
+        url: $('#list-validate-campaigns').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            date: date
+        },
+        type: 'POST',
+        datatype: 'JSON',
+        success: function (resp) {
+            $('#list-validate-campaigns').html(resp.html);
+            $('#last-cmm').text(resp.date);
+        }
+    });
+}
+
+
+/**
+ * CMM
+ **/
+function sendMail() 
+{
+    $.ajax({
+        url: $('#send-mail').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            recipients: $('#recipients').val(),
+            guests: $('#guests').val(),
+            subject: $('#subject').val(),
+            contents: $('#content').summernote('code')
+        },
+        type: 'POST',
+        datatype: 'JSON',
+        success: function (resp) {
+            $('#loading-mail').hide();
+            $('#send-mail').show();
+            $('#day-order').modal('toggle');
+        },
+        error: function () {
+            $('#loading-mail').hide();
+            $('#send-mail').show();
+            alert("Une erreur est survenue, votre mail n'a pas pu être envoyé. Vérifiez le format des adresses emails de vos destinataires.");
+        }
+    });
+}
+
+/**
+ * Campaign
+ * @param path
+ * @returns {T}
+ */
+function urlImage(str)
+{
+    var pieces = _.split(str , '/');
+    var maxIndex = _.lastIndexOf(pieces);
+    return pieces[maxIndex-2];
+}
+
+
+/**
+ * Campaign
+ */
+function countItemOwl()
+{
+    var i = 0;
+    $('#carousel-image .owl-item:not(.cloned) .item').each(function(){
+        //console.log($(this).data('item') , i);
+        $(this).data('count',i);
+        i++;
+    });
+}
+
+/**
+ * Campaign
+ */
+function delImage(img , id)
+{
+    $.ajax({
+        url: $('#carousel-image').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            img: img,
+            id: id
+        },
+        type: 'POST',
+        datatype: 'JSON',
+        success: function (resp) {
+        }
+    });
 }

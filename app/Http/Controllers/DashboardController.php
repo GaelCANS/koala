@@ -6,14 +6,23 @@ use App\Campaign;
 use App\CampaignChannelIndicator;
 use App\Indicator;
 use App\Library;
+use App\Parameter;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class DashboardController extends Controller
 {
+
+    public function __construct( ){
+
+        $this -> middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +53,7 @@ class DashboardController extends Controller
 
         // My campaigns
         $mycampaigns =  Campaign::savedOnly()
-                        ->where('user_id' , 3)
+                        ->where('user_id' , Auth::user()->id )
                         ->orderBy('begin' , 'DESC')
                         ->take(5)
                         ->get();
@@ -101,5 +110,13 @@ class DashboardController extends Controller
                 'html'      => $html
             )
         );
+    }
+
+
+    public function myCampaigns()
+    {
+        \Cookie::queue(\Cookie::forget('filter'));
+        Cookie::queue('filter' , array('users' => array(auth()->user()->id) ) );
+        return redirect(action('CampaignController@index'));
     }
 }

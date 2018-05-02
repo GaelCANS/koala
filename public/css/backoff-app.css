@@ -8569,10 +8569,10 @@ pre code {
     border-bottom-width: 2px; }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #F6F8FA; }
+    background-color: #eff1f2; }
 
 .table-hover tbody tr:hover {
-    background-color: #F6F8FA;
+    background-color: #eff1f2;
     cursor: pointer;}
 
 .table-primary,
@@ -10091,8 +10091,7 @@ tbody.collapse.show {
     color: #495057;
     text-align: center;
     background-color: #e9ecef;
-    border: 1px solid #ced4da;
-    border-radius: 2px; }
+   border-radius: 2px; }
 .input-group-addon.form-control-sm, .dataTables_wrapper .input-group-sm > select.asColorPicker-trigger, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > input.asColorPicker-trigger[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > select.asColorPicker-trigger, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > input.asColorPicker-trigger[type=number], .select2-container--default .input-group-sm > .asColorPicker-trigger.select2-selection--single, .select2-container--default .select2-selection--single .input-group-sm > .asColorPicker-trigger.select2-search__field, .dataTables_wrapper .input-group-sm > select.input-group-addon, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > input.input-group-addon[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > select.input-group-addon, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > input.input-group-addon[type=number], .select2-container--default .input-group-sm > .input-group-addon.select2-selection--single, .select2-container--default .select2-selection--single .input-group-sm > .input-group-addon.select2-search__field,
@@ -11519,7 +11518,7 @@ button.close {
     display: flex;
     flex-direction: column;
     pointer-events: auto;
-    background-color: #F6F8FA;
+    background-color: #eff1f2;
     background-clip: padding-box;
     border: 1px solid #f3f3f3;
     border-radius: 0.3rem;
@@ -11991,7 +11990,7 @@ a.bg-danger:focus, .settings-panel .color-tiles a.tiles.danger:focus, a.bg-dange
     background-color: #fa6f46 !important; }
 
 .bg-light {
-    background-color: #f6f8fa !important; }
+    background-color: #eff1f2 !important; }
 
 a.bg-light:focus, a.bg-light:hover {
     background-color: #e6e6e6 !important; }
@@ -14272,7 +14271,7 @@ input:focus {
     color: #8d9498; }
 .sidebar .nav.sub-menu {
     margin-bottom: 0;
-    padding: 0 0 0 4.25rem; }
+    padding: 0 0 0 3rem; }
 .sidebar .nav.sub-menu .nav-item .nav-link {
     color: #999999;
     padding: 0.75rem 1rem;
@@ -14283,34 +14282,22 @@ input:focus {
 .sidebar .nav.sub-menu .nav-item .nav-link.active {
     color: #404852;
     background: transparent; }
-.sidebar .nav.sub-menu .nav-item .nav-link.active:before {
-    background: #404852; }
-.sidebar .nav.sub-menu .nav-item .nav-link:before {
+
+/*.sidebar .nav.sub-menu .nav-item .nav-link:before {
     content: "";
     position: absolute;
     width: 7px;
     height: 7px;
     border-radius: 100%;
     margin-left: -1.25rem;
-    top: 15px; }
+    top: 15px; }*/
 .rtl .sidebar .nav.sub-menu .nav-item .nav-link:before {
     margin-left: auto;
     margin-right: -1rem; }
 .sidebar .nav.sub-menu .nav-item:hover > .nav-link {
     background: initial;
     color: #000; }
-.sidebar .nav.sub-menu .nav-item:hover > .nav-link:before {
-    background: #000; }
-.sidebar .nav.sub-menu .nav-item:nth-child(5n+1) .nav-link:before {
-    background: #01a3a6; }
-.sidebar .nav.sub-menu .nav-item:nth-child(5n+2) .nav-link:before {
-    background: #1CCBC1; }
-.sidebar .nav.sub-menu .nav-item:nth-child(5n+3) .nav-link:before {
-    background: #ff6363; }
-.sidebar .nav.sub-menu .nav-item:nth-child(5n+4) .nav-link:before {
-    background: #ffb463; }
-.sidebar .nav.sub-menu .nav-item:nth-child(5n+5) .nav-link:before {
-    background: #8d949b; }
+
 
 .sidebar-dark {
     background: #3a3f51; }
@@ -14428,7 +14415,7 @@ input:focus {
     display: none; }
 .navbar .navbar-brand-wrapper .brand-logo-mini img {
     max-width: 100%;
-    height: 18px;
+    height: 35px;
     margin: auto; }
 .navbar .navbar-menu-wrapper {
     transition: width 0.25s ease;
@@ -14916,7 +14903,7 @@ html {
     overflow-x: hidden; }
 
 .content-wrapper {
-    background: #F6F8FA;
+    background: #eff1f2;
     margin-left: 225px;
     min-height: 100vh;
     padding: 1.5rem 1.7rem;
@@ -14940,7 +14927,7 @@ pre {
 
 /* Footer */
 .footer {
-    background: #F6F8FA;
+    background: #eff1f2;
     margin-left: 225px;
     padding: 20px 1rem;
     transition: all 0.25s ease;
@@ -15067,19 +15054,19 @@ pre {
         display: flex;
         -webkit-align-items: center;
         align-items: center;
-        background: linear-gradient(88deg, #13b4ca, #18cabe);
+        background: #00a3a6;
         color: #ffffff;
         padding: 0.5rem 1.25rem;
         left: 70px;
         position: absolute;
         text-align: left;
         top: 0;
-        width: 200px;
+        width:auto;
         z-index: 1;
         height: 52px;
         line-height: 1.8;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px; }
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px; }
     .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
         background: #39363f; }
     .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
@@ -15100,7 +15087,7 @@ pre {
     .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
         display: block;
         padding: .5rem 0;
-        background: linear-gradient(88deg, #13b4ca, #18cabe);
+        background: #ffffff;
         position: absolute;
         top: 52px;
         left: 70px;
@@ -15121,7 +15108,7 @@ pre {
         padding: 0 0 0 1.5rem; }
     .sidebar-icon-only .sidebar .nav.sub-menu .nav-item .nav-link {
         text-align: left;
-        color: #ffffff; }
+        color: #404851; }
     .sidebar-icon-only .sidebar .nav.sub-menu .nav-item .nav-link:hover {
         color: #cccccc; }
     .rtl.sidebar-icon-only .sidebar .nav.sub-menu .nav-item .nav-link {
@@ -15453,7 +15440,7 @@ pre {
     color: #8c8c8c; }
 
 .text-black {
-    color: #000; }
+    color: #404850; }
 
 .flex-grow {
     flex-grow: 1; }
@@ -15927,6 +15914,7 @@ label[for=cmm0] {
     padding: 0.30rem;
     color: white;
     text-transform: uppercase;
+    margin-bottom:3px!important;
 }
 
 /*Badge variations*/
@@ -17070,7 +17058,7 @@ label[for=cmm0] {
     background: #ffffff;
     color: #c9c8c8;
     width: auto;
-    padding: 0.56rem 0.75rem;
+    padding: 0.56rem 0.5rem;
     border-color: #f3f3f3; }
 
 .form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
@@ -17324,6 +17312,33 @@ select.tt-hint {
 .form-group .file-upload-info {
     background: transparent; }
 
+#text-campaign-begin, #text-campaign-end {
+    cursor:not-allowed;
+}
+
+#resp .select2  {
+    width:auto!important;
+}
+
+
+.status .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    margin-top: -0.15rem;
+    margin-left: -9px;
+}
+
+.canaux .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    margin-top: -0.3rem;
+    margin-left: -9px;
+}
+
+#resp .select2-container--default .select2-selection--single .select2-selection__rendered {
+    margin-right:10px;
+}
+
+#resp .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    margin-top: -0.15rem;
+    margin-left: -9px;
+}
 .map-container {
     position: relative;
     min-width: 100%;
@@ -18635,9 +18650,10 @@ dl li {
     border-top: 0;
     border-bottom-width: 1px;
     font-weight: normal;
-    color: #8d949b;
-    font-size: 12px;
+    color: #404850;
+    font-size: 10.5px;
     text-align: center;
+    text-transform:uppercase;
     height: auto; }
 .table thead th i, .jsgrid .jsgrid-table thead th i {
     margin-left: 0.325rem; }
@@ -20230,6 +20246,10 @@ body.avgrund-active {
     width:120px;
 }
 
+.datepicker, .datepicker input {
+    cursor:pointer;
+}
+
 
 .datepicker.datepicker-dropdown, .datepicker.datepicker-inline {
     padding: 0 25px;
@@ -20415,9 +20435,21 @@ body.avgrund-active {
     bottom: 0; }
 
 /* Full Calendar */
+
+
+.fc-day-grid-event {
+    margin: 1px 0px 0!important;
+}
+
+.fc-state-disabled {
+    opacity: 1!important;
+    background-color: #dadada!important;;
+    color:white!important;;
+}
+
 #calendar .fc-header-toolbar {
     background: #ffffff;
-    padding: 28px 0px 28px 0px;
+    padding: 0px 0px 28px 0px;
     margin-bottom: 0; }
 #calendar .fc-header-toolbar .fc-button-group .fc-button {
     box-shadow: none;
@@ -20428,7 +20460,7 @@ body.avgrund-active {
     font-weight: 400;
     line-height: 1.33;
     border: none;
-    background: #01a3a6;
+    background: #dadada;
     color: #ffffff;
     text-shadow: none;
     -webkit-transition-duration: 0.3s;
@@ -20438,8 +20470,8 @@ body.avgrund-active {
 #calendar .fc-header-toolbar .fc-button-group .fc-button:first-letter {
     text-transform: uppercase; }
 #calendar .fc-header-toolbar .fc-button-group .fc-button.fc-state-active {
-    background: #ffffff;
-    color: #01a3a6; }
+    background: #01a3a6;
+    color: #ffffff; }
 #calendar .fc-header-toolbar .fc-button-group .fc-button.fc-prev-button, #calendar .fc-header-toolbar .fc-button-group .fc-button.fc-next-button {
     background: #ffffff;
     color: #01a3a6;
@@ -21005,7 +21037,7 @@ body.avgrund-active {
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background: #03a9f3; }
+    background: #01a3a6; }
 
 .select2-container--default .select2-selection--single,
 .select2-container--default .select2-dropdown,
@@ -21074,6 +21106,10 @@ body.avgrund-active {
 }
 
 
+.select2-search--dropdown {
+    display:none!important;
+}
+
 #channels-table .select2-container--default .select2-selection--single {
     border: 1px solid #4d4444;
     font-size: .70rem;
@@ -21114,6 +21150,7 @@ body.avgrund-active {
     font-family: inherit;
     line-height: 1;
     background:#01a3a6;
+    cursor:pointer;
 
 }
 .select2-container--default .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
@@ -21583,7 +21620,7 @@ div.tagsinput span.tag a {
     background: #ff6363;
     color: #fff; }
 .wizard > .content {
-    background: #F6F8FA;
+    background: #eff1f2;
     display: block;
     margin: 0.5em;
     min-height: 24em;
@@ -21750,8 +21787,24 @@ div.tagsinput span.tag a {
 /*-------------------------------------------------------------------*/
 /* === Landing screens === */
 /* Auth */
+
+
+#gif-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #000;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
 .auth.login-full-bg {
-    background: url("../images/auth/login_1.jpg");
+    background: url("../images/auth/login.jpg");
     background-size: cover; }
 
 .auth .login-half-bg {
@@ -21811,8 +21864,9 @@ div.tagsinput span.tag a {
     color: #ffffff; }
 
 .auth .auth-form-light {
-    background: #ffffff;
-    color: #000; }
+    background: rgba(255,255,255,0.4);
+    border-radius:3px;
+    color: #0D0A0A; }
 .auth .auth-form-light .form-control, .auth .auth-form-light .asColorPicker-input, .auth .auth-form-light .dataTables_wrapper select, .dataTables_wrapper .auth .auth-form-light select, .auth .auth-form-light .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], .jsgrid .jsgrid-table .jsgrid-filter-row .auth .auth-form-light input[type=text], .auth .auth-form-light
 .jsgrid .jsgrid-table .jsgrid-filter-row select,
 .jsgrid .jsgrid-table .jsgrid-filter-row .auth .auth-form-light select, .auth .auth-form-light .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .jsgrid .jsgrid-table .jsgrid-filter-row .auth .auth-form-light input[type=number], .auth .auth-form-light .select2-container--default .select2-selection--single, .select2-container--default .auth .auth-form-light .select2-selection--single, .auth .auth-form-light .select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-selection--single .auth .auth-form-light .select2-search__field, .auth .auth-form-light .typeahead, .auth .auth-form-light
@@ -21857,7 +21911,7 @@ div.tagsinput span.tag a {
     padding-right: 1rem;
     border-color: rgba(255, 255, 255, 0.2); }
 
-.auth form .form-group {
+/*.auth form .form-group {
     position: relative; }
 .auth form .form-group label {
     margin-bottom: 0;
@@ -21890,7 +21944,7 @@ div.tagsinput span.tag a {
     font-size: 0.75rem; }
 .auth form .auth-link:hover {
     color: initial; }
-
+*/
 /* Error */
 .error-page h1 {
     font-size: 9.375rem;

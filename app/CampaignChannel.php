@@ -31,7 +31,7 @@ class CampaignChannel extends Model
 
     public function getPeriodAttribute()
     {
-        if ($this->begin != '' && $this->end != '')
+        if ($this->begin != '' && $this->begin != '0000-00-00' && $this->end != '' && $this->end != '0000-00-00')
             return Carbon::createFromFormat('Y-m-d', $this->begin)->format('d/m/y').' - '.Carbon::createFromFormat('Y-m-d', $this->end)->format('d/m/y');
         elseif ($this->begin != '' && $this->end == '')
             return Carbon::createFromFormat('Y-m-d', $this->begin)->format('d/m/y').' - ';
