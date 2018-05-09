@@ -23,9 +23,30 @@ class ChannelRequest extends Request
      */
     public function rules()
     {
-        return array(
-            'name'=>'required|string',
-            'class_name'=>'string'
-        );
+        //dd($this->all());
+        if ($this->input('indicator')!=null){
+            //dd($this->input('indicator'));
+            foreach ($this->input('indicator') as $key => $value) {
+                $rules["indicator.{$key}"]    = 'required|string';
+            }
+        }
+
+        if ($this->input('new_indicator')!=null){
+            //dd($this->input('new_indicator'));
+            foreach ($this->input('new_indicator') as $item => $new_indic) {
+                $rules["new_indicator.{$item}"]    = 'string';
+            }
+        }
+
+        $rules['name'] = 'required|string';
+        $rules['class_name'] = 'string';
+        // 'name'=>'required|string',
+        $rules['channel_id'] = 'required|exists:channels,id';
+
+
+        return array();
+        //return array(
+
+       //);
     }
 }

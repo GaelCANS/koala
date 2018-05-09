@@ -3,7 +3,6 @@
 @section('content')
 
 
-    @include('channels.channel')
 
     <h4 class="page-title d-inline-block mr-2">
         @if( $channel == null ) Création @else Édition @endif d'un canal @if( $channel != null ) @endif
@@ -13,32 +12,18 @@
         <a href="{{action('ChannelController@index')}}" class="btn btn-info"><i class="fa fa-angle-left"></i> Retour</a>
     </div>
 
-    @if ( $channel != null)
+
+
+
         {!! Form::model(
-
-              null,
-              array(
-                  'class'     => 'form-horizontal',
-                  'url'       => action('IndicatorController@store'),
-                  'method'    => 'Post'
-              )
-          ) !!}
-        @foreach( $channel -> Indicators as $indicator)
-            @include('channels.indicator')
-        @endforeach
-        @include('channels.indicator', array('indicator'=>null))
-        <button type="submit" class="btn btn-success">
-            Enregister
-        </button>
-        {!! Form::hidden( 'channel_id' , $channel->id  ) !!}
-
-            $channel,
-            array(
-                'class'     => 'form-horizontal',
-                'url'       => action('ChannelController@'.($channel == null ? 'store' : 'update') , $channel),
-                'method'    => $channel == null ? 'Post' : 'Put'
-            )
+        $channel,
+        array(
+            'class'     => 'form-horizontal',
+            'url'       => action('ChannelController@'.($channel == null ? 'store' : 'update') , $channel),
+            'method'    => $channel == null ? 'Post' : 'Put'
+        )
         ) !!}
+
 
     <div class="row">
         <div class="col-md-4">
@@ -58,6 +43,14 @@
         </div>
     </div>
 
+    <div id="liste-indicators" >
+    @if (isset($channel->Indicators))
+        @forelse($channel->Indicators as $indicator)
+            @include('channels.template_add_indicator',array('indicator'=>$indicator))
+            @empty
+        @endforelse
+    @endif
+    </div>
 
     <div class="row">
         <div class="form-group">
@@ -69,10 +62,24 @@
         </div>
     </div>
 
+    @if ($channel != null)
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <button class="btn btn-primary" type="button" id="btn-add-indicator">
+                        <i class="fa fa-plus"></i>Ajouter
+                    </button>
+                </div>
+            </div>
         </div>
-
-        {!! Form::close() !!}
     @endif
 
+    {!! Form::hidden('channel_id',$channel == null ? '' : $channel->id ) !!}
+
+
+
+        {!! Form::close() !!}
+
+    @include('channels.template_add_indicator',array('indicator'=>null))
 
 @endsection

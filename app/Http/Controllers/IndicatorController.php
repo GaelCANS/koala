@@ -103,6 +103,10 @@ class IndicatorController extends Controller
     {
         $indicator = Indicator::findOrfail($id);
         $indicator->update(array('delete'=>1));
-        return redirect()->back()->with('success', 'Suppression de l\'indicateur réussie');
+        return response()->json(
+            array(
+                'id' => $id
+            )
+        );
     }
 }
