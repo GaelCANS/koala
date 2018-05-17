@@ -139,6 +139,32 @@ $(document).ready(function(){
     });
 
     /**
+     *  Channel - add indicator
+     */
+    $('#btn-add-indicator').on('click',function () {
+        addIndicator();
+    });
+
+    /**
+     *  Channel - delete indicator
+     */
+    $('#liste-indicators').on('click','.indicator-del',function () {
+        if (confirm("Voulez-vous supprimer cet indicateur")) {
+            if ($(this).data('id')!="") {
+                delIndicator($(this).data('id'), $(this).data('url'));
+            }
+            else {
+                delNewIndicator($(this));
+
+               // $(this).parents('.add-indic').remove();
+
+
+
+            }
+        }
+    });
+
+    /**
      * CMM
      */
     $('.auto-save').on('change', function () {
@@ -719,6 +745,51 @@ function delImage(img , id)
         type: 'POST',
         datatype: 'JSON',
         success: function (resp) {
+        }
+    });
+}
+
+/**
+ * Channel - addIndicator
+ */
+function addIndicator()
+{
+    var _html = $('#template-add-indicator').html();
+    $("#liste-indicators").append(_html);
+}
+
+/**
+ * Channel - delNewIndicator
+ */
+function delNewIndicator(truc){
+   truc.parents('.add-indic').fadeOut(500 , function () {
+        truc.remove();
+    });
+}
+
+
+/**
+ * Channel - delIndicator existant
+ */
+function delIndicator(id,url)
+{
+
+    $.ajax({
+        url: url,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            id: id
+        },
+        type: 'DELETE',
+        datatype: 'JSON',
+        success: function (response) {
+            //$('#root-indicator-'+response.id).remove();
+            $('#root-indicator-'+response.id).fadeOut(500 , function () {
+                $(this).remove();
+            });
+        },
+        error: function () {
+            alert("Une erreur est survenue.");
         }
     });
 }

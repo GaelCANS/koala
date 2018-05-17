@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Channel;
+use App\Indicator;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\URL;
@@ -83,8 +84,34 @@ class ChannelController extends Controller
      */
     public function update(Requests\ChannelRequest $request, $id)
     {
+
+        // $request->all();
+        // $request->only('indicator');
+        // Mise à jour du channel
       $channel = Channel::findOrfail($id);
-      $channel->update( $request -> all());
+      $channel->update($request->only('name','class_name' ));
+
+      // Mise à jour des indicateurs existants
+        if (is_array($request->input('indicator')) && count($request->input('indicator'))>0){
+            foreach($request->input('indicator') as $indicator_id => $indicator){
+                $indic = Indicator::findOrfail($indicator_id);
+                $indic->update( array('name' => $indicator ) );
+
+          }
+        }
+
+
+      // Ajout des indicateurs
+        if (is_array($request->input('new_indicator')) && count($request->input('new_indicator'))>0){
+                //dd($request->input('new_indicator'));
+                foreach($request->input('new_indicator') as $new_id => $new_indic){
+                   if ($new_indic !="") {
+                       $ajout_indic = Indicator::create(array('name' => $new_indic, 'channel_id' => $request->channel_id));
+                   }
+                };
+         }
+
+
       return redirect()->back()->with('success' , "Le canal vient d'être mis à jour");
     }
 
