@@ -15,8 +15,7 @@
     ) !!}
 
     <h4 class="page-title d-inline-block mr-2">
-        @if( $campaign == null ) Création @else Édition @endif fiche campagne @if( $campaign != null )
-        @endif
+        Fiche campagne
     </h4>
     <div class="d-inline-block status">
         {!! Form::select('status',$status , null, ['class' => 'mb-1 select2' , 'id' => 'status-select', 'data-select2-id' => 'status-select']) !!}
@@ -150,7 +149,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 mt-0 p-0">
+                        <div class="col-lg-12 mt-0">
                             <div class="owl-carousel owl-theme full-width" id="carousel-image" data-link="{{route('delete-image-campaign')}}">
                                 @forelse($files as $file)
                                     <div class="item" data-item="{{basename($file)}}" data-count="">

@@ -34,9 +34,9 @@
 
             </div>
             <div class="modal-footer">
-                <button class="btn btn-success" style="display: none" id="loading-mail"><i class="fa fa-circle-o-notch fa-spin"></i> Envoi du message en cours</button>
-                <button type="button" class="btn btn-success" id="send-mail" data-link="./cmm/send">Envoyer l'ordre du jour</button>
-                <button type="button" class="btn btn-light" data-dismiss="modal">Annuler</button>
+                <button class="btn btn-primary" style="display: none" id="loading-mail"><i class="fa fa-circle-o-notch fa-spin"></i> Envoi du message en cours</button>
+                <button type="button" class="btn btn-primary" id="send-mail" data-link="./cmm/send">Envoyer l'ordre du jour</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Annuler</button>
             </div>
         </div>
     </div>

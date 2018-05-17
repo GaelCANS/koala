@@ -15617,6 +15617,20 @@ label[for=cmm0] {
     color: #fff;
 }
 
+.label-chck-non, .label-chck-oui {
+    font-size:25px;
+    margin-bottom:0px;
+    cursor: pointer;
+}
+
+.label-chck-oui {
+    color: #00a3a6;
+}
+
+.label-chck-non {
+    color: #ff6363;
+}
+
 
 /* Accordions */
 .accordion .card {
@@ -21788,6 +21802,10 @@ div.tagsinput span.tag a {
 /* === Landing screens === */
 /* Auth */
 
+
+.help-block {
+    color: #f44336;
+}
 
 #gif-wrap {
     position: absolute;

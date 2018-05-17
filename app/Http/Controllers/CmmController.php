@@ -54,7 +54,9 @@ class CmmController extends Controller
             ->CmmValidation()
             ->where('cmm_display' , $lastCmm)
             ->get();
-        $printable_lastCmm = Carbon::createFromFormat('Y-m-d', $lastCmm)->format('d/m/Y');
+
+        //$printable_lastCmm = Carbon::createFromFormat('Y-m-d', $lastCmm)->format('d/m/Y');
+        $printable_lastCmm = null;
 
         return view('cmms.index' , compact('cmm_params' , 'campaigns' , 'waitings' , 'endeds' , 'printable_lastCmm'));
     }
