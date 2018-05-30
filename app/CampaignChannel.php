@@ -86,7 +86,8 @@ class CampaignChannel extends Model
     public static function CampaignChannelBetween($begin, $end, $channels = array())
     {
         return DB::table('campaign_channel')
-            ->select('campaign_channel.begin AS start' , 'campaign_channel.end AS end' ,'campaign_channel.id AS id' , DB::raw('channels.class_name AS className') , DB::raw('CONCAT("[",channels.name,"]"," ",campaigns.name) AS title'))
+            //->select('campaign_channel.begin AS start' , 'campaign_channel.end AS end' ,'campaign_channel.id AS id' , DB::raw('channels.class_name AS className') , DB::raw('CONCAT("[",channels.name,"]"," ",campaigns.name) AS title'))
+            ->select('campaign_channel.begin AS start' , DB::raw('DATE_ADD(campaign_channel.end, INTERVAL 1 DAY) AS end') ,'campaign_channel.id AS id' , DB::raw('channels.class_name AS className') , DB::raw('CONCAT("[",channels.name,"]"," ",campaigns.name) AS title'))
             ->join('campaigns' , 'campaign_channel.campaign_id' , '=' , 'campaigns.id')
             ->join('channels' , 'channels.id' , '=' , 'campaign_channel.channel_id')
             /** /!\ Uses in scope on the Campaign Model **/
