@@ -19,7 +19,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <div id="calendar"></div>
+                    <div id="calendar" data-link="{{ route('update-event') }}"></div>
                 </div>
             </div>
         </div>

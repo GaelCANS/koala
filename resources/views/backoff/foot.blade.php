@@ -33,7 +33,7 @@
 <script src="{{ url('/theme_modules/moment/moment.js') }}"></script>
 <script src="{{ url('/theme_modules/fullcalendar/dist/fullcalendar.min.js') }}"></script>
 <script src="{{ url('/theme_modules/fullcalendar/dist/fr.js') }}"></script>
-<script src="{{ url('/js/planning-calendar.js?v=3') }}"></script>
+<script src="{{ url('/js/planning-calendar.js?v=4') }}"></script>
 <!-- End Calendar -->
 
 <!-- Plugin js for this page-->

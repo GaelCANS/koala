@@ -167,4 +167,22 @@ class CampaignchannelController extends Controller
             )
         );
     }
+
+
+    /**
+     * Update date for an event
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function update(Request $request)
+    {
+        $campaignChannel = CampaignChannel::findOrFail($request->input('id'));
+        $campaignChannel->preventMutator = true;
+        $campaignChannel->update($request->only('begin' , 'end'));
+        return response()->json([
+            'state' => '1'
+        ]);
+    }
+    
 }

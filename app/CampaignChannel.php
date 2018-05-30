@@ -17,16 +17,26 @@ class CampaignChannel extends Model
 
     protected $guarded = array('id');
 
+    public $preventMutator = false;
+
 
     /**
      * MUTATORS & ACCESSORS - see CampaignChannelPivot for the get function
      */
-    public function setBeginAttribute($date) {
-        $this->attributes['begin'] = !empty($date) ? Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d') : '';
+    public function setBeginAttribute($date)
+    {
+        if (!$this->preventMutator)
+            $this->attributes['begin'] = !empty($date) ? Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d') : '';
+        else
+            $this->attributes['begin'] = $date;
     }
 
-    public function setEndAttribute($date) {
-        $this->attributes['end'] = !empty($date) ? Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d') : '';
+    public function setEndAttribute($date)
+    {
+        if (!$this->preventMutator)
+            $this->attributes['end'] = !empty($date) ? Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d') : '';
+        else
+            $this->attributes['end'] = $date;
     }
 
     public function getPeriodAttribute()

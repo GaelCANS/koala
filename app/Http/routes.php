@@ -74,6 +74,7 @@ Route::get("/duplicate-campaign/{id}", 'CampaignController@duplicatecampaign')->
 Route::post('campaign-channel/{id}/unlink-channel/{uniqid}', array('uses' => 'CampaignchannelController@destroy', 'as' => 'unlink-channel'));
 Route::post('campaign-channel/{id}/duplicate-channel/{uniqid}', array('uses' => 'CampaignchannelController@duplicate', 'as' => 'duplicate-channel'));
 Route::post('campaign-channel/{id}/add-channel/{selected}', array('uses' => 'CampaignchannelController@add', 'as' => 'add-channel'));
+Route::post('/planning/update-event','CampaignchannelController@update')->name('update-event');
 
 
 // CMM
