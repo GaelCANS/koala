@@ -12,7 +12,7 @@
                 Commentaires
             </th>
             <th>
-                Indicateurs / Objectif / Résultats
+                Indicateurs (résultats)
             </th>
             <th>
                 Actions

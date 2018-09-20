@@ -8569,10 +8569,10 @@ pre code {
     border-bottom-width: 2px; }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #eff1f2; }
+    background-color: #ededed; }
 
 .table-hover tbody tr:hover {
-    background-color: #eff1f2;
+    background-color: #ededed;
     cursor: pointer;}
 
 .table-primary,
@@ -11518,7 +11518,7 @@ button.close {
     display: flex;
     flex-direction: column;
     pointer-events: auto;
-    background-color: #eff1f2;
+    background-color: #ededed;
     background-clip: padding-box;
     border: 1px solid #f3f3f3;
     border-radius: 0.3rem;
@@ -11990,7 +11990,7 @@ a.bg-danger:focus, .settings-panel .color-tiles a.tiles.danger:focus, a.bg-dange
     background-color: #fa6f46 !important; }
 
 .bg-light {
-    background-color: #eff1f2 !important; }
+    background-color: #ededed !important; }
 
 a.bg-light:focus, a.bg-light:hover {
     background-color: #e6e6e6 !important; }
@@ -14065,7 +14065,7 @@ input:focus {
     outline: none; }
 
 /* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
 .text-twitter {
     color: #1da1f2; }
 
@@ -14133,7 +14133,7 @@ input:focus {
     min-height: 100%;
     padding: 0;
     position: absolute;
-    width: 225px;
+    width: 200px;
     z-index: 11;
     transition: width 0.25s ease, background 0.25s ease;
     -webkit-transition: width 0.25s ease, background 0.25s ease;
@@ -14151,9 +14151,9 @@ input:focus {
     padding: 1rem 1.875rem;
     white-space: nowrap;
     height: 52px;
-    color: #404852; }
+    color: #000000; }
 .sidebar .nav .nav-item .nav-link i {
-    color: #404852; }
+    color: #000000; }
 .sidebar .nav .nav-item .nav-link i.menu-icon {
     margin-right: 1.25rem;
     font-size: 0.9375rem;
@@ -14225,7 +14225,7 @@ input:focus {
     margin-bottom: 0;
     line-height: 1.5; }
 .sidebar .nav .nav-item.nav-profile .profile-name .name {
-    color: #404852; }
+    color: #000000; }
 .sidebar .nav .nav-item.nav-profile .profile-name .designation {
     color: #8d9498;
     font-size: .75rem; }
@@ -14280,7 +14280,7 @@ input:focus {
     height: auto;
     position: relative; }
 .sidebar .nav.sub-menu .nav-item .nav-link.active {
-    color: #404852;
+    color: #000000;
     background: transparent; }
 
 /*.sidebar .nav.sub-menu .nav-item .nav-link:before {
@@ -14394,7 +14394,7 @@ input:focus {
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
     background: #ffffff;
-    width: 225px;
+    width: 200px;
     height: 58px; }
 .sidebar-dark .navbar .navbar-brand-wrapper {
     background: #3a3f51; }
@@ -14702,7 +14702,7 @@ input:focus {
 body {
     font-size: 1rem;
     font-family: "Montserrat", sans-serif;
-    font-weight: initial; }
+    font-weight: 500; }
 
 h1,
 h2,
@@ -14903,12 +14903,12 @@ html {
     overflow-x: hidden; }
 
 .content-wrapper {
-    background: #eff1f2;
-    margin-left: 225px;
+    background: #ededed;
+    margin-left: 200px;
     min-height: 100vh;
     padding: 1.5rem 1.7rem;
     transition: width 0.25s ease, margin 0.25s ease;
-    width: calc(100% - 225px); }
+    width: calc(100% - 200px); }
 @media (max-width: 991px) {
     .content-wrapper {
         margin-left: 0;
@@ -14927,8 +14927,8 @@ pre {
 
 /* Footer */
 .footer {
-    background: #eff1f2;
-    margin-left: 225px;
+    background: #ededed;
+    margin-left: 200px;
     padding: 20px 1rem;
     transition: all 0.25s ease;
     -moz-transition: all 0.25s ease;
@@ -18664,8 +18664,8 @@ dl li {
     border-top: 0;
     border-bottom-width: 1px;
     font-weight: normal;
-    color: #404850;
-    font-size: 10.5px;
+    color: #000;
+    font-size: 11.5px;
     text-align: center;
     text-transform:uppercase;
     height: auto; }
@@ -18692,7 +18692,6 @@ dl li {
     border: none; }
 
 td.canaux, th.canaux, .canaux {
-    width: 120px;
     text-align: center;
     margin: 0 auto;
 
@@ -21150,7 +21149,11 @@ body.avgrund-active {
     }
 
 .select2-container--default .select2-dropdown {
-    font-size: .8125rem; }
+    font-size: .8125rem;
+    width: 210px!important;
+    box-shadow: 0px 5px 6px 4px rgba(85, 85, 85, 0.1);
+    border-radius:6px;
+}
 
 .select2-container--default.select2-container--focus .select2-selection--multiple {
     border:none;}
@@ -21634,7 +21637,7 @@ div.tagsinput span.tag a {
     background: #ff6363;
     color: #fff; }
 .wizard > .content {
-    background: #eff1f2;
+    background: #ededed;
     display: block;
     margin: 0.5em;
     min-height: 24em;

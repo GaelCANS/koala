@@ -59,7 +59,7 @@
                     <div class="row">
                         <div class="col-4">
                             <h6>Objectif(s) de la campagne</h6>
-                            {!! Form::textarea( 'description' , null , array( 'class' => 'form-control' , 'rows' => '2', 'cols' => '10') ) !!}
+                            {!! Form::textarea( 'description' , null , array( 'class' => 'form-control' , 'rows' => '4', 'cols' => '10') ) !!}
                         </div>
                         <div id="resp" class="col-4">
                             <h6>Responsable de la campagne</h6>
