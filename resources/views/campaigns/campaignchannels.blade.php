@@ -25,8 +25,10 @@
         @if (!empty($channel->Indicators))
 
             @forelse ($channel->Indicators as $indicator)
-                <?php $cci = $campaignChannelIndicator[$channel->pivot->uniqid][$indicator->id][0] ?>
-                @include('campaigns.campaignchannelindicators')
+                @if ($indicator->delete == 0)
+                    <?php $cci = $campaignChannelIndicator[$channel->pivot->uniqid][$indicator->id][0] ?>
+                    @include('campaigns.campaignchannelindicators')
+                @endif
 
             @empty
                 aucun indicateur
