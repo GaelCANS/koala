@@ -18,7 +18,7 @@
                     <div class="mx-auto text-center" style="line-height: 13px;">
 
 
-                             <h5 class="text-uppercase" id="zone-title">{{ \App\Parameter::CmmWhere() }}</h5>
+                             <h5 class="text-uppercase" id="zone-title"></h5>
 
 
                     </div>
