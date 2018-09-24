@@ -52,6 +52,16 @@ $(document).ready(function(){
 
 
     /**
+     * Campaign
+     */
+    if ($('#name-campaign').length > 0) {
+        changeTitleZone();
+        $('#name-campaign').on('change' , function () {
+            changeTitleZone();
+        });
+    }
+
+    /**
      * Planning
      */
     $('.icheck-line input').on('ifToggled', function(event){
@@ -747,6 +757,15 @@ function delImage(img , id)
         success: function (resp) {
         }
     });
+}
+
+
+/**
+ * Campaign
+ */
+function changeTitleZone()
+{
+    $('#zone-title').text($('#name-campaign').val());
 }
 
 /**

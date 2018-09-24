@@ -33,7 +33,7 @@
                     <div class="row mb-3">
                         <div class="col-4">
                             <h6>Nom</h6>
-                            {!! Form::text( 'name' , null , array( 'class' => 'form-control font-weight-bold' , 'placeholder' => "Saisissez le nom de la campagne" ) ) !!}
+                            {!! Form::text( 'name' , null , array( 'class' => 'form-control font-weight-bold' , 'placeholder' => "Saisissez le nom de la campagne" , 'id' => 'name-campaign' ) ) !!}
                             {!! Form::hidden( 'saved' , 1  ) !!}
                         </div>
                         <div class="col-4">
