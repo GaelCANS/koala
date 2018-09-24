@@ -7549,11 +7549,14 @@ body {
     margin: 0;
     font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.5;
     color: #12131a;
     text-align: left;
-    background-color: #fff; }
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 [tabindex="-1"]:focus {
     outline: none !important; }
@@ -7867,7 +7870,7 @@ hr {
 small,
 .small {
     font-size: 80%;
-    font-weight: 400; }
+    font-weight: 600; }
 
 mark,
 .mark {
@@ -8546,12 +8549,12 @@ pre code {
 .table td, .jsgrid .jsgrid-table td {
     padding: 0.8rem;
     vertical-align: top;
-    border-top: 1px solid #f3f3f3; }
+    border-top: 1px solid #e0e9eb; }
 .table thead th, .jsgrid .jsgrid-table thead th {
     vertical-align: bottom;
-    border-bottom: 2px solid #f3f3f3; }
+    border-bottom: 2px solid #e0e9eb; }
 .table tbody + tbody, .jsgrid .jsgrid-table tbody + tbody {
-    border-top: 2px solid #f3f3f3; }
+    border-top: 2px solid #e0e9eb; }
 .table .table, .jsgrid .jsgrid-table .table, .table .jsgrid .jsgrid-table, .jsgrid .table .jsgrid-table, .jsgrid .jsgrid-table .jsgrid-table {
     background-color: #fff; }
 
@@ -8560,10 +8563,10 @@ pre code {
     padding: 0.3rem; }
 
 .table-bordered {
-    border: 1px solid #f3f3f3; }
+    border: 1px solid #e0e9eb; }
 .table-bordered th,
 .table-bordered td {
-    border: 1px solid #f3f3f3; }
+    border: 1px solid #e0e9eb; }
 .table-bordered thead th,
 .table-bordered thead td {
     border-bottom-width: 2px; }
@@ -8760,7 +8763,7 @@ pre code {
     padding: 0.56rem 1.375rem;
     font-size: 1rem;
     line-height: 1;
-    color: #495057;
+    color: #12131a;
     background-color: #ffffff;
     background-image: none;
     background-clip: padding-box;
@@ -9294,12 +9297,12 @@ fieldset[disabled] a {
 
 .btn-secondary, .editable-container.editable-inline .editableform .control-group .editable-buttons .editable-cancel {
     color: #fff;
-    background-color: #DADADA;
-    border-color: #DADADA;}
+    background-color: #839ca2;
+    border-color: #839ca2;}
 .btn-secondary:hover, .editable-container.editable-inline .editableform .control-group .editable-buttons .editable-cancel:hover {
     color: #fff;
-    background-color: #DADADA;
-    border-color: #DADADA; }
+    background-color: #839ca2;
+    border-color: #839ca2; }
 .btn-secondary:focus, .editable-container.editable-inline .editableform .control-group .editable-buttons .editable-cancel:focus, .btn-secondary.focus, .editable-container.editable-inline .editableform .control-group .editable-buttons .focus.editable-cancel {
     box-shadow: 0 0 0 0.2rem rgba(244, 244, 244, 0.5); }
 .btn-secondary.disabled, .editable-container.editable-inline .editableform .control-group .editable-buttons .disabled.editable-cancel, .btn-secondary:disabled, .editable-container.editable-inline .editableform .control-group .editable-buttons .editable-cancel:disabled {
@@ -9335,8 +9338,8 @@ fieldset[disabled] a {
 
 .btn-info, .editable-container.editable-inline .editableform .control-group .editable-buttons .editable-submit {
     color: #111;
-    background-color: #dadada;
-    border-color: #dadada; }
+    background-color: #839ca2;
+    border-color: #839ca2; }
 .btn-info:hover, .editable-container.editable-inline .editableform .control-group .editable-buttons .editable-submit:hover {
     color: #fff;
     background-color: #bababa;
@@ -9460,11 +9463,11 @@ fieldset[disabled] a {
     color: #f4f4f4;
     background-color: transparent;
     background-image: none;
-    border-color: #f4f4f4; }
+    border-color: #e0e9eb; }
 .btn-outline-secondary:hover {
     color: #ffffff;
     background-color: #f4f4f4;
-    border-color: #f4f4f4; }
+    border-color: #e0e9eb; }
 .btn-outline-secondary:focus, .btn-outline-secondary.focus {
     box-shadow: 0 0 0 0.2rem rgba(244, 244, 244, 0.5); }
 .btn-outline-secondary.disabled, .btn-outline-secondary:disabled {
@@ -11990,7 +11993,7 @@ a.bg-danger:focus, .settings-panel .color-tiles a.tiles.danger:focus, a.bg-dange
     background-color: #fa6f46 !important; }
 
 .bg-light {
-    background-color: #ededed !important; }
+    background-color: #e0e9eb !important; }
 
 a.bg-light:focus, a.bg-light:hover {
     background-color: #e6e6e6 !important; }
@@ -14132,7 +14135,7 @@ input:focus {
     font-family: "Montserrat", sans-serif;
     min-height: 100%;
     padding: 0;
-    position: absolute;
+    position: fixed;
     width: 200px;
     z-index: 11;
     transition: width 0.25s ease, background 0.25s ease;
@@ -14423,7 +14426,7 @@ input:focus {
     -moz-transition: width 0.25s ease;
     -ms-transition: width 0.25s ease;
     color: #ffffff;
-    padding-left: 15px;
+    padding-left: 0px;
     padding-right: 15px;
     width: calc(100% - 225px);
     height: 58px; }
@@ -14442,8 +14445,7 @@ input:focus {
     flex-direction: row;
     align-items: center; }
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item {
-    margin-left: 1rem;
-    margin-right: 1rem; }
+    margin-right: 2rem; }
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link {
     color: inherit;
     font-size: 0.9375rem; }
@@ -14454,7 +14456,7 @@ input:focus {
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link i {
     font-size: 1.25rem; }
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link.nav-btn .btn, .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link.nav-btn .ajax-upload-dragdrop .ajax-file-upload, .ajax-upload-dragdrop .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link.nav-btn .ajax-file-upload, .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link.nav-btn .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link.nav-btn .swal2-styled, .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link.nav-btn .wizard > .actions a, .wizard > .actions .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link.nav-btn a {
-    background: rgba(255, 255, 255, 0.1);
+    background: #039999;
     padding: .75rem 1rem;
     color: #ffffff; }
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link.nav-btn:after {
@@ -14702,7 +14704,11 @@ input:focus {
 body {
     font-size: 1rem;
     font-family: "Montserrat", sans-serif;
-    font-weight: 500; }
+    font-weight: 600;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 h1,
 h2,
@@ -14903,7 +14909,7 @@ html {
     overflow-x: hidden; }
 
 .content-wrapper {
-    background: #ededed;
+    background: #e0e9eb;
     margin-left: 200px;
     min-height: 100vh;
     padding: 1.5rem 1.7rem;
@@ -14927,15 +14933,15 @@ pre {
 
 /* Footer */
 .footer {
-    background: #ededed;
+    background: #e0e9eb;
     margin-left: 200px;
     padding: 20px 1rem;
     transition: all 0.25s ease;
     -moz-transition: all 0.25s ease;
     -webkit-transition: all 0.25s ease;
     -ms-transition: all 0.25s ease;
-    width: calc(100% - 225px);
-    border-top: 1px solid #f3f3f3;
+    width: calc(100% - 200px);
+    border-top: 1px solid #ffffff;
     font-size: calc(0.75rem - 0.05rem);
     font-family: "Montserrat", sans-serif; }
 .footer a {
@@ -15897,9 +15903,9 @@ label[for=cmm0] {
 /* Badges */
 .badge {
     border-radius: .25rem;
-    font-size: .70rem;
-    font-weight: initial;
-    line-height: 1;
+    font-size: .75rem;
+    font-weight: 600;
+    line-height: 1.1;
     padding: .25rem 0.375rem;
     font-family: "Montserrat", sans-serif; }
 .badge.badge-pill {
@@ -16245,7 +16251,7 @@ label[for=cmm0] {
     border-color: #d9d9d9; }
 
 .btn-group {
-    border: 1px solid #f3f3f3;
+    border: 1px solid #e0e9eb;
     border-radius: 0.1875rem;
     background: #ffffff;}
 .btn-group .btn, .btn-group .ajax-upload-dragdrop .ajax-file-upload, .ajax-upload-dragdrop .btn-group .ajax-file-upload, .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled, .btn-group .wizard > .actions a, .wizard > .actions .btn-group a {
@@ -17080,9 +17086,9 @@ label[for=cmm0] {
 .tt-query,
 .tt-hint {
     border: none;
-    font-size: 0.75rem;
+    font-size: 0.80rem;
     padding: 0.56rem 0.75rem;
-    line-height: 14px; }
+    line-height: 1.3; }
 
 .navbar-nav .form-control {
     background :rgba(255, 255, 255, 0.1);
@@ -18719,7 +18725,7 @@ td.canaux, th.canaux, .canaux {
 
 
 #channels-table tbody td, #channels-table tfoot td {
-    border-right: 1px solid #f3f3f3;
+    border-right: 1px solid #e0e9eb;
 }
 
 
@@ -21069,7 +21075,7 @@ body.avgrund-active {
     font-size: .625rem;
     font-family: inherit;
     line-height: 1;
-    background:#dadada;
+    background:#839ca2;
     cursor:pointer;
     width: 60px!important;}
 .select2-container--default .select2-selection--multiple .select2-search__field::-webkit-input-placeholder{
