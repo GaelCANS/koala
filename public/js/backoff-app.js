@@ -62,6 +62,15 @@ $(document).ready(function(){
     }
 
     /**
+     * Commun
+     *
+     * Change zone title
+     */
+    if ($('.page-title').length > 0 ) {
+        $('#zone-title').text($('.page-title').text());
+    }
+
+    /**
      * Planning
      */
     $('.icheck-line input').on('ifToggled', function(event){
