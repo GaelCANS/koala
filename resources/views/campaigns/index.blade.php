@@ -1,4 +1,4 @@
-@extends('backoff.app')
+ @extends('backoff.app')
 
 @section('content')
     <h4 class="page-title d-inline-block mr-2">Campagnes</h4>
@@ -37,17 +37,17 @@
                                     </thead>
                                     <tbody>
                                     @forelse($campaigns as $campaign)
-                                    <tr data-href="{{action('CampaignController@show' , $campaign)}}">
-                                        <td class="marches">
+                                    <tr>
+                                        <td class="marches" data-href="{{action('CampaignController@show' , $campaign)}}">
                                             @forelse($campaign->Markets as $market)
                                                 <div class="badge {{ $market->class_css }}">{{ $market->abbreviation }}</div>
                                             @empty
                                             @endforelse
 
                                         </td>
-                                        <td class="text-left">{{ $campaign->name }}</td>
-                                        <td>{{ $campaign->period }}</td>
-                                        <td>
+                                        <td class="text-left" data-href="{{action('CampaignController@show' , $campaign)}}">{{ $campaign->name }}</td>
+                                        <td data-href="{{action('CampaignController@show' , $campaign)}}">{{ $campaign->period }}</td>
+                                        <td data-href="{{action('CampaignController@show' , $campaign)}}">
                                             @if($campaign->countChannel<=5)
                                                 @forelse($campaign->channelsDistinct as $channel)
                                                     <div class="badge badge-outline-primary badge-pill">{{ $channel->Channel->name }}</div>
@@ -57,12 +57,12 @@
                                                 <div class="badge badge-outline-primary badge-pill">+5 canaux</div>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td data-href="{{action('CampaignController@show' , $campaign)}}">
                                             @if($campaign->User)
                                                 {{ $campaign->User->firstnameInitial }}
                                             @endif
                                         </td>
-                                        <td class="results">
+                                        <td class="results" data-href="{{action('CampaignController@show' , $campaign)}}">
                                             <label class="badge @if($campaign->results_state == 'ajoutés')badge-success @elseif($campaign->results_state == 'partiels')badge-warning @else badge-danger @endif">{{$campaign->results_state}}</label>
                                         </td>
                                         <td>

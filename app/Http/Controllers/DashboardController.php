@@ -15,6 +15,9 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 
+use OAuth\Common\Consumer\Credentials;
+use Symfony\Component\HttpFoundation\Session\Session;
+
 class DashboardController extends Controller
 {
 
@@ -30,6 +33,30 @@ class DashboardController extends Controller
      */
     public function index()
     {
+
+
+        $trello = new Library\Features\Trello\TrelloApi(true);
+        //dd( $trello->getBoard("TrAgt8Ew") );
+        //dd($trello->deleteCard('5ae9c16e6920e8e825d150d2'));
+        // Checklist : 5ae9d1eac0f72c90924e19ae
+        // Item : 5ae9d292ae21086b59b6a45b
+        // Card : 5ae9d59c0531814306e2442f
+        // Trello->Card()->Comment()->add();
+        /*dd(
+            $trello->addComment('5ae9d59c0531814306e2442f' , 'Mon super commentaire')
+        );*/
+        /*dd( $trello->addCard(
+            "54e0c92b70a169ac7cb6ca00",
+            array(
+                'name' => "Nom test de carte 2" ,
+                "desc" => "Ma super description de carte 2" ,
+                "due" => "2018-05-22")
+            )
+        );*/
+
+
+
+
         // Campagnes en cours/ à venir
         $date = Carbon::now();
         $campaigns = Campaign::notdeleted()
