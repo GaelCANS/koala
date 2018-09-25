@@ -4,7 +4,7 @@
 
 
 
-        <h4 class="page-title d-inline-block mr-2">
+        <h4 class="page-title d-none mr-2">
                 @if( $user == null ) Création d'un utilisateur @else Mon compte @endif
         </h4>
 

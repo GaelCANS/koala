@@ -14837,7 +14837,7 @@ address p {
 .blockquote-dark .blockquote-footer {
     color: #3a3f51; }
 
-.page-title {
+.fiche-title {
     color: #000;
     margin: 0.38rem 0 0.75rem 0; }
 
@@ -14845,7 +14845,7 @@ address p {
     color: #404851;
     margin-bottom: 1.125rem;  }
 
-h4.page-title {
+h4.fiche-title {
     font-weight:bold;
     text-transform:uppercase;
     margin-bottom: 1.5rem;
@@ -16803,7 +16803,7 @@ label[for=cmm0] {
 /* Cards */
 .card {
     border: 0;
-    border-radius: 2px; }
+     }
 .card .card-body {
     padding: 1.88rem 1.81rem; }
 .card .card-body + .card-body {

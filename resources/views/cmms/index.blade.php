@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h4 class="page-title">CMM</h4>
+    <h4 class="page-title d-none">Comité Marketing Multicanal</h4>
     <div id="cmm" class="row">
 
         <div class="col-md-5 grid-margin ">

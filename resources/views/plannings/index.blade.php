@@ -1,7 +1,7 @@
 @extends('backoff.app')
 
 @section('content')
-    <h4 class="page-title d-inline-block mr-2">Planning des campagnes</h4>
+    <h4 class="page-title d-none mr-2">Planning des campagnes</h4>
     <div class="row" id="container-calendar" data-day="{{ $day }}" data-link="{{ route('planning-events') }}">
         <div class="col-12">
             <ul class="list-inline" id="list-channels">

@@ -14,6 +14,12 @@
         )
     ) !!}
 
+
+
+
+    <h4 class="fiche-title d-inline-block mr-2">
+        Fiche campagne
+    </h4>
     <div class="d-inline-block status">
         {!! Form::select('status',$status , null, ['class' => 'mb-1 select2' , 'id' => 'status-select', 'data-select2-id' => 'status-select']) !!}
     </div>
@@ -23,6 +29,7 @@
         </button>
         <a href="{{action('CampaignController@index')}}" class="btn btn-info"><i class="fa fa-angle-left"></i> Retour</a>
     </div>
+
     <div class="row" id="show-campaign">
         <div class="col-md-9 p-0">
             <div class="col-md-12 grid-margin">
