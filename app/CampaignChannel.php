@@ -82,7 +82,7 @@ class CampaignChannel extends Model
      * @param $begin
      * @param $end
      * @return mixed
-     */
+     */ 
     public static function CampaignChannelBetween($begin, $end, $channels = array())
     {
         return DB::table('campaign_channel')
