@@ -68,7 +68,38 @@ class DashboardController extends Controller
                      ->get();
 
         $periods = (object) array(
-            'text' => $date->format('F Y'),
+            'text' =>
+                str_replace(
+                    array(
+                        'January' ,
+                        'February' ,
+                        'March' ,
+                        'April' ,
+                        'May' ,
+                        'June' ,
+                        'July' ,
+                        'August' ,
+                        'September' ,
+                        'October' ,
+                        'November' ,
+                        'December'
+                    ) ,
+                    array(
+                        'Janvier' ,
+                        'Février' ,
+                        'Mars' ,
+                        'Avril' ,
+                        'Mai' ,
+                        'Juin' ,
+                        'Juillet' ,
+                        'Août' ,
+                        'Septembre' ,
+                        'Octobre' ,
+                        'Novembre' ,
+                        'Décembre'
+                    ) ,
+                    $date->format('F Y')
+                ),
             'date' => $date->format('m-Y'),
             'next' => route('dashboard-reload-campaigns' , array('period' => $date->addMonth()->format('m-Y'))),
             'prev' => route('dashboard-reload-campaigns' , array('period' => $date->subMonth(2)->format('m-Y'))),
@@ -113,7 +144,38 @@ class DashboardController extends Controller
         $date = Carbon::createFromFormat('m-Y', $period);
 
         $periods = (object) array(
-            'text' => $date->format('F Y'),
+            'text' =>
+                str_replace(
+                    array(
+                        'January' ,
+                        'February' ,
+                        'March' ,
+                        'April' ,
+                        'May' ,
+                        'June' ,
+                        'July' ,
+                        'August' ,
+                        'September' ,
+                        'October' ,
+                        'November' ,
+                        'December'
+                    ) ,
+                    array(
+                        'Janvier' ,
+                        'Février' ,
+                        'Mars' ,
+                        'Avril' ,
+                        'Mai' ,
+                        'Juin' ,
+                        'Juillet' ,
+                        'Août' ,
+                        'Septembre' ,
+                        'Octobre' ,
+                        'Novembre' ,
+                        'Décembre'
+                    ) ,
+                    $date->format('F Y')
+                ),
             'date' => $date->format('m-Y'),
             'next' => route('dashboard-reload-campaigns' , array('period' => $date->addMonth()->format('m-Y'))),
             'prev' => route('dashboard-reload-campaigns' , array('period' => $date->subMonth(2)->format('m-Y'))),
