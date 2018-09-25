@@ -15539,6 +15539,10 @@ pre {
 /*-------------------------------------------------------------------*/
 /* === Components === */
 
+#zone-title {
+    font-size:1.2rem;
+}
+
 
 .switch {
     position: relative;
@@ -15551,6 +15555,8 @@ pre {
     font-size:12px;
     margin-top:-9px;
 }
+
+
 
 #cmm .switch {
     margin-top:0px;
@@ -18712,7 +18718,7 @@ td.canaux, th.canaux, .canaux {
 }
 
 #channels-table thead {
-    background: #01a3a6;
+    background: #00999a;
     -webkit-border-radius:3px 3px 0px;
     -moz-border-radius:3px 3px 0px;
     border-radius: 3px 3px 0px;

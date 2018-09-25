@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-4">
                             <h6>Contributeurs</h6>
-                            {!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple js-states form-control tag-input', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true', 'placeholder' => '+ Ajouter' ]) !!}
+                            {!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple js-states form-control tag-input','id' => 'test', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true', 'placeholder' => '+ Ajouter','data-value' => '+ Ajouter' ]) !!}
                         </div>
                     </div>
                 </div>
