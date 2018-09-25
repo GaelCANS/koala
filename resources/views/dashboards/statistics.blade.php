@@ -8,6 +8,7 @@
                 'dashboards.block-stat' ,
                 array(
                     'icon'      => 'mdi-email-open-outline' ,
+                    'color' => 'hotpink',
                     'value'     => $statistics[0]['today'] ,
                     'title'     => $statistics[0]['before'] ,
                     'channel'   => $statistics[0]['channel'] ,
@@ -20,6 +21,7 @@
                 'dashboards.block-stat' ,
                 array(
                     'icon'      => 'mdi-facebook' ,
+                    'color' => '#3c589b',
                     'value'     => $statistics[1]['today'] ,
                     'title'     => $statistics[1]['before'] ,
                     'channel'   => $statistics[1]['channel'] ,
@@ -32,6 +34,7 @@
                 'dashboards.block-stat' ,
                 array(
                     'icon'      => 'mdi-image' ,
+                    'color' => '#fb9678',
                     'value'     => $statistics[2]['today'] ,
                     'title'     => $statistics[2]['before'] ,
                     'channel'   => $statistics[2]['channel'] ,
@@ -44,6 +47,7 @@
                 'dashboards.block-stat' ,
                 array(
                     'icon'      => 'mdi-format-page-break' ,
+                    'color' => '#ab8ce4',
                     'value'     => $statistics[3]['today'] ,
                     'title'     => $statistics[3]['before'] ,
                     'channel'   => $statistics[3]['channel'] ,
@@ -61,12 +65,13 @@
                                 'dashboards.best' ,
                                 array(
                                     'title' => "L'email du mois",
-                                    'icon'  => "mdi-heart",
+                                    'icon'  => "mdi-email-open-outline",
                                     'color' => 'hotpink',
                                     'value' => $best_email->value." %",
                                     'unite' => 'ouvreurs',
                                     'objet' => $best_email->campaign,
                                     'name'  => $best_email->name,
+                                    'action' => 'envoyé',
                                     'date'  => $best_email->date
                                 )
                             )
@@ -79,9 +84,10 @@
                                     'icon'  => "mdi-facebook-box",
                                     'color' => '#3c589b',
                                     'value' => $best_fb->value,
-                                    'unite' => 'likes',
+                                    'unite' => 'portée',
                                     'objet' => $best_fb->campaign,
                                     'name'  => $best_fb->name,
+                                    'action' => 'publié',
                                     'date'  => $best_fb->date
                                 )
                             )
@@ -91,12 +97,13 @@
                                 'dashboards.best' ,
                                 array(
                                     'title' => "La bannière du mois",
-                                    'icon'  => "mdi-star",
-                                    'color' => '#ffde3b',
+                                    'icon'  => "mdi-image",
+                                    'color' => '#fb9678',
                                     'value' => $best_bann->value,
                                     'unite' => 'clics',
                                     'objet' => $best_bann->campaign,
                                     'name'  => $best_bann->name,
+                                    'action' => 'publiée',
                                     'date'  => $best_bann->date
                                 )
                             )

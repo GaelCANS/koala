@@ -21,7 +21,7 @@
             {!! Form::textarea( 'channel['.$channel->pivot->uniqid.'][comment]' , $channel->pivot->comment , array( 'class' => 'form-control duplicatable bg-light' , 'data-name' => 'comment', 'rows' => '2' ) ) !!}
         </div>
     </td>
-    <td>
+    <td class="in">
         @if (!empty($channel->Indicators))
 
             @forelse ($channel->Indicators as $indicator)
