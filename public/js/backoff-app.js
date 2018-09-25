@@ -1,5 +1,13 @@
 $(document).ready(function(){
 
+
+    /**
+     * Commun
+     * Simulation d'un clic sur le dropdown du menu pour éviter de devoir double cliquer (astuce de sioux)
+     */
+    $('#notificationDropdown').trigger('click');
+
+
     /**
      * Commun
      *
