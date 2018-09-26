@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -20,7 +21,13 @@ class ComponentController extends Controller
     {
         Mail::send('emails.formbox', array('user' => auth()->user()->fullname , 'request' => $request), function ($m) {
             $m->from('information@koala.com', 'Koala');
-            $m->to('gael.levant@ca-normandie-seine.fr')->to('axel.masse@ca-normandie-seine.fr')->subject( 'Requête utilisateur provenant de CAMP' );
+            $users = User::where('admin' , '1')->notdeleted()->get();
+
+            if ($users) {
+                foreach ($users as $user) {
+                    $m->to($user->email)->subject( 'Requête utilisateur provenant de CAMP' );
+                }
+            }
         });
 
         return response()->json(
