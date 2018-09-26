@@ -1,3 +1,4 @@
+@include('components.formbox')
 <footer class="footer">
     <div class="container-fluid clearfix">
         <span class="d-block text-center text-sm-left d-sm-inline-block">Crédit Agricole Normandie-Seine</span>

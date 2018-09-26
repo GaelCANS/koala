@@ -140,4 +140,7 @@ Route::get('storage/{filename}/{id?}', function ($filename, $id=null)
     return $response;
 });
 
+// Component
+Route::post('/component/form-box','ComponentController@formbox')->name('send-message');
+
 
