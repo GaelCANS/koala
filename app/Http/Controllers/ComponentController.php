@@ -22,5 +22,11 @@ class ComponentController extends Controller
             $m->from('information@koala.com', 'Koala');
             $m->to('gael.levant@ca-normandie-seine.fr')->to('axel.masse@ca-normandie-seine.fr')->subject( 'Requête utilisateur provenant de CAMP' );
         });
+
+        return response()->json(
+            array(
+                'state'      => 1
+            )
+        );
     }
 }

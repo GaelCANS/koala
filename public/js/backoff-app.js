@@ -16,6 +16,8 @@ $(document).ready(function(){
         });
         $('#help-form').on('submit' , function (event) {
 
+            $('#send-formbox').hide();
+            $('#loading-formbox').show();
             var link = $('#help-form').data('link');
             $.ajaxSetup({
                 headers: {
@@ -32,7 +34,10 @@ $(document).ready(function(){
                     }
                 })
                 .done(function( data ) {
-                    data = $.parseJSON(data);
+                    $('#message-help').val('');
+                    $('.contact-form-page .top-btn-show').trigger('click');
+                    $('#send-formbox').show();
+                    $('#loading-formbox').hide();
                 });
             
             event.preventDefault();
