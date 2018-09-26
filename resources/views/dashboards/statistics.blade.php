@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body pl-3 pr-3 pb-2 text-center">
             <i class="icon-chart menu-icon"></i>
-            <h5 class="card-title text-center">{{$quarter}}<sup>@if($quarter == 1) er @else ème @endif</sup> trimestre {{ date('Y') }}</h5>
+            <h5 class="card-title text-center">{{$quarter}}<sup>@if($quarter == 1)er @elseème @endif</sup> trimestre {{ date('Y') }}</h5>
 
             @include(
                 'dashboards.block-stat' ,

@@ -5,7 +5,7 @@
     <div class="row" id="container-calendar" data-day="{{ $day }}" data-link="{{ route('planning-events') }}">
         <div class="col-12">
             <ul class="list-inline" id="list-channels">
-                <h6>Canaux</h6>
+                <h6>Canaux sélectionnés</h6>
                 @foreach($channels as $channel)
                     <div id="channels" class="icheck-line">
                         {!! Form::checkbox('channels', $channel->name, true, array( 'class' => 'display-event' , 'id' => 'channel-'.$channel->id , 'data-class' => $channel->class_name , 'data-id' => $channel->id ) ) !!}

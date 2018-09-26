@@ -8751,7 +8751,7 @@ pre code {
     border: 0; }
 
 .dashboard {
-    height: 465px;
+    height: 490px;
 }
 
 .form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
@@ -14450,7 +14450,8 @@ input:focus {
     flex-direction: row;
     align-items: center; }
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item {
-    margin-right: 2rem; }
+    margin-right: 2rem;
+margin-left:1px;}
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link {
     color: inherit;
     font-size: 0.9375rem; }
@@ -14848,7 +14849,9 @@ address p {
 
 .card-title {
     color: #404851;
-    margin-bottom: 1.125rem;  }
+    margin-bottom: 1.125rem;
+    text-transform: uppercase;
+    padding-left: 5px;}
 
 h4.fiche-title {
     font-weight:bold;
@@ -16981,13 +16984,13 @@ label[for=cmm0] {
     color: #ffffff; }
 
 .form-check.form-check-flat label input:disabled + .input-helper:before {
-    border-color: #f3f3f3; }
+    border-color: #e0e9eb; }
 
 .form-check.form-check-flat label input:disabled:checked + .input-helper:before {
     background: #e6e9ed; }
 
 .form-check.form-check-flat label .input-helper:before {
-    border: 2px solid #f3f3f3; }
+    border: 2px solid #e0e9eb; }
 
 .form-check.form-check-flat label .input-helper:after {
     color: #ffffff; }
@@ -16997,7 +17000,7 @@ label[for=cmm0] {
     content: "";
     top: 2px;
     left: 0;
-    border: 2px solid #f3f3f3;
+    border: 2px solid #e0e9eb;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -18104,7 +18107,7 @@ dl li {
 
 
 .pagination .page-item .page-link, .jsgrid .jsgrid-pager .page-item .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a, .jsgrid .jsgrid-pager .jsgrid-pager-page a {
-    border-color: #f3f3f3;
+    border-color: #e0e9eb;
     color: i;
     font-size: .675rem;
     -webkit-transition-duration: 0.3s;
@@ -18281,7 +18284,7 @@ dl li {
 .jsgrid .jsgrid-pager .jsgrid-pager-page a,
 .jsgrid .jsgrid-pager .jsgrid-pager-page .pagination-info .page-item.active a, .pagination-info .jsgrid .jsgrid-pager .active.jsgrid-pager-page a, .jsgrid .jsgrid-pager .pagination-info .active.jsgrid-pager-page a {
     background: white;
-    border-color: #f3f3f3;
+    border-color: #e0e9eb;
     color: #55565b; }
 
 .pagination-info .page-item .page-link:hover, .pagination-info .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link:hover, .jsgrid .jsgrid-pager .pagination-info .jsgrid-pager-nav-button .page-link:hover, .pagination-info
