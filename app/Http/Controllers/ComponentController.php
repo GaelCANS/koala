@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Parameter;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class ComponentController extends Controller
     public function formbox( Request $request)
     {
         Mail::send('emails.formbox', array('user' => auth()->user()->fullname , 'request' => $request), function ($m) {
-            $m->from('information@koala.com', 'Koala');
+            $m->from(Parameter::getParameter('expeditor','common'), Parameter::getParameter('expeditor_name','common'));
             $users = User::where('admin' , '1')->notdeleted()->get();
 
             if ($users) {

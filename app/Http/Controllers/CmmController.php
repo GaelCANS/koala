@@ -198,7 +198,7 @@ class CmmController extends Controller
 
         // Envoi de l'email
         Mail::send('emails.cmm-odj', array('content' => $content), function ($m) use ($request, $emails , $emails_cc) {
-            $m->from('information@koala.com', 'Koala');
+            $m->from(Parameter::getParameter('expeditor','common'), Parameter::getParameter('expeditor_name','common'));
             $m->to($emails)->subject( $request->subject );
             if (count($emails_cc) > 0)
                 $m->cc($emails_cc);
