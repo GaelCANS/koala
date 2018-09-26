@@ -168,7 +168,7 @@ class CampaignController extends Controller
             ->orderBy('id' , 'ASC')
             ->get();
 
-//dump($channels);
+
         return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator' , 'services', 'markets' , 'files'));
     }
 
