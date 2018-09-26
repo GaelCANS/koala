@@ -1,24 +1,26 @@
 <style>
 
     .contact-form-page{
-        height: 50px;
-        width: 50px;
+        height: 0px;
+        width: 0px;
         display: block;
         border-radius: 50%;
         position: absolute;
-        bottom: 42px;
-        right: 42px;
+        bottom: 20%;
+        right: 0;
         overflow: hidden;
         -webkit-transition: all 0.5s;
         -moz-transition: all 0.5s;
         -o-transition: all 0.5s;
         transition: all 0.5s;
-        background: #7EC6E7;
+        background: #00999a;
+        box-shadow: 0px 0px 19px 0px rgba(23, 72, 72, 0.49);
+
 
     }
 
     .show-profile{
-        background: #3aa8db;
+        background: #00999a;
         height: 100%;
         display: block;
         width: 336px;
@@ -28,6 +30,7 @@
         overflow-y: scroll;
         border-radius: 0;
         padding-bottom: 30px;
+        z-index: 9999;
 
 
     }
@@ -40,28 +43,26 @@
         margin: 20px 0 0 14px;
     }
     .contact-form-page h1{
-        font-size: 18px;
+        font-size: 17px;
         color: #fff;
-        margin: 20px 26px;
+        font-weight: bold;
+        margin: 25px 25px 15px;
         padding: 0px;
-        line-height: 29px;
-        padding-right: 30px;
+        text-align: center;
+        line-height: 23px;
+        text-transform: uppercase;
     }
     .top-btn{
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: #98D1EC;
-        color: #fff;
-        padding: 15px 0;
+        background: white;
+        color: #00999a;
+        display: block;
+        padding: 5px 0;
+        margin: 25px auto;
         text-align: center;
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
+
         -webkit-transition: all 1s;
         -moz-transition: all 1s;
         -o-transition: all 1s;
@@ -69,19 +70,16 @@
         opacity: 0;
     }
     .top-btn:hover{
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
-        background: #7EC6E7;
-        color: #fff
+
+        background: white;
+        color: #00999a;
     }
 
     .header-btn, .footer-btn a{
         font-size: 20px;
         color: #fff;
-        background: #3aa8db;
-        float: right;
+
+
     }
     .form-head{
         display: block;
@@ -94,47 +92,37 @@
     }
 
     .buttom-btn{
-        position: absolute;
-        bottom: 30px;
-        right: 30px;
-        background: #3aa8db;
+        position: fixed;
+        bottom: 20%;
+        right: -83px;
+        background: #00999a;
         color: #fff;
-        padding: 21px;
+        padding: 12px;
         text-align: center;
-        width: 75px;
-        height: 75px;
-        border-radius: 50%;
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-        -o-transition: all 0.5s;
-        transition: all 0.5s;
+        width: auto;
+        height: auto;
+        font-size: 0.80rem;
         opacity: 1;
+        transform: rotate(270deg);
+        box-shadow: 0px 0px 19px 0px rgba(23, 72, 72, 0.30)!important;
+
+
     }
     .buttom-btn i{
-        font-size: 30px;
+        font-size: 15px;
+        padding-left: 8px;
     }
 
+
+
     .buttom-btn:hover{
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
-        background:#71C0E5;
-        color: #fff
+
+        background:#00999a;
+        color: #fff;
+        text-decoration: none;
     }
-    input.form-control {
-        height: 40px;
-        border-radius: 0;
-        outline: none;
-    }
-    textarea.form-control {
-        height: 150px;
-        border-radius: 0;
-    }
+
+
     .contact-form-page form{
         padding: 0 26px;
     }
@@ -143,16 +131,15 @@
         padding: 10px 40px;
         text-align: center;
         display: block;
-        border-radius: 0;
-        background: #007BB5;
+        background:#829ca2;
         border: none;
-        border-bottom: 5px solid #005B85;
+        margin: 0 auto;
+        border-radius: 4px;
         text-shadow: none;
         box-shadow: none;
         font-size: 16px;
         color: #ffffff;
         text-transform: uppercase;
-        font-family: 'Roboto Condensed', sans-serif;
     }
     .form-group label{
         font-size: 14px;
@@ -197,7 +184,7 @@
                         <a class="top-btn" href="#"><i class="fa fa-times"></i></a>
                     </div>
                 </div>
-                <h1>Please fill the form - I will response as fast as I can!</h1>
+                <h1>Une remarque, un bug à nous remonter, c'est ici !</h1>
 
                 {!! Form::model(
                     null,
@@ -208,18 +195,16 @@
                     )
                 ) !!}
                     <div class="form-group">
-                        <label for="exampleInputText">Name</label>
-                        {!! Form::text( 'name' , ( auth()->user() ? auth()->user()->fullname : '' ) , array( 'class' => 'form-control font-weight-bold' , 'id' => 'name-help' , 'disabled' => 'true' ) ) !!}
+                        {!! Form::text( 'name' , ( auth()->user() ? auth()->user()->fullname : '' ) , array( 'class' => 'form-control font-weight-bold d-none' , 'id' => 'name-help' , 'disabled' => 'true' ) ) !!}
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputMessage">Message</label>
-                        {!! Form::textarea( 'message' , null , array( 'class' => 'form-control' , 'rows' => '4', 'cols' => '10' , 'required' => true , 'id' => 'message-help') ) !!}
+                        {!! Form::textarea( 'message' , null , array( 'class' => 'form-control' , 'rows' => '6', 'cols' => '10' , 'required' => true , 'id' => 'message-help', 'placeholder' => 'Votre message') ) !!}
                     </div>
                     {!! Form::hidden( 'page' , url()->current() , array( 'id' => 'url-help' ) ) !!}
                     <button type="submit" class="submit-buttom">Envoyer</button>
                 {!! Form::close() !!}
 
             </div>
-            <a class="buttom-btn" href="#"><i class="fa fa-times"></i></a>
+            <a class="buttom-btn" href="#">Une remarque sur CAMP <i class="fa fa-question-circle"></i></a>
         </div>
 

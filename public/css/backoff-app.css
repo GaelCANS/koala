@@ -20285,7 +20285,9 @@ body.avgrund-active {
     padding: 0 25px;
     width: auto;
     max-width: 500px;
-    min-width: 250px; }
+    min-width: 250px;
+    box-shadow: 1px 1px 12px 2px #b1b1b1;
+    border: 1px solid #b1b1b1;}
 .datepicker.datepicker-dropdown .datepicker-days, .datepicker.datepicker-inline .datepicker-days {
     padding: .8rem .7rem; }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed, .datepicker.datepicker-inline .datepicker-days table.table-condensed {
@@ -20336,7 +20338,6 @@ body.avgrund-active {
     font-size: .9375rem;
     padding:6px 8px;
     text-align: center;
-    color: #434a54;
     border: 1px solid #ececec;  }
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed tbody td.day:hover, .datepicker.datepicker-inline .datepicker-days table.table-condensed tbody td.day:hover {
     background: #01a3a6;
