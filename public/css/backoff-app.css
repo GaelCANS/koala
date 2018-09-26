@@ -20213,6 +20213,11 @@ body.avgrund-active {
     border-top-color: #f3f3f3; }
 .clockpicker-popover.bottom .arrow:after {
     border-bottom-color: #ffffff; }
+.clockpicker-button {
+    display: none!important;
+}
+
+
 
 /* Data Tables */
 .dataTables_wrapper {

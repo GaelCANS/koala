@@ -65,14 +65,14 @@
                     </li>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-12">
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a href="{{route('excel-list-campaigns')}}" target="_blank"><button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-export"></i></button></a>
-                        <!--<button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-printer"></i></button>-->
+                        <button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-printer"></i></button>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
     <div class="col-12">

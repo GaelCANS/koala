@@ -95,7 +95,7 @@
         position: fixed;
         bottom: 20%;
         right: -83px;
-        background: #00999a;
+        background: #829ca2;
         color: #fff;
         padding: 12px;
         text-align: center;
@@ -140,10 +140,6 @@
         font-size: 16px;
         color: #ffffff;
         text-transform: uppercase;
-    }
-    .form-group label{
-        font-size: 14px;
-        color: #fff;
     }
 
     /*

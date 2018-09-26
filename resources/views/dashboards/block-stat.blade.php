@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center justify-content-md-center">
     <div class="col-md-3">
-        <i class="mdi {{$icon}} icon-lg" title="{{ $channel }}" data-toggle="tooltip" data-placement="left" style="color:{{$color}};opacity: .2;"></i>
+        <i class="mdi {{$icon}} icon-lg" title="{{ $channel }}" data-toggle="tooltip" data-placement="left" style="opacity: .15;"></i>
     </div>
     <div class="col-md-6 text-center mr-0 ml-0">
         <h3 class="mb-0" style="line-height:19px;color:{{$color}};">{{$value}}</h3>
