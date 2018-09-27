@@ -57,6 +57,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
+
+        // Control on admin user
+        if (!auth()->user()->admin && $id != auth()->user()->id ) {
+            return redirect()->route('dashboard-index');
+        }
+
         $user = User::findOrFail($id);
         $services= Service::Notdeleted()
             ->orderBy('name' , 'ASC')
