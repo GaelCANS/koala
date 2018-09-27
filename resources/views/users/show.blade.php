@@ -4,8 +4,13 @@
 
 
 
+<<<<<<< HEAD
         <h4 class="page-title d-inline-block mr-2">
                 @if( $user == null ) Création d'un utilisateur @else @if ( $route =="show-user") Mise à jour utilisateur @else Mon compte @endif @endif
+=======
+        <h4 class="page-title d-none mr-2">
+                @if( $user == null ) Création d'un utilisateur @else Mon compte @endif
+>>>>>>> faa122fa3233b840681227b9e17de21bb9e13d05
         </h4>
 
 

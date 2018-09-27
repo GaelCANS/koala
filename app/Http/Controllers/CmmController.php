@@ -54,7 +54,9 @@ class CmmController extends Controller
             ->CmmValidation()
             ->where('cmm_display' , $lastCmm)
             ->get();
-        $printable_lastCmm = Carbon::createFromFormat('Y-m-d', $lastCmm)->format('d/m/Y');
+
+        //$printable_lastCmm = Carbon::createFromFormat('Y-m-d', $lastCmm)->format('d/m/Y');
+        $printable_lastCmm = null;
 
         return view('cmms.index' , compact('cmm_params' , 'campaigns' , 'waitings' , 'endeds' , 'printable_lastCmm'));
     }
@@ -196,7 +198,7 @@ class CmmController extends Controller
 
         // Envoi de l'email
         Mail::send('emails.cmm-odj', array('content' => $content), function ($m) use ($request, $emails , $emails_cc) {
-            $m->from('information@koala.com', 'Koala');
+            $m->from(Parameter::getParameter('expeditor','common'), Parameter::getParameter('expeditor_name','common'));
             $m->to($emails)->subject( $request->subject );
             if (count($emails_cc) > 0)
                 $m->cc($emails_cc);

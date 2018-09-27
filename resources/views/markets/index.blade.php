@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <h4 class="page-title d-inline-block mr-2">Marchés</h4>
-    <a href="{{action('MarketController@create')}}"><button type="button" class="btn btn-secondary btn-xs mb-1" title="Ajouter">+ Ajouter</button></a>
+    <h4 class="page-title d-none">Marchés</h4>
+    <a href="{{action('MarketController@create')}}"><button type="button" class="btn btn-secondary btn-xs mb-2" title="Ajouter">+ Ajouter un marché</button></a>
 
     <div class="row">
         <div class="col-12 grid-margin">

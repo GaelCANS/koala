@@ -1,371 +1,487 @@
 $(document).ready(function(){
 
-    /**
-     * Commun
-     *
-     */
-    initDatepicker();
 
-
-    /**
-     * Gestion des dates pour éviter qu'elles apparaissent à 0000-00-00 dans les champs input
-     */
-    $('.date-not-null').each(function(){
-        if ($(this).val() == '0000-00-00')
-            $(this).val('');
-    });
-
-
-
-    /**
-     * Commun
-     *
-     * Initialisation du select2
-     */
-    $('select[multiple]').select2();
-    $('select.select2').select2();
-
-
-    /**
-     * Commun
-     *
-     * Initialsation data-href
-     */
-    $('.ajax-action').on('click', '[data-href]' , function () {
-        var msg = $(this).data('msg');
-        if (msg != '' && msg != undefined) {
-            if (confirm(msg))
-                window.location.href = $(this).data('href');
-        }
-        else {
-            window.location.href = $(this).data('href');
-        }
-    });
-
-
-    /**
-     * Campaign
-     */
-    $('#channels-table').on('change' , '.datepicker' , function(){
-        updateDateCampaign();
-    });
-
-
-    /**
-     * Planning
-     */
-    $('.icheck-line input').on('ifToggled', function(event){
-        $('#calendar').fullCalendar( 'refetchEvents' );
-    });
-
-    /**
-     * Campaign
-     */
-    if ($('#show-campaign').length > 0) {
-        updateDateCampaign();
-    }
-
-
-    /**
-     * Campaign
-     */
-    $('select[name="status"]').on('change' , function () {
-        addClassOnPublished();
-    });
-    addClassOnPublished();
-
-
-    /**
-     * Campaign
-     */
-    $('.force-placeholder').each(function () {
-        $(this).parent().find('.select2-search__field[tabindex="0"]').attr('placeholder' , '+ Ajouter');
-    });
-
-
-    /**
-     * Campaign
-     */
-    $('#form-campaign').on('submit',function(){
-        checkDate();
-    });
-
-
-    /**
-     * Campaign
-     */
-    $('.open-modal').on('click',function(){
-        var src = $(this).attr('src');
-        $('#del-image').data('src' , urlImage(src));
-        $('#show-img .modal-body').html("<img src='"+src+"' class='img-fluid' />");
-        $('#show-img').modal();
-    });
-
-
-    /**
-     * Campaign
-     */
-    $('.del-image').on('click',function(){
-        if (confirm("Voulez-vous supprimer ce visuel ?")) {
-            var src = $('#del-image').data('src');
-            var id = $('#del-image').data('id');
-            var indexToRemove = $('#carousel-image .owl-item:not(.cloned) .item[data-item="'+src+'"]').data('count');
-            delImage(src, id);
-            $('#carousel-image').trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
-            countItemOwl();
-            $('#show-img').modal('toggle');
-        }
-    });
-
-
-    /**
-     * Campaign
-     */
-    if ($('#carousel-image').length > 0) {
-        countItemOwl();
-    }
-
-    /**
-     * Campaign
-     */
-
-    $("#campaign-upload").uploadFile({
-        url: "./../campaign-upload",
-        fileName: "myfile",
-        multiple:true,
-        dragDrop:true,
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        formData: {campaign:$('#campaign-upload').data('id')}
-    });
-
-    /**
-     *  Channel - add indicator
-     */
-    $('#btn-add-indicator').on('click',function () {
-        addIndicator();
-    });
-
-    /**
-     *  Channel - delete indicator
-     */
-    $('#liste-indicators').on('click','.indicator-del',function () {
-        if (confirm("Voulez-vous supprimer cet indicateur")) {
-            if ($(this).data('id')!="") {
-                delIndicator($(this).data('id'), $(this).data('url'));
-            }
-            else {
-                delNewIndicator($(this));
-
-               // $(this).parents('.add-indic').remove();
-
-
-
-            }
-        }
-    });
-
-    /**
-     * CMM
-     */
-    $('.auto-save').on('change', function () {
-        autoSave();
-    });
-
-
-    /**
-     * CMM
-     */
-    $('#cloture-cmm').on('click', function () {
-        closeCmm();
-    });
-
-
-    /**
-     * CMM
-     */
-    $('.btn-chck').on('change' , function(){
-        addCampaignCmm( $(this).attr('camp') , $(this).val() );
-    });
-
-
-    /**
-     * CMM
-     */
-    $('.previous-cmm').on('change' , function () {
-        loadPreviousCampaignCmm($(this).val());
-    });
-
-    /**
-     * CMM
-     */
-    if($(".summernote").length) {
-
-        $('.summernote').summernote({
-            height: 200,                 // set editor height
-            minHeight: null,             // set minimum height of editor
-            maxHeight: null,             // set maximum height of editor
-            focus: true,                 // set focus to editable area after initializing summernote
-            toolbar: [
-                ['font', ['bold', 'italic', 'underline']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol' , 'paragraph']],
-            ]
-        });
-    }
-
-    /**
-     * CMM
-     */
-    $('#send-mail').on('click' , function () {
-        $('#loading-mail').show();
-        $('#send-mail').hide();
-        sendMail();
-    });
-
-
-    /**
-     * Campaign index
-     */
-    $('.toggle-tous').on('select2:select' , function(e){
-        // Si "tous" est sélectionné et qu'un autre item est sélectionné, on retire tous
-            var tousIndex = _.indexOf($(this).val(), "0");
-        if (tousIndex == "0" && $(this).val().length > 1) {
-            $(this).parent().find('.select2-selection__choice[title="Tous"]').find('.select2-selection__choice__remove').trigger('click');
-            $(this).select2('close');
-        }
-        $(this).parent().find('[tabindex="0"]').attr('placeholder','+ Ajouter');
-    });
-
-    /**
-     * Campaign index
-     */
-    $('.toggle-tous').on('select2:unselect' , function(e){
-        // Si rien n'est sélectionné alors on resélectionne "tous" en valeur défaut
-        if ($(this).val().length == 0) {
-            $(this).select2('val' , "0");
-        }
-    });
-
-    /**
-     * Campaign
-     *
-     * Gestion des ajax-del
-     *
-     * Si l'attribut data-msg est renseigné, on affiche un message de confirmation avant traitement
-     */
-    $('.ajax-action').on('click' , '.ajax-del' , function(){
-
-        var msgConfirm = $(this).data('msg') != '' ? $(this).data('msg') : undefined;
-        if (msgConfirm != undefined) {
-            if (!confirm(msgConfirm)) return false;
-        }
-        
-        var link = $(this).data('link');
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
+        /**
+         * Component - formbox
+         */
+        $(".buttom-btn").click(function(){
+            $(".top-btn").addClass('top-btn-show');
+            $(".contact-form-page").addClass('show-profile');
+            $(this).addClass('buttom-btn-hide')
         });
 
-        $.ajax({
-            method: "POST",
-            url: link,
-            data: {}
-        })
-        .done(function( data ) {
-            data = $.parseJSON(data);
-            if (data.deleted == '1') {
-                $('#'+data.id).remove();
-                // Relance le calcul des périodes de campagnes
-                updateDateCampaign();
-            }
-            else {
-                alert(data.error_msg);
-            }
+        $(".top-btn").click(function(){
+            $(".buttom-btn").removeClass('buttom-btn-hide');
+            $(".contact-form-page").removeClass('show-profile');
         });
+        $('#help-form').on('submit' , function (event) {
 
-    });
-
-
-    /**
-     * Campaign
-     *
-     * Gestion de la duplication de Campaignchannel
-     *
-     * Si l'attribut data-msg est renseigné, on affiche un message de confirmation avant traitement
-     */
-    $('.ajax-action').on('click', '.ajax-duplicate-campaignchannel' , function(){
-        var msgConfirm = $(this).data('msg') != '' ? $(this).data('msg') : undefined;
-        if (msgConfirm != undefined) {
-            if (!confirm(msgConfirm)) return false;
-        }
-
-        var link = $(this).data('link');
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $.ajax({
-            method: "POST",
-            url: link,
-            data: {}
-        })
-        .done(function( data ) {
-            if (data.duplicated == '1') {
-                $('#channel-'+data.parent).after(data.html);
-                $('select.select2').select2();
-                //$('.to-focus').last().focus();
-
-                if ($('#channel-'+data.parent+'.from-ajax').length > 0) {
-
-                    // Duplication du commentaire
-                    var comment = $('#channel-'+data.parent+' [data-name="comment"]').val();
-                    $('#channel-'+data.newItem+' [data-name="comment"]').val(comment);
-
-                    // Duplication des valeurs d'indicateurs
-                    $('#channel-'+data.parent+' .duplicatable-indicator').each(function(){
-
-                        var indicatorValue  = $(this).val();
-                        var indicatorName   = $(this).data('name');
-                        var indicatorId     = $(this).data('indicator');
-                        $('#channel-'+data.newItem+' [data-name="'+indicatorName+'"][data-indicator="'+indicatorId+'"]').val(indicatorValue);
-
-                    });
+            $('#send-formbox').hide();
+            $('#loading-formbox').show();
+            var link = $('#help-form').data('link');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
+            });
 
-                // Re init datepicker
-                $( ".datepicker" ).datepicker({
-                    language: 'fr',
-                    format: 'dd/mm/yyyy',
-                    autoclose: true
+            $.ajax({
+                    method: "POST",
+                    url: link,
+                    data: {
+                        message : $('#message-help').val(),
+                        url : $('#url-help').val()
+                    }
+                })
+                .done(function( data ) {
+                    $('#message-help').val('');
+                    $('.contact-form-page .top-btn-show').trigger('click');
+                    $('#send-formbox').show();
+                    $('#loading-formbox').hide();
                 });
-                // Auto open begin datepicker & on select date begin auto open end datepicker and set the min day selectable
-                $('#channel-'+data.newItem+' .to-focus').datepicker('show').on('changeDate', function(e) {
-                    var end = $(this).closest('.from-ajax').find('[data-name="end"]');
-                    end.datepicker('setStartDate' , $(this).val());
-                    end.datepicker('setStartView' , $(this).val());
-                    end.datepicker('show');
-                });
+            
+            event.preventDefault();
+        });
 
+
+
+        /**
+         * Commun
+         * Simulation d'un clic sur le dropdown du menu pour éviter de devoir double cliquer (astuce de sioux)
+         */
+        $('#notificationDropdown').trigger('click');
+
+
+        /**
+         * Commun
+         *
+         */
+        initDatepicker();
+
+
+        /**
+         * Gestion des dates pour éviter qu'elles apparaissent à 0000-00-00 dans les champs input
+         */
+        $('.date-not-null').each(function(){
+            if ($(this).val() == '0000-00-00')
+                $(this).val('');
+        });
+
+
+
+        /**
+         * Commun
+         *
+         * Initialisation du select2
+         */
+        $('select[multiple]').select2();
+        $('select.select2').select2();
+
+
+        /**
+         * Commun
+         *
+         * Initialsation data-href
+         */
+        $('.ajax-action').on('click', '[data-href]' , function () {
+            var msg = $(this).data('msg');
+            if (msg != '' && msg != undefined) {
+                if (confirm(msg))
+                    window.location.href = $(this).data('href');
+            }
+            else {
+                window.location.href = $(this).data('href');
             }
         });
 
-    });
+
+        /**
+         * Campaign
+         */
+        $('#channels-table').on('change' , '.datepicker' , function(){
+            updateDateCampaign();
+        });
 
 
-    /**
-     * Campaign
-     *
-     * Permet l'ajout d'un nouveau canal
-     *
-     */
-    $('#add-channel').on('select2:select' , '.select2' , function(e){
-        var data = e.params.data;
-        var selected = data.id;
-        if (selected > 0) {
-            var link = $(this).parents('#add-channel').data('link').replace('--VALUE--',selected);
+        /**
+         * Campaign
+         */
+        if ($('#name-campaign').length > 0) {
+            changeTitleZone();
+            $('#name-campaign').on('change' , function () {
+                changeTitleZone();
+            });
+        }
+
+        /**
+         * Commun
+         *
+         * Change zone title
+         */
+        if ($('.page-title').length > 0 ) {
+            $('#zone-title').text($('.page-title').text());
+        }
+
+        /**
+         * Planning
+         */
+        $('.icheck-line input').on('ifToggled', function(event){
+            $('#calendar').fullCalendar( 'refetchEvents' );
+        });
+
+        /**
+         * Campaign
+         */
+        if ($('#show-campaign').length > 0) {
+            updateDateCampaign();
+        }
+
+
+        /**
+         * Campaign
+         */
+        $('select[name="status"]').on('change' , function () {
+            addClassOnPublished();
+        });
+        addClassOnPublished();
+
+
+        /**
+         * Campaign
+         */
+        $('.force-placeholder').each(function () {
+            $(this).parent().find('.select2-search__field[tabindex="0"]').attr('placeholder' , '+ Ajouter');
+        });
+
+
+        /**
+         * Campaign
+         */
+        $('#form-campaign').on('submit',function(){
+            checkDate();
+        });
+
+
+        /**
+         * Campaign
+         */
+        $('.open-modal').on('click',function(){
+            var src = $(this).attr('src');
+            $('#del-image').data('src' , urlImage(src));
+            $('#show-img .modal-body').html("<img src='"+src+"' class='img-fluid' />");
+            $('#show-img').modal();
+        });
+
+
+        /**
+         * Campaign
+         */
+        $('.del-image').on('click',function(){
+            if (confirm("Voulez-vous supprimer ce visuel ?")) {
+                var src = $('#del-image').data('src');
+                var id = $('#del-image').data('id');
+                var indexToRemove = $('#carousel-image .owl-item:not(.cloned) .item[data-item="'+src+'"]').data('count');
+                delImage(src, id);
+                $('#carousel-image').trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
+                countItemOwl();
+                $('#show-img').modal('toggle');
+            }
+        });
+
+
+        /**
+         * Campaign
+         */
+        if ($('#carousel-image').length > 0) {
+            countItemOwl();
+        }
+
+        /**
+         * Campaign
+         */
+
+        $("#campaign-upload").uploadFile({
+            url: "./../campaign-upload",
+            fileName: "myfile",
+            multiple:true,
+            dragDrop:true,
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            formData: {campaign:$('#campaign-upload').data('id')}
+        });
+
+        /**
+         *  Channel - add indicator
+         */
+        $('#btn-add-indicator').on('click',function () {
+            addIndicator();
+        });
+
+        /**
+         *  Channel - delete indicator
+         */
+        $('#liste-indicators').on('click','.indicator-del',function () {
+            if (confirm("Voulez-vous supprimer cet indicateur")) {
+                if ($(this).data('id')!="") {
+                    delIndicator($(this).data('id'), $(this).data('url'));
+                }
+                else {
+                    delNewIndicator($(this));
+
+                    // $(this).parents('.add-indic').remove();
+
+
+
+                }
+            }
+        });
+
+        /**
+         * CMM
+         */
+        $('.auto-save').on('change', function () {
+            autoSave();
+        });
+
+
+        /**
+         * CMM
+         */
+        $('#cloture-cmm').on('click', function () {
+            closeCmm();
+        });
+
+
+        /**
+         * CMM
+         */
+        $('.btn-chck').on('change' , function(){
+            addCampaignCmm( $(this).attr('camp') , $(this).val() );
+        });
+
+
+        /**
+         * CMM
+         */
+        $('.previous-cmm').on('change' , function () {
+            loadPreviousCampaignCmm($(this).val());
+        });
+
+        /**
+         * CMM
+         */
+        if($(".summernote").length) {
+
+            $('.summernote').summernote({
+                height: 200,                 // set editor height
+                minHeight: null,             // set minimum height of editor
+                maxHeight: null,             // set maximum height of editor
+                focus: true,                 // set focus to editable area after initializing summernote
+                toolbar: [
+                    ['font', ['bold', 'italic', 'underline']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol' , 'paragraph']],
+                ]
+            });
+        }
+
+        /**
+         * CMM
+         */
+        $('#send-mail').on('click' , function () {
+            $('#loading-mail').show();
+            $('#send-mail').hide();
+            sendMail();
+        });
+
+
+        /**
+         * Campaign index
+         */
+        $('.toggle-tous').on('select2:select' , function(e){
+            // Si "tous" est sélectionné et qu'un autre item est sélectionné, on retire tous
+            var tousIndex = _.indexOf($(this).val(), "0");
+            if (tousIndex == "0" && $(this).val().length > 1) {
+                $(this).parent().find('.select2-selection__choice[title="Tous"]').find('.select2-selection__choice__remove').trigger('click');
+                $(this).select2('close');
+            }
+            $(this).parent().find('[tabindex="0"]').attr('placeholder','+ Ajouter');
+        });
+
+        /**
+         * Campaign index
+         */
+        $('.toggle-tous').on('select2:unselect' , function(e){
+            // Si rien n'est sélectionné alors on resélectionne "tous" en valeur défaut
+            if ($(this).val().length == 0) {
+                $(this).select2('val' , "0");
+            }
+        });
+
+        /**
+         * Campaign
+         *
+         * Gestion des ajax-del
+         *
+         * Si l'attribut data-msg est renseigné, on affiche un message de confirmation avant traitement
+         */
+        $('.ajax-action').on('click' , '.ajax-del' , function(){
+
+            var msgConfirm = $(this).data('msg') != '' ? $(this).data('msg') : undefined;
+            if (msgConfirm != undefined) {
+                if (!confirm(msgConfirm)) return false;
+            }
+
+            var link = $(this).data('link');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                    method: "POST",
+                    url: link,
+                    data: {}
+                })
+                .done(function( data ) {
+                    data = $.parseJSON(data);
+                    if (data.deleted == '1') {
+                        $('#'+data.id).remove();
+                        // Relance le calcul des périodes de campagnes
+                        updateDateCampaign();
+                    }
+                    else {
+                        alert(data.error_msg);
+                    }
+                });
+
+        });
+
+
+        /**
+         * Campaign
+         *
+         * Gestion de la duplication de Campaignchannel
+         *
+         * Si l'attribut data-msg est renseigné, on affiche un message de confirmation avant traitement
+         */
+        $('.ajax-action').on('click', '.ajax-duplicate-campaignchannel' , function(){
+            var msgConfirm = $(this).data('msg') != '' ? $(this).data('msg') : undefined;
+            if (msgConfirm != undefined) {
+                if (!confirm(msgConfirm)) return false;
+            }
+
+            var link = $(this).data('link');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                    method: "POST",
+                    url: link,
+                    data: {}
+                })
+                .done(function( data ) {
+                    if (data.duplicated == '1') {
+                        $('#channel-'+data.parent).after(data.html);
+                        $('select.select2').select2();
+                        //$('.to-focus').last().focus();
+
+                        if ($('#channel-'+data.parent+'.from-ajax').length > 0) {
+
+                            // Duplication du commentaire
+                            var comment = $('#channel-'+data.parent+' [data-name="comment"]').val();
+                            $('#channel-'+data.newItem+' [data-name="comment"]').val(comment);
+
+                            // Duplication des valeurs d'indicateurs
+                            $('#channel-'+data.parent+' .duplicatable-indicator').each(function(){
+
+                                var indicatorValue  = $(this).val();
+                                var indicatorName   = $(this).data('name');
+                                var indicatorId     = $(this).data('indicator');
+                                $('#channel-'+data.newItem+' [data-name="'+indicatorName+'"][data-indicator="'+indicatorId+'"]').val(indicatorValue);
+
+                            });
+                        }
+
+                        // Re init datepicker
+                        $( ".datepicker" ).datepicker({
+                            language: 'fr',
+                            format: 'dd/mm/yyyy',
+                            autoclose: true
+                        });
+                        // Auto open begin datepicker & on select date begin auto open end datepicker and set the min day selectable
+                        $('#channel-'+data.newItem+' .to-focus').datepicker('show').on('changeDate', function(e) {
+                            var end = $(this).closest('.from-ajax').find('[data-name="end"]');
+                            end.datepicker('setStartDate' , $(this).val());
+                            end.datepicker('setStartView' , $(this).val());
+                            end.datepicker('show');
+                        });
+
+                    }
+                });
+
+        });
+
+
+        /**
+         * Campaign
+         *
+         * Permet l'ajout d'un nouveau canal
+         *
+         */
+        $('#add-channel').on('select2:select' , '.select2' , function(e){
+            var data = e.params.data;
+            var selected = data.id;
+            if (selected > 0) {
+                var link = $(this).parents('#add-channel').data('link').replace('--VALUE--',selected);
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                        method: "POST",
+                        url: link,
+                        data: {selected: selected}
+                    })
+                    .done(function( data ) {
+                        if (data.added == '1') {
+                            $( "#channels-table tbody" ).append( data.html );
+                            $('select.select2').select2();
+                            //$('.to-focus').last().focus();
+
+                            $( ".datepicker" ).datepicker({
+                                language: 'fr',
+                                format: 'dd/mm/yyyy',
+                                autoclose: true
+                            });
+
+                            // Auto open begin datepicker & on select date begin auto open end datepicker and set the min day selectable
+                            $('#channel-'+data.new+' .to-focus').datepicker('show').on('changeDate', function(e) {
+                                var end = $(this).closest('.from-ajax').find('[data-name="end"]');
+                                end.datepicker('setStartDate' , $(this).val());
+                                end.datepicker('setStartView' , $(this).val());
+                                end.datepicker('show');
+                            });
+
+                        }
+                    });
+            }
+
+            $(this).val(0).trigger('change.select2');
+        });
+
+
+        /**
+         * Dashboard
+         */
+        $('#block-campaigns').on('click' , '.btn-period-campaign' , function(e){
+            var link = $(this).data('link');
 
             $.ajaxSetup({
                 headers: {
@@ -374,66 +490,20 @@ $(document).ready(function(){
             });
 
             $.ajax({
-                method: "POST",
-                url: link,
-                data: {selected: selected}
-            })
-            .done(function( data ) {
-                if (data.added == '1') {
-                    $( "#channels-table tbody" ).append( data.html );
-                    $('select.select2').select2();
-                    //$('.to-focus').last().focus();
+                    method: "GET",
+                    url: link,
+                    data: {}
+                })
+                .done(function( data ) {
 
-                    $( ".datepicker" ).datepicker({
-                        language: 'fr',
-                        format: 'dd/mm/yyyy',
-                        autoclose: true
-                    });
+                    $('#block-campaigns').html(data.html);
+                });
+        });
 
-                    // Auto open begin datepicker & on select date begin auto open end datepicker and set the min day selectable
-                    $('#channel-'+data.new+' .to-focus').datepicker('show').on('changeDate', function(e) {
-                        var end = $(this).closest('.from-ajax').find('[data-name="end"]');
-                        end.datepicker('setStartDate' , $(this).val());
-                        end.datepicker('setStartView' , $(this).val());
-                        end.datepicker('show');
-                    });
 
-                }
-            });
-        }
 
-        $(this).val(0).trigger('change.select2');
     });
-
-
     /**
-     * Dashboard
-     */
-    $('#block-campaigns').on('click' , '.btn-period-campaign' , function(e){
-        var link = $(this).data('link');
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $.ajax({
-            method: "GET",
-            url: link,
-            data: {}
-        })
-        .done(function( data ) {
-
-            $('#block-campaigns').html(data.html);
-        });
-    });
-
-
-
-});
-
-/**
  * Campaign
  */
 function updateDateCampaign() {
@@ -493,7 +563,9 @@ function initDatepicker()
     $('.datepicker').datepicker({
         language: 'fr',
         format: 'dd/mm/yyyy',
-        autoclose: true
+        autoclose: true,
+        weekStart:1,
+        daysOfWeekHighlighted: '0,6'
     });
 
     // Auto open begin datepicker & on select date begin auto open end datepicker and set the min day selectable
@@ -747,6 +819,15 @@ function delImage(img , id)
         success: function (resp) {
         }
     });
+}
+
+
+/**
+ * Campaign
+ */
+function changeTitleZone()
+{
+    $('#zone-title').text($('#name-campaign').val());
 }
 
 /**

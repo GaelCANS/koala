@@ -7,7 +7,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger del-image" id="del-image" data-src="" data-id="{{ $campaign->id }}" data-dismiss="modal">Supprimer ce visuel</button>
-                <button type="button" class="btn btn-light" data-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Fermer</button>
             </div>
         </div>
     </div>

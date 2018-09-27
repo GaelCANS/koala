@@ -68,6 +68,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
+<<<<<<< HEAD
         //dd(\Request::route()->getName());
         $route = \Request::route()->getName();
         //dd($route);
@@ -75,6 +76,14 @@ class UserController extends Controller
         dd($route);
         $name = $route->getName();
         dd($name);*/
+=======
+
+        // Control on admin user
+        if (!auth()->user()->admin && $id != auth()->user()->id ) {
+            return redirect()->route('dashboard-index');
+        }
+
+>>>>>>> faa122fa3233b840681227b9e17de21bb9e13d05
         $user = User::findOrFail($id);
 
         $services= Service::Notdeleted()

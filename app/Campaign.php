@@ -301,7 +301,7 @@ class Campaign extends Model
         }
 
         // Users
-        if (isset($datas->users) && count($datas->users) < User::notdeleted()->count()) {
+        if (isset($datas->users) && count($datas->users) < User::notdeleted()->count() && $datas->users[0] != 0) {
             $query->whereIn('user_id' , $datas->users );
         }
 

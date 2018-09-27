@@ -17,16 +17,26 @@ class CampaignChannel extends Model
 
     protected $guarded = array('id');
 
+    public $preventMutator = false;
+
 
     /**
      * MUTATORS & ACCESSORS - see CampaignChannelPivot for the get function
      */
-    public function setBeginAttribute($date) {
-        $this->attributes['begin'] = !empty($date) ? Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d') : '';
+    public function setBeginAttribute($date)
+    {
+        if (!$this->preventMutator)
+            $this->attributes['begin'] = !empty($date) ? Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d') : '';
+        else
+            $this->attributes['begin'] = $date;
     }
 
-    public function setEndAttribute($date) {
-        $this->attributes['end'] = !empty($date) ? Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d') : '';
+    public function setEndAttribute($date)
+    {
+        if (!$this->preventMutator)
+            $this->attributes['end'] = !empty($date) ? Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d') : '';
+        else
+            $this->attributes['end'] = $date;
     }
 
     public function getPeriodAttribute()
@@ -72,11 +82,12 @@ class CampaignChannel extends Model
      * @param $begin
      * @param $end
      * @return mixed
-     */
+     */ 
     public static function CampaignChannelBetween($begin, $end, $channels = array())
     {
         return DB::table('campaign_channel')
-            ->select('campaign_channel.begin AS start' , 'campaign_channel.end AS end' ,'campaign_channel.id AS id' , DB::raw('channels.class_name AS className') , DB::raw('CONCAT("[",channels.name,"]"," ",campaigns.name) AS title'))
+            //->select('campaign_channel.begin AS start' , 'campaign_channel.end AS end' ,'campaign_channel.id AS id' , DB::raw('channels.class_name AS className') , DB::raw('CONCAT("[",channels.name,"]"," ",campaigns.name) AS title'))
+            ->select('campaign_channel.begin AS start' , DB::raw('DATE_ADD(campaign_channel.end, INTERVAL 1 DAY) AS end') ,'campaign_channel.id AS id' , DB::raw('channels.class_name AS className') , DB::raw('CONCAT("[",channels.name,"]"," ",campaigns.name) AS title'))
             ->join('campaigns' , 'campaign_channel.campaign_id' , '=' , 'campaigns.id')
             ->join('channels' , 'channels.id' , '=' , 'campaign_channel.channel_id')
             /** /!\ Uses in scope on the Campaign Model **/

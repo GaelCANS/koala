@@ -14,9 +14,11 @@
         )
     ) !!}
 
-    <h4 class="page-title d-inline-block mr-2">
-        @if( $campaign == null ) Création @else Édition @endif fiche campagne @if( $campaign != null )
-        @endif
+
+
+
+    <h4 class="fiche-title d-inline-block mr-2">
+        Fiche campagne
     </h4>
     <div class="d-inline-block status">
         {!! Form::select('status',$status , null, ['class' => 'mb-1 select2' , 'id' => 'status-select', 'data-select2-id' => 'status-select']) !!}
@@ -27,6 +29,7 @@
         </button>
         <a href="{{action('CampaignController@index')}}" class="btn btn-info"><i class="fa fa-angle-left"></i> Retour</a>
     </div>
+
     <div class="row" id="show-campaign">
         <div class="col-md-9 p-0">
             <div class="col-md-12 grid-margin">
@@ -34,7 +37,7 @@
                     <div class="row mb-3">
                         <div class="col-4">
                             <h6>Nom</h6>
-                            {!! Form::text( 'name' , null , array( 'class' => 'form-control font-weight-bold' , 'placeholder' => "Saisissez le nom de la campagne" ) ) !!}
+                            {!! Form::text( 'name' , null , array( 'class' => 'form-control font-weight-bold' , 'placeholder' => "Saisissez le nom de la campagne" , 'id' => 'name-campaign' ) ) !!}
                             {!! Form::hidden( 'saved' , 1  ) !!}
                         </div>
                         <div class="col-4">
@@ -60,15 +63,15 @@
                     <div class="row">
                         <div class="col-4">
                             <h6>Objectif(s) de la campagne</h6>
-                            {!! Form::textarea( 'description' , null , array( 'class' => 'form-control' , 'rows' => '2', 'cols' => '10') ) !!}
+                            {!! Form::textarea( 'description' , null , array( 'class' => 'form-control' , 'rows' => '4', 'cols' => '10') ) !!}
                         </div>
                         <div id="resp" class="col-4">
                             <h6>Responsable de la campagne</h6>
-                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-placeholder-single js-states form-control', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'false', 'data-maximumSelectionLength' => '1']) !!}
+                            {!! Form::select('user_id',$users , null, ['class' => 'js-example-placeholder-single form-control', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'false', 'data-maximumSelectionLength' => '1']) !!}
                         </div>
                         <div class="col-4">
                             <h6>Contributeurs</h6>
-                            {!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple js-states form-control tag-input', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
+                            {!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple form-control tag-input','id' => 'test', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true', 'placeholder' => '+ Ajouter','data-value' => '+ Ajouter' ]) !!}
                         </div>
                     </div>
                 </div>
@@ -150,7 +153,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 mt-0 p-0">
+                        <div class="col-lg-12 mt-0">
                             <div class="owl-carousel owl-theme full-width" id="carousel-image" data-link="{{route('delete-image-campaign')}}">
                                 @forelse($files as $file)
                                     <div class="item" data-item="{{basename($file)}}" data-count="">

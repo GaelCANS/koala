@@ -4,7 +4,7 @@
             <h5 class="card-title">Récapitulatifs CMM</h5>
             <div class=" ml-auto mr-0 border-0">
                 <div class="btn-group">
-                    <input type="" class="form-control btn btn-light text-muted datepicker previous-cmm" placeholder="Rechercher par date">
+                    <input type="" class="form-control btn btn-light text-muted datepicker previous-cmm" placeholder="Par date">
                 </div>
             </div>
         </div>

@@ -33,13 +33,15 @@ class CampaignchannelController extends Controller
         // Create Indicators if exists
         if ($channelModel->Indicators) {
             foreach ($channelModel->Indicators as $indicator) {
-                CampaignChannelIndicator::create(
-                    array(
-                        'campaign_channel_id' => $channel->id,
-                        'indicator_id' => $indicator->id,
-                        'uniqid' => uniqid()
-                    )
-                );
+                if ($indicator->delete == 0) {
+                    CampaignChannelIndicator::create(
+                        array(
+                            'campaign_channel_id' => $channel->id,
+                            'indicator_id' => $indicator->id,
+                            'uniqid' => uniqid()
+                        )
+                    );
+                }
             }
             $channel->load('campaignChannelIndicators');
         }
@@ -167,4 +169,22 @@ class CampaignchannelController extends Controller
             )
         );
     }
+
+
+    /**
+     * Update date for an event
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function update(Request $request)
+    {
+        $campaignChannel = CampaignChannel::findOrFail($request->input('id'));
+        $campaignChannel->preventMutator = true;
+        $campaignChannel->update($request->only('begin' , 'end'));
+        return response()->json([
+            'state' => '1'
+        ]);
+    }
+    
 }

@@ -4,28 +4,39 @@
             <a class="navbar-brand brand-logo-mini" href="{{route('dashboard-index')}}"><img src="{{ asset('/images/logo-mini-head-camp.jpg') }}" alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <button class="d-none navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                 <span class="icon-menu"></span>
             </button>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" style="width: 65%;">
                 <li class="nav-item  d-lg-flex">
                     <a class="nav-link  nav-btn"  href="{{ route('new-campaign') }}" title="Ajouter une campagne" >
-                        <span class="btn">+ Campagne</span>
+                        <span class="btn">+ Créer une campagne</span>
                     </a>
                 </li>
-                <li class="d-none d-sm-flex nav-item  align-items-center justify-content-md-center ">
+                <li class="mx-auto d-sm-flex nav-item  align-items-center justify-content-md-center ">
+
+                    <div class="mx-auto text-center">
+
+
+                             <h5 class="text-uppercase" id="zone-title"></h5>
+
+
+                    </div>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav navbar-nav-right">
+                <li class=" d-sm-flex nav-item  align-items-center justify-content-md-center ">
                     <i class="icon-bubbles icon-sm"></i>
-                    <div class="ml-3 text-center" style="line-height: 13px;">
-                        <small class="mb-0">
+                    <div class="ml-3 text-center" style="line-height: 1.4;font-size: 0.70rem;">
+
                             <u>PROCHAIN CMM</u><br>
                             {{ \App\Parameter::CmmDateShort() }} à {{ \App\Parameter::CmmTime() }} ({{ \App\Parameter::CmmWhere() }})<br>
                             Animé par {{ \App\User::UsersCmm() }}
-                        </small>
+
                     </div>
                 </li>
-            </ul>
-            <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown ml-2">
                     <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown" >
 
                         <i class="icon-arrow-down mx-0"></i>
