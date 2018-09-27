@@ -5,12 +5,12 @@
 
 
         <h4 class="page-title d-inline-block mr-2">
-                @if( $user == null ) Création d'un utilisateur @else Mon compte @endif
+                @if( $user == null ) Création d'un utilisateur @else @if ( $route =="show-user") Mise à jour utilisateur @else Mon compte @endif @endif
         </h4>
 
 
         <div class="float-right">
-            <a href="{{route('dashboard-index')}}" class="btn btn-info"><i class="fa fa-angle-left"></i> Retour</a>
+            <a href="{{route('users-index')}}" class="btn btn-info"><i class="fa fa-angle-left"></i> Retour</a>
         </div>
 
 
@@ -44,17 +44,57 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <h6>Email</h6>
-                    {!! Form::email( 'email' , null , array( 'class' => 'form-control' , 'placeholder' => "Saisissez votre email" , ($user == null ? '' : 'disabled') ) ) !!}
+                    {!! Form::email( 'email' , null , array( 'class' => 'form-control' , 'placeholder' => "Saisissez votre email" , ($user == null || $route == 'show-user' ? '' : 'disabled') ) ) !!}
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="form-group">
                     <h6>Service</h6>
-                    {!! Form::select('services_id',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous force-placeholder', 'data-allow-clear' => 'true' , 'required' ]) !!}
+                    {!! Form::select('services_id',$services , null, ['class' => 'js-example-placeholder-multiple js-states form-control', 'data-allow-clear' => 'true' , 'required' ]) !!}
                 </div>
             </div>
         </div>
+        @if ($route == 'show-user' || $user==null)
+        <div class="row">
+            <div class="col-md-4">
+                <div class="wrapper d-md-flex mb-3">
+                    <h6 class="font-weight-normal">Administrateur</h6>
+                    <div class="wrapper ml-md-3">
+                        <div class="toggle-radio">
+                            {!! Form::radio( 'admin' , 0 , false , array('id' => 'admin1' ) ) !!}
+                            {!! Form::radio( 'admin' , 1 , false , array('id' => 'admin0' ) ) !!}
+                            <div class="switch">
+                                <label for="admin1">Oui</label>
+                                <label for="admin0">Non</label>
+                                <span></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="wrapper d-md-flex mb-3">
+                    <h6 class="font-weight-normal">CMM</h6>
+                    <div class="wrapper ml-md-3">
+                        <div class="toggle-radio">
+                            {!! Form::radio( 'cmm' , 0 , false , array('id' => 'cmm1' ) ) !!}
+                            {!! Form::radio( 'cmm' , 1 , false , array('id' => 'cmm0' ) ) !!}
+                            <div class="switch">
+                                <label for="cmm1">Oui</label>
+                                <label for="cmm0">Non</label>
+                                <span></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+        @if ($user != null && $route != 'show-user')
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
@@ -81,6 +121,8 @@
             </div>
 
         </div>
+        @endif
+
         <div class="row">
             <div class="form-group">
                 <div class="col-md-12">

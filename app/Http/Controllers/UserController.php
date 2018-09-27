@@ -6,7 +6,9 @@ use App\Service;
 use App\User;
 use Illuminate\Http\Request;
 
+
 use App\Http\Requests;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,7 +27,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+       $users = User::notdeleted()->orderBy('name')->get();
+       return view ('users.index', compact('users'));
     }
 
     /**
@@ -35,7 +38,14 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $user = null;
+        $services= Service::Notdeleted()
+            ->orderBy('name' , 'ASC')
+            ->pluck('name' , 'id')
+            ->toArray();
+
+        $route = \Request::route()->getName();
+        return view('users.show', compact('user','services', 'route'));
     }
 
     /**
@@ -44,9 +54,10 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\UserRequest $request)
     {
-        //
+        $user = User::create( $request->only('name' , 'firstname', 'email', 'services_id') );
+        return redirect(action('UserController@index'))->with('success' , "L'utilisateur {$user->firstname} a bien été crée.");
     }
 
     /**
@@ -57,12 +68,20 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        //dd(\Request::route()->getName());
+        $route = \Request::route()->getName();
+        //dd($route);
+        /*$route = Route::currentRouteName();
+        dd($route);
+        $name = $route->getName();
+        dd($name);*/
         $user = User::findOrFail($id);
+
         $services= Service::Notdeleted()
             ->orderBy('name' , 'ASC')
             ->pluck('name' , 'id')
             ->toArray();
-        return view('users.show' , compact('user' , 'services'));
+        return view('users.show' , compact('user' , 'services', 'route'));
     }
 
     /**
@@ -87,7 +106,8 @@ class UserController extends Controller
     {
         // Update user standard fiels
         $user = User::findOrFail($id);
-        $user->update($request->except('email' , 'password'));
+        //$user->update($request->except('email' , 'password'));
+        $user->update($request->except( 'password'));
 
         // Update user's password
         if (trim($request->password) != '') {
@@ -113,6 +133,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $user = User::findOrFail($id);
+        $user->update( array('delete' => '1') );
+
+        return redirect()->back()->with('success' , "L utilsateur vient d'être supprimé");
     }
 }

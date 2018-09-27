@@ -23,17 +23,29 @@ class UserRequest extends Request
      */
     public function rules()
     {
+        $route = \Request::route()->getName();
+
+
         $return = array(
             'name'          => 'required|string',
             'firstname'     => 'required|string',
             'services_id'   => 'required|exists:services,id',
-            'password'      => 'min:6|confirmed',
-            'avatar'        => 'image|mimes:jpeg,png,jpg,gif'
         );
+
+        $password = $this->input('password');
+
+        if (gettype($password) == "string"){
+            $return ['avatar'] = 'image|mimes:jpeg,png,jpg,gif';
+            $return['password'] = 'min:6|confirmed';
+        }
+        else {
+            $return ['cmm'] = 'required|boolean';
+            $return ['admin'] = 'required|boolean';
+        }
 
         if ($this->input('email') != null) {
             $return['email']    = 'required|email';
-            $return['password'] = 'required|min:6|confirmed';
+
         }
 
         return $return;

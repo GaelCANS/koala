@@ -109,8 +109,16 @@ Route::get('/export/excel/list-campaigns', 'ExportController@excelListeCampaigns
 
 // User
 Route::resource(
-    'user',
-    'UserController'
+    'users',
+    'UserController',
+    array(
+        'names' => array(
+            'index' => 'users-index',
+            'show'  => 'show-user',
+            'store' => 'store-user',
+            'update' => 'update-user'
+        )
+    )
 );
 Route::get('/moncompte/{id}' , 'UserController@show')->name('mon-compte');
 
