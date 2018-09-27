@@ -7681,7 +7681,8 @@ label,
 select,
 summary,
 textarea {
-    touch-action: manipulation; }
+    touch-action: manipulation;
+    resize: vertical!important;}
 
 table {
     border-collapse: collapse; }
