@@ -563,7 +563,9 @@ function initDatepicker()
     $('.datepicker').datepicker({
         language: 'fr',
         format: 'dd/mm/yyyy',
-        autoclose: true
+        autoclose: true,
+        weekStart:1,
+        daysOfWeekHighlighted: '0,6'
     });
 
     // Auto open begin datepicker & on select date begin auto open end datepicker and set the min day selectable
