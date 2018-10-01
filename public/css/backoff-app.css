@@ -18718,17 +18718,56 @@ td.canaux, th.canaux, .canaux {
 
 }
 
-.canauxdigitaux {
+.fc-event-container .canauxdigitaux {
     background: #fb9678!important;
 }
 
-.communication {
+.fc-event-container .communication {
     background: #3c589b!important;
 }
 
-.crm {
+.fc-event-container .crm {
     background:hotpink!important;
 }
+
+.fc-event-container .animation {
+    background:blue!important;
+}
+
+.fc-unthemed td.fc-today {
+    background: rgb(224, 233, 235)!important;
+}
+ .legend i {
+       font-size: 26px;
+       padding-right: 5px;
+       float: left;
+       margin-top: -10px;
+   }
+
+ .legend {
+     font-weight: 400;
+ }
+
+.canauxdigitaux .icheckbox_line-blue.checked {
+    background: #fb9678!important;
+    border-color:#fb9678!important;
+}
+
+.communication .icheckbox_line-blue.checked {
+    background: #3c589b!important;
+    border-color:#3c589b!important;
+}
+
+.crm .icheckbox_line-blue.checked {
+    background: hotpink!important;
+    border-color:hotpink!important;
+}
+
+.animation .icheckbox_line-blue.checked {
+    background: blue!important;
+    border-color:blue!important;
+}
+
 
 #channels-table.table-responsive {
     -webkit-border-radius:3px;
