@@ -18718,7 +18718,17 @@ td.canaux, th.canaux, .canaux {
 
 }
 
+.canauxdigitaux {
+    background: #fb9678!important;
+}
 
+.communication {
+    background: #3c589b!important;
+}
+
+.crm {
+    background:hotpink!important;
+}
 
 #channels-table.table-responsive {
     -webkit-border-radius:3px;

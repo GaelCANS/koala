@@ -80,12 +80,21 @@
                 <div class="card">
                     @include('campaigns.channels')
                 </div>
+
             </div>
+
             <div class="col-md-12 grid-margin text-right">
-                <button type="submit" class="btn btn-primary">
-                    <i class="fa fa-fw fa-save"></i>Enregister
-                </button>
+                <div class="col-9 d-inline-block">
+                    <p class="text-center text-muted text-small mt-2">
+                        Pour vous aider à renseigner les périodes, vous pouvez vous référer au <a href="{{route('planning-index')}}" target="_blank">planning</a> en filtrant par canal.<br>
+                </div>
+                <div class="col-3 pull-right">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-fw fa-save"></i>Enregister
+                    </button>
+                </div>
             </div>
+
         </div>
 
         <div class="col-md-3 grid-margin">
