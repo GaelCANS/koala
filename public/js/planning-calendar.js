@@ -8,6 +8,7 @@
             center: 'title',
             right: 'month,basicWeek,basicDay'
         },
+        eventLimitClick:'day',
         defaultDate: $('#container-calendar').data('day'),
         navLinks: true, // can click day/week names to navigate views
         editable: true,

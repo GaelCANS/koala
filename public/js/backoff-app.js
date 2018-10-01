@@ -17,7 +17,6 @@ $(document).ready(function(){
         $('#help-form').on('submit' , function (event) {
 
             $('#send-formbox').hide();
-            $('#loading-formbox').show();
             var link = $('#help-form').data('link');
             $.ajaxSetup({
                 headers: {
@@ -34,10 +33,9 @@ $(document).ready(function(){
                     }
                 })
                 .done(function( data ) {
+
                     $('#message-help').val('');
                     $('.contact-form-page .top-btn-show').trigger('click');
-                    $('#send-formbox').show();
-                    $('#loading-formbox').hide();
                 });
             
             event.preventDefault();
@@ -563,9 +561,7 @@ function initDatepicker()
     $('.datepicker').datepicker({
         language: 'fr',
         format: 'dd/mm/yyyy',
-        autoclose: true,
-        weekStart:1,
-        daysOfWeekHighlighted: '0,6'
+        autoclose: true
     });
 
     // Auto open begin datepicker & on select date begin auto open end datepicker and set the min day selectable
