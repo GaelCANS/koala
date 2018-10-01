@@ -67,7 +67,7 @@
                         </div>
                         <div id="resp" class="col-4">
                             <h6>Responsable de la campagne</h6>
-                            {!! Form::select('user_id',$users , null, ['class' => 'select2 form-control']) !!}
+                            {!! Form::select('user_id',$users , ($campaign->user_id == 0 ? auth()->user()->id : $campaign->user_id), ['class' => 'select2 form-control']) !!}
                         </div>
                         <div class="col-4">
                             <h6>Contributeurs</h6>
