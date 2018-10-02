@@ -80,12 +80,23 @@
                 <div class="card">
                     @include('campaigns.channels')
                 </div>
+
             </div>
+
             <div class="col-md-12 grid-margin text-right">
-                <button type="submit" class="btn btn-primary">
-                    <i class="fa fa-fw fa-save"></i>Enregister
-                </button>
+                <div class="col-9 d-inline-block">
+                    <p class="text-center text-muted text-small ">
+                        Pour vous aider à renseigner les périodes, vous pouvez vous référer au <a href="{{route('planning-index')}}" target="_blank">planning</a> en filtrant par canal.<br>
+                        N'oubliez pas de passer votre campagne en statut "<u>Publié</u>" afin qu'elle puisse être intégrée dans la <a href="{{route('cmm-index')}}" target="_blank">liste des campagnes en attente de validation CMM</a>.<br>
+                        Dès lors que le campagne est en statut "<u>Publié</u>" et "<u>Validé CMM : OUI</u>", celle-ci devient visible dans le <a href="{{route('dashboard-index')}}" target="_blank">tableau de bord des campagnes en cours / à venir</a>.
+                </div>
+                <div class="col-3 pull-right">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-fw fa-save"></i>Enregister
+                    </button>
+                </div>
             </div>
+
         </div>
 
         <div class="col-md-3 grid-margin">

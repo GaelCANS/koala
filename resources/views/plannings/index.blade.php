@@ -7,13 +7,22 @@
             <ul class="list-inline" id="list-channels">
                 <h6>Canaux sélectionnés</h6>
                 @foreach($channels as $channel)
-                    <div id="channels" class="icheck-line">
+                    <div id="channels" class="icheck-line {{$channel->class_name}}" >
                         {!! Form::checkbox('channels', $channel->name, true, array( 'class' => 'display-event' , 'id' => 'channel-'.$channel->id , 'data-class' => $channel->class_name , 'data-id' => $channel->id ) ) !!}
                         <label for="channel-{{$channel->id}}">
                             {{ $channel->name }}
                         </label>
                     </div>
                 @endforeach
+                <h6 class="mt-3">Services experts</h6>
+                <div class="legend">
+                    <span class="d-inline-block mr-4"><i class="fa fa-window-minimize" style="color:#00c292;"></i>Canaux Digitaux</span>
+                    <span class="d-inline-block mr-4"><i class="fa fa-window-minimize" style="color:#ab8ce4;"></i>CRM</span>
+                    <span class="d-inline-block mr-4"><i class="fa fa-window-minimize" style="color:#03a9f3;"></i>Communication</span>
+                    <span class="d-inline-block"><i class="fa fa-window-minimize" style="color:#ffb463;"></i>Animation commerciale</span>
+
+
+                </div>
             </ul>
         </div>
         <div class="col-lg-12">
