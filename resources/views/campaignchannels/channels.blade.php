@@ -19,6 +19,10 @@
     <td>
         <div class="form-group mb-0">
             {!! Form::textarea( 'channel['.$channel->uniqid.'][comment]' , $channel->comment , array( 'class' => 'form-control duplicatable bg-light' , 'data-name' => 'comment', 'rows' => '2' ) ) !!}
+
+            <div class="time-limit" data-delay="{{$channel->Channel->delay}}" style="display: none;">
+                Les éléments doivent être fournis au plus tard le <span class="date-limit"></span>
+            </div>
         </div>
     </td>
     <td>

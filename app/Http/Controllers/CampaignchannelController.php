@@ -33,15 +33,13 @@ class CampaignchannelController extends Controller
         // Create Indicators if exists
         if ($channelModel->Indicators) {
             foreach ($channelModel->Indicators as $indicator) {
-                if ($indicator->delete == 0) {
-                    CampaignChannelIndicator::create(
-                        array(
-                            'campaign_channel_id' => $channel->id,
-                            'indicator_id' => $indicator->id,
-                            'uniqid' => uniqid()
-                        )
-                    );
-                }
+                CampaignChannelIndicator::create(
+                    array(
+                        'campaign_channel_id' => $channel->id,
+                        'indicator_id' => $indicator->id,
+                        'uniqid' => uniqid()
+                    )
+                );
             }
             $channel->load('campaignChannelIndicators');
         }

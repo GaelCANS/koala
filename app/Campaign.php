@@ -265,16 +265,16 @@ class Campaign extends Model
     public function scopeBetweenDate($query , $date)
     {
         return $query->where(
-                    function ($q) use ($date) {
+            function ($q) use ($date) {
 
-                        $q  ->where('begin', '<=' , $date->endOfMonth()->format('Y-m-d'));
-                    }
-                )
-                ->where(
-                    function ($q) use ($date) {
-                        $q  ->where('end', '>=' , $date->startOfMonth()->format('Y-m-d'));
-                    }
-                );
+                $q  ->where('begin', '<=' , $date->endOfMonth()->format('Y-m-d'));
+            }
+        )
+            ->where(
+                function ($q) use ($date) {
+                    $q  ->where('end', '>=' , $date->startOfMonth()->format('Y-m-d'));
+                }
+            );
     }
 
     public function scopeFilter($query , $datas)
@@ -337,12 +337,12 @@ class Campaign extends Model
             $keywords = trim($datas->keywords);
             $query->where( function ($q) use ($keywords) {
 
-                  $q->where('name', 'LIKE', '%'.$keywords.'%')
+                $q->where('name', 'LIKE', '%'.$keywords.'%')
                     ->orWhere('description', 'LIKE', '%'.$keywords.'%')
                     ->orWhere('cmm_comments', 'LIKE', '%'.$keywords.'%')
                     ->orWhere('results', 'LIKE', '%'.$keywords.'%')
                     ->orWhere('unica', 'LIKE', '%'.$keywords.'%');
-                }
+            }
             );
         }
 

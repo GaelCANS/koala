@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-
         /**
          * Component - formbox
          */
@@ -110,6 +109,25 @@ $(document).ready(function(){
                 changeTitleZone();
             });
         }
+
+        /**
+         * Campaign
+         */
+        if ( $('.time-limit').length > 0 ) {
+            $('.time-limit').each(function () {
+                if ($(this).data('delay') > 0 ) {
+                    calculateDatelimit($(this));
+                }
+            });
+        }
+        //$('.datepicker[data-name="begin"]').on('change',function () {
+        $('#channels-table').on('change', '.datepicker[data-name="begin"]' , function () {
+           var timeLimit = $(this).parents('tr').find('.time-limit');
+            console.log("-----> "+timeLimit.data('delay'));
+            if (timeLimit.data('delay') > 0) {
+                calculateDatelimit(timeLimit);
+            }
+        });
 
         /**
          * Commun
@@ -561,7 +579,9 @@ function initDatepicker()
     $('.datepicker').datepicker({
         language: 'fr',
         format: 'dd/mm/yyyy',
-        autoclose: true
+        autoclose: true,
+        weekStart:1,
+        daysOfWeekHighlighted: '0,6'
     });
 
     // Auto open begin datepicker & on select date begin auto open end datepicker and set the min day selectable
@@ -869,4 +889,26 @@ function delIndicator(id,url)
             alert("Une erreur est survenue.");
         }
     });
+}
+
+
+/**
+ * Campaign - calculateDatelimit
+ */
+function calculateDatelimit(obj)
+{
+    var delay = obj.data('delay');
+    var begin = obj.parents('tr').find('.datepicker[data-name="begin"]').val();
+    console.log(begin);
+    if (begin == "") return false;
+    var splitBegin = begin.split('/');
+    var d = new Date(splitBegin[2] , splitBegin[1]-1 , splitBegin[0] , 0 , 0 , 0 , 0);
+    d.setDate(d.getDate() - delay);
+
+    var dd = _.padStart(d.getDate(), 2 , '0');
+    var mm = _.padStart((d.getMonth()+1), 2 , '0');
+    console.log(dd+'/'+mm+'/'+d.getFullYear());
+    obj.find('.date-limit').html(dd+'/'+mm+'/'+d.getFullYear());
+    obj.show();
+
 }
