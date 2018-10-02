@@ -84,13 +84,13 @@
             </div>
 
             <div class="col-md-12 grid-margin text-right">
-                <div class="col-9 d-inline-block">
-                    <p class="text-center text-muted text-small ">
-                        Pour vous aider à renseigner les périodes, vous pouvez vous référer au <a href="{{route('planning-index')}}" target="_blank">planning</a> en filtrant par canal.<br>
-                        N'oubliez pas de passer votre campagne en statut "<u>Publié</u>" afin qu'elle puisse être intégrée dans la <a href="{{route('cmm-index')}}" target="_blank">liste des campagnes en attente de validation CMM</a>.<br>
+                <div class="col-10 d-inline-block">
+                    <p class="text-left text-muted text-small ">
+                        Pour vous aider à renseigner les périodes, vous pouvez vous référer au <a href="{{route('planning-index')}}" target="_blank">planning</a> en filtrant par canal.<br><br>
+                        N'oubliez pas de passer votre campagne en statut "<u>Publié</u>" afin qu'elle puisse être intégrée dans la <a href="{{route('cmm-index')}}" target="_blank">liste des campagnes en attente de validation CMM</a>.<br><br>
                         Dès lors que le campagne est en statut "<u>Publié</u>" et "<u>Validé CMM : OUI</u>", celle-ci devient visible dans le <a href="{{route('dashboard-index')}}" target="_blank">tableau de bord des campagnes en cours / à venir</a>.
                 </div>
-                <div class="col-3 pull-right">
+                <div class="col-2 pull-right">
                     <button type="submit" class="btn btn-primary">
                         <i class="fa fa-fw fa-save"></i>Enregister
                     </button>
