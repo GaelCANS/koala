@@ -16,10 +16,10 @@
                 @endforeach
                 <h6 class="mt-3">Services experts</h6>
                 <div class="legend">
-                    <span class="d-inline-block mr-4"><i class="fa fa-window-minimize" style="color:#fb9678;"></i>Canaux Digitaux</span>
-                    <span class="d-inline-block mr-4"><i class="fa fa-window-minimize" style="color:hotpink"></i>CRM</span>
-                    <span class="d-inline-block mr-4"><i class="fa fa-window-minimize" style="color:#3c589b;"></i>Communication</span>
-                    <span class="d-inline-block"><i class="fa fa-window-minimize" style="color:blue"></i>Animation commerciale</span>
+                    <span class="d-inline-block mr-4"><i class="fa fa-window-minimize" style="color:#00c292;"></i>Canaux Digitaux</span>
+                    <span class="d-inline-block mr-4"><i class="fa fa-window-minimize" style="color:#ab8ce4;"></i>CRM</span>
+                    <span class="d-inline-block mr-4"><i class="fa fa-window-minimize" style="color:#03a9f3;"></i>Communication</span>
+                    <span class="d-inline-block"><i class="fa fa-window-minimize" style="color:#ffb463;"></i>Animation commerciale</span>
 
 
                 </div>
