@@ -14,6 +14,7 @@
         defaultDate: $('#container-calendar').data('day'),
         navLinks: true, // can click day/week names to navigate views
         editable: true,
+        titleRangeSeparator: " - ",
         eventLimit: true, // allow "more" link when too many events
         events: function(start, end, timezone, callback) {
             $.ajax({
