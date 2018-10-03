@@ -151,15 +151,16 @@ class CampaignController extends Controller
                         ->orderBy('firstname' , 'ASC')
                         ->pluck('name' , 'id')
                         ->toArray();
-        $channels   =   array_merge(
-            array('Sélectionnez'),
-            Channel::Notdeleted()
-                ->orderBy('name' , 'ASC')
-                ->pluck('name' , 'id')
-                ->toArray()
-        );
-        //$channels[0]=   'sélectionnez';
-        //ksort($channels);
+
+        $channels   =   Channel::Notdeleted()
+            ->orderBy('name' , 'ASC')
+            ->pluck('name' , 'id')
+            ->toArray();
+        $channelInOrder["0"] = "Selectionnez";
+        foreach ($channels as $key => $channel_name)
+            $channelInOrder[(string)$key] = $channel_name;
+        $channels = $channelInOrder;
+
         $services= Service::Notdeleted()
             ->orderBy('name' , 'ASC')
             ->pluck('name' , 'id')
