@@ -18768,6 +18768,19 @@ td.canaux, th.canaux, .canaux {
     border-color:#ffb463!important;
 }
 
+.comment-channel {
+    font-size: 0.70rem;
+}
+.time-limit {
+    font-size: 0.60rem;
+    font-weight: 500;
+    margin-top:5px;
+    line-height: 12px;
+}
+
+.date-limit {
+    font-weight:bold;
+}
 
 #channels-table.table-responsive {
     -webkit-border-radius:3px;
