@@ -41,6 +41,18 @@ $(document).ready(function(){
         });
 
 
+        /**
+         * Component - formbox
+         */
+        $(document).keyup(function(e) {
+            if (e.keyCode == 27) { // esc keycode
+                if ($('.contact-form-page.show-profile').length > 0 ) {
+                    $('.contact-form-page .top-btn-show').trigger('click');
+                }
+            }
+        });
+
+
 
         /**
          * Commun
