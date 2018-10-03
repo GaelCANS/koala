@@ -60,8 +60,8 @@ class Campaign extends Model
 
     public function getPeriodAttribute()
     {
-        $begin  = $this->begin != '' ? Carbon::createFromFormat('d/m/y', $this->begin)->format('m/y') : '';
-        $end    = $this->end != '' ? Carbon::createFromFormat('d/m/y', $this->end)->format('m/y') : '';
+        $begin  = $this->begin != '' ? Carbon::createFromFormat('d/m/y', $this->begin)->format('d/m') : '';
+        $end    = $this->end != '' ? Carbon::createFromFormat('d/m/y', $this->end)->format('d/m') : '';
 
         if ($begin != '' && $end != '')
             return $begin.' au '.$end;
