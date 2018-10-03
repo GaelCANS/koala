@@ -111,6 +111,7 @@ class DashboardController extends Controller
 
         // My campaigns
         $mycampaigns =  Campaign::savedOnly()
+                        ->notdeleted()
                         ->where('user_id' , Auth::user()->id )
                         ->orderBy('begin' , 'DESC')
                         ->take(5)
