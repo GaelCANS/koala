@@ -158,6 +158,34 @@ $(document).ready(function(){
         });
 
         /**
+         * Planning
+         */
+        $('.service-canaux').on('click', function(event){
+            var checkBoxes = $('.'+$(this).data('service')).find('.display-event');
+            var state = $(this).data('show');
+            $(this).data('show' , !$(this).data('show'));
+            if (!state) {
+                $(this).css('text-decoration','none');
+            }
+            else {
+                $(this).css('text-decoration','line-through');
+            }
+
+            checkBoxes.each(function () {
+                $(this).attr('checked' , !state);
+                var item = $(this).parents('.icheck-line').find('div:first-child');
+                if (!state == '1') {
+                    item.addClass('checked');
+                }
+                else {
+                    item.removeClass('checked');
+                }
+            });
+
+            $('#calendar').fullCalendar( 'refetchEvents' );
+        });
+
+        /**
          * Campaign
          */
         if ($('#show-campaign').length > 0) {
