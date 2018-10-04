@@ -121,7 +121,10 @@ class DashboardController extends Controller
 
         // Last indicators
         $indicators =   CampaignChannelIndicator::where('result' , '>', 0)
-                        ->orderBy('updated_at' , 'DESC')
+                        ->join('campaign_channel', 'campaign_channel.id', '=', 'campaign_channel_indicator.campaign_channel_id')
+                        ->join('campaigns', 'campaigns.id', '=', 'campaign_channel.campaign_id')
+                        ->where('campaigns.delete' , '0')
+                        ->orderBy('campaign_channel_indicator.updated_at' , 'DESC')
                         ->take(5)
                         ->get();
         $indicators->load('Indicator');
