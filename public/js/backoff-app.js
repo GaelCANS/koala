@@ -16,6 +16,7 @@ $(document).ready(function(){
         $('#help-form').on('submit' , function (event) {
 
             $('#send-formbox').hide();
+            $('#loading-formbox').show();
             var link = $('#help-form').data('link');
             $.ajaxSetup({
                 headers: {
@@ -34,6 +35,8 @@ $(document).ready(function(){
                 .done(function( data ) {
 
                     $('#message-help').val('');
+                    $('#send-formbox').show();
+                    $('#loading-formbox').hide();
                     $('.contact-form-page .top-btn-show').trigger('click');
                 });
             
