@@ -46,7 +46,7 @@
             @include(
                 'dashboards.block-stat' ,
                 array(
-                    'icon'      => 'mdi-format-page-break' ,
+                    'icon'      => 'mdi-cellphone-iphone' ,
                     'color' => '#ab8ce4',
                     'value'     => $statistics[3]['today'] ,
                     'title'     => $statistics[3]['before'] ,
