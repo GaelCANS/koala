@@ -7,7 +7,7 @@
             <button class="d-none navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                 <span class="icon-menu"></span>
             </button>
-            <ul class="navbar-nav" style="width: 65%;">
+            <ul class="navbar-nav header-title" style="width: 65%;">
                 <li class="nav-item  d-lg-flex">
                     <a class="nav-link  nav-btn"  href="{{ route('new-campaign') }}" title="Ajouter une campagne" >
                         <span class="btn">+ Créer une campagne</span>
@@ -26,7 +26,7 @@
 
             </ul>
             <ul class="navbar-nav navbar-nav-right">
-                <li class=" d-sm-flex nav-item  align-items-center justify-content-md-center ">
+                <li class="nav-item  align-items-center justify-content-md-center d-none d-lg-flex ">
                     <i class="icon-bubbles icon-sm"></i>
                     <div class="ml-3 text-center" style="line-height: 1.4;font-size: 0.70rem;">
 

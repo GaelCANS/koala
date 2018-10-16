@@ -1,4 +1,4 @@
-<ul class="list-inline d-inline-flex mb-1 indicator">
+<ul class="list-inline mb-1 indicator" style="min-width:220px;">
     <li class="list-inline-item ">
         <label class="label-indicator">{{$indicator->name}}</label>
         {!! Form::hidden( 'indicator['.$cci->uniqid.'][uniqid]' , $cci->uniqid , array( 'class' => 'form-control bg-light text-center mb-0' ) ) !!}
