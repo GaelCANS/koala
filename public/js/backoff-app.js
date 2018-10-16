@@ -200,6 +200,14 @@ $(document).ready(function(){
             $('#calendar').fullCalendar( 'refetchEvents' );
         });
 
+
+        /**
+         * Planning
+         */
+        if ($('#container-calendar').length > 0) {
+            $('.fc-basicWeek-button').trigger('click');
+        }
+
         /**
          * Planning
          */

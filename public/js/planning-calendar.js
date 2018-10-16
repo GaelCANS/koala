@@ -10,7 +10,7 @@
         },
         eventLimitClick:'day',
         weekNumbers:true,
-        defaultView: 'basicWeek',
+        defaultView: 'month',
         defaultDate: $('#container-calendar').data('day'),
         navLinks: true, // can click day/week names to navigate views
         editable: true,
@@ -31,7 +31,7 @@
             });
         },
         eventAfterRender: function( event, element, view ) {
-            //console.log(event);
+
         },
         eventDrop: function(event, delta, revertFunc) {
             changeEvent(event);
