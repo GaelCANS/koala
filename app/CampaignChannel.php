@@ -93,6 +93,7 @@ class CampaignChannel extends Model
             /** /!\ Uses in scope on the Campaign Model **/
             ->where('campaigns.saved','1')
             ->where('campaigns.cmm','1')
+            ->where('campaigns.delete','0')
             ->where('campaigns.status','1')
             ->whereIn('campaign_channel.channel_id',$channels)
             /** /!\ End Uses in scope on the Campaign Model **/
