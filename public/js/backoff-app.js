@@ -1007,13 +1007,15 @@ function calculateDatelimit(obj)
  */
 function doCapture(callback) {
 
-
+    callback();
+    /*
     $('.contact-form-page .top-btn-show').trigger('click');
     html2canvas(document.body).then(function(canvas) {
         var base64image = canvas.toDataURL("image/png");
         $('#capture-help').val(base64image);
         callback();
     });
+    */
 
 }
 
@@ -1039,7 +1041,7 @@ function sendRequestFormbox(){
             url: link,
             data: {
                 message : $('#message-help').val(),
-                capture : $('#capture-help').val(),
+                //capture : $('#capture-help').val(),
                 url : $('#url-help').val()
             }
         })

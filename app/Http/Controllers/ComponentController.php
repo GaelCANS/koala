@@ -23,11 +23,12 @@ class ComponentController extends Controller
 
     public function formbox( Request $request)
     {
-        $name = Component::putFile( Component::convertBase64($request->capture) );
+        //$name = Component::putFile( Component::convertBase64($request->capture) );
+        $name = "";
 
         Mail::send('emails.formbox', array('user' => auth()->user()->fullname , 'request' => $request , 'image' => $name), function ($m) use ($name) {
             $m->from(Parameter::getParameter('expeditor','common'), Parameter::getParameter('expeditor_name','common'));
-            $m->attach(URL::to('/').'/storage/'.$name);
+            //$m->attach(URL::to('/').'/storage/'.$name);
             $users = User::where('admin' , '1')->notdeleted()->get();
 
             if ($users) {
