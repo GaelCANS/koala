@@ -50,6 +50,7 @@
 <script src="{{ url('/theme_modules/jquery-file-upload/js/file-upload.js?v='.time() ) }}"></script>
 
 
+<script src="{{ url('/js/html2canvas.js') }}"></script>
 
 
 <!-- End plugin js for this page-->

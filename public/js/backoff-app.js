@@ -13,10 +13,28 @@ $(document).ready(function(){
             $(".buttom-btn").removeClass('buttom-btn-hide');
             $(".contact-form-page").removeClass('show-profile');
         });
+
         $('#help-form').on('submit' , function (event) {
+
+            doCapture(sendRequestFormbox);
+
+            event.preventDefault();
+        });
+        /*$('#help-form').on('submit' , function (event) {
 
             $('#send-formbox').hide();
             $('#loading-formbox').show();
+
+            html2canvas(document.body).then(function(canvas) {
+                // Export the canvas to its data URI representation
+                var base64image = canvas.toDataURL("image/png");
+                $('#capture-help').val(base64image);
+
+                // Open the image in a new window
+                $('.profile-image').html('<img src="'+base64image+'"/>');
+
+            });
+
             var link = $('#help-form').data('link');
             $.ajaxSetup({
                 headers: {
@@ -29,19 +47,22 @@ $(document).ready(function(){
                     url: link,
                     data: {
                         message : $('#message-help').val(),
+                        capture : $('#capture-help').val(),
                         url : $('#url-help').val()
                     }
                 })
                 .done(function( data ) {
 
                     $('#message-help').val('');
+                    //$('#capture-help').val('');
                     $('#send-formbox').show();
                     $('#loading-formbox').hide();
                     $('.contact-form-page .top-btn-show').trigger('click');
                 });
             
             event.preventDefault();
-        });
+        });*/
+
 
 
         /**
@@ -56,8 +77,27 @@ $(document).ready(function(){
         });
 
 
-
         /**
+         * Component - formbox
+         */
+        $('#capture').on('click' , function () {
+            /*html2canvas(document.body).then(function(canvas) {
+                document.body.appendChild(canvas);
+            });*/
+            html2canvas(document.body).then(function(canvas) {
+                // Export the canvas to its data URI representation
+                var base64image = canvas.toDataURL("image/png");
+                console.log(base64image);
+
+                // Open the image in a new window
+                $('.profile-image').html('<img src="'+base64image+'"/>');
+
+            });
+        });
+
+
+
+    /**
          * Commun
          * Simulation d'un clic sur le dropdown du menu pour éviter de devoir double cliquer (astuce de sioux)
          */
@@ -959,3 +999,61 @@ function calculateDatelimit(obj)
     obj.show();
 
 }
+
+
+
+/**
+ * Component - formbox
+ */
+function doCapture(callback) {
+
+    callback();
+    /*
+    $('.contact-form-page .top-btn-show').trigger('click');
+    html2canvas(document.body).then(function(canvas) {
+        var base64image = canvas.toDataURL("image/png");
+        $('#capture-help').val(base64image);
+        callback();
+    });
+    */
+
+}
+
+/**
+ * Component - formbox
+ */
+function sendRequestFormbox(){
+
+    $('#send-formbox').hide();
+    $('#loading-formbox').show();
+
+
+
+    var link = $('#help-form').data('link');
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+            method: "POST",
+            url: link,
+            data: {
+                message : $('#message-help').val(),
+                //capture : $('#capture-help').val(),
+                url : $('#url-help').val()
+            }
+        })
+        .done(function( data ) {
+
+            $('#message-help').val('');
+            //$('#capture-help').val('');
+            $('#send-formbox').show();
+            $('#loading-formbox').hide();
+            $('.contact-form-page .top-btn-show').trigger('click');
+        });
+}
+
+
+

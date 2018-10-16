@@ -197,6 +197,7 @@
                         {!! Form::textarea( 'message' , null , array( 'class' => 'form-control' , 'rows' => '6', 'cols' => '10' , 'required' => true , 'id' => 'message-help', 'placeholder' => 'Votre message') ) !!}
                     </div>
                     {!! Form::hidden( 'page' , url()->current() , array( 'id' => 'url-help' ) ) !!}
+                    {!! Form::hidden( 'capture' , '' , array( 'id' => 'capture-help' ) ) !!}
                 <button type="button" class="submit-buttom " style="display: none" id="loading-formbox"><i class="fa fa-circle-o-notch fa-spin"></i> Envoi du message</button>
                 <button type="submit" class="submit-buttom" id="send-formbox">
                     Envoyer
