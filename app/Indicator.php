@@ -27,7 +27,12 @@ class Indicator extends Model
      */
     public static function bestIndicators()
     {
-        $incators_stats = array(3,7,2,1);
+        $incators_stats = array(
+            Parameter::getParameter('indicator_ouvreurs' , 'dashboard'),
+            Parameter::getParameter('indicator_portee' , 'dashboard'),
+            Parameter::getParameter('indicator_clics' , 'dashboard'),
+            Parameter::getParameter('indicator_receveurs' , 'dashboard')
+        );
         $statistics = array();
         foreach ($incators_stats as $incators_stat) {
             $stats = new \App\Library\Statistics($incators_stat);
