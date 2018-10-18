@@ -97,7 +97,7 @@ class CampaignChannel extends Model
             ->where('campaigns.status','1')
             ->whereIn('campaign_channel.channel_id',$channels)
             /** /!\ End Uses in scope on the Campaign Model **/
-            ->where('campaign_channel.begin' , '>=' , $begin)
+            //->where('campaign_channel.begin' , '>=' , $begin)
             //->where('campaign_channel.end' , '<=' , $end)
             ->get();
     }
