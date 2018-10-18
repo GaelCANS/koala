@@ -283,6 +283,19 @@
     background: #ac1a2f!important;
 }
 
+#ent .icheckbox_line-blue.checked, #ent .icheckbox_line-blue.hover,
+#ent .icheckbox_line-blue.checked.hover
+{
+    background: #4C5970!important;
+}
+
+#jeu .icheckbox_line-blue.checked, #jeu .icheckbox_line-blue.hover,
+#jeu .icheckbox_line-blue.checked.hover
+{
+    background: #4E2987!important;
+}
+
+
 .success .icheckbox_line-blue.checked, .success .icheckbox_line-blue.hover,
 .success  .icheckbox_line-blue.checked.hover
 {
@@ -442,6 +455,17 @@
 }
 
 
+#ent .icheckbox_line-blue.checked, #ent .icheckbox_line-blue.hover,
+#ent .icheckbox_line-blue.checked.hover
+{
+    background: #4C5970!important;
+}
+
+#jeu .icheckbox_line-blue.checked, #jeu .icheckbox_line-blue.hover,
+#jeu .icheckbox_line-blue.checked.hover
+{
+    background: #4E2987!important;
+}
 
 
 .icheckbox_line-blue.checked .icheck_line-icon,

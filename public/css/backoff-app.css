@@ -11130,6 +11130,17 @@ tbody.collapse.show {
     background-color: #ac1a2f;
 }
 
+.ent {
+    background-color: #4C5970;
+}
+
+.jeu {
+    background-color: #4E2987;
+}
+
+
+
+
 .inprogress {
     font-weight:bold;
 }
@@ -14438,7 +14449,13 @@ input:focus {
     height: 58px; }
 @media (max-width: 991px) {
     .navbar .navbar-menu-wrapper {
-        width: auto; } }
+        width: 90%; }
+
+    .header-title {
+        width: auto!important;
+    }
+
+}
 .navbar .navbar-menu-wrapper .navbar-toggler {
     border: 0;
     color: inherit; }
