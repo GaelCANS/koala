@@ -16,10 +16,11 @@
                 @endforeach
                 <h6 class="mt-3">Services experts</h6>
                 <div class="legend">
-                    <span class="d-inline-block mr-4 service-canaux" style="cursor:pointer;" data-service="canauxdigitaux" data-show="1"><i class="fa fa-window-minimize" style="color:#00c292;"></i>Canaux Digitaux</span>
-                    <span class="d-inline-block mr-4 service-canaux" style="cursor:pointer;" data-service="crm" data-show="1"><i class="fa fa-window-minimize" style="color:#ab8ce4;"></i>CRM</span>
-                    <span class="d-inline-block mr-4 service-canaux" style="cursor:pointer;" data-service="communication" data-show="1"><i class="fa fa-window-minimize" style="color:#03a9f3;"></i>Communication</span>
-                    <span class="d-inline-block service-canaux" style="cursor:pointer;" data-service="animation" data-show="1"><i class="fa fa-window-minimize" style="color:#ffb463;"></i>Animation commerciale</span>
+                    <span class="d-inline-block mr-4 service-canaux real-service" style="cursor:pointer;" data-service="canauxdigitaux" data-show="1"><i class="fa fa-window-minimize" style="color:#00c292;"></i>Canaux Digitaux</span>
+                    <span class="d-inline-block mr-4 service-canaux real-service" style="cursor:pointer;" data-service="crm" data-show="1"><i class="fa fa-window-minimize" style="color:#ab8ce4;"></i>CRM</span>
+                    <span class="d-inline-block mr-4 service-canaux real-service" style="cursor:pointer;" data-service="communication" data-show="1"><i class="fa fa-window-minimize" style="color:#03a9f3;"></i>Communication</span>
+                    <span class="d-inline-block service-canaux real-service" style="cursor:pointer;" data-service="animation" data-show="1"><i class="fa fa-window-minimize" style="color:#ffb463;"></i>Animation commerciale</span>
+                    <span class="d-inline-block service-canaux" style="cursor:pointer;" data-service="all" data-show="1"><i class="fa fa-window-minimize" style="color:#E0E9EB;"></i>Tout masquer/voir</span>
 
 
                 </div>
