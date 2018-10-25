@@ -179,7 +179,7 @@ class Statistics
             return (object) array(
                 'value'     => $best->result,
                 'name'      => $campaign->name,
-                'special'   => ($indicator == Parameter::getParameter('best_banniere' , 'dashboard') ? $best->clics_jour : ''),
+                'special'   => ($indicator == Parameter::getParameter('best_banniere' , 'dashboard') ? (int)$best->clics_jour : ''),
                 'date'      => \Carbon\Carbon::createFromFormat('Y-m-d', $best->begin)->format('d/m/Y'),
                 'campaign'  => $campaign
             );
