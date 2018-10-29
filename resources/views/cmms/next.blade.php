@@ -51,9 +51,9 @@
                                 <div class="col-12">
                                     <div class="wrapper text-right py-3">
                                         <a href="javascript:;" data-toggle="modal" data-target="#day-order" class="btn btn-info"><i class="fa fa-mail-forward"></i> Envoyer l'ordre du jour</a>
-                                        <button type="submit" class="btn btn-primary" id="cloture-cmm" data-link="./cmm/close">
+                                        <!--<button type="submit" class="btn btn-primary" id="cloture-cmm" data-link="./cmm/close">
                                             <i class="fa fa-fw fa-save"></i>Clôturer le CMM
-                                        </button>
+                                        </button>-->
                                     </div>
                                 </div>
                             </div>

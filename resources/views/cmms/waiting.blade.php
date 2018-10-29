@@ -35,7 +35,7 @@
     </div>
 
 </div>
-<p class="text-center text-muted text-small mt-4">Pour ajouter une campagne au prochain ordre du jour, merci de prendre contact avec {{ \App\User::UsersCmm() }}, en charge de l'animation du CMM.
+<p class="text-center text-muted text-small mt-4">Pour ajouter une campagne au prochain ordre du jour, cliquez sur la flèche verte située dans la colonne "Prochain CMM".
     <br><br>
     Si votre campagne est en statut "brouillon", elle n'apparaîtra pas dans cette file d'attente.<br>
 </p>
