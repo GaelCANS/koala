@@ -57,41 +57,54 @@
         </div>
         @if ($route == 'show-user' || $user==null)
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" style="background: white">
                 <div class="wrapper d-md-flex mb-3">
                     <h6 class="font-weight-normal">Administrateur</h6>
                     <div class="wrapper ml-md-3">
-                        <div class="toggle-radio">
-                            {!! Form::radio( 'admin' , 0 , false , array('id' => 'admin1' ) ) !!}
-                            {!! Form::radio( 'admin' , 1 , false , array('id' => 'admin0' ) ) !!}
-                            <div class="switch">
-                                <label for="admin1">Oui</label>
-                                <label for="admin0">Non</label>
-                                <span></span>
-                            </div>
+
+                        <div class="form-radio">
+                            <label for="admin1">
+                                {!! Form::radio( 'admin' , 1 , false , array('id' => 'admin1', 'class' => 'form-check-input') ) !!}
+                                Oui
+                            </label>
+                        </div>
+
+                        <div class="form-radio">
+                            <label for="admin0">
+                                {!! Form::radio( 'admin' , 0 , false , array('id' => 'admin0', 'class' => 'form-check-input') ) !!}
+                                Non
+                            </label>
                         </div>
 
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+
+
+            <div class="col-md-4" style="background: white">
                 <div class="wrapper d-md-flex mb-3">
                     <h6 class="font-weight-normal">CMM</h6>
                     <div class="wrapper ml-md-3">
-                        <div class="toggle-radio">
-                            {!! Form::radio( 'cmm' , 0 , false , array('id' => 'cmm1' ) ) !!}
-                            {!! Form::radio( 'cmm' , 1 , false , array('id' => 'cmm0' ) ) !!}
-                            <div class="switch">
-                                <label for="cmm1">Oui</label>
-                                <label for="cmm0">Non</label>
-                                <span></span>
-                            </div>
+
+                        <div class="form-radio">
+                            <label for="cmm1">
+                                {!! Form::radio( 'cmm' , 1 , false , array('id' => 'cmm1', 'class' => 'form-check-input') ) !!}
+                                Oui
+                            </label>
+                        </div>
+
+                        <div class="form-radio">
+                            <label for="cmm0">
+                                {!! Form::radio( 'cmm' , 0 , false , array('id' => 'cmm0', 'class' => 'form-check-input') ) !!}
+                                Non
+                            </label>
                         </div>
 
                     </div>
                 </div>
             </div>
+
         </div>
         @endif
         @if ($user != null && $route != 'show-user')

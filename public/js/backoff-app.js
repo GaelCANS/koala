@@ -200,11 +200,29 @@ $(document).ready(function(){
             $('#calendar').fullCalendar( 'refetchEvents' );
         });
 
+
+        /**
+         * Planning
+         */
+        if ($('#container-calendar').length > 0) {
+            $('.fc-basicWeek-button').trigger('click');
+        }
+
         /**
          * Planning
          */
         $('.service-canaux').on('click', function(event){
-            var checkBoxes = $('.'+$(this).data('service')).find('.display-event');
+            if ($(this).data('service') != 'all') {
+                var checkBoxes = $('.' + $(this).data('service')).find('.display-event');
+            }
+            else {
+                var state = $(this).data('show');
+                $(this).data('show' , !$(this).data('show'));
+                $('.real-service').data('show' , state);
+                //var checkBoxes = $('.icheck-line').find('.display-event');
+                $('.real-service').trigger('click');
+                return ;
+            }
             var state = $(this).data('show');
             $(this).data('show' , !$(this).data('show'));
             if (!state) {

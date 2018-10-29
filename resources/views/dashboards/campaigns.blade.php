@@ -27,7 +27,7 @@
                     </thead>
                     <tbody>
                     @forelse($campaigns as $campaign)
-                    <tr class="@if($campaign->inProgress)inprogress @endif" data-href='{{action('CampaignController@show' , $campaign)}}'>
+                    <tr class="@if($campaign->inProgress && !$campaign->isFinish)inprogress @endif" data-href='{{action('CampaignController@show' , $campaign)}}'>
                         <td class="marches">
                             @forelse($campaign->Markets as $market)
                                 <div class="badge {{ $market->class_css }}">{{ $market->abbreviation }}</div>

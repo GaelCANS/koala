@@ -26,6 +26,8 @@
                             </div>
                         </div>
                     </div>
+
+
                     <div class="row">
                         <div class="col-12">
                             <h6>Campagnes à l'ordre du jour</h6>
@@ -47,6 +49,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @if (auth()->user()->cmm)
                             <div class="row">
                                 <div class="col-12">
                                     <div class="wrapper text-right py-3">
@@ -57,8 +60,10 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

@@ -29,7 +29,7 @@
         @if (!empty($channel->Indicators))
 
             @forelse ($channel->Indicators as $indicator)
-                @if ($indicator->delete == 0)
+                @if ( true )
                     @if (isset($campaignChannelIndicator[$channel->pivot->uniqid][$indicator->id][0]))
                         <?php $cci = $campaignChannelIndicator[$channel->pivot->uniqid][$indicator->id][0] ?>
                         @include('campaigns.campaignchannelindicators')

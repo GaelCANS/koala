@@ -91,6 +91,12 @@ class Campaign extends Model
         return Carbon::createFromFormat('d/m/y', $this->begin)->isPast();
     }
 
+    public function getIsFinishAttribute()
+    {
+        if ($this->end == '') return true;
+        return Carbon::createFromFormat('d/m/y', $this->end)->isPast();
+    }
+
     public function setBeginAttribute($date) {
         $this->attributes['begin'] = !empty($date) ? Carbon::createFromFormat('d/m/y', $date)->format('Y-m-d') : '';
     }

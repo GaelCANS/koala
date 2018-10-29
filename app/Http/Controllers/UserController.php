@@ -68,15 +68,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-
-        //dd(\Request::route()->getName());
         $route = \Request::route()->getName();
-        //dd($route);
-        /*$route = Route::currentRouteName();
-        dd($route);
-        $name = $route->getName();
-        dd($name);*/
-
 
         // Control on admin user
         if (!auth()->user()->admin && $id != auth()->user()->id ) {
@@ -90,6 +82,7 @@ class UserController extends Controller
             ->orderBy('name' , 'ASC')
             ->pluck('name' , 'id')
             ->toArray();
+
         return view('users.show' , compact('user' , 'services', 'route'));
     }
 

@@ -52,6 +52,7 @@
                         <span class="menu-title">Statistiques</span>
                     </a>
                 </li>
+                @if (auth()->user()->admin)
                 <li class="nav-item">
                     <a class="nav-link collapsed" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
                         <i class="icon-settings menu-icon"></i>
@@ -67,6 +68,7 @@
                         </ul>
                     </div>
                 </li>
+                @endif
             </ul>
         </nav>
 

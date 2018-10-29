@@ -135,26 +135,51 @@ class Statistics
         $first_day  = $last_month->startOfMonth()->format('Y-m-d');
         $last_day   = $last_month->endOfMonth()->format('Y-m-d');
 
-        $best       =   DB::table('campaign_channel_indicator')
-            ->select('campaign_channel.campaign_id' , 'campaign_channel_indicator.result' , 'campaign_channel.begin')
-            ->join('campaign_channel' , 'campaign_channel.id' , '=' , 'campaign_channel_indicator.campaign_channel_id')
-            ->join('campaigns' , 'campaigns.id' , '=' , 'campaign_channel.campaign_id')
-            ->where('campaign_channel_indicator.indicator_id' , $indicator)
-            /** /!\ Uses in scope on the Campaign Model **/
-            ->where('campaigns.saved','1')
-            ->where('campaigns.cmm','1')
-            ->where('campaigns.status','1')
-            /** /!\ End Uses in scope on the Campaign Model **/
-            ->whereBetween('campaign_channel.begin' , array($first_day , $last_day))
-            ->where('campaign_channel_indicator.indicator_id' , $indicator)
-            ->where('campaign_channel_indicator.result' , '>' , 0)
-            ->Orderby('campaign_channel_indicator.result' , 'DESC')->first();
+
+        // Dans le cas d'une bannière, on calcule les stats par clics/jours et non pas sur le volume total de clics
+        // Il y a donc une exception dans la requête
+
+        if ($indicator == Parameter::getParameter('best_banniere' , 'dashboard')) {
+            $best       =   DB::table('campaign_channel_indicator')
+                ->select('campaign_channel.campaign_id' , 'campaign_channel_indicator.result' , 'campaign_channel.begin', DB::raw('datediff(`campaign_channel`.`end`, `campaign_channel`.`begin`) AS nb_jours') , DB::raw('`campaign_channel_indicator`.`result`/datediff(`campaign_channel`.`end`, `campaign_channel`.`begin`) AS clics_jour'))
+                ->join('campaign_channel' , 'campaign_channel.id' , '=' , 'campaign_channel_indicator.campaign_channel_id')
+                ->join('campaigns' , 'campaigns.id' , '=' , 'campaign_channel.campaign_id')
+                ->where('campaign_channel_indicator.indicator_id' , $indicator)
+                /** /!\ Uses in scope on the Campaign Model **/
+                ->where('campaigns.saved','1')
+                ->where('campaigns.cmm','1')
+                ->where('campaigns.status','1')
+                /** /!\ End Uses in scope on the Campaign Model **/
+                ->whereBetween('campaign_channel.begin' , array($first_day , $last_day))
+                ->where('campaign_channel_indicator.indicator_id' , $indicator)
+                ->where('campaign_channel_indicator.result' , '>' , 0)
+                ->Orderby('clics_jour' , 'DESC')->first();
+        }
+        else {
+            $best       =   DB::table('campaign_channel_indicator')
+                ->select('campaign_channel.campaign_id' , 'campaign_channel_indicator.result' , 'campaign_channel.begin')
+                ->join('campaign_channel' , 'campaign_channel.id' , '=' , 'campaign_channel_indicator.campaign_channel_id')
+                ->join('campaigns' , 'campaigns.id' , '=' , 'campaign_channel.campaign_id')
+                ->where('campaign_channel_indicator.indicator_id' , $indicator)
+                /** /!\ Uses in scope on the Campaign Model **/
+                ->where('campaigns.saved','1')
+                ->where('campaigns.cmm','1')
+                ->where('campaigns.status','1')
+                /** /!\ End Uses in scope on the Campaign Model **/
+                ->whereBetween('campaign_channel.begin' , array($first_day , $last_day))
+                ->where('campaign_channel_indicator.indicator_id' , $indicator)
+                ->where('campaign_channel_indicator.result' , '>' , 0)
+                ->Orderby('campaign_channel_indicator.result' , 'DESC')->first();
+        }
+
+
         
         if ($best != null && $best->result > 0) {
             $campaign = Campaign::findOrFail($best->campaign_id);
             return (object) array(
                 'value'     => $best->result,
                 'name'      => $campaign->name,
+                'special'   => ($indicator == Parameter::getParameter('best_banniere' , 'dashboard') ? (int)$best->clics_jour : ''),
                 'date'      => \Carbon\Carbon::createFromFormat('Y-m-d', $best->begin)->format('d/m/Y'),
                 'campaign'  => $campaign
             );
