@@ -266,4 +266,15 @@ class TrelloApi
         curl_close($this->curl);
     }
 
+    /**
+     * Return if sync trello is enable
+     *
+     * @return bool
+     */
+    public static function syncTrello()
+    {
+        $syncTrello = env('TRELLO_SYNC');
+        return $syncTrello == 1 ? true : false;
+    }
+
 }

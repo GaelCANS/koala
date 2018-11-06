@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Library\Features\Trello\TrelloApi;
 use App\Library\Features\Trello\TrelloCamp;
 use App\Library\Traits\Scopable;
 use Carbon\Carbon;
@@ -123,6 +124,8 @@ class Campaign extends Model
      */
     public static function updateTrello($campaign_id)
     {
+        if (!TrelloApi::syncTrello()) return ;
+
         $campaign = Campaign::findOrFail($campaign_id);
 
         if ($campaign->status == 0 || $campaign->cmm == 0) return false;
@@ -150,6 +153,8 @@ class Campaign extends Model
      */
     public static function updateCard($campaignChannelId)
     {
+        if (!TrelloApi::syncTrello()) return ;
+
         $trello = new TrelloCamp(false);
         $trello->saveChannel($campaignChannelId);
     }
@@ -162,6 +167,8 @@ class Campaign extends Model
      */
     public static function deleteCard($campaignChannel_id)
     {
+        if (!TrelloApi::syncTrello()) return ;
+
         // Trello sync
         $trello = new TrelloCamp();
         $trello->deleteCard($campaignChannel_id);
@@ -175,6 +182,8 @@ class Campaign extends Model
      */
     public static function deleteTrello($campaign_id)
     {
+        if (!TrelloApi::syncTrello()) return ;
+        
         $campaignChannels = CampaignChannel::where('campaign_id' , $campaign_id)->where('trello_cardId' , '!=' , '')->get();
         if ($campaignChannels) {
             foreach ($campaignChannels as $campaignChannel) {
