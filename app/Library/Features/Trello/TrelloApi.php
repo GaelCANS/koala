@@ -4,6 +4,22 @@
  * User: gaellevant
  * Date: 30/04/2018
  * Time: 17:03
+ *
+ *
+
+TRELLO_API_KEY=6e92dfa8d3f0b5f6f8dd8fc72c949b6a
+TRELLO_TOKEN=85b36afe9da48f2221f3d961bd8102b7e266c25845c4939e5c0c384bbf8c4444
+TRELLO_URL=https://api.trello.com/1
+TRELLO_BOARD=X72KLITS
+ *
+ *
+7cda5df5b3c8ba444520737a8e2f9ba6
+
+da252bd4a4ecaa95f6cca3e6432721e9b28990ed8bf18de8aa557991d0faefcb
+
+X72KLITS
+ *
+ *
  */
 
 namespace App\Library\Features\Trello;
@@ -221,6 +237,11 @@ class TrelloApi
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($this->curl);
         curl_close($this->curl);
+
+        // Debug Mode
+        if ($this->debug) {
+            dump(json_decode($output));
+        }
 
         return json_decode($output);
     }

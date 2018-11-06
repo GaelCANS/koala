@@ -39,6 +39,12 @@ class CampaignChannel extends Model
             $this->attributes['end'] = $date;
     }
 
+    public function getIsFinishAttribute()
+    {
+        if ($this->end == '') return false;
+        return Carbon::createFromFormat('Y-m-d', $this->end)->isPast();
+    }
+
     public function getPeriodAttribute()
     {
         if ($this->begin != '' && $this->begin != '0000-00-00' && $this->end != '' && $this->end != '0000-00-00')

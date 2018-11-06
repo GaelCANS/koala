@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Library\Features\Trello\TrelloCamp;
 use App\Library\Traits\Scopable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -108,8 +109,79 @@ class Campaign extends Model
     /**
      * CUSTOMS
      */
-    public static function getStatus() {
+    public static function getStatus()
+    {
         return array('brouillon' , 'publiée');
+    }
+
+
+    /**
+     * Add or Update cards for a campaign in trello
+     *
+     * @param $campaign_id
+     * @return bool
+     */
+    public static function updateTrello($campaign_id)
+    {
+        $campaign = Campaign::findOrFail($campaign_id);
+
+        if ($campaign->status == 0 || $campaign->cmm == 0) return false;
+
+        $channelsTrelloable = Channel::select('id')->where('delete' , '0')->where('trello_listId' , '!=' , '')->get();
+        if (count($channelsTrelloable->toArray()) > 0 ) {
+            $campaignChannelTrelloables = CampaignChannel::where('campaign_id',$campaign->id)
+                                            -> whereIn('channel_id' , $channelsTrelloable->toArray())
+                                            -> get();
+
+            foreach ($campaignChannelTrelloables as $campaignChannelTrelloable) {
+                $trello = new TrelloCamp(false);
+                $trello->saveChannel($campaignChannelTrelloable->id);
+            }
+
+        }
+        return true;
+    }
+
+
+    /**
+     * Update card on Trello
+     *
+     * @param $campaignChannelId int
+     */
+    public static function updateCard($campaignChannelId)
+    {
+        $trello = new TrelloCamp(false);
+        $trello->saveChannel($campaignChannelId);
+    }
+
+
+    /**
+     * Delete card in trello
+     *
+     * @param $campaignChannel_id
+     */
+    public static function deleteCard($campaignChannel_id)
+    {
+        // Trello sync
+        $trello = new TrelloCamp();
+        $trello->deleteCard($campaignChannel_id);
+    }
+
+
+    /**
+     * Delete all cards for a campaign in trello
+     *
+     * @param $campaign_id
+     */
+    public static function deleteTrello($campaign_id)
+    {
+        $campaignChannels = CampaignChannel::where('campaign_id' , $campaign_id)->where('trello_cardId' , '!=' , '')->get();
+        if ($campaignChannels) {
+            foreach ($campaignChannels as $campaignChannel) {
+                $trello = new TrelloCamp();
+                $trello->deleteCard($campaignChannel->id);
+            }
+        }
     }
 
 

@@ -7,6 +7,7 @@ use App\CampaignChannel;
 use App\CampaignChannelIndicator;
 use App\CampaignChannelPivot;
 use App\Channel;
+use App\Library\Features\Trello\TrelloCamp;
 use App\Market;
 use App\Service;
 use App\User;
@@ -216,6 +217,11 @@ class CampaignController extends Controller
         $results_state = Campaign::consilidationResults($campaign);
         $campaign->update( array('results_state' => $results_state) );
 
+
+        // Trello Sync
+        Campaign::updateTrello($id);
+
+
         return redirect()->back()->with('success' , "La campagne vient d'être mise à jour");
     }
 
@@ -229,6 +235,10 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::findOrFail($id);
         $campaign->update( array('delete' => '1') );
+
+        // Trello Sync
+        Campaign::deleteTrello($id);
+
         return redirect(URL::previous())->with('success' , 'La campagne a bien été supprimée');
     }
 
@@ -253,6 +263,10 @@ class CampaignController extends Controller
     public function duplicatecampaign($id)
     {
         $campaign = Campaign::duplicateCampaign($id);
+
+        // Trello Sync
+        Campaign::updateTrello($campaign->id);
+
         return redirect(action('CampaignController@show' , $campaign))->with('success' , 'Votre campagne a bien été dupliquée');
     }
 

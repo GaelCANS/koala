@@ -7,6 +7,7 @@ use App\CampaignChannel;
 use App\CampaignChannelIndicator;
 use App\Channel;
 use App\Indicator;
+use App\Library\Features\Trello\TrelloCamp;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -157,6 +158,10 @@ class CampaignchannelController extends Controller
 
         // Delete  campaign_channel and campaign_channel_indicator associate
         $campaignChannel = CampaignChannel::where('uniqid' , $channelUniqid)->where('campaign_id' , $campaign->id)->first();
+
+        // Trello sync
+        Campaign::deleteCard($campaignChannel->id);
+
         $isDeleted = $campaignChannel->delete();
 
         // Consolidation results_state
@@ -184,6 +189,10 @@ class CampaignchannelController extends Controller
         $campaignChannel = CampaignChannel::findOrFail($request->input('id'));
         $campaignChannel->preventMutator = true;
         $campaignChannel->update($request->only('begin' , 'end'));
+
+        // Update on Trello
+        Campaign::updateCard($campaignChannel->id);
+
         return response()->json([
             'state' => '1'
         ]);
