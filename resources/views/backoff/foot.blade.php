@@ -68,6 +68,9 @@
 <script src="{{ url('js/owl-carousel.js') }}"></script>
 
 
+<script src="{{ url('/js/raphael-2.1.4.min.js') }}"></script>
+<script src="{{ url('/js/justgage.js') }}"></script>
+
 
 <script>
 
@@ -106,6 +109,53 @@
     input.clockpicker({
         autoclose: true
     });
+
+    var dflt = {
+        min: 0,
+        max: 100,
+        donut: true,
+        gaugeWidthScale: 0.6,
+        counter: true,
+        hideInnerShadow: true,
+
+    }
+
+    var gg1 = new JustGage({
+        id: 'gg1',
+        defaults: dflt
+    });
+
+    var gg2 = new JustGage({
+        id: 'gg2',
+        defaults: dflt
+    });
+    var gg3 = new JustGage({
+        id: 'gg3',
+        defaults: dflt
+    });
+
+    var gg4 = new JustGage({
+        id: 'gg4',
+        defaults: dflt
+    });
+
+    var gg5 = new JustGage({
+        id: 'gg5',
+        defaults: dflt
+    });
+
+    var gg6 = new JustGage({
+        id: 'gg6',
+        defaults: dflt
+    });
+
+    var gg7 = new JustGage({
+        id: 'gg7',
+        defaults: dflt
+    });
+
+
+
 
 </script>
 

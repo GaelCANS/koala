@@ -21177,7 +21177,14 @@ body.avgrund-active {
     line-height: 1;
     background:#839ca2;
     cursor:pointer;
-    width: 60px!important;}
+    }
+
+
+
+ .select2-container--default .select2-selection--multiple .select2-search__field {
+    width: 60px!important;
+}
+
 .select2-container--default .select2-selection--multiple .select2-search__field::-webkit-input-placeholder{
     color:#ffffff;
 
@@ -21226,7 +21233,7 @@ body.avgrund-active {
 
 
 .select2-search--dropdown {
-    display:none!important;
+
 }
 
 #channels-table .select2-container--default .select2-selection--single {
@@ -22256,3 +22263,20 @@ div.tagsinput span.tag a {
     font-family: "Montserrat", sans-serif; }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+
+.gauge {
+    width: 76px;
+    height: 76px;
+    display: inline-block;
+}
+
+.gauge svg {
+    margin-bottom: -10px!important;
+}
+
+
+.indicator-subtitle {
+    font-size: 10.5px;
+    display: block;
+}
