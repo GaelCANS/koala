@@ -115,44 +115,69 @@
         max: 100,
         donut: true,
         gaugeWidthScale: 0.6,
+        valueFontSize: 11,
+        maxFontSize:11,
+        titleMinFontSize: 20,
+
         counter: true,
-        hideInnerShadow: true,
+        symbol: '%',
+        hideInnerShadow: true
 
     }
 
     var gg1 = new JustGage({
         id: 'gg1',
-        defaults: dflt
+        defaults: dflt,
+        levelColors: ['hotpink']
     });
 
     var gg2 = new JustGage({
         id: 'gg2',
-        defaults: dflt
+        defaults: dflt,
+        levelColors: ['hotpink']
     });
     var gg3 = new JustGage({
         id: 'gg3',
-        defaults: dflt
+        defaults: dflt,
+        levelColors: ['#ab8ce4']
     });
 
     var gg4 = new JustGage({
         id: 'gg4',
-        defaults: dflt
+        defaults: dflt,
+        levelColors: ['#ab8ce4']
     });
 
     var gg5 = new JustGage({
         id: 'gg5',
-        defaults: dflt
+        defaults: dflt,
+        levelColors: ['#3c589b']
     });
 
     var gg6 = new JustGage({
         id: 'gg6',
-        defaults: dflt
+        defaults: dflt,
+        levelColors: ['#00aced']
     });
 
     var gg7 = new JustGage({
         id: 'gg7',
-        defaults: dflt
+        defaults: dflt,
+        levelColors: ['#0077B5']
     });
+
+    var gg8 = new JustGage({
+        id: 'gg8',
+        defaults: dflt,
+        levelColors: ['hotpink']
+    });
+
+    var gg9 = new JustGage({
+        id: 'gg9',
+        defaults: dflt,
+        levelColors: ['hotpink']
+    });
+
 
 
 

@@ -11145,6 +11145,13 @@ tbody.collapse.show {
     font-weight:bold;
 }
 
+.dashboard tr {
+    font-weight:normal;
+}
+
+.dashboard tr.inprogress {
+    font-weight:bold!important;
+}
 
 .jumbotron {
     padding: 2rem 1rem;
@@ -15942,7 +15949,7 @@ label[for=cmm0] {
     font-family: "Montserrat", sans-serif; }
 .badge.badge-pill {
     border-radius: 10rem;
-    margin:0.1rem 0rem!important;}
+    }
 .badge.badge-fw {
     min-width: 70px; }
 
@@ -22275,6 +22282,21 @@ div.tagsinput span.tag a {
     margin-bottom: -10px!important;
 }
 
+
+/* Title */
+.gauge svg text:nth-child(6) tspan{
+    font-size: 0.8em !important;
+}
+
+/* Value */
+.gauge svg text:nth-child(7) tspan{
+    font-size: 0.5em !important;
+}
+
+/* Label */
+.gauge svg text:nth-child(8) tspan, #jgDownload text:nth-child(9) tspan, #jgDownload text:nth-child(10) tspan{
+    font-size: 0.9em !important;
+}
 
 .indicator-subtitle {
     font-size: 10.5px;
