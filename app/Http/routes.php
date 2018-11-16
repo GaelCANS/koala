@@ -101,6 +101,7 @@ Route::get('/planning/events', 'PlanningController@events')->name('planning-even
 
 // Statistic
 Route::get('/statistic', 'StatisticController@index')->name('statistic-index');
+Route::get('/statistic/channel', 'StatisticController@detail')->name('channel-stat');
 Route::auth();
 
 

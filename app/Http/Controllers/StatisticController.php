@@ -14,7 +14,11 @@ class StatisticController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('statistics.index');
-    }
+{
+    return view('statistics.index');
+}
+    public function detail()
+{
+    return view('statistics.channel-stat');
+}
 }

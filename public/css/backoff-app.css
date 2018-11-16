@@ -22273,29 +22273,33 @@ div.tagsinput span.tag a {
 
 
 .gauge {
-    width: 76px;
-    height: 76px;
+    width: 110px;
+    height: 110px;
     display: inline-block;
+
 }
 
 .gauge svg {
-    margin-bottom: -10px!important;
+    margin-bottom: -15px!important;
 }
 
 
 /* Title */
 .gauge svg text:nth-child(6) tspan{
-    font-size: 0.8em !important;
+    font-size: 1em !important;
+    font-family: "Montserrat", sans-serif;
 }
 
 /* Value */
 .gauge svg text:nth-child(7) tspan{
-    font-size: 0.5em !important;
+    font-size: 1em !important;
+    font-family: "Montserrat", sans-serif;
 }
 
 /* Label */
 .gauge svg text:nth-child(8) tspan, #jgDownload text:nth-child(9) tspan, #jgDownload text:nth-child(10) tspan{
-    font-size: 0.9em !important;
+    font-size: 1em !important;
+    font-family: "Montserrat", sans-serif;
 }
 
 .indicator-subtitle {

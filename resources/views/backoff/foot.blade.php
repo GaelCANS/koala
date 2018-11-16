@@ -71,6 +71,78 @@
 <script src="{{ url('/js/raphael-2.1.4.min.js') }}"></script>
 <script src="{{ url('/js/justgage.js') }}"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+<script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+
+
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'Ouvreurs',
+                backgroundColor: [
+                    'hotpink'
+                ],
+                borderColor: [
+                    'hotpink'
+
+                ],
+                data: [12, 19, 3, 5, 2, 3, 12, 20, 43, 32],
+                fill: false,
+            }, {
+                label: 'Cliqueurs',
+                fill: false,
+                backgroundColor: [
+                    '#d94a92'
+                ],
+                borderColor: [
+                    '#d94a92'
+                ],
+                data: [12, 29, 33, 35, 12, 33, 2, 10, 43, 32],
+
+            }]
+        },
+
+
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'emailing'
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: false,
+                        labelString: 'Month'
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: false,
+                        labelString: '%'
+                    }
+                }]
+            }
+        }
+    });
+</script>
 
 <script>
 
@@ -115,8 +187,8 @@
         max: 100,
         donut: true,
         gaugeWidthScale: 0.6,
-        valueFontSize: 11,
-        maxFontSize:11,
+        valueFontSize: 12,
+        maxFontSize:12,
         titleMinFontSize: 20,
 
         counter: true,
