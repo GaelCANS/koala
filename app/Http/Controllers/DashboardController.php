@@ -98,7 +98,7 @@ class DashboardController extends Controller
 
 
         // Last indicators
-        $indicators =   CampaignChannelIndicator::where('result' , '>', 0)
+        $indicators =   CampaignChannelIndicator::where('result' , '!=', '')
                         ->join('campaign_channel', 'campaign_channel.id', '=', 'campaign_channel_indicator.campaign_channel_id')
                         ->join('campaigns', 'campaigns.id', '=', 'campaign_channel.campaign_id')
                         ->where('campaigns.delete' , '0')

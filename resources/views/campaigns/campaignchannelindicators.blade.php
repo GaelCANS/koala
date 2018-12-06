@@ -11,7 +11,7 @@
     </li>-->
     <li class="list-inline-item ">
         <div class="form-group mb-0">
-            {!! Form::number( 'indicator['.$cci->uniqid.'][result]' , $cci->result , array( 'class' => 'form-control duplicatable bg-light  mb-0 p-1' , 'data-name' => 'result' ) ) !!}
+            {!! Form::number( 'indicator['.$cci->uniqid.'][result]' , $cci->result , array( 'class' => 'form-control duplicatable bg-light  mb-0 p-1' , 'data-name' => 'result', 'step' => 'any' ) ) !!}
         </div>
     </li>
 </ul>

@@ -269,7 +269,7 @@ class Campaign extends Model
             $indicators = CampaignChannelIndicator::where('campaign_channel_id' , $campaign_channel->pivot->id)->get();
             if (count($indicators) > 0){
                 foreach ($indicators as $indicator) {
-                    if ($indicator->result > 0) {
+                    if ( $indicator->result != "" ) {
                         $added[] = $indicator->result;
                     }
                     else {
