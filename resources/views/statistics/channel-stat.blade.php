@@ -10,27 +10,25 @@
     @include('statistics.search')
 
     <div class="row">
-        <div class="col-2 stretch-card grid-margin">
+        <div class="col-2 grid-margin">
             <div class="card">
                 <div class="card-body text-center mx-auto">
                     <div class="badge badge-outline-dark badge-pill mb-2">Emailing</div>
-
-
-                            <div class="col-12">
-                                <div id="gg8" class="gauge" data-value="25">
-                                    <span class="indicator-subtitle text-muted">ouvreurs</span>
-                                </div>
+                    <div class="d-block align-items-center justify-content-md-center text-center" >
+                        <div class="indicator-channel">
+                            <h3 style="color:#fb9678;">243</h3>
+                            <span class="indicator-subtitle text-muted mt-2 pb-3">clics/jour</span>
+                        </div>
+                        <div class="indicator-channel">
+                            <h3 style="color:#fb9678;">243</h3>
+                            <span class="indicator-subtitle text-muted mt-2 pb-3">clics/jour</span>
+                        </div>
+                        <div class="indicator-channel">
+                            <div id="gg9" class="gauge" data-value="4">
+                                <span class="indicator-subtitle text-muted  mt-0 pt-0">cliqueurs</span>
                             </div>
-                            <div class="col-12">
-                                <div id="gg9" class="gauge" data-value="4">
-                                    <span class="indicator-subtitle text-muted  mt-0 pt-0">cliqueurs</span>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div id="gg3" class="gauge" data-value="1">
-                                    <span class="indicator-subtitle text-muted  mt-0 pt-0">désabonnés</span>
-                                </div>
-                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -43,10 +41,7 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-
 
     <div class="stretch-card">
         <div class="card">
@@ -127,7 +122,6 @@
                                                     </div>
                                                 </td>
                                             </tr>
-
                                         </tbody>
                                     </table>
                                 </div>
