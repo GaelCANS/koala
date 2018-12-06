@@ -33,36 +33,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        
-        //$trello = new Library\Features\Trello\TrelloApi(true);
-        //dd( $trello->getBoard("X72KLITS") );
-        //dd($trello->deleteCard('5ae9c16e6920e8e825d150d2'));
-        // Checklist : 5ae9d1eac0f72c90924e19ae
-        // Item : 5ae9d292ae21086b59b6a45b
-        // Card : 5ae9d59c0531814306e2442f
-        // Trello->Card()->Comment()->add();
-        /*dd(
-            $trello->addComment('5ae9d59c0531814306e2442f' , 'Mon super commentaire')
-        );
-        $returnAdd = $trello->addCard(
-            "584517883280f73b7d89f308",
-            array(
-                'name' => "Nom test de carte ccouou" ,
-                "desc" => "Ma super description de carte 2" ,
-                "due" => "2018-05-22")
-        );
-
-        dd(
-            $returnAdd
-        );
-        */
-
-
-
-
-
         // Campagnes en cours/ à venir
         $date = Carbon::now();
+        $date = Carbon::createFromFormat('m-Y', date('m-Y'));
+
         $campaigns = Campaign::notdeleted()
                      ->savedOnly()
                      ->published()
