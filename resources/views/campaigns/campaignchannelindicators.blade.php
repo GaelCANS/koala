@@ -1,3 +1,4 @@
+
 <ul class="list-inline mb-1 indicator" style="min-width:220px;">
     <li class="list-inline-item ">
         <label class="label-indicator">{{$indicator->name}}</label>
@@ -11,7 +12,7 @@
     </li>-->
     <li class="list-inline-item ">
         <div class="form-group mb-0">
-            {!! Form::number( 'indicator['.$cci->uniqid.'][result]' , $cci->result , array( 'class' => 'form-control duplicatable bg-light  mb-0 p-1' , 'data-name' => 'result', 'step' => 'any' ) ) !!}
+            {!! Form::number( 'indicator['.$cci->uniqid.'][result]' , $cci->result , array( 'class' => 'form-control duplicatable bg-light  mb-0 p-1' , 'data-name' => 'result', 'step' => 'any', 'data-specific' => $cci->speClass , 'data-cci' => $channel->pivot->uniqid ) ) !!}
         </div>
     </li>
 </ul>

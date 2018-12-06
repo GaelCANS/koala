@@ -478,6 +478,16 @@ $(document).ready(function(){
         /**
          * Campaign
          *
+         * Calcule de l'engagement sur les indicateurs de Facebook
+         */
+        $('input[data-specific="portee"],input[data-specific="interaction"]').on('change', function () {
+            $('input[data-specific="engagement"][data-cci="'+$(this).data('cci')+'"]').val(engagement($(this).data('cci')));
+        });
+
+
+        /**
+         * Campaign
+         *
          * Gestion de la duplication de Campaignchannel
          *
          * Si l'attribut data-msg est renseigné, on affiche un message de confirmation avant traitement
@@ -1074,4 +1084,18 @@ function sendRequestFormbox(){
 }
 
 
-
+/**
+ * Campaign - indicator engagement facebook
+ */
+function engagement(id) {
+    if ($('input[data-specific="portee"][data-cci="'+id+'"]').length > 0 && $('input[data-specific="interaction"][data-cci="'+id+'"]').length > 0 && $('input[data-specific="engagement"][data-cci="'+id+'"]').length > 0) {
+        var portee = $('input[data-specific="portee"][data-cci="'+id+'"]').val();
+        var interaction = $('input[data-specific="interaction"][data-cci="'+id+'"]').val();
+        var engagement = "";
+        if (portee > 0 && interaction > 0) {
+            engagement = (interaction*100)/portee
+            engagement = Math.round(engagement*100)/100;
+        }
+        return engagement;
+    }
+}

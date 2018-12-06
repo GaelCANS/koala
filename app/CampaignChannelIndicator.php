@@ -17,6 +17,38 @@ class CampaignChannelIndicator extends Model
     protected $guarded = array('id');
 
 
+    /**
+     * ACCESSORS // MUTATOS
+     */
+    public function getIndicatorInteractionAttribute()
+    {
+        return Parameter::getParameter('interaction' , 'indicator') == $this->indicator_id ? true : false;
+    }
+
+    public function getIndicatorPorteeAttribute()
+    {
+        return Parameter::getParameter('portee' , 'indicator') == $this->indicator_id ? true : false;
+    }
+
+    public function getIndicatorEngagementAttribute()
+    {
+        return Parameter::getParameter('engagement' , 'indicator') == $this->indicator_id ? true : false;
+    }
+
+    public function getSpeClassAttribute()
+    {
+        if ($this->indicatorInteraction) {
+            return 'interaction';
+        }
+        else if ($this->indicatorPortee) {
+            return 'portee';
+        }
+        else if ($this->indicatorEngagement) {
+            return 'engagement';
+        }
+        return "";
+    }
+
 
     /**
      * RELATIONSHIPS
