@@ -216,4 +216,25 @@ class CmmController extends Controller
 
     }
 
+    public function annulation(Request $request)
+    {
+        // Construction d'un tableau avec les emails des destinataires principaux
+        $emails = explode(';' , $request->recipients);
+        // Construction d'un tableau avec les emails des destinataires occasionnels
+        $emails_cc = trim($request->guests) != "" ? explode(';' , $request->guests) : array();
+        $content = $request->contents;
+
+        // Envoi de l'email
+        Mail::send('emails.annulation', array('content' => $content), function ($m) use ($request, $emails , $emails_cc) {
+            $m->from(Parameter::getParameter('expeditor','common'), Parameter::getParameter('expeditor_name','common'));
+            $m->to($emails)->subject( $request->subject );
+            if (count($emails_cc) > 0)
+                $m->cc($emails_cc);
+        });
+
+        return response()->json([
+            'state' => '1'
+        ]);
+    }
+
 }

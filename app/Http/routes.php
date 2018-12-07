@@ -84,6 +84,7 @@ Route::get('/cmm/close', 'CmmController@close');
 Route::post('/cmm/previous', 'CmmController@previous');
 Route::post('/cmm/addCampaign', 'CmmController@addCampaign');
 Route::post('/cmm/send', 'CmmController@send');
+Route::post('/cmm/annulation', 'CmmController@annulation');
 
 
 

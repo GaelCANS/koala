@@ -21,5 +21,6 @@
     </div>
 
     @include('cmms.modal')
+    @include('cmms.modal-annulation')
 
 @endsection

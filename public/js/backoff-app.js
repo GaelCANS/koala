@@ -409,6 +409,15 @@ $(document).ready(function(){
             sendMail();
         });
 
+        /**
+         * CMM
+         */
+        $('#send-annulation').on('click' , function () {
+            $('#loading-mail').show();
+            $('#send-annulation').hide();
+            sendAnnulation();
+        });
+
 
         /**
          * Campaign index
@@ -901,6 +910,36 @@ function sendMail()
         error: function () {
             $('#loading-mail').hide();
             $('#send-mail').show();
+            alert("Une erreur est survenue, votre mail n'a pas pu être envoyé. Vérifiez le format des adresses emails de vos destinataires.");
+        }
+    });
+}
+
+
+/**
+ * CMM
+ **/
+function sendAnnulation()
+{
+    $.ajax({
+        url: $('#send-annulation').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            recipients: $('#recipients-annulation').val(),
+            guests: $('#guests-annulation').val(),
+            subject: $('#subject-annulation').val(),
+            contents: $('#content-annulation').summernote('code')
+        },
+        type: 'POST',
+        datatype: 'JSON',
+        success: function (resp) {
+            $('#annulation-loading-mail').hide();
+            $('#send-annulation').show();
+            $('#annulation-cmm').modal('toggle');
+        },
+        error: function () {
+            $('#annulation-loading-mail').hide();
+            $('#send-annulation').show();
             alert("Une erreur est survenue, votre mail n'a pas pu être envoyé. Vérifiez le format des adresses emails de vos destinataires.");
         }
     });
