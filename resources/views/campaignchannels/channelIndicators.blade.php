@@ -11,7 +11,7 @@
     </li>-->
     <li class="list-inline-item">
         <div class="form-group mb-0">
-            {!! Form::number( 'indicator['.$campaignChannelIndicator->uniqid.'][result]' , $campaignChannelIndicator->result , array( 'class' => 'form-control duplicatable-indicator bg-light mb-0 p-1' , 'data-name' => 'result' , 'data-indicator' => $campaignChannelIndicator->Indicator->id, 'step' => 'any' , 'data-specific' => $cci->speClass , 'data-cci' => $channel->pivot->uniqid ) ) !!}
+            {!! Form::number( 'indicator['.$campaignChannelIndicator->uniqid.'][result]' , $campaignChannelIndicator->result , array( 'class' => 'form-control duplicatable-indicator bg-light mb-0 p-1' , 'data-name' => 'result' , 'data-indicator' => $campaignChannelIndicator->Indicator->id, 'step' => 'any' , 'data-specific' => $campaignChannelIndicator->Indicator->speClass , 'data-cci' => $channel->uniqid ) ) !!}
         </div>
     </li>
 </ul>
