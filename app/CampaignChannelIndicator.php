@@ -61,7 +61,7 @@ class CampaignChannelIndicator extends Model
 
     // 1 to 1
     public function campaignChannel() {
-        return $this->belongsTo('App\campaignChannel');
+        return $this->belongsTo('App\CampaignChannel');
     }
 
 

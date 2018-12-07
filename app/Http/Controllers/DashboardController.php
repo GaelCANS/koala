@@ -106,7 +106,7 @@ class DashboardController extends Controller
                         ->take(5)
                         ->get();
         $indicators->load('Indicator');
-        $indicators->load('campaignChannel');
+        $indicators->load('CampaignChannel');
 
 
         // Best indicators
