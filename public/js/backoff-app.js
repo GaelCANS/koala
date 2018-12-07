@@ -178,7 +178,6 @@ $(document).ready(function(){
         //$('.datepicker[data-name="begin"]').on('change',function () {
         $('#channels-table').on('change', '.datepicker[data-name="begin"]' , function () {
            var timeLimit = $(this).parents('tr').find('.time-limit');
-            console.log("-----> "+timeLimit.data('delay'));
             if (timeLimit.data('delay') > 0) {
                 calculateDatelimit(timeLimit);
             }
@@ -480,7 +479,7 @@ $(document).ready(function(){
          *
          * Calcule de l'engagement sur les indicateurs de Facebook
          */
-        $('input[data-specific="portee"],input[data-specific="interaction"]').on('change', function () {
+        $( '#channels-table').on('change', 'input[data-specific="portee"],input[data-specific="interaction"]' , function () {
             $('input[data-specific="engagement"][data-cci="'+$(this).data('cci')+'"]').val(engagement($(this).data('cci')));
         });
 
