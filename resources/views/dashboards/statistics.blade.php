@@ -38,7 +38,7 @@
                     'value'     => $statistics[2]['today'] ,
                     'title'     => $statistics[2]['before'] ,
                     'channel'   => $statistics[2]['channel'] ,
-                    'text'      => $statistics[2]['name'],
+                    'text'      => $statistics[2]['name'].'/jour',
                     'percent'   => $statistics[2]['percent']
                 )
             )

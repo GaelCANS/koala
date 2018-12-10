@@ -23,6 +23,8 @@ class Statistics
 
     private $evolution      = 0;
 
+    private $isBan          = null;
+
 
     /**
      * Statistics constructor.
@@ -32,6 +34,12 @@ class Statistics
     {
         $this->indicator = \App\Indicator::findOrFail($indicator);
         $this->month     = date('m');
+        $this->isBan     = $this->isBanniere();
+    }
+
+    private function isBanniere()
+    {
+        return Parameter::getParameter('indicator_clics' , 'dashboard') == $this->indicator->id ? true : false;
     }
 
     public function getStatisticsNow()
@@ -69,6 +77,12 @@ class Statistics
             ->where('campaign_channel_indicator.result' , '>' , 0)
             ->avg('campaign_channel_indicator.result');
 
+        if ($this->isBan) {
+            $dateBegin = Carbon::parse($begin);
+            $dateEnd   = Carbon::parse($end);
+            $diff = $dateBegin->diffInDays($dateEnd);
+            return round($average/$diff);
+        }
         return round($average);
     }
 
