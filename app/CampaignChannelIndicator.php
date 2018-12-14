@@ -22,17 +22,17 @@ class CampaignChannelIndicator extends Model
      */
     public function getIndicatorInteractionAttribute()
     {
-        return Parameter::getParameter('interaction' , 'indicator') == $this->indicator_id ? true : false;
+        return in_array($this->indicator_id , array(Parameter::getParameter('interaction' , 'indicator') , Parameter::getParameter('interaction2' , 'indicator')) );
     }
 
     public function getIndicatorPorteeAttribute()
     {
-        return Parameter::getParameter('portee' , 'indicator') == $this->indicator_id ? true : false;
+        return in_array($this->indicator_id , array(Parameter::getParameter('portee' , 'indicator') , Parameter::getParameter('portee2' , 'indicator')) );
     }
 
     public function getIndicatorEngagementAttribute()
     {
-        return Parameter::getParameter('engagement' , 'indicator') == $this->indicator_id ? true : false;
+        return in_array($this->indicator_id , array(Parameter::getParameter('engagement' , 'indicator') , Parameter::getParameter('engagement2' , 'indicator')) );
     }
 
     public function getSpeClassAttribute()
