@@ -14777,7 +14777,7 @@ h4,
 h5,
 .h5 {
     font-size: 0.85rem;
-    line-height: 2.5;}
+    line-height: ;}
 
 h6,
 .h6 {
@@ -20375,6 +20375,10 @@ body.avgrund-active {
     cursor:pointer;
 }
 
+#stat-search .datepicker {
+    min-width: 125px;
+    max-width: 160px;
+}
 
 .datepicker.datepicker-dropdown, .datepicker.datepicker-inline {
     padding: 0 25px;
@@ -22279,10 +22283,14 @@ div.tagsinput span.tag a {
 
 
 .indicator-channel {
-    width:110px;
-    padding: 0px;
-    margin: 10px 0px;
+    width: 100%;
+    padding: 5px 15px;
+    margin:0px;
     text-align: center;
+}
+
+.indicator-channel h2 {
+    font-weight:bold;
 }
 
 .gauge {
@@ -22318,4 +22326,29 @@ div.tagsinput span.tag a {
 .indicator-subtitle {
     font-size: 10.5px;
     display: block;
+}
+
+
+#stat-search {
+    border: 4px solid #FFF;
+    border-radius:4px;
+    padding: 15px;
+    margin: 0px 0px 10px;
+
+}
+
+
+
+
+.dashboard-stat .stretch-card {
+    margin: 10px;
+    min-width: 190px;
+}
+
+
+
+.dashboard-stat .badge.number {
+    display: inline;
+    position: absolute;
+    right: 15px;
 }

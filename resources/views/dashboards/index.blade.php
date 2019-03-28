@@ -7,7 +7,7 @@
             @include('dashboards.campaigns')
         </div>
         @include('dashboards.statistics')
-
+   
         @include('dashboards.mycampaigns')
         @include('dashboards.results')
     </div>
