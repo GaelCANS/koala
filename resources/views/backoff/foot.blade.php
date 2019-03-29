@@ -256,7 +256,7 @@
     var gg9 = new JustGage({
         id: 'gg9',
         defaults: dflt,
-        levelColors: ['hotpink']
+        levelColors: ['#8b476a']
     });
 
 

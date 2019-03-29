@@ -6,12 +6,10 @@
 
     @include('statistics.search')
 
-
     <div class="row dashboard-stat">
-
         <div class="grid-margin stretch-card">
             <div class="card p-3">
-                <div class="badge badge-outline-dark badge-pill">Emailing</div><span class="badge badge-info number">19</span>
+                <div class="badge badge-outline-dark badge-pill">Emailing</div><span class="badge badge-pill  badge-outline-info number">19</span>
                 <div class="d-flex align-items-center justify-content-md-center text-center h-100">
                     <div class="indicator-channel">
                         <div id="gg8" class="gauge" data-value="25">
@@ -36,7 +34,7 @@
 
         <div class="grid-margin stretch-card">
             <div class="card p-3">
-                <div class="badge badge-outline-dark badge-pill">vitr - ban part</div><span class="badge badge-info number">327</span>
+                <div class="badge badge-outline-dark badge-pill">vitr - ban part</div><span class="badge badge-pill  badge-outline-info number">327</span>
                     <div class="d-flex align-items-center justify-content-md-center text-center h-100">
                         <div class="indicator-channel">
                             <h2 style="color:#fb9678;">243</h2>
@@ -49,7 +47,7 @@
 
         <div class="grid-margin stretch-card">
             <div class="card p-3">
-                <div class="badge badge-outline-dark badge-pill">eMessage BAM</div><span class="badge badge-info number">2</span>
+                <div class="badge badge-outline-dark badge-pill">eMessage BAM</div><span class="badge badge-pill badge-outline-info number">2</span>
                 <div class="d-flex align-items-center justify-content-md-center text-center h-100">
                     <div class="indicator-channel">
                         <h2 style="color:#fb9678;">243</h2>
@@ -67,7 +65,7 @@
 
         <div class="grid-margin stretch-card">
             <div class="card p-3">
-                <div class="badge badge-outline-dark badge-pill">Post Facebook</div><span class="badge badge-info number">7</span>
+                <div class="badge badge-outline-dark badge-pill">Post Facebook</div><span class="badge badge-pill  badge-outline-info number">7</span>
                 <div class="d-flex align-items-center justify-content-md-center text-center h-100">
                     <div class="indicator-channel">
                         <h2  style="color:#3c589b;">243</h2>
@@ -82,16 +80,7 @@
                 <a href="{{route('channel-stat')}}" class="btn btn-light btn-xs mt-1">Voir en détail</a>
             </div>
         </div>
-
-
-
-
     </div>
-
-
-
-
-
 
 
 @endsection

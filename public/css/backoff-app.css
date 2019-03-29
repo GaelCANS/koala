@@ -22329,11 +22329,11 @@ div.tagsinput span.tag a {
 }
 
 
-#stat-search {
-    border: 4px solid #FFF;
-    border-radius:4px;
-    padding: 15px;
-    margin: 0px 0px 10px;
+#stat-search, #search, #head-campaign-details  {
+    border-radius: 4px;
+    padding: 20px 15px;
+    margin: 0px 0px 15px;
+    background: rgba(255, 255, 255, 0.45)!important;
 
 }
 
@@ -22341,8 +22341,8 @@ div.tagsinput span.tag a {
 
 
 .dashboard-stat .stretch-card {
-    margin: 10px;
-    min-width: 190px;
+    margin: 0px 10px 10px 10px;
+    min-width: 200px;
 }
 
 

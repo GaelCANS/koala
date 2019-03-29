@@ -31,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    <span class="badge badge-info number mt-2 text-uppercase">19 Campagnes</span>
+                    <span class="badge badge-outline-info number mt-2 text-uppercase">19 Campagnes</span>
                 </div>
             </div>
         </div>
@@ -63,9 +63,7 @@
                                             <th>Noms</th>
                                             <th>Marchés</th>
                                             <th>Périodes</th>
-                                            <th>Canaux</th>
-                                            <th>Resp.</th>
-                                            <th>Résultats</th>
+                                            <th colspan="3">Indicateurs</th>
                                         </tr>
                                         </thead>
                                         <tbody>
