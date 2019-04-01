@@ -71,77 +71,86 @@
 <script src="{{ url('/js/raphael-2.1.4.min.js') }}"></script>
 <script src="{{ url('/js/justgage.js') }}"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
 
 <script>
-    var ctx = document.getElementById("myChart").getContext('2d');
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+
+
     var myChart = new Chart(ctx, {
         type: 'line',
 
-
         data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [{
-                label: 'Ouvreurs',
-                backgroundColor: [
-                    'hotpink'
-                ],
-                borderColor: [
-                    'hotpink'
+            labels: [
+                '2018-09',
+                '2018-10',
+                '2018-11',
+                '2018-12',
+                '2019-01',
+                '2019-02',
+                '2019-03',
+                '2019-04'
+            ],
 
-                ],
-                data: [12, 19, 3, 5, 2, 3, 12, 20, 43, 32],
+            datasets: [{
+
+                label: 'Ouvreurs',
                 fill: false,
+                data: [32, 38, 29, 35, 38, 39, 27, 43],
+                backgroundColor: 'rgb(255, 105, 180)',
+                borderColor: 'rgb(255, 105, 180)',
             }, {
+
                 label: 'Cliqueurs',
                 fill: false,
-                backgroundColor: [
-                    '#d94a92'
-                ],
-                borderColor: [
-                    '#d94a92'
-                ],
-                data: [12, 29, 33, 35, 12, 33, 2, 10, 43, 32],
+                data: [32, 18, 19, 15, 18, 39, 17, 13],
+                backgroundColor: '#8b476a',
+                borderColor: '#8b476a',
 
+            }, {
+                label: 'Désabonnés',
+                fill: false,
+                data: [0, 1, 2, 1, 3,4, 6, 1],
+                backgroundColor: 'rgb(171, 140, 228)',
+                borderColor: 'rgb(171, 140, 228)',
             }]
         },
-
-
         options: {
-            responsive: true,
-            title: {
-                display: true,
-                text: 'emailing'
+            responsive:true,
+            maintainAspectRatio:true,
+            aspectRatio:2,
+            legend: {
+                position:'top',
+                labels: {
+                    fontSize: 12,
+                    padding:30
+                }
             },
             tooltips: {
                 mode: 'index',
                 intersect: false,
-            },
-            hover: {
-                mode: 'nearest',
-                intersect: true
+
             },
             scales: {
                 xAxes: [{
                     display: true,
-                    scaleLabel: {
-                        display: false,
-                        labelString: 'Month'
-                    }
+
                 }],
                 yAxes: [{
                     display: true,
-                    scaleLabel: {
-                        display: false,
-                        labelString: '%'
-                    }
+
                 }]
             }
         }
     });
+
+
 </script>
 
 <script>
@@ -247,7 +256,7 @@
     var gg9 = new JustGage({
         id: 'gg9',
         defaults: dflt,
-        levelColors: ['hotpink']
+        levelColors: ['#8b476a']
     });
 
 

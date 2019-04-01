@@ -3,8 +3,8 @@
 @section('content')
     <h4 class="page-title d-none mr-2">Planning des campagnes</h4>
     <div class="row" id="container-calendar" data-day="{{ $day }}" data-link="{{ route('planning-events') }}">
-        <div class="col-12">
-            <ul class="list-inline" id="list-channels">
+        <div  class="col-12">
+            <ul id="search" class="list-inline" id="list-channels">
                 <h6>Canaux sélectionnés</h6>
                 @foreach($channels as $channel)
                     <div id="channels" class="icheck-line {{$channel->class_name}}" >
@@ -20,10 +20,10 @@
                     <span class="d-inline-block mr-4 service-canaux real-service" style="cursor:pointer;" data-service="crm" data-show="1"><i class="fa fa-window-minimize" style="color:#ab8ce4;"></i>CRM</span>
                     <span class="d-inline-block mr-4 service-canaux real-service" style="cursor:pointer;" data-service="communication" data-show="1"><i class="fa fa-window-minimize" style="color:#03a9f3;"></i>Communication</span>
                     <span class="d-inline-block service-canaux real-service" style="cursor:pointer;" data-service="animation" data-show="1"><i class="fa fa-window-minimize" style="color:#ffb463;"></i>Animation commerciale</span>
-                    <span class="d-inline-block service-canaux" style="cursor:pointer;" data-service="all" data-show="1"><i class="fa fa-window-minimize" style="color:#E0E9EB;"></i>Tout masquer/voir</span>
-
-
                 </div>
+                <span class="d-inline-block service-canaux mt-3" style="cursor:pointer;" data-service="all" data-show="1">
+                        <button class="btn btn-info">TOUT AFFICHER / MASQUER</button>
+                    </span>
             </ul>
         </div>
         <div class="col-lg-12">

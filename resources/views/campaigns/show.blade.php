@@ -33,7 +33,7 @@
     <div class="row" id="show-campaign">
         <div class="col-md-9 p-0">
             <div class="col-md-12 grid-margin">
-                <div class="card bg-transparent">
+                <div id="head-campaign-details" class="card">
                     <div class="row mb-3">
                         <div class="col-4">
                             <h6>Nom</h6>
@@ -149,7 +149,8 @@
                         <div class="col-12">
                             <div class="wrapper">
                                 <div class="d-flex">
-                                    {!! Form::text( 'resource_link' , null , array( 'class' => 'form-control bg-light' , 'placeholder' => 'Chemin APUBLIC' ) ) !!}
+                                    {!! Form::text( 'resource_link' , null , array( 'class' => 'form-control bg-light' , 'placeholder' => 'Copier/coller le chemin texte APUBLIC' ) ) !!}
+
                                 </div>
                             </div>
                         </div>
