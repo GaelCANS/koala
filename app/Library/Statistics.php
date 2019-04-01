@@ -81,7 +81,10 @@ class Statistics
             $dateBegin = Carbon::parse($begin);
             $dateEnd   = Carbon::parse($end);
             $diff = $dateBegin->diffInDays($dateEnd);
-            return round($average/$diff);
+            if ( $diff > 0 )
+                return round($average/$diff);
+            else
+                return '-';
         }
         return round($average);
     }
