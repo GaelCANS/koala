@@ -81,8 +81,6 @@
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
 
-
-
     var myChart = new Chart(ctx, {
         type: 'line',
 
@@ -104,21 +102,134 @@
                 fill: false,
                 data: [32, 38, 29, 35, 38, 39, 27, 43],
                 backgroundColor: 'rgb(255, 105, 180)',
-                borderColor: 'rgb(255, 105, 180)',
+                borderColor: 'rgb(255, 105, 180)'
             }, {
 
                 label: 'Cliqueurs',
                 fill: false,
                 data: [32, 18, 19, 15, 18, 39, 17, 13],
                 backgroundColor: '#8b476a',
-                borderColor: '#8b476a',
+                borderColor: '#8b476a'
 
             }, {
                 label: 'Désabonnés',
                 fill: false,
                 data: [0, 1, 2, 1, 3,4, 6, 1],
                 backgroundColor: 'rgb(171, 140, 228)',
-                borderColor: 'rgb(171, 140, 228)',
+                borderColor: 'rgb(171, 140, 228)'
+            }]
+        },
+        options: {
+            responsive:true,
+            maintainAspectRatio:true,
+            aspectRatio:2,
+            legend: {
+                position:'top',
+                labels: {
+                    fontSize: 12,
+                    padding:30
+                }
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false
+
+            },
+            scales: {
+                xAxes: [{
+                    display: true
+
+                }],
+                yAxes: [{
+                    display: true
+
+                }]
+            }
+        }
+    });
+
+
+    var ctx = document.getElementById('myChart1').getContext('2d');
+
+    var myChart1 = new Chart(ctx, {
+        type: 'line',
+
+        data: {
+            labels: [
+                '2018-09',
+                '2018-10',
+                '2018-11',
+                '2018-12',
+                '2019-01',
+                '2019-02',
+                '2019-03',
+                '2019-04'
+            ],
+
+            datasets: [{
+
+                label: 'Clics',
+                fill: false,
+                data: [132, 338, 229, 135, 338, 239, 427, 143],
+                backgroundColor: '#fb9678',
+                borderColor: '#fb9678'
+            }]
+        },
+        options: {
+            responsive:true,
+            maintainAspectRatio:true,
+            aspectRatio:2,
+            legend: {
+                position:'top',
+                labels: {
+                    fontSize: 12,
+                    padding:30
+                }
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false
+
+            },
+            scales: {
+                xAxes: [{
+                    display: true
+
+                }],
+                yAxes: [{
+                    display: true
+
+                }]
+            }
+        }
+    });
+
+
+
+    var ctx = document.getElementById('myChart2').getContext('2d');
+
+    var myChart2 = new Chart(ctx, {
+        type: 'line',
+
+        data: {
+            labels: [
+                '2018-09',
+                '2018-10',
+                '2018-11',
+                '2018-12',
+                '2019-01',
+                '2019-02',
+                '2019-03',
+                '2019-04'
+            ],
+
+            datasets: [{
+
+                label: 'Engagements',
+                fill: false,
+                data: [12, 38, 29, 35, 38, 39, 27, 43],
+                backgroundColor: '#f75757',
+                borderColor: '#f75757'
             }]
         },
         options: {
@@ -149,7 +260,6 @@
             }
         }
     });
-
 
 </script>
 
@@ -215,7 +325,7 @@
     var gg2 = new JustGage({
         id: 'gg2',
         defaults: dflt,
-        levelColors: ['hotpink']
+        levelColors: ['#f75757']
     });
     var gg3 = new JustGage({
         id: 'gg3',

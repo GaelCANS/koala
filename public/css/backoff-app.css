@@ -14456,11 +14456,15 @@ input:focus {
     height: 58px; }
 @media (max-width: 991px) {
     .navbar .navbar-menu-wrapper {
-        width: 90%; }
+        width: calc(100% - 85px);
+    margin-left:10px;}
 
     .header-title {
-        width: auto!important;
+        width: 100%!important;
     }
+
+
+
 
 }
 .navbar .navbar-menu-wrapper .navbar-toggler {

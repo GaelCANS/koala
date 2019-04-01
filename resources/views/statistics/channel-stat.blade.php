@@ -46,6 +46,52 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-12 col-xl-2 grid-margin">
+            <div class="card">
+                <div class="card-body text-center mx-auto">
+                    <div class="badge badge-outline-dark badge-pill mb-2">eMessage bam</div>
+                    <div class="d-flex d-xl-block align-items-center justify-content-md-center text-center" >
+                        <div class="indicator-channel">
+                            <h2 style="color:#fb9678;">243</h2>
+                            <span class="indicator-subtitle text-muted mt-2">clics/jour</span>
+                        </div>
+                        <div class="indicator-channel">
+                            <div id="gg2" class="gauge" data-value="74">
+                                <span class="indicator-subtitle text-muted  mt-0 pt-0">engagements</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="badge badge-outline-info number mt-2 text-uppercase">342 Campagnes</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-10 stretch-card grid-margin">
+
+            <div class="row">
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <canvas id="myChart1"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flexe">
+                                <canvas id="myChart2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="stretch-card">
         <div class="card">
             <div class="card-body">
