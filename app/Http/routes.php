@@ -106,6 +106,13 @@ Route::get('/statistic/channel', 'StatisticController@detail')->name('channel-st
 Route::auth();
 
 
+
+// Lexique
+Route::get('/lexique', 'LexiqueController@index')->name('lexique-index');
+Route::auth();
+
+
+
 // Export
 Route::get('/export/excel/list-campaigns', 'ExportController@excelListeCampaigns')->name('excel-list-campaigns');
 

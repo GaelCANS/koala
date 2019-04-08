@@ -52,6 +52,12 @@
                         <span class="menu-title">Statistiques</span>
                     </a>
                 </li>
+                <li class="nav-item d-none d-lg-block nav-item @if( Route::currentRouteName() == 'lexique-index' ) active @endif">
+                    <a class="nav-link" href="{{route('lexique-index')}}">
+                        <i class="icon-book-open menu-icon"></i>
+                        <span class="menu-title">Glossaire</span>
+                    </a>
+                </li>
                 @if (auth()->user()->admin)
                 <li class="nav-item">
                     <a class="nav-link collapsed" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
