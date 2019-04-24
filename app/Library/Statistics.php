@@ -4,6 +4,7 @@ namespace App\Library;
 use App\Campaign;
 use App\Parameter;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -206,5 +207,15 @@ class Statistics
 
 
 
+    public static function dataSearch()
+    {
+        // Récupération des critères de filtre stockés en cookie
+        $request = (object)Cookie::get('stats');
+
+        return array(
+            'begin'    => !empty($request->begin) ? $request->begin : Carbon::today()->format('d/m/Y'),
+            'end'      => !empty($request->end) ? $request->end : Carbon::today()->subDays(30)->format('d/m/Y')
+        );
+    }
 
 }

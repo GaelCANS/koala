@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Library\Statistics;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Cookie;
 
 class StatisticController extends Controller
 {
@@ -14,11 +17,32 @@ class StatisticController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-{
-    return view('statistics.index');
-}
+    {
+        $data = Statistics::dataSearch();
+
+        return view('statistics.index', compact('data'));
+    }
     public function detail()
-{
-    return view('statistics.channel-stat');
-}
+    {
+        $data = Statistics::dataSearch();
+
+        return view('statistics.channel-stat', compact('data'));
+    }
+
+    public function filter(Request $request)
+    {
+        Cookie::queue('stats' , $request->all());
+        return redirect(action('StatisticController@index'));
+    }
+
+    /**
+     * Clear filter
+     *
+     * @param Request $request
+     */
+    public function clearfilter(Request $request)
+    {
+        \Cookie::queue(\Cookie::forget('stats'));
+        return redirect(action('StatisticController@index'));
+    }
 }
