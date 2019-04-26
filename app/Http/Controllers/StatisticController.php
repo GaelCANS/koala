@@ -19,6 +19,8 @@ class StatisticController extends Controller
     public function index()
     {
         $data = Statistics::dataSearch();
+        $stats = Statistics::channelsStats(Statistics::channelsWithIndicator());
+        dump($stats);
 
         return view('statistics.index', compact('data'));
     }

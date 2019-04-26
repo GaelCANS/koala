@@ -2,6 +2,9 @@
 
 namespace App\Library;
 use App\Campaign;
+use App\CampaignChannelIndicator;
+use App\Channel;
+use App\Indicator;
 use App\Parameter;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cookie;
@@ -216,6 +219,65 @@ class Statistics
             'begin'    => !empty($request->begin) ? $request->begin : Carbon::today()->format('d/m/Y'),
             'end'      => !empty($request->end) ? $request->end : Carbon::today()->subDays(30)->format('d/m/Y')
         );
+    }
+
+    public static function channelsWithIndicator()
+    {
+        return Indicator::notdeleted()->distinct('channel_id')->pluck('channel_id')->toArray();
+    }
+
+
+    public static function channelsStats($channels)
+    {
+        $channel_stats = array();
+        foreach ($channels as $channel_id) {
+            $channel = Channel::findOrFail($channel_id);
+            $channel->load('Indicators');
+            $channel_stats[$channel->id] = array(
+                'channel' => $channel->name,
+                'stats'   => self::channelStats($channel)
+            );
+        }
+        return $channel_stats;
+    }
+
+    public static function channelStats($channel)
+    {
+        $datas = self::dataSearch();
+        $channelIndicators = array();
+        foreach ($channel->Indicators as $indicator) {
+            $channelIndicators[$indicator->id] = array(
+                'indicator' => $indicator->name,
+                'average'   => self::getIndicators($indicator)
+            );
+        }
+        return $channelIndicators;
+    }
+
+    public static function getIndicators($indicator)
+    {
+        $datas = self::dataSearch();
+        $indicators = CampaignChannelIndicator::whereIndicatorId($indicator->id)
+            ->whereBetween(
+                'created_at' ,
+                array(
+                    Carbon::createFromFormat('d/m/Y', $datas['end'])->format('Y-m-d 00:00:00') ,
+                    Carbon::createFromFormat('d/m/Y', $datas['begin'])->format('Y-m-d 23:59:59')
+                )
+            )
+            ->get();
+        return self::indicatorStats($indicators, $indicator);
+    }
+
+    public static function indicatorStats($indicators, $id)
+    {
+        if (count($indicators)) {
+            $total = 0;
+            foreach ($indicators as $indicator) {
+                $total += $indicator->result;
+            }
+            return $total/count($indicators);
+        }
     }
 
 }
