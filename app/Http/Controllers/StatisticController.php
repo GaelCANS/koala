@@ -20,9 +20,8 @@ class StatisticController extends Controller
     {
         $data = Statistics::dataSearch();
         $stats = Statistics::channelsStats(Statistics::channelsWithIndicator());
-        dump($stats);
 
-        return view('statistics.index', compact('data'));
+        return view('statistics.index', compact('data', 'stats'));
     }
     public function detail()
     {

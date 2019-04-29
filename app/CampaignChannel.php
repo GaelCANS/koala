@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Library\Statistics;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -157,6 +158,20 @@ class CampaignChannel extends Model
                 }
             }
         }
+    }
+
+
+    public function scopeCampaignChannelStats($query,$channel)
+    {
+        $datas = Statistics::dataSearch();
+        return $query->whereChannelId($channel->id)
+            ->whereBetween(
+                'begin' ,
+                array(
+                    Carbon::createFromFormat('d/m/Y', $datas['end'])->format('Y-m-d 00:00:00') ,
+                    Carbon::createFromFormat('d/m/Y', $datas['begin'])->format('Y-m-d 23:59:59')
+                )
+            );
     }
 
 

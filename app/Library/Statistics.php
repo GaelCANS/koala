@@ -2,6 +2,7 @@
 
 namespace App\Library;
 use App\Campaign;
+use App\CampaignChannel;
 use App\CampaignChannelIndicator;
 use App\Channel;
 use App\Indicator;
@@ -226,16 +227,27 @@ class Statistics
         return Indicator::notdeleted()->distinct('channel_id')->pluck('channel_id')->toArray();
     }
 
+    public static function countCampaigns($channel)
+    {
+        return CampaignChannel::campaignChannelStats($channel)
+            ->groupBy('campaign_id')
+            ->get();
+    }
+
 
     public static function channelsStats($channels)
     {
         $channel_stats = array();
         foreach ($channels as $channel_id) {
             $channel = Channel::findOrFail($channel_id);
+            $countCampaigns = self::countCampaigns($channel);
+            if ($countCampaigns->count() == 0) continue;
             $channel->load('Indicators');
             $channel_stats[$channel->id] = array(
                 'channel' => $channel->name,
-                'stats'   => self::channelStats($channel)
+                'color' => $channel->class_name,
+                'stats'   => self::channelStats($channel),
+                'campaigns' => $countCampaigns->count()
             );
         }
         return $channel_stats;
@@ -246,24 +258,22 @@ class Statistics
         $datas = self::dataSearch();
         $channelIndicators = array();
         foreach ($channel->Indicators as $indicator) {
+            if ($indicator->delete == 1) continue;
             $channelIndicators[$indicator->id] = array(
                 'indicator' => $indicator->name,
-                'average'   => self::getIndicators($indicator)
+                'id' => $indicator->id,
+                'average'   => self::getIndicators($indicator, $channel)
             );
         }
         return $channelIndicators;
     }
 
-    public static function getIndicators($indicator)
+    public static function getIndicators($indicator, $channel)
     {
-        $datas = self::dataSearch();
         $indicators = CampaignChannelIndicator::whereIndicatorId($indicator->id)
-            ->whereBetween(
-                'created_at' ,
-                array(
-                    Carbon::createFromFormat('d/m/Y', $datas['end'])->format('Y-m-d 00:00:00') ,
-                    Carbon::createFromFormat('d/m/Y', $datas['begin'])->format('Y-m-d 23:59:59')
-                )
+            ->whereIn(
+                'campaign_channel_id',
+                CampaignChannel::campaignChannelStats($channel)->select('id')->get()
             )
             ->get();
         return self::indicatorStats($indicators, $indicator);
@@ -279,5 +289,7 @@ class Statistics
             return $total/count($indicators);
         }
     }
+
+
 
 }

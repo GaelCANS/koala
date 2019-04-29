@@ -316,61 +316,33 @@
 
     }
 
-    var gg1 = new JustGage({
-        id: 'gg1',
-        defaults: dflt,
-        levelColors: ['hotpink']
+    $('.gauge').each(function(){
+        switch ($(this).data('color')) {
+            case 'canauxdigitaux':
+                var color = '#00c292';
+                break;
+            case 'crm':
+                var color = '#ab8ce4';
+                break;
+            case 'communication':
+                var color = '#03a9f3';
+                break;
+            case 'animation':
+                var color = '#ffb463';
+                break;
+            default:
+                var color = 'hotpink';
+                break;
+
+        }
+        var id = $(this).attr('id');
+
+        new JustGage({
+            id: id,
+            defaults: dflt,
+            levelColors: [color]
+        });
     });
-
-    var gg2 = new JustGage({
-        id: 'gg2',
-        defaults: dflt,
-        levelColors: ['#f75757']
-    });
-    var gg3 = new JustGage({
-        id: 'gg3',
-        defaults: dflt,
-        levelColors: ['#ab8ce4']
-    });
-
-    var gg4 = new JustGage({
-        id: 'gg4',
-        defaults: dflt,
-        levelColors: ['#ab8ce4']
-    });
-
-    var gg5 = new JustGage({
-        id: 'gg5',
-        defaults: dflt,
-        levelColors: ['#3c589b']
-    });
-
-    var gg6 = new JustGage({
-        id: 'gg6',
-        defaults: dflt,
-        levelColors: ['#00aced']
-    });
-
-    var gg7 = new JustGage({
-        id: 'gg7',
-        defaults: dflt,
-        levelColors: ['#0077B5']
-    });
-
-    var gg8 = new JustGage({
-        id: 'gg8',
-        defaults: dflt,
-        levelColors: ['hotpink']
-    });
-
-    var gg9 = new JustGage({
-        id: 'gg9',
-        defaults: dflt,
-        levelColors: ['#8b476a']
-    });
-
-
-
 
 
 </script>
