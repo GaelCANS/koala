@@ -244,8 +244,7 @@ class Statistics
             if ($countCampaigns->count() == 0) continue;
             $channel->load('Indicators');
             $channel_stats[$channel->id] = array(
-                'channel' => $channel->name,
-                'color' => $channel->class_name,
+                'channel' => $channel,
                 'stats'   => self::channelStats($channel),
                 'campaigns' => $countCampaigns->count()
             );
