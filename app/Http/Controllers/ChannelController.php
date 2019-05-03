@@ -48,7 +48,9 @@ class ChannelController extends Controller
     public function store(Requests\ChannelRequest $request)
     {
         $channel = Channel::create( $request ->only('name','class_name') );
-        return redirect(action('ChannelController@index'))->with('success' , "Le canal {$channel->name} a bien été créé.");
+        return redirect(action('ChannelController@show', $channel->id))->with('success' , "Le canal {$channel->name} a bien été créé.");
+
+        //return view( 'channels.show', compact('channel'))->with('success' , "Le canal a bien été créé.");
         //return view('channels.index')
 
     }
@@ -94,6 +96,8 @@ class ChannelController extends Controller
         // $request->all();
         // $request->only('indicator');
         // Mise à jour du channel
+
+
       $channel = Channel::findOrfail($id);
       $channel->update($request->only('name','class_name' ));
 
@@ -133,5 +137,24 @@ class ChannelController extends Controller
         $channel->update(array('delete' => '1'));
         return redirect(URL::previous())->with('success' , 'Le canal a bien été supprimé');
 
+    }
+
+    public function showglossaire($id)
+    {
+       $channel = Channel::findOrfail($id);
+       return view('channels.glossaire', compact('channel'));
+    }
+
+    public function updateGlossary(Requests\ChannelRequest $request, $id)
+    {
+        // $request->all();
+        // $request->only('indicator');
+        // Mise à jour du channel - onglet glossaire
+        //dd($request);
+        $channel = Channel::findOrfail($id);
+        $channel->update($request->only('description','format' ));
+
+
+        return redirect()->back()->with('success' , "Le glossaire lié au canal vient d'être mis à jour");
     }
 }
