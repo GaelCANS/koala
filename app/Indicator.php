@@ -2,10 +2,14 @@
 
 namespace App;
 
+use App\Library\Traits\Scopable;
 use Illuminate\Database\Eloquent\Model;
 
 class Indicator extends Model
 {
+
+    use Scopable;
+
     protected $guarded = array('id');
     /**
      * RELATIONSHIPS

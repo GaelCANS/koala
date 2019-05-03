@@ -104,7 +104,11 @@ Route::get('/planning/events', 'PlanningController@events')->name('planning-even
 
 // Statistic
 Route::get('/statistic', 'StatisticController@index')->name('statistic-index');
-Route::get('/statistic/channel', 'StatisticController@detail')->name('channel-stat');
+Route::get('/statistic/channel/{id}', 'StatisticController@detail')->name('channel-stat');
+Route::post('/statistic/filter' , 'StatisticController@filter')->name('filter-stat');
+Route::get('/statistic/clear-filter' , 'StatisticController@clearfilter')->name('clear-filter-stat');
+
+
 Route::auth();
 
 //Glossaire

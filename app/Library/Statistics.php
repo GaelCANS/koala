@@ -2,8 +2,13 @@
 
 namespace App\Library;
 use App\Campaign;
+use App\CampaignChannel;
+use App\CampaignChannelIndicator;
+use App\Channel;
+use App\Indicator;
 use App\Parameter;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -204,6 +209,85 @@ class Statistics
         return false;
     }
 
+
+
+    public static function dataSearch()
+    {
+        // Récupération des critères de filtre stockés en cookie
+        $request = (object)Cookie::get('stats');
+
+        return array(
+            'begin'    => !empty($request->begin) ? $request->begin : Carbon::today()->format('d/m/Y'),
+            'end'      => !empty($request->end) ? $request->end : Carbon::today()->subDays(30)->format('d/m/Y')
+        );
+    }
+
+    public static function channelsWithIndicator()
+    {
+        return Indicator::notdeleted()->distinct('channel_id')->pluck('channel_id')->toArray();
+    }
+
+    public static function countCampaigns($channel)
+    {
+        return CampaignChannel::campaignChannelStats($channel)
+            ->groupBy('campaign_id')
+            ->get();
+    }
+
+
+    public static function channelsStats($channels)
+    {
+        $channel_stats = array();
+        foreach ($channels as $channel_id) {
+            $channel = Channel::findOrFail($channel_id);
+            $countCampaigns = self::countCampaigns($channel);
+            if ($countCampaigns->count() == 0) continue;
+            $channel->load('Indicators');
+            $channel_stats[$channel->id] = array(
+                'channel' => $channel,
+                'stats'   => self::channelStats($channel),
+                'campaigns' => $countCampaigns->count()
+            );
+        }
+        return $channel_stats;
+    }
+
+    public static function channelStats($channel)
+    {
+        $datas = self::dataSearch();
+        $channelIndicators = array();
+        foreach ($channel->Indicators as $indicator) {
+            if ($indicator->delete == 1) continue;
+            $channelIndicators[$indicator->id] = array(
+                'indicator' => $indicator->name,
+                'id' => $indicator->id,
+                'average'   => self::getIndicators($indicator, $channel)
+            );
+        }
+        return $channelIndicators;
+    }
+
+    public static function getIndicators($indicator, $channel)
+    {
+        $indicators = CampaignChannelIndicator::whereIndicatorId($indicator->id)
+            ->whereIn(
+                'campaign_channel_id',
+                CampaignChannel::campaignChannelStats($channel)->select('id')->get()
+            )
+            ->get();
+        return self::indicatorStats($indicators, $indicator);
+    }
+
+    public static function indicatorStats($indicators, $id)
+    {
+        if (count($indicators)) {
+            $total = 0;
+            foreach ($indicators as $indicator) {
+                $total += $indicator->result;
+            }
+            return $total/count($indicators);
+        }
+    }
 
 
 
