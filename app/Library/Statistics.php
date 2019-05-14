@@ -246,13 +246,14 @@ class Statistics
             $channel_stats[$channel->id] = array(
                 'channel' => $channel,
                 'stats'   => self::channelStats($channel),
-                'campaigns' => $countCampaigns->count()
+                'campaigns' => $countCampaigns->count(),
+                'campaigns_id' => $countCampaigns
             );
         }
         return $channel_stats;
     }
 
-    public static function channelStats($channel)
+    public static function channelStats($channel, $campaign = null)
     {
         $datas = self::dataSearch();
         $channelIndicators = array();
@@ -261,21 +262,26 @@ class Statistics
             $channelIndicators[$indicator->id] = array(
                 'indicator' => $indicator->name,
                 'id' => $indicator->id,
-                'average'   => self::getIndicators($indicator, $channel)
+                'type' => $indicator->type,
+                'average'   => self::getIndicators($indicator, $channel, $campaign)
             );
         }
         return $channelIndicators;
     }
 
-    public static function getIndicators($indicator, $channel)
+    public static function getIndicators($indicator, $channel, $campaign = null, $datas = null)
     {
+        $whereInRequest = CampaignChannel::campaignChannelStats($channel , ($datas == null ? null : $datas) )->select('id');
+        if ($campaign != null) {
+            $whereInRequest->whereCampaignId($campaign->campaign_id);
+        }
         $indicators = CampaignChannelIndicator::whereIndicatorId($indicator->id)
             ->whereIn(
                 'campaign_channel_id',
-                CampaignChannel::campaignChannelStats($channel)->select('id')->get()
-            )
-            ->get();
-        return self::indicatorStats($indicators, $indicator);
+                $whereInRequest->get()
+            );
+
+        return self::indicatorStats($indicators->get(), $indicator);
     }
 
     public static function indicatorStats($indicators, $id)
@@ -287,6 +293,58 @@ class Statistics
             }
             return $total/count($indicators);
         }
+    }
+
+    public static function listOfCampaigns($channel, $campaigns)
+    {
+        $stats = array();
+        foreach ($campaigns as $campaign) {
+            $campaign->load('Campaign');
+            $campaign->Campaign->load('Markets');
+            $stats[$campaign->id] = array(
+                'campaign' => $campaign,
+                'indicators' => self::channelStats($channel, $campaign)
+            );
+        }
+        return $stats;
+    }
+
+    public static function graphStats($channel_id)
+    {
+        $dates = array(
+            array(
+                'begin' => '01/01/2019',
+                'end' => '31/01/2019'
+            ),
+            array(
+                'begin' => '01/02/2019',
+                'end' => '28/02/2019'
+            ),
+            array(
+                'begin' => '01/03/2019',
+                'end' => '31/03/2019'
+            ),
+            array(
+                'begin' => '01/04/2019',
+                'end' => '30/04/2019'
+            )
+        );
+
+        $graph = array();
+        $channel = Channel::findOrFail($channel_id);
+        $channel->load('Indicators');
+        foreach ($channel->Indicators as $indicator) {
+            if ($indicator->delete == 1) continue;
+            $graph[$indicator->name] = array(
+                'type' => $indicator->type,
+                'periodes' => array()
+            );
+            foreach ($dates as $date) {
+                $graph[$indicator->name]['periodes'][$date['begin']] = self::getIndicators($indicator,$channel,null,$date);
+            }
+        }
+
+        return $graph;
     }
 
 

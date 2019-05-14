@@ -23,11 +23,16 @@ class StatisticController extends Controller
 
         return view('statistics.index', compact('data', 'stats'));
     }
-    public function detail()
+    public function detail($id)
     {
         $data = Statistics::dataSearch();
+        $stats = Statistics::channelsStats( array(0 => (int)$id) );
+        $stat = $stats[$id];
+        $campaigns = Statistics::listOfCampaigns($stat['channel'],$stat['campaigns_id']);
+        
+        $graphStats = Statistics::graphStats($id);
 
-        return view('statistics.channel-stat', compact('data'));
+        return view('statistics.channel-stat', compact('data', 'stat','campaigns','graphStats'));
     }
 
     public function filter(Request $request)

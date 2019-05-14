@@ -161,15 +161,15 @@ class CampaignChannel extends Model
     }
 
 
-    public function scopeCampaignChannelStats($query,$channel)
+    public function scopeCampaignChannelStats($query,$channel,$datas=null)
     {
-        $datas = Statistics::dataSearch();
+        $datas = $datas == null ? Statistics::dataSearch() : $datas;
         return $query->whereChannelId($channel->id)
             ->whereBetween(
                 'begin' ,
                 array(
-                    Carbon::createFromFormat('d/m/Y', $datas['end'])->format('Y-m-d 00:00:00') ,
-                    Carbon::createFromFormat('d/m/Y', $datas['begin'])->format('Y-m-d 23:59:59')
+                    Carbon::createFromFormat('d/m/Y', $datas['begin'])->format('Y-m-d 00:00:00') ,
+                    Carbon::createFromFormat('d/m/Y', $datas['end'])->format('Y-m-d 23:59:59')
                 )
             );
     }

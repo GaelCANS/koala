@@ -345,6 +345,100 @@
     });
 
 
+
+
+
+    function graphPercentInit()
+    {
+        if ($('.percent-graph').length > 0 ) {
+            drawGraph('.percent-graph', document.getElementById('chart-percent').getContext('2d'))
+        }
+
+        if ($('.numeric-graph').length > 0) {
+            $('.numeric-graph').each(function () {
+                var ctx = document.getElementById( 'chart-'+$(this).data('id') ).getContext('2d');
+                drawGraph('#'+$('.numeric-graph').attr('id'), ctx)
+            })
+        }
+    }
+
+    function drawGraph(selector, ctx)
+    {
+        new Chart(ctx, {
+            type: 'line',
+
+            data: {
+                labels: graphPeriods(selector),
+
+                datasets: graphDatas(selector)
+            },
+            options: {
+                responsive:true,
+                maintainAspectRatio:true,
+                aspectRatio:2,
+                legend: {
+                    position:'top',
+                    labels: {
+                        fontSize: 12,
+                        padding:30
+                    }
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
+
+                },
+                scales: {
+                    xAxes: [{
+                        display: true
+
+                    }],
+                    yAxes: [{
+                        display: true
+
+                    }]
+                }
+            }
+        });
+    }
+
+    function graphPeriods(selector)
+    {
+        var dates = [];
+        $(selector).first().find('span').each(function () {
+            dates.push($(this).data('period'));
+        })
+        return dates;
+    }
+
+
+    function graphDatas(selector)
+    {
+        var colors = ['#00c292','#ab8ce4','#03a9f3','#ffb463'];
+        var i = 0;
+        var datasets = [];
+        $(selector).each(function () {
+            var tmp = [];
+            $(this).find('span').each(function () {
+                tmp.push($(this).text());
+            });
+            datasets.push(
+                {
+                    label: $(this).data('name'),
+                    fill: false,
+                    data: tmp,
+                    backgroundColor: colors[i],
+                    borderColor: colors[i]
+                }
+            );
+            i++;
+        });
+        $(selector).remove();
+        return datasets;
+    }
+
+    graphPercentInit();
+
 </script>
 
 
