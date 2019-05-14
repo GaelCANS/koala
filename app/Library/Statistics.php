@@ -311,25 +311,8 @@ class Statistics
 
     public static function graphStats($channel_id)
     {
-        $dates = array(
-            array(
-                'begin' => '01/01/2019',
-                'end' => '31/01/2019'
-            ),
-            array(
-                'begin' => '01/02/2019',
-                'end' => '28/02/2019'
-            ),
-            array(
-                'begin' => '01/03/2019',
-                'end' => '31/03/2019'
-            ),
-            array(
-                'begin' => '01/04/2019',
-                'end' => '30/04/2019'
-            )
-        );
-
+        $dateStats = new DateStatistics(Statistics::dataSearch());
+        $dates = $dateStats->monthsList();
         $graph = array();
         $channel = Channel::findOrFail($channel_id);
         $channel->load('Indicators');
@@ -340,12 +323,15 @@ class Statistics
                 'periodes' => array()
             );
             foreach ($dates as $date) {
-                $graph[$indicator->name]['periodes'][$date['begin']] = self::getIndicators($indicator,$channel,null,$date);
+                $graph[$indicator->name]['periodes'][$date['name']] = self::getIndicators($indicator,$channel,null,$date);
             }
         }
 
         return $graph;
     }
+
+
+
 
 
 
