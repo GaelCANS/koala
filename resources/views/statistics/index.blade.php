@@ -15,7 +15,7 @@
                     <div class="d-flex align-items-center justify-content-md-center text-center h-100">
                         @foreach($stat['stats'] as $indicator)
                             <div class="indicator-channel">
-                                @if(rand(0,1) == 1)
+                                @if($indicator['type'] == 'percent')
                                     @include('statistics.percent' , array('indicator' => $indicator, 'channel' => $stat['channel']))
                                 @else
                                     @include('statistics.increment' , array('indicator' => $indicator, 'channel' => $stat['channel']))

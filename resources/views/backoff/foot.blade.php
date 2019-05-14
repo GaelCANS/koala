@@ -353,6 +353,9 @@
         if ($('.percent-graph').length > 0 ) {
             drawGraph('.percent-graph', document.getElementById('chart-percent').getContext('2d'))
         }
+        else {
+            $('#container-percent-graph').remove();
+        }
 
         if ($('.numeric-graph').length > 0) {
             $('.numeric-graph').each(function () {

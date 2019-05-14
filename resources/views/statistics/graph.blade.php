@@ -1,7 +1,7 @@
 <div class="col-12 col-xl-10 stretch-card grid-margin">
     <div class="row">
 
-        <div class="indicator-channel"> 
+        <div class="indicator-channel" id="container-percent-graph"> 
             @include('statistics.graph-percent') 
         </div>
 
