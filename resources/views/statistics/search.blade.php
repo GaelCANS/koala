@@ -20,14 +20,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-7">
+                <div class="col-12 col-md-3">
                     <h6>Marchés</h6>
-                    <!--REPRENDRE CE QUE TU AS FAIT SUR LE SEARCH DE CAMPAIGNS-->
-                        <div id="" class="icheck-line">
-                            <label for="line-checkbox"></label>
+                    @foreach($markets as $market)
+                        <div id="{{$market->class_css}}" class="icheck-line">
+                            {!! Form::checkbox('markets[]',$market->id, null, array('id' => 'line-checkbox-'.$market->id )) !!}
+                            <label for="line-checkbox{{$market->id}}">{{$market->abbreviation}}</label>
                         </div>
+                    @endforeach
                 </div>
 
+                <div class="col-md-3">
+                    <h6>Responsables</h6>
+                    {!! Form::select('users[]',$users , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous force-placeholder', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
+                </div>
             </div>
 
         </div>
