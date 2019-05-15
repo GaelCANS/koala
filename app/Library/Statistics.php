@@ -217,12 +217,20 @@ class Statistics
         // Récupération des critères de filtre stockés en cookie
         $request = (object)Cookie::get('stats');
 
-        return array(
-            'begin'    => !empty($request->begin) ? $request->begin : Carbon::today()->format('d/m/Y'),
-            'end'      => !empty($request->end) ? $request->end : Carbon::today()->subDays(30)->format('d/m/Y'),
+        $datas = array(
+            'begin'    => !empty($request->begin) ? $request->end : Carbon::today()->subDays(30)->format('d/m/Y'),
+            'end'      => !empty($request->end) ? $request->begin : Carbon::today()->format('d/m/Y'),
             'markets'  => !empty($request->markets) ? array_map('intval' , $request->markets ) : Market::notdeleted()->pluck('id')->toArray(),
             'users'    => !empty($request->users) ? array_map('intval' , $request->users ) : array(0),
         );
+
+        if ($datas['begin'] > $datas['end']) {
+            $tmp = $datas['begin'];
+            $datas['begin'] = $datas['end'];
+            $datas['end'] = $tmp;
+        }
+
+        return $datas;
     }
 
     public static function channelsWithIndicator()
