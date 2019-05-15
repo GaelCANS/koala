@@ -24,12 +24,23 @@
         )
         ) !!}
 
+    <div class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+            <li class="active"> <a href="#">Générales</a> </li>
+            <li @if( $channel == null ) class="disabled" @endif > <a href=@if( $channel != null )"{{action('ChannelController@showglossaire' , $channel)}}"@else"#"@endif>Glossaire</a> </li>
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <h6>Nom du canal</h6>
-                {!! Form::text( 'name' , null , array( 'class' => 'form-control' , 'placeholder' => "Saisissez le nom du canal" ) ) !!}
+
+
+          </ul>
+      </div>
+
+
+
+      <div class="row">
+          <div class="col-md-4">
+              <div class="form-group">
+                  <h6>Nom du canal</h6>
+                  {!! Form::text( 'name' , null , array( 'class' => 'form-control' , 'placeholder' => "Saisissez le nom du canal" ) ) !!}
             </div>
         </div>
     </div>
@@ -50,6 +61,28 @@
             @empty
         @endforelse
     @endif
+    </div>
+
+    <div class="row ">
+        <h6 class="mt-1">Ressources</h6>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="wrapper">
+                <div class="d-flex">
+                    {!! Form::text( 'resource_link' , null , array( 'class' => 'form-control bg-light' , 'placeholder' => 'Copier/coller le chemin texte APUBLIC' ) ) !!}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="wrapper">
+            <div class="d-flex">
+                <div class="file-upload-wrapper">
+                    <div id="campaign-upload" data-id="{{ $channel->id }}"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row">

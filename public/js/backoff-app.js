@@ -326,6 +326,20 @@ $(document).ready(function(){
         });
 
         /**
+        * Lexique - liste déroulante
+         */
+        // Changement de pays
+        $('#lst-lexique').on('change', function(e) {
+            //var channel_id = e.target.value;
+           // alert("a");
+           // alert(e.target.value);
+             //alert(e.data-url));
+           // alert( $(this).find('option:selected').data('url') );
+            detailCanal($(this).find('option:selected').data('url'));
+            //cityUpdate(country_id);
+        });
+
+        /**
          *  Channel - add indicator
          */
         $('#btn-add-indicator').on('click',function () {
@@ -1037,6 +1051,26 @@ function delIndicator(id,url)
             $('#root-indicator-'+response.id).fadeOut(500 , function () {
                 $(this).remove();
             });
+        },
+        error: function () {
+            alert("Une erreur est survenue.");
+        }
+    });
+}
+
+/**
+ * Lexique - description-lexique
+ * donne le détail d'un canal pour le glossaire/lexique
+ */
+function detailCanal(url)
+{
+    $.ajax({
+        url: url,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        type: 'GET',
+        datatype: 'JSON',
+        success: function (response) {
+            $('#detail-channel').html(response.html)
         },
         error: function () {
             alert("Une erreur est survenue.");

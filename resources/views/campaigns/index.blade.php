@@ -1,4 +1,4 @@
- @extends('backoff.app')
+@extends('backoff.app')
 
 @section('content')
     <h4 class="page-title d-none mr-2">Campagnes</h4>

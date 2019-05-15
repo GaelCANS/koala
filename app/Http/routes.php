@@ -51,6 +51,8 @@ Route::resource(
         )
     )
 );
+Route::post('/channel-glossaire/{id}','ChannelController@updateGlossary')->name('channel-glossary-update');
+
 
 
 // Campaign
@@ -109,10 +111,12 @@ Route::get('/statistic/clear-filter' , 'StatisticController@clearfilter')->name(
 
 Route::auth();
 
-
+//Glossaire
+Route::get('/channel-glossaire/{id}', 'ChannelController@showglossaire')->name('glossaire-index');
 
 // Lexique
 Route::get('/lexique', 'LexiqueController@index')->name('lexique-index');
+Route::get('/lexique/{id}', 'LexiqueController@detailLexique')->name('lexique-detail');
 Route::auth();
 
 

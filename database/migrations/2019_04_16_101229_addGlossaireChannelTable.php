@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateChannelsDelay extends Migration
+class AddGlossaireChannelTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,8 @@ class UpdateChannelsDelay extends Migration
     public function up()
     {
         Schema::table('channels', function (Blueprint $table) {
-            $table->smallInteger('delay');
+            $table->string('description');
+            $table->string('format');
         });
     }
 
@@ -24,6 +25,9 @@ class UpdateChannelsDelay extends Migration
      */
     public function down()
     {
-
+        Schema::table('channels', function (Blueprint $table) {
+            $table->dropColumn('description');
+            $table->dropColumn('format');
+        });
     }
 }

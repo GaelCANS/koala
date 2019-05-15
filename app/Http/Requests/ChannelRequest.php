@@ -42,6 +42,8 @@ class ChannelRequest extends Request
         $rules['class_name'] = 'string';
         // 'name'=>'required|string',
         $rules['channel_id'] = 'required|exists:channels,id';
+        $rules['description']= 'required|string';
+        $rules['format']= 'string';
 
 
         return array();
