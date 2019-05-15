@@ -164,14 +164,48 @@ class CampaignChannel extends Model
     public function scopeCampaignChannelStats($query,$channel,$datas=null)
     {
         $datas = $datas == null ? Statistics::dataSearch() : $datas;
-        return $query->whereChannelId($channel->id)
+
+        $campaignsId = self::whereChannelId($channel->id)
             ->whereBetween(
                 'begin' ,
                 array(
                     Carbon::createFromFormat('d/m/Y', $datas['begin'])->format('Y-m-d 00:00:00') ,
                     Carbon::createFromFormat('d/m/Y', $datas['end'])->format('Y-m-d 23:59:59')
                 )
-            );
+            )
+            ->distinct('campaign_id')
+            ->lists('campaign_id')
+            ->toArray();
+
+        // Markets
+        if (isset($datas['markets']) && Market::whereDelete(0)->count() != count($datas['markets']) && count($datas['markets']) > 0) {
+
+            $campaignsMarket = DB::table('campaign_market')
+                                ->distinct('campaign_id')
+                                //->distinct('campaign_id')
+                                ->whereIn('campaign_id' , $campaignsId)
+                                ->whereIn('market_id',$datas['markets'])
+                                ->lists('campaign_id');
+            $campaignsId = $campaignsMarket;
+        }
+
+        // Users
+        if (isset($datas['users']) && count($datas['users']) > 0 ) {
+
+            if (count($datas['users']) > 1 || (count($datas['users']) == 1 && $datas['users'][0] != 0)) {
+                $campaignsUsers = Campaign::distinct('id')
+                    ->whereIn('id' , $campaignsId)
+                    ->whereIn('user_id',$datas['users'])
+                    ->lists('id');
+
+                $campaignsId = $campaignsUsers;
+            }
+
+        }
+
+        $query = $query->whereIn('campaign_id',$campaignsId);
+
+        return $query;
     }
 
 

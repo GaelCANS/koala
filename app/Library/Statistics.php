@@ -292,7 +292,7 @@ class Statistics
         if (count($indicators)) {
             $total = 0;
             foreach ($indicators as $indicator) {
-                $total += $indicator->result;
+                $total += (float)$indicator->result;
             }
             return $total/count($indicators);
         }
