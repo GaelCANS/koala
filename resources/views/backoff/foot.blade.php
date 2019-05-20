@@ -442,6 +442,49 @@
 
     graphPercentInit();
 
+
+    $('#stat-search .ajax-stat').on('change',function () {
+        reloadStatsIndex();
+    });
+
+    $('#stat-search .ajax-stat-check').on('ifChanged', function(event){
+        reloadStatsIndex();
+    });
+
+    function reloadStatsIndex()
+    {
+        return ;
+        var datas = {};
+        var markets = [];
+
+        $('#stat-search .ajax-stat-check:checked').each(function () {
+            markets.push( $(this).val() );
+        });
+
+        datas.begin = $('#stat-search input[name="begin"]').val();
+        datas.end = $('#stat-search input[name="end"]').val();
+        datas.users = $('#stat-search #stats-users').val();
+        datas.markets = markets;
+
+        var link = $('#stat-search').data('link');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            method: "POST",
+            url: link,
+            data: {datas}
+        })
+        .done(function( data ) {
+            $('#stat-content').html(data.html);
+        });
+    }
+
+
+
 </script>
 
 

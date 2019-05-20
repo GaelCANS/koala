@@ -107,6 +107,7 @@ Route::get('/statistic', 'StatisticController@index')->name('statistic-index');
 Route::get('/statistic/channel/{id}', 'StatisticController@detail')->name('channel-stat');
 Route::post('/statistic/filter' , 'StatisticController@filter')->name('filter-stat');
 Route::get('/statistic/clear-filter' , 'StatisticController@clearfilter')->name('clear-filter-stat');
+Route::post('/statistic/ajax-index' , 'StatisticController@ajaxIndex')->name('ajax-index-stat');
 
 
 Route::auth();
