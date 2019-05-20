@@ -78,10 +78,11 @@ class StatisticController extends Controller
         );
     }
 
-    public function filter(Request $request)
+    public function filter(Requests\StatisticRequest $request)
     {
         Cookie::queue('stats' , $request->all());
-        return redirect(action('StatisticController@index'));
+        //return redirect(action('StatisticController@index'));
+        return redirect()->back();
     }
 
     /**
