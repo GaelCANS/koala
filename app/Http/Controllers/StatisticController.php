@@ -55,6 +55,7 @@ class StatisticController extends Controller
         $page = 'detail';
 
         $stats = Statistics::channelsStats( array(0 => (int)$id) );
+        if (count($stats) == 0 ) return redirect(action('StatisticController@index'));
         $stat = $stats[$id];
         $campaigns = Statistics::listOfCampaigns($stat['channel'],$stat['campaigns_id']);
         
@@ -93,6 +94,7 @@ class StatisticController extends Controller
     public function clearfilter(Request $request)
     {
         \Cookie::queue(\Cookie::forget('stats'));
-        return redirect(action('StatisticController@index'));
+        return redirect()->back();
+        //return redirect(action('StatisticController@index'));
     }
 }

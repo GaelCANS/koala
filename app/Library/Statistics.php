@@ -196,7 +196,7 @@ class Statistics
         }
 
 
-        
+
         if ($best != null && $best->result > 0) {
             $campaign = Campaign::findOrFail($best->campaign_id);
             return (object) array(
@@ -235,7 +235,7 @@ class Statistics
 
     public static function channelsWithIndicator()
     {
-        return Indicator::notdeleted()->distinct('channel_id')->pluck('channel_id')->toArray();
+        return Indicator::whereDelete('0')->distinct('channel_id')->pluck('channel_id')->toArray();
     }
 
     public static function countCampaigns($channel)
@@ -300,7 +300,20 @@ class Statistics
         if (count($indicators)) {
             $total = 0;
             foreach ($indicators as $indicator) {
-                $total += (float)$indicator->result;
+
+                if ($indicator->indicator_id != Parameter::getParameter('best_banniere' , 'dashboard')) {
+                    $total += (float)$indicator->result;
+                }
+                elseif ($indicator->indicator_id == Parameter::getParameter('best_banniere' , 'dashboard') && $indicator->campaignChannel->begin != '0000-00-00' && $indicator->campaignChannel->end != '0000-00-00') {
+                    $indicator->load('campaignChannel');
+                    $dateBegin = Carbon::parse($indicator->campaignChannel->begin);
+                    $dateEnd   = Carbon::parse($indicator->campaignChannel->end);
+                    $diff = $dateBegin->diffInDays($dateEnd);
+                    $diff = $diff > 0 ? $diff : 1;
+                    $total += (float)$indicator->result/$diff;
+                }
+
+
             }
             return $total/count($indicators);
         }

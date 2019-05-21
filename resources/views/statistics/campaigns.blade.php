@@ -44,7 +44,7 @@
                                                                 <h4 class="mb-0 font-weight-bold">
                                                                     {{round($indicator['average'])}}
                                                                 </h4>
-                                                                <small>{{$indicator['indicator']}}</small>
+                                                                <small>@if ($indicator['id'] != \App\Parameter::getParameter('best_banniere' , 'dashboard') ) {{$indicator['indicator']}} @else Clics/jour @endif</small>
                                                             </div>
                                                         </td>
                                                         @endforeach
