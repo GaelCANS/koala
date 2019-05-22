@@ -266,7 +266,7 @@ class Statistics
 
     public static function channelStats($channel, $campaign = null)
     {
-        $datas = self::dataSearch();
+
         $channelIndicators = array();
         foreach ($channel->Indicators as $indicator) {
             if ($indicator->delete == 1) continue;
@@ -291,6 +291,8 @@ class Statistics
                 'campaign_channel_id',
                 $whereInRequest->get()
             );
+        /*dump($indicator->id);
+        dd($indicators->get());*/
 
         return self::indicatorStats($indicators->get(), $indicator);
     }

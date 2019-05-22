@@ -204,6 +204,12 @@ class CampaignChannel extends Model
         }
 
         $query = $query->whereIn('campaign_id',$campaignsId);
+        $query = $query->whereBetween(
+            'begin' ,
+            array(
+                Carbon::createFromFormat('d/m/Y', $datas['begin'])->format('Y-m-d 00:00:00') ,
+                Carbon::createFromFormat('d/m/Y', $datas['end'])->format('Y-m-d 23:59:59')
+            ));
 
         return $query;
     }
