@@ -319,5 +319,16 @@ class CampaignController extends Controller
     }
 
 
+    public function timeline($id)
+    {
+        // Chargement de la campagne et des tables associées
+        $campaign   = Campaign::findOrFail($id);
+        $campaign->load('relationCampaignChannels');
+        $campaign->relationCampaignChannels->load('Channel');
+
+        return view('campaigns.gantt' , compact('campaign'));
+    }
+
+
 
 }

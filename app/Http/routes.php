@@ -71,6 +71,7 @@ Route::post('/campaign-upload' , 'CampaignController@upload')->name('upload-camp
 Route::post('/campaign-delete-image' , 'CampaignController@deleteImage')->name('delete-image-campaign');
 Route::get('/clear-filter-campaign' , 'CampaignController@clearfilter')->name('clear-filter-campaign');
 Route::get("/duplicate-campaign/{id}", 'CampaignController@duplicatecampaign')->name('duplicate-campaign')->where(array('id' => '[0-9]+'));
+Route::get('/campaign/timeline/{id}' , 'CampaignController@timeline')->name('timeline-campaign');
 
 // CampaignChannel
 Route::post('campaign-channel/{id}/unlink-channel/{uniqid}', array('uses' => 'CampaignchannelController@destroy', 'as' => 'unlink-channel'));

@@ -322,6 +322,12 @@ class Campaign extends Model
         return $this->hasMany('App\CampaignChannels');
     }
 
+    // 1 to many
+    public function relationCampaignChannels()
+    {
+        return $this->hasMany('App\CampaignChannel');
+    }
+
     // many to 1
     public function user()
     {
