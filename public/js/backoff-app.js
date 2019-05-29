@@ -1019,11 +1019,7 @@ function changeTitleZone()
 function addIndicator()
 {
     var _html = $('#template-add-new-indicator').html();
-    var _ast = $('#testastrid').html();
-    alert(_ast);
     var _html1 = _html.replace(/REPLACEID/g,Math.floor(Math.random() * 1000) + 1); // mettre un valeur random a la place de 22
-    var _ast1 = _ast.replace(/"REPLACEID"/g,Math.floor(Math.random() * 1000) + 1); // mettre un valeur random a la place de 22
-    alert(_html1);
     $("#liste-indicators").append(_html1);
 }
 

@@ -12,7 +12,7 @@
                     </button>
 
 
-                    {!! Form::text( $indicator == null ?'new_indicator[]':'indicator['.$indicator->id.'][name]',$indicator == null?'':$indicator->name, array( 'class' => 'form-control' , 'placeholder' => "Saisissez le nom l'indicateur" ) ) !!}
+                    {!! Form::text( $indicator == null ?'new_indicator[REPLACEID]':'indicator['.$indicator->id.'][name]',$indicator == null?'':$indicator->name, array( 'class' => 'form-control' , 'placeholder' => "Saisissez le nom l'indicateur" ) ) !!}
 
                 </div>
                 <div class="form-group">
@@ -24,21 +24,21 @@
                         <?php $random = rand(0,1000) ?>
                         <div class="form-radio">
                             <label for="percent-REPLACEID">
-                                {!! Form::radio( $indicator == null ?'new_type[]':'indicator['.$indicator->id.'][type]', 'percent',($indicator == null || $indicator->type == 'percent') ? true : false  , array('id' => 'percent-REPLACEID', 'class' => 'form-check-input') ) !!}
+                                {!! Form::radio( 'new_type[REPLACEID]', 'percent',($indicator == null || $indicator->type == 'percent') ? true : false  , array('id' => 'percent-REPLACEID', 'class' => 'form-check-input') ) !!}
                                 Percent
                             </label>
                         </div>
 
                         <div class="form-radio">
                             <label for="numeric-REPLACEID">
-                                {!! Form::radio( $indicator == null ?'new_type[]':'indicator['.$indicator->id.'][type]', 'numeric',($indicator != null && $indicator->type == 'numeric') ? true : false  , array('id' => 'numeric-REPLACEID', 'class' => 'form-check-input') ) !!}
+                                {!! Form::radio( 'new_type[REPLACEID]', 'numeric',($indicator != null && $indicator->type == 'numeric') ? true : false  , array('id' => 'numeric-REPLACEID', 'class' => 'form-check-input') ) !!}
                                 Numeric
                             </label>
                         </div>
 
                         <div class="form-radio">
                             <label for="decimal-REPLACEID">
-                                {!! Form::radio( $indicator == null ?'new_type[]':'indicator['.$indicator->id.'][type]', 'decimal',($indicator != null && $indicator->type == 'decimal') ? true : false  , array('id' => 'decimal-REPLACEID', 'class' => 'form-check-input') ) !!}
+                                {!! Form::radio( 'new_type[REPLACEID]', 'decimal',($indicator != null && $indicator->type == 'decimal') ? true : false  , array('id' => 'decimal-REPLACEID', 'class' => 'form-check-input') ) !!}
 
                                 Decimal
                             </label>

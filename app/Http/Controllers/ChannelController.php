@@ -97,7 +97,7 @@ class ChannelController extends Controller
         // $request->only('indicator');
         // Mise à jour du channel
 
-
+     // dd($request);
       $channel = Channel::findOrfail($id);
       //dd($request->all());
       $channel->update($request->only('name','class_name' ));
@@ -118,7 +118,6 @@ class ChannelController extends Controller
       // Ajout des indicateurs
         if (is_array($request->input('new_indicator')) && count($request->input('new_indicator'))>0){
                 $type_new = $request->input('new_type');
-                //dd($request->input('new_indicator'));
                 foreach($request->input('new_indicator') as $new_id => $new_indic){
                    //dd($type_new[$new_id]);
                    if ($new_indic !="") {

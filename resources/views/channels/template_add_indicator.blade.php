@@ -18,7 +18,6 @@
         <div class="form-group">
             <label for="type">Type de l'indicateur</label>
 
-            {!! Form::text( $indicator == null ?'new_type[]':'indicator['.$indicator->id.'][type]',$indicator == null?'':$indicator->type, array( 'class' => 'form-control' , 'placeholder' => "Saisissez le type l'indicateur" ) ) !!}
 
             <div class="wrapper ml-md-3">
 
