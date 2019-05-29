@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFieldsCampaigns extends Migration
+class AddFieldIndicator extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,9 @@ class AddFieldsCampaigns extends Migration
      */
     public function up()
     {
-        Schema::table('campaigns', function (Blueprint $table) {
-            $table->string('results_state');
-            $table->string('unica');
-            $table->string('legal_validation');
+        Schema::table('indicators', function (Blueprint $table) {
+            $table->string('type');
+
         });
     }
 
@@ -26,6 +25,9 @@ class AddFieldsCampaigns extends Migration
      */
     public function down()
     {
+        Schema::table('indicators', function (Blueprint $table) {
+            $table->dropColumn('type');
 
+        });
     }
 }

@@ -75,15 +75,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="wrapper">
-            <div class="d-flex">
-                <div class="file-upload-wrapper">
-                    <div id="campaign-upload" data-id="{{ $channel->id }}"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <div class="row">
         <div class="form-group">
@@ -113,6 +105,6 @@
 
         {!! Form::close() !!}
 
-    @include('channels.template_add_indicator',array('indicator'=>null))
+    @include('channels.template_add_new_indicator',array('indicator'=>null))
 
 @endsection
