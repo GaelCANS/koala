@@ -15,10 +15,14 @@
     </div>
     <div class="row" style="margin-top: 12px">
         <div class="col-md-12">
-            <div id="gantt-camp" style="height: 550px;"></div>
+            <div
+                id="gantt-camp"
+                style="height: 550px;"
+                data-min="{{\Carbon\Carbon::createFromFormat('d/m/y',$campaign->begin)->subMonth()->format('Y-m-d')}}"
+                data-max="{{\Carbon\Carbon::createFromFormat('d/m/y',$campaign->end)->addMonth()->format('Y-m-d')}}"
+            ></div>
         </div>
     </div>
-
     @forelse($campaign->relationCampaignChannels as $campaignChannel)
         @if ($campaignChannel->begin != '0000-00-00' && $campaignChannel->end != '0000-00-00')
             <div
@@ -26,12 +30,6 @@
                 data-channel="{{$campaignChannel->Channel->name}}"
                 data-family="{{$campaignChannel->Channel->class_name}}"
                 data-begin="{{$campaignChannel->begin}}"
-                data-begin-day="{{\Carbon\Carbon::createFromFormat('Y-m-d',$campaignChannel->begin)->format('d')}}"
-                data-begin-month="{{\Carbon\Carbon::createFromFormat('Y-m-d',$campaignChannel->begin)->format('m')}}"
-                data-begin-year="{{\Carbon\Carbon::createFromFormat('Y-m-d',$campaignChannel->begin)->format('Y')}}"
-                data-end-year="{{\Carbon\Carbon::createFromFormat('Y-m-d',$campaignChannel->end)->format('d')}}"
-                data-end-month="{{\Carbon\Carbon::createFromFormat('Y-m-d',$campaignChannel->end)->format('m')}}"
-                data-end-year="{{\Carbon\Carbon::createFromFormat('Y-m-d',$campaignChannel->end)->format('Y')}}"
                 data-end="{{$campaignChannel->end}}"
             >
             </div>

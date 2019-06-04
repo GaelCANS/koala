@@ -40,12 +40,19 @@
                         <span class="menu-title">CMM</span>
                     </a>
                 </li>
-                <li class="nav-item d-none d-lg-block nav-item @if( Route::currentRouteName() == 'planning-index' ) active @endif">
-                    <a class="nav-link" href="{{route('planning-index')}}">
+                <li class="nav-item">
+                    <a class="nav-link collapsed " data-toggle="collapse" href="#ui-planning" aria-expanded="false" aria-controls="ui-advanced">
                         <i class="icon-calendar menu-icon"></i>
                         <span class="menu-title">Planning</span>
                     </a>
+                    <div class="collapse" id="ui-planning" style="">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item @if( Route::currentRouteName() == 'planning-index' ) active @endif"><a class="nav-link" href="{{route('planning-index')}}"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Calendrier</a></li>
+                            <li class="nav-item @if( Route::currentRouteName() == 'timeline-index' ) active @endif"><a class="nav-link" href="{{route('timeline-index')}}"><i class="fa fa-tasks"></i>&nbsp;Timeline</a></li>
+                        </ul>
+                    </div>
                 </li>
+
                 <li class="nav-item d-none d-lg-block nav-item @if( Route::currentRouteName() == 'statistic-index' ) active @endif">
                     <a class="nav-link" href="{{route('statistic-index')}}">
                         <i class="icon-chart menu-icon"></i>

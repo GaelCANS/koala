@@ -74,7 +74,7 @@
 <!-- Gantt -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-<script src="{{ url('/js/camp-gantt.js?v=3') }}"></script>
+<script src="{{ url('/js/camp-gantt.js?v=8') }}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
 
