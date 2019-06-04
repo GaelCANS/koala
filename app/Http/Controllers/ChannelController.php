@@ -97,15 +97,19 @@ class ChannelController extends Controller
         // $request->only('indicator');
         // Mise à jour du channel
 
-
+     // dd($request);
       $channel = Channel::findOrfail($id);
+      //dd($request->all());
       $channel->update($request->only('name','class_name' ));
 
       // Mise à jour des indicateurs existants
         if (is_array($request->input('indicator')) && count($request->input('indicator'))>0){
             foreach($request->input('indicator') as $indicator_id => $indicator){
+
                 $indic = Indicator::findOrfail($indicator_id);
-                $indic->update( array('name' => $indicator ) );
+                 //var_dump($indic);
+                // dd($indicator);
+                $indic->update( $indicator );
 
           }
         }
@@ -113,10 +117,11 @@ class ChannelController extends Controller
 
       // Ajout des indicateurs
         if (is_array($request->input('new_indicator')) && count($request->input('new_indicator'))>0){
-                //dd($request->input('new_indicator'));
+                $type_new = $request->input('new_type');
                 foreach($request->input('new_indicator') as $new_id => $new_indic){
+                   //dd($type_new[$new_id]);
                    if ($new_indic !="") {
-                       $ajout_indic = Indicator::create(array('name' => $new_indic, 'channel_id' => $request->channel_id));
+                       $ajout_indic = Indicator::create(array('name' => $new_indic, 'type' => $type_new[$new_id],  'channel_id' => $request->channel_id));
                    }
                 };
          }

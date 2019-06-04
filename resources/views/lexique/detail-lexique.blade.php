@@ -33,7 +33,7 @@
                             <span class="indicator-subtitle text-muted mt-2">clics/jour</span>
                         </div>
                     </div>
-                    <a href="{{route('channel-stat')}}" class="btn btn-light btn-xs mt-2">Voir les statistiques en détail</a><br>
+                      <a href="{{route('channel-stat', array('id'=> $channel->id))}}" class="btn btn-light btn-xs mt-2">Voir les statistiques en détail</a><br>
                 </div>
             </div>
 
