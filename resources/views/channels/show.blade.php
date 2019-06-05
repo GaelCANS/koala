@@ -63,18 +63,7 @@
     @endif
     </div>
 
-    <div class="row ">
-        <h6 class="mt-1">Ressources</h6>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="wrapper">
-                <div class="d-flex">
-                    {!! Form::text( 'resource_link' , null , array( 'class' => 'form-control bg-light' , 'placeholder' => 'Copier/coller le chemin texte APUBLIC' ) ) !!}
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 
     <div class="row">

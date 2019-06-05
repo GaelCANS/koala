@@ -7,7 +7,9 @@ use App\Channel;
 use App\Indicator;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Storage;
 
 class ChannelController extends Controller
 {
@@ -143,10 +145,28 @@ class ChannelController extends Controller
         return redirect(URL::previous())->with('success' , 'Le canal a bien été supprimé');
 
     }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteImage($id)
+    {
+        $channel = Channel::findOrfail($id);
+        Storage::delete ('public/'.$channel->resource_link);
+        //File::delete($channel->resource_link);
+        $channel->update(array('resource_link' => ''));
+        return redirect(URL::previous())->with('success' , 'L image a bien été supprimée');
+
+    }
 
     public function showglossaire($id)
     {
+
        $channel = Channel::findOrfail($id);
+
+
        return view('channels.glossaire', compact('channel'));
     }
 
@@ -157,7 +177,21 @@ class ChannelController extends Controller
         // Mise à jour du channel - onglet glossaire
         //dd($request);
         $channel = Channel::findOrfail($id);
-        $channel->update($request->only('description','format' ));
+        $channel->update($request->only('description','format'));
+
+
+        // Upload avatar
+        if (!empty($request->avatarChannel)) {
+            $file_name = Channel::uploadAvatar($request->avatarChannel , $id);
+
+            if ($channel->resource_link != ""){
+
+                Storage::delete ('public/'.$channel->resource_link);
+
+            }
+            $channel->resource_link = $file_name ? $file_name : '';
+            $channel->save();
+        }
 
 
         return redirect()->back()->with('success' , "Le glossaire lié au canal vient d'être mis à jour");

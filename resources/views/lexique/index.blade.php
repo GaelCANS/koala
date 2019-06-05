@@ -33,7 +33,8 @@
         <div class="col-lg-7">
             <div class="card">
                 <div class="card-body">
-                   <img src="{{ asset('/images/lexique/vitr-banpart.png') }}" width="100%">
+                   <!--<img id="image-channel" src="fdsd" width="100%">-->
+                   <img id="image-channel" src="{{ asset( URL::to('/').'/storage/'.$channels->first()->resource_link ) }}" >
 
                 </div>
             </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Channel;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\URL;
 
 class LexiqueController extends Controller
 {
@@ -24,9 +25,17 @@ class LexiqueController extends Controller
     {
       $channel = Channel::findOrfail($id);
       $html = view('lexique.detail-lexique' , compact('channel'))->render();
+      if ($channel -> resource_link != ''){
+          $image = asset( URL::to('/').'/storage/'.$channel->resource_link );
+      }
+      else {
+          $image = asset( URL::to('/').'/storage/pasdephoto.jpg');
+      }
 
         return response()->json([
-            'html'  => $html
+            'html'  => $html,
+            'image' => $image
+
         ]);
 
     }

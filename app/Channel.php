@@ -38,4 +38,24 @@ class Channel extends Model
         return new CampaignChannelPivot($parent, $attributes, $table, $exists);
     }
 
+    public static function uploadAvatar($img , $id) {
+
+        if (is_object($img) && $img->isValid()) {
+
+            $name = self::nameAvatar($id).'.'.$img->getClientOriginalExtension();
+
+            $dir = storage_path().'/app/public/';
+            $img->move($dir , $name);
+
+            return $name;
+        }
+        return false;
+    }
+
+
+    public static function nameAvatar($id) {
+
+        return ('channel_'.$id);
+    }
+
 }

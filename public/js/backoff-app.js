@@ -1071,7 +1071,8 @@ function detailCanal(url)
         type: 'GET',
         datatype: 'JSON',
         success: function (response) {
-            $('#detail-channel').html(response.html)
+            $('#detail-channel').html(response.html);
+            $('#image-channel').attr('src', response.image);
         },
         error: function () {
             alert("Une erreur est survenue.");

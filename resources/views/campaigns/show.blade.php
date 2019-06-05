@@ -175,6 +175,7 @@
                         <div class="col-lg-12 mt-0">
                             <div class="owl-carousel owl-theme full-width" id="carousel-image" data-link="{{route('delete-image-campaign')}}">
                                 @forelse($files as $file)
+                                    {{ basename($file) }}
                                     <div class="item" data-item="{{basename($file)}}" data-count="">
                                         <div class="card">
                                             <div class="d-flex">

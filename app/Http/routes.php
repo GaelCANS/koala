@@ -52,6 +52,7 @@ Route::resource(
     )
 );
 Route::post('/channel-glossaire/{id}','ChannelController@updateGlossary')->name('channel-glossary-update');
+Route::delete('/channel-delete-image/{id}' , 'ChannelController@deleteImage')->name('delete-image-channel');
 
 
 
