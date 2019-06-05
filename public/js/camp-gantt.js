@@ -3,7 +3,9 @@ if ($('#gantt-camp').length > 0) {
 
     //google.charts.load('current', {'packages':['gantt']});
     google.charts.load('current', {'packages':['timeline'], 'language': 'fr'});
-    google.charts.setOnLoadCallback(drawChart);
+    if ($('#gantt-camp').data('load') != false) {
+        google.charts.setOnLoadCallback(drawChart);
+    }
     function drawChart() {
         var container = document.getElementById('gantt-camp');
         var chart = new google.visualization.Timeline(container);

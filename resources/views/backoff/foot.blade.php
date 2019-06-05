@@ -74,7 +74,7 @@
 <!-- Gantt -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-<script src="{{ url('/js/camp-gantt.js?v=8') }}"></script>
+<script src="{{ url('/js/camp-gantt.js?v=11') }}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
 
@@ -501,6 +501,15 @@
             }
         });
     })
+
+    if ( $('.stats-campaign-tab').length > 0 ) {
+        $('.stats-campaign-tab').trigger('click');
+    }
+
+    $('a.stats-timeline-tab').on('shown.bs.tab', function (e) {
+        //window.dispatchEvent(new Event('resize'));
+        drawChart();
+    });
 
 
 
