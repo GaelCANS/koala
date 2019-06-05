@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CampaignChannel;
 use App\Library\Statistics;
 use App\Market;
 use Carbon\Carbon;
@@ -58,10 +59,19 @@ class StatisticController extends Controller
         if (count($stats) == 0 ) return redirect(action('StatisticController@index'));
         $stat = $stats[$id];
         $campaigns = Statistics::listOfCampaigns($stat['channel'],$stat['campaigns_id']);
+
+        $printedChannels = CampaignChannel::whereChannelId($id)->whereBetween(
+            'begin' ,
+            array(
+                Carbon::createFromFormat('d/m/Y', $data['begin'])->format('Y-m-d 00:00:00') ,
+                Carbon::createFromFormat('d/m/Y', $data['end'])->format('Y-m-d 23:59:59')
+            )
+        )->get();
+        $printedChannels->load('Campaign');
         
         $graphStats = Statistics::graphStats($id);
 
-        return view('statistics.channel-stat', compact('data', 'stat','campaigns','graphStats', 'markets','users','page'));
+        return view('statistics.channel-stat', compact('data', 'stat','campaigns','graphStats', 'markets','users','page','printedChannels'));
     }
 
 

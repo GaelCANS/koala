@@ -101,7 +101,10 @@ Route::get('/dashboard/my_campaigns','DashboardController@myCampaigns')->name('d
 
 // Planning
 Route::get('/planning', 'PlanningController@index')->name('planning-index');
+Route::get('/timeline', 'PlanningController@timeline')->name('timeline-index');
 Route::get('/planning/events', 'PlanningController@events')->name('planning-events');
+Route::post('/timeline' , 'PlanningController@filter')->name('filter-timeline');
+Route::get('/timeline/clear-filter' , 'PlanningController@clearfilter')->name('clear-filter-timeline');
 
 
 // Statistic
