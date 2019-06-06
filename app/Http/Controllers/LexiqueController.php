@@ -29,7 +29,7 @@ class LexiqueController extends Controller
           $image = asset( URL::to('/').'/storage/'.$channel->resource_link );
       }
       else {
-          $image = asset( URL::to('/').'/storage/pasdephoto.jpg');
+          $image = asset( URL::to('/').'/storage/nophoto.gif');
       }
 
         return response()->json([

@@ -72,7 +72,7 @@
                         <div class="card">
                             <div class="card-body">
 
-                                    <img id="image-channel" src="{{ asset( URL::to('/').'/storage/'.$channel->resource_link ) }}" >
+                                    <img id="image-channel" style="max-width: 100%" src="{{ asset( URL::to('/').'/storage/'.$channel->resource_link ) }}" >
                                     <a href="{{route("delete-image-channel" , $channel)}}"  title="Supprimer" data-confirm="Voulez-vous vraiment supprimer l image" data-method="delete"><button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-delete"></i></button></a>
 
 

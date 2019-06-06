@@ -33,8 +33,7 @@
         <div class="col-lg-7">
             <div class="card">
                 <div class="card-body">
-                   <!--<img id="image-channel" src="fdsd" width="100%">-->
-                   <img id="image-channel" src="{{ asset( URL::to('/').'/storage/'.$channels->first()->resource_link ) }}" >
+                   <img id="image-channel" style="max-width: 100%" src="{{ asset( URL::to('/').'/storage/'.($channels->first()->resource_link != '' ? $channels->first()->resource_link : 'nophoto.gif') ) }}" >
 
                 </div>
             </div>
