@@ -36,7 +36,7 @@ if ($('#gantt-camp').length > 0) {
         };
 
         var options = {
-            height: rows.length*45,
+            height: rows.length*55,
             hAxis: hAxis
         };
 
