@@ -86,9 +86,9 @@
             <div class="col-md-12 grid-margin text-right">
                 <div class="col-8 d-inline-block">
                     <p class="text-left text-muted text-small ">
-                        Pour vous aider à renseigner les périodes, vous pouvez vous référer au <a href="{{route('planning-index')}}" target="_blank">planning</a> en filtrant par canal.<br><br>
-                        N'oubliez pas de passer votre campagne en statut "<u>Publié</u>" afin qu'elle puisse être intégrée dans la <a href="{{route('cmm-index')}}" target="_blank">liste des campagnes en attente de validation CMM</a>.<br><br>
-                        Dès lors que le campagne est en statut "<u>Publié</u>" et "<u>Validé CMM : OUI</u>", celle-ci devient visible dans le <a href="{{route('dashboard-index')}}" target="_blank">tableau de bord des campagnes en cours / à venir</a>.
+                        Pour vous aider à renseigner les périodes, vous pouvez vous référer au <a href="{{route('planning-index')}}" target="_blank">calendrier</a> ou la <a href="{{route('timeline-index')}}" target="_blank">timeline</a> en filtrant par canal.<br><br>
+                        N'oubliez pas de passer votre campagne en statut "<u>Publiée</u>" afin qu'elle puisse être intégrée dans la <a href="{{route('cmm-index')}}" target="_blank">liste des campagnes en attente de validation CMM</a>.<br><br>
+                        Dès lors que le campagne est en statut "<u>Publiée</u>" et "<u>Validée CMM : OUI</u>", celle-ci devient visible dans le <a href="{{route('dashboard-index')}}" target="_blank">tableau de bord des campagnes en cours / à venir</a>.
                 </div>
                 <div class="col-2 pull-right">
                     <button type="submit" class="btn btn-primary">
@@ -113,7 +113,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="wrapper d-md-flex mb-3">
-                                <h6 class="font-weight-normal">Validé en CMM</h6>
+                                <h6 class="font-weight-normal">Validée en CMM</h6>
                                 <div class="wrapper ml-md-3">
                                     <div class="toggle-radio">
                                         {!! Form::radio( 'cmm' , 1 , false , array('id' => 'cmm1' ) ) !!}
