@@ -6,7 +6,7 @@
 
 
     <h4 class="page-title d-inline-block mr-2">
-        Tag
+        Tag @if($tag != null) "{{$tag->name}}" @endif
     </h4>
 
 
@@ -29,7 +29,7 @@
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tag</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('tag-associate' , array('id' => $tag)) }}" >Association</a>
+            <a class="nav-link" @if($tag != null) href="{{ route('tag-associate' , array('id' => $tag)) }}" @endif >Association</a>
         </li>
     </ul>
 

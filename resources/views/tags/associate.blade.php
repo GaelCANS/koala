@@ -6,7 +6,7 @@
 
 
     <h4 class="page-title d-inline-block mr-2">
-        Association des tags
+        Association du tag "{{$tag->name}}"
     </h4>
 
 

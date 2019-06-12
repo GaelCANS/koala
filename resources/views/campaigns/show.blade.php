@@ -193,7 +193,7 @@
                 </div>
             </div>
 
-            <div class="card grid-margin">
+            <div class="card grid-margin" style="display:none;">
                 <div class="card-body pt-3 pb-3 pl-3 pr-3">
                     <div class="text-center ">
                         <h6 class="mt-1">Validation juridique</h6>
@@ -228,7 +228,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card grid-margin">
+            <div class="card grid-margin" style="display:none;">
                 <div class="card-body pt-3 pb-3 pl-3 pr-3">
                     <div class="text-center ">
                         <h6 class="mt-1">Référence UNICA</h6>

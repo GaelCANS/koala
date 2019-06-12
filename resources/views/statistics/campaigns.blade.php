@@ -15,6 +15,7 @@
                                         <th>Noms</th>
                                         <th>Marchés</th>
                                         <th>Périodes</th>
+                                        <th>Etat</th>
                                         <th colspan="3">Indicateurs</th>
                                     </tr>
                                     </thead>
@@ -33,6 +34,9 @@
                                             </td>
                                             <td title="">
                                                 {{ $campaign['campaign']->Campaign->period }}
+                                            </td>
+                                            <td title="">
+                                                <label class="badge @if($campaign['campaign']->Campaign->results_state == 'ajoutés')badge-success @elseif($campaign['campaign']->Campaign->results_state == 'partiels')badge-warning @else badge-danger @endif">{{$campaign['campaign']->Campaign->results_state}}</label>
                                             </td>
 
                                             <td>
