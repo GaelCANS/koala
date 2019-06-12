@@ -55,6 +55,19 @@ Route::post('/channel-glossaire/{id}','ChannelController@updateGlossary')->name(
 Route::delete('/channel-delete-image/{id}' , 'ChannelController@deleteImage')->name('delete-image-channel');
 
 
+// Tag
+Route::resource(
+    'tags',
+    'TagController' ,
+    array(
+        'names' => array(
+            'index' => 'tags-index'
+        )
+    )
+);
+Route::get('tags/associate/{id}' , 'TagController@channels')->name('tag-associate')->where(array('id' => '[0-9]+'));
+Route::post('tags/associate/{id}' , 'TagController@associate')->name('tag-associate-post')->where(array('id' => '[0-9]+'));
+
 
 // Campaign
 Route::resource(

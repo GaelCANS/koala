@@ -29,6 +29,13 @@ class Channel extends Model
     }
 
 
+    // many to many
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag');
+    }
+
+
     /**
      * OVERRIDE
      */

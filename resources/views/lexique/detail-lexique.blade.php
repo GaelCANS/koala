@@ -4,15 +4,10 @@
     <div class="row">
 
 
-            <div class="card ">
 
-            </div>
-            <div class="card grid-margin">
-                <div class="card-body text-center">
+                <div class="col-md-12 text-center">
 
-                    <p class="pt-4 pb-4">
-
-                        {{$channel->description}}</p>
+                    <p class="pt-4 pb-4">{{$channel->description}}</p>
                     <div class="row">
                         <div class="col-6" style="border-right:1px solid #e8e8e8;">
                             <h6>Service expert</h6>
@@ -26,6 +21,34 @@
                         </div>
                     </div>
                     <hr class="my-4">
+                    <div class="row" style="margin-bottom: 20px">
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                Cibles privilégiées
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    @forelse($channel->Tags as $tag)
+
+                        <div class="col-4">
+                            <div class="text-left">
+                                <small><i class="fa fa-check" aria-hidden="true"></i> {{$tag->name}}</small>
+                            </div>
+                        </div>
+
+                    @empty
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="text-center">
+                                    <small>Aucune cible privilégiée</small>
+                                </div>
+                            </div>
+                        </div>
+                    @endforelse
+                    </div>
+
+                    <hr class="my-4">
                     <!--
                     <h6 class="mb-2">Statitiques moyenne</h6>
                     <div class="text-center">
@@ -37,7 +60,7 @@
                     -->
                       <a href="{{route('channel-stat', array('id'=> $channel->id))}}" class="btn btn-light btn-xs mt-2">Voir les statistiques en détail</a><br>
                 </div>
-            </div>
+
 
 
     </div>
