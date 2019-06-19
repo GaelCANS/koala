@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Mail;
 
 class Notification extends Model
 {
@@ -26,9 +27,15 @@ class Notification extends Model
 
         if ($campaigns) {
             foreach ($campaigns as $campaign) {
-                self::result_notify($campaign);
+                $services = self::result_notify($campaign);
             }
         }
+
+        if (isset($services)) {
+            $services = array_unique($services);
+            self::send_service_notification($services);
+        }
+
     }
 
     public static function campaigns_service_notified()
@@ -47,14 +54,33 @@ class Notification extends Model
             }
         }
         $services = array_unique($services);
+        $services_id = array();
 
         foreach ($services as $service) {
+            array_push($services_id, Service::service_classname($service));
             self::create(array(
                 'type' => 'results',
                 'detail' => 'La campagne '.$campaign->name.' est terminée. Pensez à mettre à jour vos indicateurs.',
                 'service_id' => Service::service_classname($service),
                 'campaign_id' => $campaign->id
             ));
+        }
+
+        return $services_id;
+    }
+
+
+    public static function send_service_notification($services)
+    {
+        if (count($services)) {
+            foreach ($services as $service_id) {
+                $service = Service::findOrFail($service_id);
+                Mail::send('emails.service-notification', compact('service'), function ($m) use ($service) {
+                    $users = User::whereServicesId($service->id)->whereDelete(0)->pluck('email')->toArray();
+                    $m->from(Parameter::getParameter('expeditor','common'), Parameter::getParameter('expeditor_name','common'));
+                    $m->to($users)->subject( 'De nouvelles notifications sur CAMP' );
+                });
+            }
         }
     }
 

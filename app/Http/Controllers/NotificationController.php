@@ -89,7 +89,6 @@ class NotificationController extends Controller
     {
         $notification = Notification::findOrFail($request->input('notification'));
         $notification->update(array('done' => !$notification->done));
-
         return json_encode(
             array(
                 'done' =>   $notification->done,
