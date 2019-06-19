@@ -18,6 +18,7 @@
                                         <th>Nom</th>
                                         <th>Prénom</th>
                                         <th>Email</th>
+                                        <th>Service</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -26,6 +27,7 @@
                                             <th align="left">{{$user->name}}</th>
                                             <th>{{$user->firstname}}</th>
                                             <th>{{$user->email}}</th>
+                                            <th>{{$user->Services->name}}</th>
                                             <th>
                                                 <a href="{{route('show-user',$user)}}" title="Modifier"><button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-border-color"></i></button></a>
                                                 <a href="{{action("UserController@destroy" , $user)}}"  title="Supprimer" data-confirm="Voulez-vous vraiment supprimer" data-method="delete"><button type="button" class="btn btn-outline-secondary icon-btn"><i class="mdi mdi-delete"></i></button></a>
