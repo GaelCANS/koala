@@ -146,8 +146,23 @@ $(document).ready(function(){
             }
         });
 
+    /**
+     * Commun
+     */
+    $('.js-link').on('click',function () {
+        window.location.href = $(this).data('href');
+    });
 
-        /**
+
+    /**
+     * Notifications
+     */
+    $('.todo-notification .detail-notification').on('click', function () {
+        doneNotify($(this).parent());
+    });
+
+
+    /**
          * Campaign
          */
         $('#channels-table').on('change' , '.datepicker' , function(){
@@ -1172,4 +1187,27 @@ function engagement(id) {
         }
         return engagement;
     }
+}
+
+
+/**
+ * Notification
+ * @param obj
+ */
+function doneNotify(obj)
+{
+    $.ajax({
+        url: $('#notifications-list').data('link'),
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {
+            notification: obj.data('id')
+        },
+        type: 'POST',
+        datatype: 'JSON',
+        success: function (data) {
+            data = $.parseJSON(data);
+            $('.todo-notification[data-id="'+data.id+'"]').css({'text-decoration':(data.done ? 'line-through' : 'none')});
+            $('#count-service').text(data.count_service);
+        }
+    });
 }

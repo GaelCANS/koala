@@ -6,6 +6,7 @@ use App\Campaign;
 use App\CampaignChannelIndicator;
 use App\Indicator;
 use App\Library;
+use App\Notification;
 use App\Parameter;
 use App\User;
 use Carbon\Carbon;
@@ -33,6 +34,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        Notification::campaigns_finish();
         // Campagnes en cours/ à venir
         $date = Carbon::now();
         $date = Carbon::createFromFormat('m-Y', date('m-Y'));

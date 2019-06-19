@@ -65,8 +65,8 @@ Route::resource(
         )
     )
 );
-Route::get('tags/associate/{id}' , 'TagController@channels')->name('tag-associate')->where(array('id' => '[0-9]+'));
-Route::post('tags/associate/{id}' , 'TagController@associate')->name('tag-associate-post')->where(array('id' => '[0-9]+'));
+Route::get('/tag-associate' , 'CampaignController@channels')->name('tag-associate');
+Route::post('/tag-associate' , 'CampaignController@associate')->name('tag-associate-post');
 
 
 // Campaign
@@ -103,7 +103,9 @@ Route::post('/cmm/addCampaign', 'CmmController@addCampaign');
 Route::post('/cmm/send', 'CmmController@send');
 Route::post('/cmm/annulation', 'CmmController@annulation');
 
-
+// Notifications
+Route::get('/notifications', 'NotificationController@index')->name('notifications-index');
+Route::post('/notifications/done', 'NotificationController@update')->name('notifications-update');
 
 // Dashboard
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard-index');
