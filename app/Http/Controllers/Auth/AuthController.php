@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Cron;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -29,6 +30,20 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/dashboard';
+
+    public function showLoginForm()
+    {
+        Cron::notification_service();
+
+        $view = property_exists($this, 'loginView')
+            ? $this->loginView : 'auth.authenticate';
+
+        if (view()->exists($view)) {
+            return view($view);
+        }
+
+        return view('auth.login');
+    }
 
     /**
      * Create a new authentication controller instance.
