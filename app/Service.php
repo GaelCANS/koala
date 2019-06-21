@@ -15,7 +15,7 @@ class Service extends Model
     public static function service_classname($className)
     {
         $service = self::select('id')->where(DB::raw('LOWER(REPLACE(name," ",""))'),'=',$className)->first();
-        return $service->id > 0 ? $service->id : 0;
+        return isset($service->id) && $service->id > 0 ? $service->id : 0;
     }
 
     /**

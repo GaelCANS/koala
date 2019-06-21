@@ -99,7 +99,8 @@ class Notification extends Model
 
     public static function count_service($user)
     {
-        return self::whereServiceId($user->services_id)->whereDone(0)->where('created_at','>',$user->notification)->count();
+        $last_view_notification = $user->notification == null ? '0000-00-00' : $user->notification;
+        return self::whereServiceId($user->services_id)->whereDone(0)->where('created_at','>',$last_view_notification)->count();
     }
 
 
