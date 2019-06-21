@@ -34,7 +34,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        Notification::campaigns_finish();
         // Campagnes en cours/ à venir
         $date = Carbon::now();
         $date = Carbon::createFromFormat('m-Y', date('m-Y'));
