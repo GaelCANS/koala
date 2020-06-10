@@ -153,6 +153,10 @@ class CampaignController extends Controller
                         ->pluck('name' , 'id')
                         ->toArray();
 
+        $users_channels = $users;
+        $users_channels[0] = "Expert";
+        ksort($users_channels);
+
         $channels   =   Channel::Notdeleted()
             ->orderBy('name' , 'ASC')
             ->pluck('name' , 'id')
@@ -171,7 +175,7 @@ class CampaignController extends Controller
             ->get();
 
 
-        return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator' , 'services', 'markets' , 'files'));
+        return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator' , 'services', 'markets' , 'files','users_channels'));
     }
 
     /**

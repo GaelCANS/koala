@@ -12,6 +12,9 @@
                 Commentaires
             </th>
             <th>
+                Experts
+            </th>
+            <th>
                 Indicateurs (résultats)
             </th>
             <th>

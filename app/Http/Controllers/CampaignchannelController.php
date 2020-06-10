@@ -6,11 +6,13 @@ use App\Campaign;
 use App\CampaignChannel;
 use App\CampaignChannelIndicator;
 use App\Channel;
+use App\User;
 use App\Indicator;
 use App\Library\Features\Trello\TrelloCamp;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 
 class CampaignchannelController extends Controller
 {
@@ -49,6 +51,16 @@ class CampaignchannelController extends Controller
             $channel->load('campaignChannelIndicators');
         }
 
+        $users      =   User::select(DB::raw("CONCAT(firstname,' ',name) AS name"),'id')
+            ->Notdeleted()
+            ->orderBy('firstname' , 'ASC')
+            ->pluck('name' , 'id')
+            ->toArray();
+
+        $users_channels = $users;
+        $users_channels[0] = "Expert";
+        ksort($users_channels);
+
         // Instanciate channels
         $channels   =   Channel::Notdeleted()
             ->orderBy('name' , 'ASC')
@@ -61,7 +73,7 @@ class CampaignchannelController extends Controller
 
         $type = 'from-ajax';
 
-        $html = view('campaignchannels.channels' , compact('campaign' , 'channel' , 'channels' , 'type' ))->render();
+        $html = view('campaignchannels.channels' , compact('campaign' , 'channel' , 'channels' , 'type', 'users_channels' ))->render();
 
         return response()->json(
             array(

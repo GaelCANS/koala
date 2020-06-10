@@ -25,6 +25,9 @@
             </div>
         </div>
     </td>
+    <td>
+        {!! Form::select('channel['.$channel->pivot->uniqid.'][user_id]',$users_channels , $channel->pivot->user_id, ['class' => 'select2 form-control']) !!}
+    </td>
     <td class="in">
         @if (!empty($channel->Indicators))
 

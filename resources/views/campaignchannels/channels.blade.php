@@ -26,6 +26,9 @@
         </div>
     </td>
     <td>
+        {!! Form::select('channel['.$channel->uniqid.'][user_id]',$users_channels , $channel->user_id, ['class' => 'select2 form-control']) !!}
+    </td>
+    <td>
         @if (!empty($channel->campaignChannelIndicators))
 
             @forelse ($channel->campaignChannelIndicators as $campaignChannelIndicator)

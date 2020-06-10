@@ -301,7 +301,7 @@ class Campaign extends Model
     // many to many
     public function channels()
     {
-        return $this->belongsToMany('App\Channel')->withPivot('id' , 'comment' , 'begin' , 'end' , 'uniqid' );
+        return $this->belongsToMany('App\Channel')->withPivot('id' , 'comment' , 'begin' , 'end' , 'uniqid', 'user_id' );
     }
 
     // many to many
