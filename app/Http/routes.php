@@ -65,8 +65,8 @@ Route::resource(
         )
     )
 );
-Route::get('/tag-associate' , 'CampaignController@channels')->name('tag-associate');
-Route::post('/tag-associate' , 'CampaignController@associate')->name('tag-associate-post');
+Route::get('/tag-associate/{id}' , 'TagController@channels')->name('tag-associate');
+Route::post('/tag-associate/{id}' , 'TagController@associate')->name('tag-associate-post');
 
 
 // Campaign
