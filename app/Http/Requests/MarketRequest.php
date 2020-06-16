@@ -25,7 +25,7 @@ class MarketRequest extends Request
     {
         return array(
             'name'=>'required|string',
-            'abbreviation'=>'required|string|max:4',
+            'abbreviation'=>'required|string|max:5',
             'class_css'=>'string'
         );
     }
