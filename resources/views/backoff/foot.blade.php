@@ -8,7 +8,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js" integrity="sha256-FcVIknBiVRk5KLQeIBb9VQdtFRMqwffXyZ+D8q0gQro=" crossorigin="anonymous"></script>
 <!-- Lodash -->
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.core.min.js" integrity="sha256-/WikzFcmjMZS+es0fni22evPN2lgZh8Dk2XXI/ZFtxM=" crossorigin="anonymous"></script>-->
-<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js" ></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js" ></script>-->
+<script src="{{ url('/js/lodash.js') }}"></script>
 
 
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.10/summernote.min.js"></script>-->
