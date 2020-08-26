@@ -79,7 +79,7 @@
 
             <div class="col-md-12 grid-margin ">
                 <div class="wrapper d-md-flex mb-3 pull-right">
-                    <h6 class="font-weight-normal">Validée en CMM</h6>
+                    <h6 class="font-weight-normal">Présentée en comité</h6>		
                     <div class="wrapper ml-md-3">
                         <div class="toggle-radio">
                             {!! Form::radio( 'cmm' , 1 , false , array('id' => 'cmm1' ) ) !!}

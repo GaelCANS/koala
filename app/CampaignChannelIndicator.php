@@ -35,6 +35,16 @@ class CampaignChannelIndicator extends Model
         return in_array($this->indicator_id , array(Parameter::getParameter('engagement' , 'indicator') , Parameter::getParameter('engagement2' , 'indicator')) );
     }
 
+    public function getIndicatorClicFbAttribute()
+    {
+        return in_array($this->indicator_id , array(Parameter::getParameter('clics_fb' , 'indicator') , Parameter::getParameter('clics_fb2' , 'indicator')) );
+    }
+
+    public function getIndicatorTauxClicFbAttribute()
+    {
+        return in_array($this->indicator_id , array(Parameter::getParameter('tx_clic_fb' , 'indicator') , Parameter::getParameter('tx_clic_fb2' , 'indicator')) );
+    }
+
     public function getSpeClassAttribute()
     {
         if ($this->indicatorInteraction) {
@@ -45,6 +55,12 @@ class CampaignChannelIndicator extends Model
         }
         else if ($this->indicatorEngagement) {
             return 'engagement';
+        }
+        else if ($this->indicatorClicFb) {
+            return 'clic_fb';
+        }
+        else if ($this->indicatorTauxClicFb) {
+            return 'tx_clic_fb';
         }
         return "";
     }

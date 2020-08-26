@@ -521,6 +521,15 @@ $(document).ready(function(){
             $('input[data-specific="engagement"][data-cci="'+$(this).data('cci')+'"]').val(engagement($(this).data('cci')));
         });
 
+        /**
+         * Campaign
+         *
+         * Calcule du taux clic sur les indicateurs de Facebook
+         */
+        $( '#channels-table').on('change', 'input[data-specific="portee"],input[data-specific="clic_fb"]' , function () {
+            $('input[data-specific="tx_clic_fb"][data-cci="'+$(this).data('cci')+'"]').val(taux_clics($(this).data('cci')));
+        });
+
 
         /**
          * Campaign
@@ -1187,6 +1196,35 @@ function engagement(id) {
         }
         return engagement;
     }
+}
+
+/**
+ * Campaign - indicator taux_clics facebook
+ */
+function taux_clics(id) {
+    if ($('input[data-specific="portee"][data-cci="'+id+'"]').length > 0 && $('input[data-specific="clic_fb"][data-cci="'+id+'"]').length > 0 ) {
+        var portee = parseInt($('input[data-specific="portee"][data-cci="'+id+'"]').val());
+        var clic = parseInt($('input[data-specific="clic_fb"][data-cci="'+id+'"]').val());
+        console.log('portee : '+portee+' / clic : '+clic);
+        var taux_clics = 0;
+        if (portee > 0 && clic > 0) {
+            taux_clics = clic/portee;
+            taux_clics = taux_clics*100;
+            return roundDecimal(taux_clics,1);
+            taux_clics = Math.round(taux_clics);
+            taux_clics = taux_clics/100;
+            //taux_clics = taux_clics*100;
+            //Math.round(taux_clics*100)/100;
+        }
+        console.log('taux_clics : '+taux_clics);
+        return taux_clics;
+    }
+}
+
+function roundDecimal(nombre, precision){
+    var precision = precision || 2;
+    var tmp = Math.pow(10, precision);
+    return Math.round( nombre*tmp )/tmp;
 }
 
 
