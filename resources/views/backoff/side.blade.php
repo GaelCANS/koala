@@ -76,6 +76,8 @@
                             <li class="nav-item @if( Route::currentRouteName() == 'users-index' ) active @endif"><a class="nav-link" href="{{route('users-index')}}"><i class="icon-people mr-2"></i>Utilisateurs</a></li>
                             <li class="nav-item @if( Route::currentRouteName() == 'tags-index' ) active @endif"><a class="nav-link" href="{{route('tags-index')}}"><i class="icon-tag mr-2"></i>Tags</a></li>
                             <li class="nav-item @if( Route::currentRouteName() == 'needs-index' ) active @endif"><a class="nav-link" href="{{route('needs-index')}}"><i class="icon-bag mr-2"></i>Univers de besoin</a></li>
+                            <li class="nav-item @if( Route::currentRouteName() == 'generators-index' ) active @endif"><a class="nav-link" href="{{route('generators-index')}}"><i class="icon-bag mr-2"></i>Génération leads</a></li>
+                            <li class="nav-item @if( Route::currentRouteName() == 'treatments-index' ) active @endif"><a class="nav-link" href="{{route('treatments-index')}}"><i class="icon-bag mr-2"></i>Traitement leads</a></li>
                             <li class="nav-item @if( Route::currentRouteName() == 'services-index' ) active @endif"><a class="nav-link" href="{{route('services-index')}}"><i class="icon-organization mr-2"></i>Services</a></li>
                             <li class="nav-item @if( Route::currentRouteName() == 'channels-index' ) active @endif"><a class="nav-link" href="{{route('channels-index')}}"><i class="icon-energy mr-2"></i>Canaux</a></li>
                             <li class="nav-item @if( Route::currentRouteName() == 'markets-index' ) active @endif"><a class="nav-link" href="{{route('markets-index')}}"><i class="icon-bag mr-2"></i>Marchés</a></li>

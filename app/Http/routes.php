@@ -36,6 +36,30 @@ Route::resource(
 );
 
 
+// Treatment
+Route::resource(
+    'treatments',
+    'TreatmentController' ,
+    array(
+        'names' => array(
+            'index' => 'treatments-index'
+        )
+    )
+);
+
+
+// Generator
+Route::resource(
+    'generators',
+    'GeneratorController' ,
+    array(
+        'names' => array(
+            'index' => 'generators-index'
+        )
+    )
+);
+
+
 // Segment
 Route::resource(
     'segments',
