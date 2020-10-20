@@ -24,6 +24,30 @@ Route::resource(
 );
 
 
+// Need
+Route::resource(
+    'needs',
+    'NeedController' ,
+    array(
+        'names' => array(
+            'index' => 'needs-index'
+        )
+    )
+);
+
+
+// Segment
+Route::resource(
+    'segments',
+    'SegmentController' ,
+    array(
+        'names' => array(
+            'index' => 'segments-index'
+        )
+    )
+);
+
+
 // Indicator
 Route::resource(
     'indicators',
