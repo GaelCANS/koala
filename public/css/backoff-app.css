@@ -22389,3 +22389,27 @@ div.tagsinput span.tag a {
     position: absolute;
     right: 15px;
 }
+
+#segment-jeune .icheckbox_line-blue.checked, #segment-jeune .icheckbox_line-blue.hover, #segment-jeune .icheckbox_line-blue.checked.hover {
+    background: linear-gradient(#a1a9fc, #8185c6);
+}
+
+#segment-patrimoniaux .icheckbox_line-blue.checked, #segment-patrimoniaux .icheckbox_line-blue.hover, #segment-patrimoniaux .icheckbox_line-blue.checked.hover {
+    background: linear-gradient(#dd757e, #dd3947);
+}
+
+#segment-family .icheckbox_line-blue.checked, #segment-family .icheckbox_line-blue.hover, #segment-family .icheckbox_line-blue.checked.hover {
+    background: linear-gradient(#C8E8D5, #49C4B6);
+}
+
+#segment-senior .icheckbox_line-blue.checked, #segment-senior .icheckbox_line-blue.hover, #segment-senior .icheckbox_line-blue.checked.hover {
+    background: linear-gradient(#F6E8BD, #F5AE3A);
+}
+
+#segment-proagri .icheckbox_line-blue.checked, #segment-proagri .icheckbox_line-blue.hover, #segment-proagri .icheckbox_line-blue.checked.hover {
+    background: linear-gradient(#F7E3EB, #F59EB9);
+}
+
+#segment-entreprise .icheckbox_line-blue.checked, #segment-entreprise .icheckbox_line-blue.hover, #segment-entreprise .icheckbox_line-blue.checked.hover {
+    background: linear-gradient(#DAEDFC, #00B0EC);
+}

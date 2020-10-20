@@ -29,14 +29,13 @@
                     @endforeach
                 </div>
                 <div class="col-md-4">
-                    <h6>Résultats</h6>
-                    @forelse($results as $class => $result)
-                        <div id="results" class="icheck-line {{$class}}">
-                            {!! Form::checkbox('results[]',$result, null, array('id' => 'line-results-checkbox-'.$class )) !!}
-                            <label for="line-results-checkbox-1">{{ strtoupper($result) }}</label>
+                    <h6>Segments</h6>
+                    @foreach($segments as $segment)
+                        <div id="{{$segment->class_css}}" class="icheck-line">
+                            {!! Form::checkbox('segments[]',$segment->id, null, array('id' => 'line-checkbox-'.$segment->id )) !!}
+                            <label for="line-checkbox{{$segment->id}}">{{$segment->abbreviation}}</label>
                         </div>
-                        @empty
-                    @endforelse
+                    @endforeach
                 </div>
             </div>
             <div class="row">
@@ -51,6 +50,16 @@
                 <div class="col-md-4">
                     <h6>Canaux</h6>
                     {!! Form::select('channels[]',$channels , null, ['class' => 'js-example-placeholder-multiple js-states form-control toggle-tous force-placeholder', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true' ]) !!}
+                </div>
+                <div class="col-md-4">
+                    <h6>Résultats</h6>
+                    @forelse($results as $class => $result)
+                        <div id="results" class="icheck-line {{$class}}">
+                            {!! Form::checkbox('results[]',$result, null, array('id' => 'line-results-checkbox-'.$class )) !!}
+                            <label for="line-results-checkbox-1">{{ strtoupper($result) }}</label>
+                        </div>
+                    @empty
+                    @endforelse
                 </div>
 
             </div>

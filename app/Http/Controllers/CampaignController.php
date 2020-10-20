@@ -9,6 +9,8 @@ use App\CampaignChannelPivot;
 use App\Channel;
 use App\Library\Features\Trello\TrelloCamp;
 use App\Market;
+use App\Need;
+use App\Segment;
 use App\Service;
 use App\User;
 use Illuminate\Http\Request;
@@ -43,6 +45,7 @@ class CampaignController extends Controller
 
         // Chargement des éléments de filtre
         $markets = Market::notdeleted()->orderBy('id', 'ASC')->get();
+        $segments = Segment::notdeleted()->orderBy('id', 'ASC')->get();
         $services= Service::Notdeleted()
             ->orderBy('name' , 'ASC')
             ->pluck('name' , 'id')
@@ -76,13 +79,14 @@ class CampaignController extends Controller
             'users'    => !empty($request->users) ? array_map('intval' , $request->users ) : array(0),
             'channels' => !empty($request->channels) ? array_map('intval' , $request->channels ) : array(0),
             'markets'  => !empty($request->markets) ? array_map('intval' , $request->markets ) : Market::notdeleted()->pluck('id')->toArray(),
+            'segments' => !empty($request->segments) ? array_map('intval' , $request->segments ) : Segment::notdeleted()->pluck('id')->toArray(),
             'results'  => !empty($request->results) ? $reload_results : $results,
             'begin'    => !empty($request->begin) ? $request->begin : '',
             'end'      => !empty($request->end) ? $request->end : '',
             'keywords' => !empty($request->keywords) ? $request->keywords : '',
         );
 
-        return view('campaigns.index' , compact('campaigns', 'markets' , 'services' , 'channels' , 'data' , 'results' , 'users'));
+        return view('campaigns.index' , compact('campaigns', 'markets' , 'services' , 'channels' , 'data' , 'results' , 'users', 'segments'));
     }
 
     /**
@@ -157,6 +161,16 @@ class CampaignController extends Controller
         $users_channels[0] = "Expert";
         ksort($users_channels);
 
+        $needs      =   Need::select('wording','id')
+                        ->whereDeleted('0')
+                        ->orderBy('wording' , 'ASC')
+                        ->pluck('wording' , 'id')
+                        ->toArray();
+
+        $users_channels = $users;
+        $users_channels[0] = "Expert";
+        ksort($users_channels);
+
         $channels   =   Channel::Notdeleted()
             ->orderBy('name' , 'ASC')
             ->pluck('name' , 'id')
@@ -173,9 +187,12 @@ class CampaignController extends Controller
         $markets = Market::Notdeleted()
             ->orderBy('id' , 'ASC')
             ->get();
+        $segments = Segment::Notdeleted()
+            ->orderBy('id' , 'ASC')
+            ->get();
 
 
-        return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator' , 'services', 'markets' , 'files','users_channels'));
+        return view('campaigns.show' , compact('campaign' , 'status' , 'users' , 'channels' , 'campaignChannelIndicator' , 'services', 'markets' , 'files','users_channels','segments' , 'needs'));
     }
 
     /**
@@ -200,13 +217,22 @@ class CampaignController extends Controller
     {
         // Update de la campagne
         $campaign = Campaign::findOrFail($id);
-        $campaign->update( $request->except('channel' , 'indicator' , 'add-new-channel' , 'states' , 'services', 'markets') );
+        $campaign->update( $request->except('channel' , 'indicator' , 'add-new-channel' , 'states' , 'services', 'markets', 'segments', 'needs' , 'users') );
 
         // Sync campaign_service
         $campaign->services()->sync( (array)$request->services );
 
+        // Sync campaign_need
+        $campaign->needs()->sync( (array)$request->needs );
+
+        // Sync campaign_need
+        $campaign->users()->sync( (array)$request->users );
+
         // Sync campaign_market
         $campaign->markets()->sync( (array)$request->markets );
+
+        // Sync campaign_segment
+        $campaign->segments()->sync( (array)$request->segments );
 
         // Sync campaign_channel (create, update, delete)
         $channelDatas           = $request->only('channel');

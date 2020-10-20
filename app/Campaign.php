@@ -316,6 +316,24 @@ class Campaign extends Model
         return $this->belongsToMany('App\Market')->withTimestamps();
     }
 
+    // many to many
+    public function segments()
+    {
+        return $this->belongsToMany('App\Segment')->withTimestamps();
+    }
+
+    // many to many
+    public function users()
+    {
+        return $this->belongsToMany('App\User')->withTimestamps();
+    }
+
+    // many to many
+    public function needs()
+    {
+        return $this->belongsToMany('App\Need')->withTimestamps();
+    }
+
     // 1 to many
     public function campaignChannels()
     {
@@ -390,6 +408,12 @@ class Campaign extends Model
         // Markets
         if (isset($datas->markets) && count($datas->markets) < Market::notdeleted()->count()) {
             $campaigns_id = DB::table('campaign_market')->whereIn('market_id' , $datas->markets)->pluck('campaign_id');
+            $query->whereIn('id' , $campaigns_id );
+        }
+
+        // Segments
+        if (isset($datas->segments) && count($datas->segments) < Segment::notdeleted()->count()) {
+            $campaigns_id = DB::table('campaign_segment')->whereIn('segment_id' , $datas->segments)->pluck('campaign_id');
             $query->whereIn('id' , $campaigns_id );
         }
 

@@ -36,11 +36,11 @@
                 <div id="head-campaign-details" class="card">
                     <div class="row mb-3">
                         <div class="col-4">
-                            <h6>Nom</h6>
+                            <h6>Nom de la campagne</h6>
                             {!! Form::text( 'name' , null , array( 'class' => 'form-control font-weight-bold' , 'placeholder' => "Saisissez le nom de la campagne" , 'id' => 'name-campaign' ) ) !!}
                             {!! Form::hidden( 'saved' , 1  ) !!}
                         </div>
-                        <div class="col-4">
+                        <!--<div class="col-4">
                             <h6>Marchés</h6>
                             @foreach($markets as $market)
                                 <div id="{{$market->class_css}}" class="icheck-line">
@@ -48,30 +48,57 @@
                                     <label for="line-checkbox{{$market->id}}">{{$market->abbreviation}}</label>
                                 </div>
                             @endforeach
-                        </div>
+                        </div>-->
+
                         <div class="col-4">
-                            <h6>Période de la campagne</h6>
-                            <div class="col-12 d-inline-flex text-center pl-0">
-                                <div class="form-control col-5 font-weight-bold" id="text-campaign-begin">@if($campaign != null) {{ $campaign->beginLong }} @endif</div>
-                                <span class="text-muted pt-1 mr-1 ml-1 col-2">au</span>
-                                <div class="form-control col-5 font-weight-bold" id="text-campaign-end">@if($campaign != null) {{ $campaign->endLong }} @endif</div>
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <h6>Responsable de la campagne</h6>
+                                    {!! Form::select('user_id',$users , ($campaign->user_id == 0 ? auth()->user()->id : $campaign->user_id), ['class' => 'select2 form-control']) !!}
+                                </div>
                             </div>
-                            {!! Form::hidden( 'begin' , null , array( 'id' => 'campaign-begin' ) ) !!}
-                            {!! Form::hidden( 'end' , null , array( 'id' => 'campaign-end' ) ) !!}
                         </div>
+
+                        <div class="col-4">
+                            <h6>Univers de besoin</h6>
+                            {!! Form::select('needs[]',$needs , $campaign->Needs->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple form-control tag-input force-placeholder', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true', 'placeholder' => '+ Ajouter','data-value' => '+ Ajouter' ]) !!}
+                        </div>
+
+
                     </div>
                     <div class="row">
                         <div class="col-4">
                             <h6>Objectif(s) de la campagne</h6>
-                            {!! Form::textarea( 'description' , null , array( 'class' => 'form-control' , 'rows' => '4', 'cols' => '10') ) !!}
+                            {!! Form::textarea( 'description' , null , array( 'class' => 'form-control' , 'rows' => '6', 'cols' => '10') ) !!}
                         </div>
                         <div id="resp" class="col-4">
-                            <h6>Responsable de la campagne</h6>
-                            {!! Form::select('user_id',$users , ($campaign->user_id == 0 ? auth()->user()->id : $campaign->user_id), ['class' => 'select2 form-control']) !!}
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <h6>Période de la campagne</h6>
+                                    <div class="col-12 d-inline-flex text-center pl-0">
+                                        <div class="form-control col-5 font-weight-bold" id="text-campaign-begin">@if($campaign != null) {{ $campaign->beginLong }} @endif</div>
+                                        <span class="text-muted pt-1 mr-1 ml-1 col-2">au</span>
+                                        <div class="form-control col-5 font-weight-bold" id="text-campaign-end">@if($campaign != null) {{ $campaign->endLong }} @endif</div>
+                                    </div>
+                                    {!! Form::hidden( 'begin' , null , array( 'id' => 'campaign-begin' ) ) !!}
+                                    {!! Form::hidden( 'end' , null , array( 'id' => 'campaign-end' ) ) !!}
+                                </div>
+
+                                <div class="col-12">
+                                    <h6>Segments</h6>
+                                    @foreach($segments as $segment)
+                                        <div id="{{$segment->class_css}}" class="icheck-line">
+                                            {!! Form::checkbox('segments[]',$segment->id, null, array('id' => 'line-checkbox-'.$segment->id )) !!}
+                                            <label for="line-checkbox{{$segment->id}}">{{$segment->abbreviation}}</label>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
                         <div class="col-4">
                             <h6>Contributeurs</h6>
-                            {!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple form-control tag-input force-placeholder', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true', 'placeholder' => '+ Ajouter','data-value' => '+ Ajouter' ]) !!}
+                            <!--{!! Form::select('services[]',$services , $campaign->Services->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple form-control tag-input force-placeholder', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true', 'placeholder' => '+ Ajouter','data-value' => '+ Ajouter' ]) !!}-->
+                            {!! Form::select('users[]',$users , $campaign->Users->lists('id')->toArray(), ['class' => 'js-example-placeholder-multiple form-control tag-input force-placeholder', 'multiple' => 'multiple', 'data-placeholder' => '+ Ajouter', 'data-allow-clear' => 'true', 'placeholder' => '+ Ajouter','data-value' => '+ Ajouter' ]) !!}
                         </div>
                     </div>
                 </div>
